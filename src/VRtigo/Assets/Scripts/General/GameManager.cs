@@ -64,9 +64,43 @@ public class GameManager : MonoBehaviour
         m_ControllerToCharacterMap.Add(controller, null);
     }
 
+    public void RegisterCharacterToController(PlayerController controller, Character character)
+    {
+        m_ControllerToCharacterMap[controller] = character;
+    }
+
+    public void UnregisterCharacterFromController(PlayerController controller, Character character)
+    {
+        if (m_ControllerToCharacterMap[controller] == character)
+        {
+            m_ControllerToCharacterMap[controller] = null;
+        }
+    }
+
     public void UnregisterPlayerController(PlayerController controller)
     {
         m_ControllerToCharacterMap.Remove(controller);
         m_PlayerControllers.Remove(controller);
+    }
+
+    /// <summary>
+    /// Returns the Character assigned to the controller of <code>controllerIndex</code>.
+    /// Can be null.
+    /// </summary>
+    /// <param name="controllerIndex">Index of the desired Controller</param>
+    public Character GetCharacter(int controllerIndex)
+    {
+        if (m_PlayerControllers.Count > controllerIndex)
+        {
+            PlayerController pc = m_PlayerControllers[controllerIndex];
+            
+            Character result;
+            m_ControllerToCharacterMap.TryGetValue(pc, out result);
+            return result;
+        } else
+        {
+            return null;
+        }
+
     }
 }

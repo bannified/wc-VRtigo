@@ -106,4 +106,14 @@ public class Character_PlayerInitiatedMovement : Character
         Debug.Assert(casted != null, "Character_PlayerIninitiatedMovement should have been Possessed by a PlayerController_PlayerInitiatedMovement.");
         m_CastedPlayerController = casted;
     }
+
+    public float GetMaxMoveSpeed()
+    {
+        return m_MaxMoveSpeed;
+    }
+
+    public void SetMaxMoveSpeed(float maxMoveSpeed)
+    {
+        m_MaxMoveSpeed = maxMoveSpeed;
+    }
 }

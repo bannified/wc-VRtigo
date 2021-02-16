@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
         {
             UnPossess();
         }
+
+        GameManager.Instance.RegisterCharacterToController(this, character);
         character.PossessedBy(this);
         OnPossess(character);
     }
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     protected void UnPossess()
     {
+        GameManager.Instance.UnregisterCharacterFromController(this, m_Character);
         m_Character.UnPossessed();
         OnUnPossess();
         m_Character = null;
