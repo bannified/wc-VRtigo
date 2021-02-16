@@ -80,7 +80,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerController: {fileID: 0}
+  m_CastedPlayerController: {fileID: 0}
   m_VRCamera: {fileID: 3037816739789372453}
+  m_CameraRig: {fileID: 3057790021818214813}
+  m_Rigidbody: {fileID: 3057790021016051255}
+  m_MovementMask: 0
   m_LinearMovementInputThreshold: 0.05
   m_MaxMoveSpeed: 2.5
   m_AccelerationCurve:
@@ -107,11 +111,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_MovementMask: 0
-  m_Rigidbody: {fileID: 3057790021016051255}
-  m_Collider: {fileID: 3057790021016051252}
-  m_InputDirection: {x: 0, y: 0}
-  m_InputAxisValue: 0
   m_DecelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -137,6 +136,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_DecelerationMagnitudeThreshold: 0.1
+  m_TurnRate: 25
+  m_TurnInputThreshold: 0.01
+  m_InputDirection: {x: 0, y: 0}
+  m_TurnInputDirection: {x: 0, y: 0}
+  m_InputAxisValue: 0
 --- !u!114 &3057790021016051254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,11 +167,8 @@ MonoBehaviour:
   m_MoveDirection:
     actionPath: /actions/EXPPlayerMovement/in/MoveDirection
     needsReinit: 0
-  m_TurnRight:
-    actionPath: /actions/EXPPlayerMovement/in/TurnRight
-    needsReinit: 0
-  m_TurnLeft:
-    actionPath: /actions/EXPPlayerMovement/in/TurnLeft
+  m_TurnDirection:
+    actionPath: /actions/EXPPlayerMovement/in/TurnDirection
     needsReinit: 0
   m_Haptic:
     actionPath: /actions/EXPPlayerMovement/out/Haptic
@@ -307,6 +308,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+--- !u!1 &3057790021818214813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 146900, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+  m_PrefabInstance: {fileID: 3057790021818340425}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3057790021817940069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}

@@ -16,8 +16,7 @@ public class PlayerController_PlayerInitiatedMovement : PlayerController
     /* Movement */
     public SteamVR_Action_Single m_MoveAction;
     public SteamVR_Action_Vector2 m_MoveDirection;
-    public SteamVR_Action_Single m_TurnRight;
-    public SteamVR_Action_Single m_TurnLeft;
+    public SteamVR_Action_Vector2 m_TurnDirection;
 
     /* Haptic */
     public SteamVR_Action_Vibration m_Haptic;
@@ -29,14 +28,18 @@ public class PlayerController_PlayerInitiatedMovement : PlayerController
 
         m_MoveAction.AddOnChangeListener(MoveAction_onChange, m_LeftHandType);
         m_MoveDirection.AddOnChangeListener(MoveDirection_onChange, m_LeftHandType);
+
+        m_TurnDirection.AddOnChangeListener(m_TurnDirection_onChange, m_RightHandType);
     }
 
     private void TeardownVRInputs()
     {
-        m_SystemMenuAction.onStateDown -= SystemMenuAction_onStateDown;
+        m_TurnDirection.RemoveOnChangeListener(m_TurnDirection_onChange, m_RightHandType);
 
-        m_MoveAction.onChange -= MoveAction_onChange;
-        m_MoveDirection.onChange -= MoveDirection_onChange;
+        m_MoveAction.RemoveOnChangeListener(MoveAction_onChange, m_LeftHandType);
+        m_MoveDirection.RemoveOnChangeListener(MoveDirection_onChange, m_LeftHandType);
+
+        m_SystemMenuAction.RemoveOnStateDownListener(SystemMenuAction_onStateDown, m_LeftHandType);
     }
 
     private void MoveDirection_onChange(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta)
@@ -47,6 +50,11 @@ public class PlayerController_PlayerInitiatedMovement : PlayerController
     private void MoveAction_onChange(SteamVR_Action_Single fromAction, SteamVR_Input_Sources fromSource, float newAxis, float newDelta)
     {
         m_CastedCharacter.MoveForward(newAxis);
+    }
+
+    private void m_TurnDirection_onChange(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta)
+    {
+        m_CastedCharacter.SetTurnDirection(axis);
     }
 
     private void SystemMenuAction_onStateDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)

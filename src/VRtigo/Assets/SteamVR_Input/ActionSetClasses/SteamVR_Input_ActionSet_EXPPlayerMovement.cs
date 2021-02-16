@@ -33,19 +33,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Single TurnRight
+        public virtual SteamVR_Action_Vector2 TurnDirection
         {
             get
             {
-                return SteamVR_Actions.eXPPlayerMovement_TurnRight;
-            }
-        }
-        
-        public virtual SteamVR_Action_Single TurnLeft
-        {
-            get
-            {
-                return SteamVR_Actions.eXPPlayerMovement_TurnLeft;
+                return SteamVR_Actions.eXPPlayerMovement_TurnDirection;
             }
         }
         

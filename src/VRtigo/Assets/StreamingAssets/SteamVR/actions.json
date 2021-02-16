@@ -70,12 +70,8 @@
       "type": "vector2"
     },
     {
-      "name": "/actions/EXPPlayerMovement/in/TurnRight",
-      "type": "vector1"
-    },
-    {
-      "name": "/actions/EXPPlayerMovement/in/TurnLeft",
-      "type": "vector1"
+      "name": "/actions/EXPPlayerMovement/in/TurnDirection",
+      "type": "vector2"
     },
     {
       "name": "/actions/EXPPlayerMovement/in/Menu",

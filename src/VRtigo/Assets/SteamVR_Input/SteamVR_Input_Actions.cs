@@ -49,9 +49,7 @@ namespace Valve.VR
         
         private static SteamVR_Action_Vector2 p_eXPPlayerMovement_MoveDirection;
         
-        private static SteamVR_Action_Single p_eXPPlayerMovement_TurnRight;
-        
-        private static SteamVR_Action_Single p_eXPPlayerMovement_TurnLeft;
+        private static SteamVR_Action_Vector2 p_eXPPlayerMovement_TurnDirection;
         
         private static SteamVR_Action_Boolean p_eXPPlayerMovement_Menu;
         
@@ -185,19 +183,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Single eXPPlayerMovement_TurnRight
+        public static SteamVR_Action_Vector2 eXPPlayerMovement_TurnDirection
         {
             get
             {
-                return SteamVR_Actions.p_eXPPlayerMovement_TurnRight.GetCopy<SteamVR_Action_Single>();
-            }
-        }
-        
-        public static SteamVR_Action_Single eXPPlayerMovement_TurnLeft
-        {
-            get
-            {
-                return SteamVR_Actions.p_eXPPlayerMovement_TurnLeft.GetCopy<SteamVR_Action_Single>();
+                return SteamVR_Actions.p_eXPPlayerMovement_TurnDirection.GetCopy<SteamVR_Action_Vector2>();
             }
         }
         
@@ -236,8 +226,7 @@ namespace Valve.VR
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.eXPPlayerMovement_Move,
                     SteamVR_Actions.eXPPlayerMovement_MoveDirection,
-                    SteamVR_Actions.eXPPlayerMovement_TurnRight,
-                    SteamVR_Actions.eXPPlayerMovement_TurnLeft,
+                    SteamVR_Actions.eXPPlayerMovement_TurnDirection,
                     SteamVR_Actions.eXPPlayerMovement_Menu,
                     SteamVR_Actions.eXPPlayerMovement_Haptic};
             Valve.VR.SteamVR_Input.actionsIn = new Valve.VR.ISteamVR_Action_In[] {
@@ -256,8 +245,7 @@ namespace Valve.VR
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.eXPPlayerMovement_Move,
                     SteamVR_Actions.eXPPlayerMovement_MoveDirection,
-                    SteamVR_Actions.eXPPlayerMovement_TurnRight,
-                    SteamVR_Actions.eXPPlayerMovement_TurnLeft,
+                    SteamVR_Actions.eXPPlayerMovement_TurnDirection,
                     SteamVR_Actions.eXPPlayerMovement_Menu};
             Valve.VR.SteamVR_Input.actionsOut = new Valve.VR.ISteamVR_Action_Out[] {
                     SteamVR_Actions.default_Haptic,
@@ -279,12 +267,11 @@ namespace Valve.VR
                     SteamVR_Actions.eXPPlayerMovement_Menu};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.default_Squeeze,
-                    SteamVR_Actions.eXPPlayerMovement_Move,
-                    SteamVR_Actions.eXPPlayerMovement_TurnRight,
-                    SteamVR_Actions.eXPPlayerMovement_TurnLeft};
+                    SteamVR_Actions.eXPPlayerMovement_Move};
             Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
                     SteamVR_Actions.platformer_Move,
-                    SteamVR_Actions.eXPPlayerMovement_MoveDirection};
+                    SteamVR_Actions.eXPPlayerMovement_MoveDirection,
+                    SteamVR_Actions.eXPPlayerMovement_TurnDirection};
             Valve.VR.SteamVR_Input.actionsVector3 = new Valve.VR.SteamVR_Action_Vector3[0];
             Valve.VR.SteamVR_Input.actionsSkeleton = new Valve.VR.SteamVR_Action_Skeleton[] {
                     SteamVR_Actions.default_SkeletonLeftHand,
@@ -302,8 +289,7 @@ namespace Valve.VR
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.eXPPlayerMovement_Move,
                     SteamVR_Actions.eXPPlayerMovement_MoveDirection,
-                    SteamVR_Actions.eXPPlayerMovement_TurnRight,
-                    SteamVR_Actions.eXPPlayerMovement_TurnLeft,
+                    SteamVR_Actions.eXPPlayerMovement_TurnDirection,
                     SteamVR_Actions.eXPPlayerMovement_Menu};
         }
         
@@ -325,8 +311,7 @@ namespace Valve.VR
             SteamVR_Actions.p_platformer_Jump = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Jump")));
             SteamVR_Actions.p_eXPPlayerMovement_Move = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/EXPPlayerMovement/in/Move")));
             SteamVR_Actions.p_eXPPlayerMovement_MoveDirection = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/EXPPlayerMovement/in/MoveDirection")));
-            SteamVR_Actions.p_eXPPlayerMovement_TurnRight = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/EXPPlayerMovement/in/TurnRight")));
-            SteamVR_Actions.p_eXPPlayerMovement_TurnLeft = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/EXPPlayerMovement/in/TurnLeft")));
+            SteamVR_Actions.p_eXPPlayerMovement_TurnDirection = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/EXPPlayerMovement/in/TurnDirection")));
             SteamVR_Actions.p_eXPPlayerMovement_Menu = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/EXPPlayerMovement/in/Menu")));
             SteamVR_Actions.p_eXPPlayerMovement_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/EXPPlayerMovement/out/Haptic")));
         }

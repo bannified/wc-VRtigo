@@ -14,35 +14,35 @@ public enum PlayerInitiatedMovementBitmask
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class Character_PlayerInitiatedMovement : Character
 {
+    [Header("PlayerController")]
+    [SerializeField]
+    protected PlayerController_PlayerInitiatedMovement m_CastedPlayerController;
 
-    PlayerController_PlayerInitiatedMovement m_CastedPlayerController;
+    [Header("Components")]
+    [SerializeField]
+    protected Camera m_VRCamera;
+    [SerializeField]
+    protected GameObject m_CameraRig;
 
     [SerializeField]
-    Camera m_VRCamera;
+    protected Rigidbody m_Rigidbody;
 
+    [Header("Settings", order = 0)]
+    [Header("Enable/Disable Movement Features", order = 1)]
+    [SerializeField]
+    protected PlayerInitiatedMovementBitmask m_MovementMask = 0;
+
+    [Header("Linear Movement Settings")]
     [SerializeField]
     protected float m_LinearMovementInputThreshold = 0.05f;
 
     [SerializeField]
     protected float m_MaxMoveSpeed = 200.0f;
 
+    [Header("Non-Linear Movement Settings")]
+
     [SerializeField]
     protected AnimationCurve m_AccelerationCurve;
-
-    [SerializeField]
-    protected PlayerInitiatedMovementBitmask m_MovementMask = 0;
-
-    [SerializeField]
-    protected Rigidbody m_Rigidbody;
-
-    [SerializeField]
-    protected Collider m_Collider;
-
-    [SerializeField]
-    protected Vector2 m_InputDirection;
-
-    [SerializeField]
-    protected float m_InputAxisValue;
 
     [SerializeField]
     protected AnimationCurve m_DecelerationCurve;
@@ -50,6 +50,21 @@ public class Character_PlayerInitiatedMovement : Character
     [SerializeField]
     protected float m_DecelerationMagnitudeThreshold = 0.1f;
 
+    [SerializeField]
+    protected float m_TurnRate = 1.0f;
+
+    [SerializeField]
+    protected float m_TurnInputThreshold = 0.1f;
+
+    [Header("Turning Settings")]
+    [SerializeField]
+    protected Vector2 m_InputDirection;
+
+    [SerializeField]
+    protected Vector2 m_TurnInputDirection;
+
+    [SerializeField]
+    protected float m_InputAxisValue;
 
     public void MoveForward(float axisValue)
     {
@@ -61,8 +76,23 @@ public class Character_PlayerInitiatedMovement : Character
         m_InputDirection = moveDirection.normalized;
     }
 
+    public void SetTurnDirection(Vector2 turnDirection)
+    {
+        m_TurnInputDirection = turnDirection.normalized;
+    }
+
     private void FixedUpdate()
     {
+        if (HasFlagsEnabled(PlayerInitiatedMovementBitmask.TurnEnabled))
+        {
+            Vector3 cameraForward = m_VRCamera.transform.forward;
+
+            if (m_TurnInputDirection.magnitude > m_TurnInputThreshold)
+            {
+                m_CameraRig.transform.Rotate(m_CameraRig.transform.up, m_TurnInputDirection.x * m_TurnRate * Time.fixedDeltaTime);
+            }
+        }
+
         Vector3 resultMoveDirection = m_VRCamera.transform.forward;
         resultMoveDirection.y = 0;
         resultMoveDirection.Normalize();

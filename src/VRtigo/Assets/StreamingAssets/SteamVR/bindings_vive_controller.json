@@ -203,23 +203,7 @@
           "path": "/user/hand/right/output/haptic"
         }
       ],
-      "sources": [
-        {
-          "path": "/user/hand/right/input/trackpad",
-          "mode": "dpad",
-          "parameters": {
-            "sub_mode": "click"
-          },
-          "inputs": {
-            "east": {
-              "output": "/actions/expplayermovement/in/turnright"
-            },
-            "west": {
-              "output": "/actions/expplayermovement/in/turnleft"
-            }
-          }
-        }
-      ],
+      "sources": [],
       "skeleton": []
     },
     "/actions/platformer": {
