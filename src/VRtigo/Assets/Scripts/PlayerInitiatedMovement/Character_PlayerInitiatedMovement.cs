@@ -12,10 +12,10 @@ public enum PlayerInitiatedMovementBitmask
 }
 
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
-public class Character_PlayerInitiatedMovement : MonoBehaviour
+public class Character_PlayerInitiatedMovement : Character
 {
 
-    PlayerController_PlayerInitiatedMovement m_PlayerController;
+    PlayerController_PlayerInitiatedMovement m_CastedPlayerController;
 
     [SerializeField]
     Camera m_VRCamera;
@@ -44,14 +44,8 @@ public class Character_PlayerInitiatedMovement : MonoBehaviour
     [SerializeField]
     protected float m_InputAxisValue;
 
-    public void PossessedBy(PlayerController_PlayerInitiatedMovement playerController)
-    {
-        m_PlayerController = playerController;
-    }
-
     public void MoveForward(float axisValue)
     {
-        Debug.Log("MoveForward pressed with axisValue: " + axisValue);
         m_InputAxisValue = axisValue;
     }
 
@@ -104,5 +98,12 @@ public class Character_PlayerInitiatedMovement : MonoBehaviour
     bool HasFlagsEnabled(PlayerInitiatedMovementBitmask mask)
     {
         return (mask & m_MovementMask) > 0;
+    }
+
+    protected override void OnPossessedBy(PlayerController playerController)
+    {
+        PlayerController_PlayerInitiatedMovement casted = playerController as PlayerController_PlayerInitiatedMovement;
+        Debug.Assert(casted != null, "Character_PlayerIninitiatedMovement should have been Possessed by a PlayerController_PlayerInitiatedMovement.");
+        m_CastedPlayerController = casted;
     }
 }

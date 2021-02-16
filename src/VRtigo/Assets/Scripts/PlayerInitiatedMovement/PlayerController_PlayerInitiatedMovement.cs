@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public class PlayerController_PlayerInitiatedMovement : MonoBehaviour
+public class PlayerController_PlayerInitiatedMovement : PlayerController
 {
     [SerializeField]
-    protected Character_PlayerInitiatedMovement m_Character;
+    protected Character_PlayerInitiatedMovement m_CastedCharacter;
 
     public SteamVR_Input_Sources m_LeftHandType;
     public SteamVR_Input_Sources m_RightHandType;
@@ -21,28 +21,6 @@ public class PlayerController_PlayerInitiatedMovement : MonoBehaviour
 
     /* Haptic */
     public SteamVR_Action_Vibration m_Haptic;
-
-    private void Start()
-    {
-        // By right, Possess shouldn't be called here, but instead somewhere else (like in a Level bootstrapper of sorts)
-        Possess(m_Character);
-
-    }
-
-    private void OnEnable()
-    {
-        SetupVRInputs();
-    }
-
-    private void OnDisable()
-    {
-        TeardownVRInputs();
-    }
-
-    protected void Possess(Character_PlayerInitiatedMovement character)
-    {
-        m_Character.PossessedBy(this);
-    }
 
     private void SetupVRInputs()
     {
@@ -63,12 +41,12 @@ public class PlayerController_PlayerInitiatedMovement : MonoBehaviour
 
     private void MoveDirection_onChange(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta)
     {
-        m_Character.SetMoveDirection(axis);
+        m_CastedCharacter.SetMoveDirection(axis);
     }
 
     private void MoveAction_onChange(SteamVR_Action_Single fromAction, SteamVR_Input_Sources fromSource, float newAxis, float newDelta)
     {
-        m_Character.MoveForward(newAxis);
+        m_CastedCharacter.MoveForward(newAxis);
     }
 
     private void SystemMenuAction_onStateDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
@@ -79,7 +57,7 @@ public class PlayerController_PlayerInitiatedMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_Character == null)
+        if (m_CastedCharacter == null)
         {
             return;
         }
@@ -129,5 +107,19 @@ public class PlayerController_PlayerInitiatedMovement : MonoBehaviour
         {
             //m_Character.LookRight(lookRightInputAxisValue);
         }
+    }
+
+    protected override void OnPossess(Character character)
+    {
+        Character_PlayerInitiatedMovement casted = character as Character_PlayerInitiatedMovement;
+        Debug.Assert(casted != null, "PlayerController_PlayerInitiated should be Possessing a MovementCharacter_PlayerInitiatedMovement.");
+        m_CastedCharacter = casted;
+        SetupVRInputs();
+    }
+
+    protected override void OnUnPossess()
+    {
+        TeardownVRInputs();
+        m_CastedCharacter = null;
     }
 }
