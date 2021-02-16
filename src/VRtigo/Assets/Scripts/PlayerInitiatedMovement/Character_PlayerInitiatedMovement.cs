@@ -44,6 +44,13 @@ public class Character_PlayerInitiatedMovement : Character
     [SerializeField]
     protected float m_InputAxisValue;
 
+    [SerializeField]
+    protected AnimationCurve m_DecelerationCurve;
+
+    [SerializeField]
+    protected float m_DecelerationMagnitudeThreshold = 0.1f;
+
+
     public void MoveForward(float axisValue)
     {
         m_InputAxisValue = axisValue;
@@ -70,7 +77,14 @@ public class Character_PlayerInitiatedMovement : Character
         {
             if (m_Rigidbody.velocity.magnitude > m_MaxMoveSpeed)
             {
-                return;
+                if (m_InputAxisValue > m_LinearMovementInputThreshold)
+                {
+                    return;
+                } else
+                {
+                    Decelerate();
+                    return;
+                }
             }
 
             if (m_InputAxisValue > m_LinearMovementInputThreshold)
@@ -79,8 +93,7 @@ public class Character_PlayerInitiatedMovement : Character
                 m_Rigidbody.velocity = m_Rigidbody.velocity + resultMoveDirection * accel * Time.fixedDeltaTime;
             } else
             {
-                // [TODO]: Deceleration
-                m_Rigidbody.velocity = Vector3.zero;
+                Decelerate();
             }
         }
         else
@@ -93,6 +106,22 @@ public class Character_PlayerInitiatedMovement : Character
                 m_Rigidbody.velocity = Vector3.zero;
             }
         }
+    }
+
+    void Decelerate()
+    {
+        Vector3 direction = (-m_Rigidbody.velocity).normalized;
+
+        if (m_Rigidbody.velocity.magnitude <= m_DecelerationMagnitudeThreshold)
+        {
+            m_Rigidbody.velocity = Vector3.zero;
+            return;
+        }
+
+        float speedRatio = m_Rigidbody.velocity.magnitude / m_MaxMoveSpeed;
+
+        float decel = m_DecelerationCurve.Evaluate(speedRatio);
+        m_Rigidbody.velocity = m_Rigidbody.velocity + direction * decel * Time.fixedDeltaTime;
     }
 
     bool HasFlagsEnabled(PlayerInitiatedMovementBitmask mask)

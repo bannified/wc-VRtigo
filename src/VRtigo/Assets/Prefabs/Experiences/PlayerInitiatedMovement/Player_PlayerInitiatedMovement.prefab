@@ -41,10 +41,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3057790021016051241}
+  - component: {fileID: 3057790021016051253}
   - component: {fileID: 3057790021016051254}
   - component: {fileID: 3057790021016051255}
   - component: {fileID: 3057790021016051252}
-  - component: {fileID: 3057790021016051253}
   m_Layer: 0
   m_Name: Player_PlayerInitiatedMovement
   m_TagString: Player
@@ -67,6 +67,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3057790021016051253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3057790021016051250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61dbe696cdbf3b4385d5c9afea8c4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerController: {fileID: 0}
+  m_VRCamera: {fileID: 3037816739789372453}
+  m_LinearMovementInputThreshold: 0.05
+  m_MaxMoveSpeed: 2.5
+  m_AccelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_MovementMask: 0
+  m_Rigidbody: {fileID: 3057790021016051255}
+  m_Collider: {fileID: 3057790021016051252}
+  m_InputDirection: {x: 0, y: 0}
+  m_InputAxisValue: 0
+  m_DecelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0010008006
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_DecelerationMagnitudeThreshold: 0.1
 --- !u!114 &3057790021016051254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,51 +202,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3057790021016051253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057790021016051250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b61dbe696cdbf3b4385d5c9afea8c4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerController: {fileID: 0}
-  m_VRCamera: {fileID: 3037816739789372453}
-  m_LinearMovementInputThreshold: 0.05
-  m_MaxMoveSpeed: 2.5
-  m_AccelerationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0.5
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_MovementMask: 0
-  m_Rigidbody: {fileID: 3057790021016051255}
-  m_Collider: {fileID: 3057790021016051252}
-  m_InputDirection: {x: 0, y: 0}
-  m_InputAxisValue: 0
 --- !u!1001 &3057790021818340425
 PrefabInstance:
   m_ObjectHideFlags: 0
