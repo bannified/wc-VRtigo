@@ -100,7 +100,6 @@ public class WalkPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter WalkPoint by: " + other.gameObject.name);
         if (other.gameObject.tag == VRT_Constants.Tags.PLAYER)
         {
             if (m_HasBeenTriggered || !m_IsActive)
