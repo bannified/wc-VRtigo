@@ -68,11 +68,6 @@ public class WalkPoint : MonoBehaviour
 
     private void RevealNextWalkPoint()
     {
-        if (m_PreviousWalkPoint != null)
-        {
-            m_PreviousWalkPoint.Deactivate();
-        }
-
         if (m_ShowDirectionalArrow)
         {
             Vector3 lookAtPosition = m_NextWalkPoint.transform.position;
@@ -98,6 +93,8 @@ public class WalkPoint : MonoBehaviour
             m_GuidingLine.gameObject.SetActive(false);
         }
 
+        m_TargetVisuals.SetActive(false);
+
         m_NextWalkPoint.Activate(this);
     }
 
@@ -111,7 +108,10 @@ public class WalkPoint : MonoBehaviour
                 return;
             }
 
-            m_TargetVisuals.gameObject.SetActive(false);
+            if (m_PreviousWalkPoint != null)
+            {
+                m_PreviousWalkPoint.Deactivate();
+            }
 
             if (m_NextWalkPoint != null)
             {
