@@ -88,11 +88,19 @@
     },
     {
       "name": "/actions/ForcedCameraRotation/in/CameraRotateLeft",
-      "type": "boolean"
+      "type": "vector1"
     },
     {
       "name": "/actions/ForcedCameraRotation/in/CameraRotateRight",
-      "type": "boolean"
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/CameraLookUp",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/CameraLookDown",
+      "type": "vector1"
     }
   ],
   "action_sets": [
@@ -187,7 +195,9 @@
       "/actions/default/in/SnapTurnRight": "Snap Turn (Right)",
       "/actions/ForcedCameraRotation/in/CameraRotateLeft": "Camera Rotate Left",
       "/actions/ForcedCameraRotation/in/Walking": "Walking",
-      "/actions/ForcedCameraRotation/in/CameraRotateRight": "Camera Rotate Right"
+      "/actions/ForcedCameraRotation/in/CameraRotateRight": "Camera Rotate Right",
+      "/actions/ForcedCameraRotation/in/CameraLookUp": " Camera Look Up",
+      "/actions/ForcedCameraRotation/in/CameraLookDown": "Camera Look Down"
     }
   ]
 }
