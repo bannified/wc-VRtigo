@@ -3,31 +3,17 @@ using TMPro;
 
 public class WobbleTextEffect : MonoBehaviour
 {
-	// Parameters on how much it should wobble
-	public float xWobble = 0.04f;
-	public float yWobble = 0.01f;
-
-	private TMP_Text textMesh;
-	private Mesh mesh;
-	private Vector3[] vertices;
-
-	void Start()
+	/**
+	 * To apply, call this method within the Update() function.
+	 */
+	public void ActivateWobbleEffect(TMP_Text textMesh, float xWobble, float yWobble)
 	{
-		this.textMesh = this.GetComponent<TMP_Text>();
-	}
+		textMesh.ForceMeshUpdate();
+		Mesh mesh = textMesh.mesh;
+		Vector3[] vertices = mesh.vertices;
 
-	void Update()
-	{
-		this.textMesh.ForceMeshUpdate();
-		this.mesh = textMesh.mesh;
-		this.vertices = mesh.vertices;
-
-		// Calculate offset for each vertices in the text
-		for (int i = 0; i < vertices.Length; i++)
-		{
-			Vector3 offset = Wobble(Time.time + i);
-			vertices[i] += offset;
-		}
+		// Apply effect
+		WobbleVertices(vertices, xWobble, yWobble);
 
 		// Update the actual vertices
 		mesh.vertices = vertices;
@@ -37,10 +23,26 @@ public class WobbleTextEffect : MonoBehaviour
 	}
 
 	/**
-	 * Output a vector2 offset based on the given seed (time)
+	 * Wobble the given vertices. Mutate the given vector3[].
+	 * Can be called separately from ActivateWobbleEffect to stack the effect.
 	 */
-	private Vector2 Wobble(float time)
+	public Vector3[] WobbleVertices(Vector3[] vertices, float xWobble, float yWobble)
 	{
-		return new Vector2(Mathf.Sin(time * this.xWobble), Mathf.Cos(time * this.yWobble));
+		// Calculate offset for each vertices in the text
+		for (int i = 0; i < vertices.Length; i++)
+		{
+			Vector3 offset = Wobble(Time.time + i, xWobble, yWobble);
+			vertices[i] += offset;
+		}
+
+		return vertices;
+	}
+
+	/**
+	 * Output a vector2 offset based on the given seed.
+	 */
+	private Vector2 Wobble(float seed, float xWobble, float yWobble)
+	{
+		return new Vector2(Mathf.Sin(seed * xWobble), Mathf.Cos(seed * yWobble));
 	}
 }
