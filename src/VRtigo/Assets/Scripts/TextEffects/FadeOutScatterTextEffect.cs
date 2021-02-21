@@ -60,13 +60,13 @@ public class FadeOutScatterTextEffect
 				colours[j].a = alpha;
 			}
 
-			m_DurationSoFar += Time.deltaTime;
 		}
-
 		mesh.vertices = m_PrevVerts;
 		mesh.colors = colours;
 
 		m_TextMesh.UpdateGeometry(mesh, 0);
+
+		m_DurationSoFar += Time.deltaTime;
 	}
 
 	private Vector2 GetScatterOffsetForChar(Vector3[] vertices, int index, Vector3 origin, float offset)
