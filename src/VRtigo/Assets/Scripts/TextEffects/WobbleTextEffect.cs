@@ -1,22 +1,19 @@
 using UnityEngine;
 using TMPro;
 
-public class WobbleTextEffect : MonoBehaviour
+public static class WobbleTextEffect
 {
 	/**
 	 * To apply, call this method within the Update() function.
 	 */
-	public void ActivateWobbleEffect(TMP_Text textMesh, float xWobble, float yWobble)
+	public static void ActivateWobbleEffect(TMP_Text textMesh, float xWobble, float yWobble)
 	{
 		textMesh.ForceMeshUpdate();
 		Mesh mesh = textMesh.mesh;
 		Vector3[] vertices = mesh.vertices;
 
-		// Apply effect
-		WobbleVertices(vertices, xWobble, yWobble);
-
 		// Update the actual vertices
-		mesh.vertices = vertices;
+		mesh.vertices = WobbleVertices(vertices, xWobble, yWobble);
 
 		// Update the actual mesh
 		textMesh.UpdateGeometry(mesh, 0);
@@ -26,7 +23,7 @@ public class WobbleTextEffect : MonoBehaviour
 	 * Wobble the given vertices. Mutate the given vector3[].
 	 * Can be called separately from ActivateWobbleEffect to stack the effect.
 	 */
-	public Vector3[] WobbleVertices(Vector3[] vertices, float xWobble, float yWobble)
+	public static Vector3[] WobbleVertices(Vector3[] vertices, float xWobble, float yWobble)
 	{
 		// Calculate offset for each vertices in the text
 		for (int i = 0; i < vertices.Length; i++)
@@ -41,7 +38,7 @@ public class WobbleTextEffect : MonoBehaviour
 	/**
 	 * Output a vector2 offset based on the given seed.
 	 */
-	private Vector2 Wobble(float seed, float xWobble, float yWobble)
+	private static Vector2 Wobble(float seed, float xWobble, float yWobble)
 	{
 		return new Vector2(Mathf.Sin(seed * xWobble), Mathf.Cos(seed * yWobble));
 	}

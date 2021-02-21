@@ -155,26 +155,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &7404498001025151226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057790021818202861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d940571ecc1954340971a0212775fa40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HandSource: 2
-  m_GrabRadius: 0.2
-  m_MaxAngularVelocity: 20
-  m_GrabbingLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  m_IsGrabbing: 0
-  m_GrabbedObject: {fileID: 0}
 --- !u!114 &2396661088174654535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,19 +179,32 @@ MonoBehaviour:
   pointer: {fileID: 0}
   addRigidBody: 0
   reference: {fileID: 0}
---- !u!114 &3699603113158385556
+--- !u!114 &2857831940372421487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057790021818298571}
+  m_GameObject: {fileID: 3057790021818202861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725eb431de893d945abe756ae20006d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LaserPointer: {fileID: 0}
+--- !u!114 &7404498001025151226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3057790021818202861}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d940571ecc1954340971a0212775fa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandSource: 1
+  m_HandSource: 2
   m_GrabRadius: 0.2
   m_MaxAngularVelocity: 20
   m_GrabbingLayer:
@@ -243,6 +236,39 @@ MonoBehaviour:
   pointer: {fileID: 0}
   addRigidBody: 0
   reference: {fileID: 0}
+--- !u!114 &173149155251752165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3057790021818298571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725eb431de893d945abe756ae20006d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LaserPointer: {fileID: 0}
+--- !u!114 &3699603113158385556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3057790021818298571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d940571ecc1954340971a0212775fa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HandSource: 1
+  m_GrabRadius: 0.2
+  m_MaxAngularVelocity: 20
+  m_GrabbingLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  m_IsGrabbing: 0
+  m_GrabbedObject: {fileID: 0}
 --- !u!1001 &3057790021818340425
 PrefabInstance:
   m_ObjectHideFlags: 0
