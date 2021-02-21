@@ -10,13 +10,13 @@ public class TextEffectTest : MonoBehaviour
 	public float duration = 1f;
 	public bool isScatter = false;
 
-	public FadeScatterTextEffect scatter;
+	public FadeOutScatterTextEffect scatter;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		textMesh = GetComponent<TMP_Text>();
-		scatter = new FadeScatterTextEffect(textMesh, maxScatterOffset, duration);
+		scatter = new FadeOutScatterTextEffect(textMesh, maxScatterOffset, duration);
 	}
 
 	// Update is called once per frame

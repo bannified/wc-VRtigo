@@ -1,9 +1,8 @@
 using UnityEngine;
 using TMPro;
 
-public class FadeScatterTextEffect
+public class FadeOutScatterTextEffect
 {
-	[SerializeField]
 	protected TMP_Text m_TextMesh;
 
 	private Vector3[] m_PrevVerts;
@@ -12,18 +11,12 @@ public class FadeScatterTextEffect
 	private float m_MaxScatterRange;
 	private float m_ScatterDuration;
 	private float m_ScatterStep;
-
 	private float m_DurationSoFar;
 
-	public FadeScatterTextEffect(TMP_Text textMesh, float maxScatterRange, float duration)
+	public FadeOutScatterTextEffect(TMP_Text textMesh, float maxScatterRange, float duration)
 	{
 		SetText(textMesh);
-
-		m_MaxScatterRange = maxScatterRange;
-		m_ScatterDuration = duration;
-
-		m_DurationSoFar = 0.0f;
-		m_ScatterStep = m_MaxScatterRange * Time.deltaTime / m_ScatterDuration;
+		SetParameters(maxScatterRange, duration);
 	}
 
 	public void SetText(TMP_Text textMesh)
@@ -33,6 +26,15 @@ public class FadeScatterTextEffect
 		m_TextMesh = textMesh;
 		m_PrevVerts = textMesh.mesh.vertices;
 		m_TextOrigin = textMesh.transform.root.position;
+	}
+
+	public void SetParameters(float maxScatterRange, float duration)
+	{
+		m_MaxScatterRange = maxScatterRange;
+		m_ScatterDuration = duration;
+
+		m_DurationSoFar = 0.0f;
+		m_ScatterStep = m_MaxScatterRange * Time.deltaTime / m_ScatterDuration;
 	}
 
 	public void Update()

@@ -1,38 +1,49 @@
 using UnityEngine;
 using TMPro;
 
-public static class WobbleTextEffect
+public class WobbleTextEffect
 {
-	/**
-	 * To apply, call this method within the Update() function.
-	 */
-	public static void ActivateWobbleEffect(TMP_Text textMesh, float xWobble, float yWobble)
+	protected TMP_Text m_TextMesh;
+
+	private float m_XWobble;
+	private float m_YWobble;
+
+	public WobbleTextEffect(TMP_Text textMesh, float xWobble, float yWobble)
 	{
-		textMesh.ForceMeshUpdate();
-		Mesh mesh = textMesh.mesh;
-		Vector3[] vertices = mesh.vertices;
-
-		// Update the actual vertices
-		mesh.vertices = WobbleVertices(vertices, xWobble, yWobble);
-
-		// Update the actual mesh
-		textMesh.UpdateGeometry(mesh, 0);
+		SetText(textMesh);
+		SetParameters(xWobble, yWobble);
 	}
 
-	/**
-	 * Wobble the given vertices. Mutate the given vector3[].
-	 * Can be called separately from ActivateWobbleEffect to stack the effect.
-	 */
-	public static Vector3[] WobbleVertices(Vector3[] vertices, float xWobble, float yWobble)
+	public void SetText(TMP_Text textMesh)
 	{
-		// Calculate offset for each vertices in the text
+		textMesh.ForceMeshUpdate();
+
+		m_TextMesh = textMesh;
+	}
+
+	public void SetParameters(float xWobble, float yWobble)
+	{
+		m_XWobble = xWobble;
+		m_YWobble = yWobble;
+	}
+
+	public void Update()
+	{
+		m_TextMesh.ForceMeshUpdate();
+		Mesh mesh = m_TextMesh.mesh;
+		Vector3[] vertices = mesh.vertices;
+
 		for (int i = 0; i < vertices.Length; i++)
 		{
-			Vector3 offset = Wobble(Time.time + i, xWobble, yWobble);
+			Vector3 offset = Wobble(Time.time + i, m_XWobble, m_YWobble);
 			vertices[i] += offset;
 		}
 
-		return vertices;
+		// Update the actual vertices
+		mesh.vertices = vertices;
+
+		// Update the actual mesh
+		m_TextMesh.UpdateGeometry(mesh, 0);
 	}
 
 	/**
