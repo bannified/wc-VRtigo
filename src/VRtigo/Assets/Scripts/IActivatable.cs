@@ -2,5 +2,8 @@ using UnityEngine;
 
 public interface IActivatable
 {
-    void Activate();
+	void Activate();
+	void OnHoverIn();
+
+	void OnHoverOut();
 }

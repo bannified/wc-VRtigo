@@ -39,6 +39,10 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 		StartCoroutine("TriggerFadeOutText", m_ShowDuration);
 	}
 
+	public void OnHoverIn() { }
+
+	public void OnHoverOut() { }
+
 	private IEnumerator TriggerFadeOutText(float delayTime)
 	{
 		// Wait for the specified delay time before continuing.
