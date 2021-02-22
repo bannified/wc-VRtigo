@@ -1,13 +1,13 @@
 using UnityEngine;
 using TMPro;
 
-public class WobbleTextEffect
+public class WobbleTextEffect : ITextEffect
 {
-	protected float m_Progress;
 	protected TMP_Text m_TextMesh;
+	protected float m_Progress;
 
-	private float m_XWobble;
-	private float m_YWobble;
+	private float m_XWobble; // Extent of wobble in x direction
+	private float m_YWobble; // Extent of wobble in y direction
 
 	public WobbleTextEffect(TMP_Text textMesh, float xWobble, float yWobble)
 	{
@@ -27,6 +27,7 @@ public class WobbleTextEffect
 		m_XWobble = xWobble;
 		m_YWobble = yWobble;
 
+		// Wobble effect can be transitioned from anytime
 		m_Progress = 1.0f;
 	}
 
@@ -36,6 +37,7 @@ public class WobbleTextEffect
 		Mesh mesh = m_TextMesh.mesh;
 		Vector3[] vertices = mesh.vertices;
 
+		// Calculate the offset for each vertex
 		for (int i = 0; i < vertices.Length; i++)
 		{
 			Vector3 offset = Wobble(Time.time + i, m_XWobble, m_YWobble);
