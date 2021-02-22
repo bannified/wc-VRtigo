@@ -3,6 +3,7 @@ using TMPro;
 
 public class FadeInWobbleTextEffect
 {
+	protected float m_Progress;
 	protected TMP_Text m_TextMesh;
 
 	private float m_XWobbleFinal;
@@ -32,6 +33,7 @@ public class FadeInWobbleTextEffect
 		m_WobbleRange = wobbleRange;
 
 		m_DurationSoFar = 0.0f;
+		m_Progress = 0.0f;
 	}
 
 	public void Update()
@@ -43,12 +45,12 @@ public class FadeInWobbleTextEffect
 		Color[] colours = mesh.colors;
 		Vector3[] vertices = mesh.vertices;
 
+		m_Progress = m_DurationSoFar / m_FadeDuration;
+
 		for (int i = 0; i < vertices.Length; i++)
 		{
-			float progress = m_DurationSoFar / m_FadeDuration;
-
-			float amp = 1.0f + (m_WobbleRange * (1.0f - progress));
-			float alpha = progress;
+			float amp = 1.0f + (m_WobbleRange * (1.0f - m_Progress));
+			float alpha = m_Progress;
 			Vector3 offset = WobbleWithAmplitude(Time.time + i, m_XWobbleFinal, m_YWobbleFinal, amp);
 
 			vertices[i] += offset;
@@ -63,6 +65,11 @@ public class FadeInWobbleTextEffect
 		m_TextMesh.UpdateGeometry(mesh, 0);
 
 		m_DurationSoFar += Time.deltaTime;
+	}
+
+	public float GetProgress()
+	{
+		return m_Progress;
 	}
 
 	/**

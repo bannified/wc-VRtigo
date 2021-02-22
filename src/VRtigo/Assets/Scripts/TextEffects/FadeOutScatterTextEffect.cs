@@ -3,6 +3,7 @@ using TMPro;
 
 public class FadeOutScatterTextEffect
 {
+	protected float m_Progress;
 	protected TMP_Text m_TextMesh;
 
 	private Vector3[] m_PrevVerts;
@@ -46,13 +47,15 @@ public class FadeOutScatterTextEffect
 		Mesh mesh = m_TextMesh.mesh;
 		Color[] colours = mesh.colors;
 
+		m_Progress = m_DurationSoFar / m_ScatterDuration;
+
 		for (int i = 0; i < m_TextMesh.textInfo.characterCount; i++)
 		{
 			TMP_CharacterInfo c = m_TextMesh.textInfo.characterInfo[i];
 			int index = c.vertexIndex;
 
 			Vector3 offset = GetScatterOffsetForChar(m_PrevVerts, index, m_TextOrigin, m_ScatterStep);
-			float alpha = 1.0f - (m_DurationSoFar / m_ScatterDuration);
+			float alpha = 1.0f - m_Progress;
 
 			for (int j = index; j < index + 4; j++)
 			{
@@ -67,6 +70,11 @@ public class FadeOutScatterTextEffect
 		m_TextMesh.UpdateGeometry(mesh, 0);
 
 		m_DurationSoFar += Time.deltaTime;
+	}
+
+	public float GetProgress()
+	{
+		return m_Progress;
 	}
 
 	private Vector2 GetScatterOffsetForChar(Vector3[] vertices, int index, Vector3 origin, float offset)

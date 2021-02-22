@@ -3,6 +3,7 @@ using TMPro;
 
 public class WobbleTextEffect
 {
+	protected float m_Progress;
 	protected TMP_Text m_TextMesh;
 
 	private float m_XWobble;
@@ -25,6 +26,8 @@ public class WobbleTextEffect
 	{
 		m_XWobble = xWobble;
 		m_YWobble = yWobble;
+
+		m_Progress = 1.0f;
 	}
 
 	public void Update()
@@ -44,6 +47,11 @@ public class WobbleTextEffect
 
 		// Update the actual mesh
 		m_TextMesh.UpdateGeometry(mesh, 0);
+	}
+
+	public float GetProgress()
+	{
+		return m_Progress;
 	}
 
 	/**
