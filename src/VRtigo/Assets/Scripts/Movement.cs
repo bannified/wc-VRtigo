@@ -46,6 +46,10 @@ public class Movement : MonoBehaviour
         if (isCameraFixed) 
         {
             trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.PositionOnly;
+        } 
+        else 
+        {
+            trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
         }
     }
 
@@ -70,6 +74,7 @@ public class Movement : MonoBehaviour
     // handles vector input from right joystick
     public void ProcessMovementDirInput(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta) 
     {
+        Debug.Log("here");
         movementDir = axis;
     }
 
