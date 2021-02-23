@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 using UnityEngine.SpatialTracking;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Movement : MonoBehaviour
     public float movementSpeed = 3.0f;
     public float rotationSpeed = 1.0f;
     public bool isCameraFixed = false;
+    public bool enableDeathAnim = false;
 
     public GameObject headset;
     public Rigidbody playerRigidbody;
@@ -71,10 +73,32 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other) 
+    {
+        if (other.gameObject.CompareTag("Car")) {
+            Debug.Log("You died");
+            trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.PositionOnly;   // stop headset rotation
+            playerRigidbody.constraints = RigidbodyConstraints.FreezePosition;
+            if (enableDeathAnim) 
+            {
+                // Todo: Add head spinning maybe?
+            }
+            flashDeathUI();
+        }
+    }
+
+    void flashDeathUI() 
+    {
+
+        Text ui = GameObject.Find("Death Screen/Text").GetComponent<Text>();
+        Color color = ui.color;
+        color.a = 1.0f;
+        ui.color = color;
+    }
+
     // handles vector input from right joystick
     public void ProcessMovementDirInput(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta) 
     {
-        Debug.Log("here");
         movementDir = axis;
     }
 

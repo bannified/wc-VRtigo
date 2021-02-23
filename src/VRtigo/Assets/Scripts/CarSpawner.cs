@@ -6,7 +6,9 @@ public class CarSpawner : MonoBehaviour
 {
     public GameObject[] carPrefabs;
     public float carSpeed = 2.0f;
-    public float spawnCooldown = 3.5f;
+    public float minSpawnCooldown = 3.5f;
+    public float maxSpawnCooldown = 9.0f;
+
     public float despawnTime = 3.0f;
     public Vector3 carDirection = new Vector3(1, 0, 0);
     private float timeUntilSpawn = 0;
@@ -23,7 +25,7 @@ public class CarSpawner : MonoBehaviour
         timeUntilSpawn -= Time.deltaTime;
         if (timeUntilSpawn <= 0) {
             SpawnCar();
-            timeUntilSpawn = spawnCooldown;
+            timeUntilSpawn = Random.Range(minSpawnCooldown, maxSpawnCooldown);
         }
     }
 
