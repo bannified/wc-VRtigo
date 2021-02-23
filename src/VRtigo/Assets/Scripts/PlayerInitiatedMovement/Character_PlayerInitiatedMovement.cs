@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 [System.Serializable, System.Flags]
 public enum PlayerInitiatedMovementBitmask
@@ -66,9 +67,15 @@ public class Character_PlayerInitiatedMovement : Character
     [SerializeField]
     protected float m_InputAxisValue;
 
+    [Header("Non-VR debug settings")]
+    protected float m_TurnAngle = 15.0f;
+
     private void Start()
     {
-        VRT_Helpers.ResetHMDPosition();
+        if (SteamVR.enabled)
+        {
+            VRT_Helpers.ResetHMDPosition();
+        }
     }
 
     public void MoveForward(float axisValue)
@@ -85,6 +92,17 @@ public class Character_PlayerInitiatedMovement : Character
     {
         m_TurnInputDirection = turnDirection.normalized;
     }
+
+    public void TurnLeft()
+    {
+        m_CameraRig.transform.Rotate(m_CameraRig.transform.up, -m_TurnAngle);
+    }
+
+    public void TurnRight()
+    {
+        m_CameraRig.transform.Rotate(m_CameraRig.transform.up, m_TurnAngle);
+    }
+
 
     private void FixedUpdate()
     {
