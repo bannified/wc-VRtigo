@@ -66,6 +66,11 @@ public class Character_PlayerInitiatedMovement : Character
     [SerializeField]
     protected float m_InputAxisValue;
 
+    private void Start()
+    {
+        VRT_Helpers.ResetHMDPosition();
+    }
+
     public void MoveForward(float axisValue)
     {
         m_InputAxisValue = axisValue;
