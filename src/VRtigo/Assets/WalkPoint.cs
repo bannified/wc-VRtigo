@@ -123,7 +123,13 @@ public class WalkPoint : MonoBehaviour
 
             m_HasBeenTriggered = true;
 
-            m_Haptic.Execute(0.0f, 0.1f, 2.0f, 1.0f, SteamVR_Input_Sources.Any);
+            if (SteamVR.enabled)
+            {
+                m_Haptic.Execute(0.0f, 0.1f, 2.0f, 1.0f, SteamVR_Input_Sources.Any);
+            } else
+            {
+                Debug.Log("Attempt to execute Haptic feedback, but ignored because SteamVR isn't enabled.");
+            }
         }
     }
 }

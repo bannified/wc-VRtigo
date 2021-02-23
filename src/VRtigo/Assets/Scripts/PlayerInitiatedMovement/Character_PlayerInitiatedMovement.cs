@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 [System.Serializable, System.Flags]
 public enum PlayerInitiatedMovementBitmask
@@ -71,7 +72,10 @@ public class Character_PlayerInitiatedMovement : Character
 
     private void Start()
     {
-        VRT_Helpers.ResetHMDPosition();
+        if (SteamVR.enabled)
+        {
+            VRT_Helpers.ResetHMDPosition();
+        }
     }
 
     public void MoveForward(float axisValue)
