@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class WalkPoint : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class WalkPoint : MonoBehaviour
 
     [SerializeField]
     protected bool m_HasBeenTriggered = false;
+
+    [SerializeField]
+    protected SteamVR_Action_Vibration m_Haptic;
 
     private void Start()
     {
@@ -118,6 +122,8 @@ public class WalkPoint : MonoBehaviour
             }
 
             m_HasBeenTriggered = true;
+
+            m_Haptic.Execute(0.0f, 0.1f, 2.0f, 1.0f, SteamVR_Input_Sources.Any);
         }
     }
 }
