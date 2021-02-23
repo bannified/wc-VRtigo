@@ -21,6 +21,11 @@ public class PlayerController_PlayerInitiatedMovement : PlayerController
     /* Haptic */
     public SteamVR_Action_Vibration m_Haptic;
 
+    /* Non-VR movement */
+    protected float m_MoveForwardAxisValue = 0.0f;
+    protected Vector2 m_MoveDirectionAxisValue = Vector2.zero;
+    protected Vector2 m_TurnDirectionAxisValue = Vector2.zero;
+
     private void SetupVRInputs()
     {
         m_SystemMenuAction.AddOnStateDownListener(SystemMenuAction_onStateDown, m_LeftHandType);
@@ -97,24 +102,38 @@ public class PlayerController_PlayerInitiatedMovement : PlayerController
     }
     protected virtual void OnNonVRUpdate() 
     {
-        float verticalInputAxisValue = Input.GetAxis("Vertical");
-        float horizontalInputAxisValue = Input.GetAxis("Horizontal");
-        float lookUpInputAxisValue = Input.GetAxis("Mouse Y");
-        float lookRightInputAxisValue = Input.GetAxis("Mouse X");
+        Vector2 moveDirectionAxisValue = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 turnDirectionAxisValue = new Vector2(Input.GetAxis("NVR_Horizontal"), -Input.GetAxis("NVR_Vertical"));
+        float moveForwardAxisValue = ((Input.GetAxisRaw("Horizontal") != 0) || (Input.GetAxisRaw("Vertical") != 0)) ? 1.0f : 0.0f;
 
-        //m_Character.MoveForward(verticalInputAxisValue);
-
-        //m_Character.MoveRight(horizontalInputAxisValue);
-
-        if (lookUpInputAxisValue != 0.0f)
+        if (moveDirectionAxisValue != m_MoveDirectionAxisValue)
         {
-            //m_Character.LookUp(lookUpInputAxisValue);
+            m_CastedCharacter.SetMoveDirection(moveDirectionAxisValue);
         }
 
-        if (lookRightInputAxisValue != 0.0f)
+        if (turnDirectionAxisValue != m_TurnDirectionAxisValue)
         {
-            //m_Character.LookRight(lookRightInputAxisValue);
+            m_CastedCharacter.SetTurnDirection(turnDirectionAxisValue);
         }
+
+        if (moveForwardAxisValue != m_MoveForwardAxisValue)
+        {
+            m_CastedCharacter.MoveForward(moveForwardAxisValue);
+        }
+
+        if (Input.GetButtonDown("NVR_TurnLeft"))
+        {
+            m_CastedCharacter.TurnLeft();
+        }
+
+        if (Input.GetButtonDown("NVR_TurnRight"))
+        {
+            m_CastedCharacter.TurnRight();
+        }
+
+        m_MoveForwardAxisValue = moveForwardAxisValue;
+        m_MoveDirectionAxisValue = moveDirectionAxisValue;
+        m_TurnDirectionAxisValue = turnDirectionAxisValue;
     }
 
     protected override void OnPossess(Character character)

@@ -66,6 +66,9 @@ public class Character_PlayerInitiatedMovement : Character
     [SerializeField]
     protected float m_InputAxisValue;
 
+    [Header("Non-VR debug settings")]
+    protected float m_TurnAngle = 15.0f;
+
     private void Start()
     {
         VRT_Helpers.ResetHMDPosition();
@@ -85,6 +88,17 @@ public class Character_PlayerInitiatedMovement : Character
     {
         m_TurnInputDirection = turnDirection.normalized;
     }
+
+    public void TurnLeft()
+    {
+        m_CameraRig.transform.Rotate(m_CameraRig.transform.up, -m_TurnAngle);
+    }
+
+    public void TurnRight()
+    {
+        m_CameraRig.transform.Rotate(m_CameraRig.transform.up, m_TurnAngle);
+    }
+
 
     private void FixedUpdate()
     {
