@@ -516,6 +516,9 @@ MonoBehaviour:
   m_PreviousWalkPoint: {fileID: 0}
   m_IsActive: 0
   m_HasBeenTriggered: 0
+  m_Haptic:
+    actionPath: /actions/EXPPlayerMovement/out/Haptic
+    needsReinit: 0
 --- !u!54 &6613847541059284200
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 [System.Serializable, System.Flags]
 public enum PlayerInitiatedMovementBitmask
@@ -66,6 +67,17 @@ public class Character_PlayerInitiatedMovement : Character
     [SerializeField]
     protected float m_InputAxisValue;
 
+    [Header("Non-VR debug settings")]
+    protected float m_TurnAngle = 15.0f;
+
+    private void Start()
+    {
+        if (SteamVR.enabled)
+        {
+            VRT_Helpers.ResetHMDPosition();
+        }
+    }
+
     public void MoveForward(float axisValue)
     {
         m_InputAxisValue = axisValue;
@@ -80,6 +92,17 @@ public class Character_PlayerInitiatedMovement : Character
     {
         m_TurnInputDirection = turnDirection.normalized;
     }
+
+    public void TurnLeft()
+    {
+        m_CameraRig.transform.Rotate(m_CameraRig.transform.up, -m_TurnAngle);
+    }
+
+    public void TurnRight()
+    {
+        m_CameraRig.transform.Rotate(m_CameraRig.transform.up, m_TurnAngle);
+    }
+
 
     private void FixedUpdate()
     {
@@ -130,7 +153,22 @@ public class Character_PlayerInitiatedMovement : Character
         {
             if (m_InputAxisValue > m_LinearMovementInputThreshold)
             {
-                m_Rigidbody.velocity = m_MaxMoveSpeed * resultMoveDirection;
+                if (HasFlagsEnabled(PlayerInitiatedMovementBitmask.LateralMovementEnabled))
+                {
+                    m_Rigidbody.velocity = m_MaxMoveSpeed * resultMoveDirection;
+                } else
+                { // standard movement
+                    if (m_InputDirection.y > -0.3f)
+                    {
+                        // move forward
+                        m_Rigidbody.velocity = m_MaxMoveSpeed * resultMoveDirection;
+                    }
+                    else
+                    {
+                        // move backward
+                        m_Rigidbody.velocity = m_MaxMoveSpeed * -resultMoveDirection;
+                    }
+                }
             } else
             {
                 m_Rigidbody.velocity = Vector3.zero;
