@@ -22,6 +22,7 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 	private WobbleTextEffect m_WobbleEffect;
 	private FadeOutScatterTextEffect m_ScatterEffect;
 
+	private bool m_IsAnimating = false;
 	private bool m_IsFadingIn = false;
 	private bool m_IsDisplaying = false;
 	private bool m_IsFadingOut = false;
@@ -55,7 +56,8 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 
 	public void Activate()
 	{
-		StartCoroutine("AnimateText");
+		if (!m_IsAnimating)
+			StartCoroutine("AnimateText");
 	}
 
 	public void OnHoverIn() { }
@@ -64,6 +66,7 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 
 	IEnumerator AnimateText()
 	{
+		m_IsAnimating = true;
 		m_TextMesh.SetText(m_Text);
 
 		m_IsFadingIn = true;
@@ -80,5 +83,6 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 		yield return new WaitForSeconds(m_FadeOutDuration);
 
 		m_IsFadingOut = false;
+		m_IsAnimating = false;
 	}
 }

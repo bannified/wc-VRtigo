@@ -3,6 +3,8 @@ using Valve.VR;
 
 public class GrabController_MainMenu : MonoBehaviour
 {
+	public Collider[] m_Colliders;
+
 	[SerializeField]
 	protected SteamVR_Input_Sources m_HandSource = SteamVR_Input_Sources.LeftHand;
 
@@ -19,7 +21,11 @@ public class GrabController_MainMenu : MonoBehaviour
 	private bool m_IsGrabbing = false;
 
 	[SerializeField]
-	private Rigidbody m_GrabbedObject;
+	private IGrabbable m_GrabbedObjectGrabbable;
+
+	[SerializeField]
+	private Rigidbody m_GrabbedObjectRb;
+
 
 	public void CheckForGrab(SteamVR_Action_Boolean isGrab)
 	{
@@ -28,27 +34,38 @@ public class GrabController_MainMenu : MonoBehaviour
 		if (!m_IsGrabbing)
 		{
 			Collider[] colliders = Physics.OverlapSphere(transform.position, m_GrabRadius, m_GrabbingLayer);
+			m_Colliders = colliders;
 
 			// Get the first collider
 			if (colliders.Length > 0)
 			{
-				m_GrabbedObject = colliders[0].transform.root.GetComponent<Rigidbody>();
-				m_GrabbedObject.maxAngularVelocity = m_MaxAngularVelocity;
+				m_GrabbedObjectRb = colliders[0].transform.root.GetComponent<Rigidbody>();
+				m_GrabbedObjectRb.maxAngularVelocity = m_MaxAngularVelocity;
+
+				m_GrabbedObjectGrabbable = colliders[0].transform.root.GetComponent<IGrabbable>();
+				if (m_GrabbedObjectGrabbable != null)
+				{
+					m_GrabbedObjectGrabbable.Grabbed();
+				}
 			}
 			else
 			{
-				m_GrabbedObject = null;
+				if (m_GrabbedObjectGrabbable != null)
+					m_GrabbedObjectGrabbable.Dropped();
+
+				m_GrabbedObjectGrabbable = null;
+				m_GrabbedObjectRb = null;
 			}
 		}
 		else
 		{
-			if (m_GrabbedObject)
+			if (m_GrabbedObjectRb != null)
 			{
 				// Adjust moving velocity into hand
-				m_GrabbedObject.velocity = (transform.position - m_GrabbedObject.transform.position) / Time.fixedDeltaTime;
+				m_GrabbedObjectRb.velocity = (transform.position - m_GrabbedObjectRb.transform.position) / Time.fixedDeltaTime;
 
 				// Follow hand rotation
-				Quaternion deltaRot = transform.rotation * Quaternion.Inverse(m_GrabbedObject.transform.rotation);
+				Quaternion deltaRot = transform.rotation * Quaternion.Inverse(m_GrabbedObjectRb.transform.rotation);
 				Vector3 eulerRot = new Vector3(
 					Mathf.DeltaAngle(0, deltaRot.eulerAngles.x),
 					Mathf.DeltaAngle(0, deltaRot.eulerAngles.y),
@@ -56,7 +73,7 @@ public class GrabController_MainMenu : MonoBehaviour
 				);
 				eulerRot *= Mathf.Deg2Rad;
 
-				m_GrabbedObject.angularVelocity = eulerRot / Time.deltaTime;
+				m_GrabbedObjectRb.angularVelocity = eulerRot / Time.deltaTime;
 			}
 		}
 	}

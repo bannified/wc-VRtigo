@@ -84,8 +84,58 @@ MonoBehaviour:
   m_VRCamera: {fileID: 3037816739789372453}
   m_CameraRig: {fileID: 3057790021818214813}
   m_Rigidbody: {fileID: 3057790021016051255}
+  m_MovementMask: -1
   m_LinearMovementInputThreshold: 0.05
   m_MaxMoveSpeed: 2.5
+  m_AccelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_DecelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0010008006
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_DecelerationMagnitudeThreshold: 0.1
   m_TurnRate: 25
   m_TurnInputThreshold: 0.01
   m_InputDirection: {x: 0, y: 0}
@@ -103,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa09a1e68f1017e48a0a1be78b2b5917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StartingCharacter: {fileID: 0}
+  m_StartingCharacter: {fileID: 8669142870592189820}
   m_Character: {fileID: 0}
   m_CastedCharacter: {fileID: 0}
   m_LeftHandType: 1
@@ -122,6 +172,9 @@ MonoBehaviour:
     needsReinit: 0
   m_Haptic:
     actionPath: /actions/EXPPlayerMovement/out/Haptic
+    needsReinit: 0
+  m_Grabbing:
+    actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
   m_LeftGrab: {fileID: 3699603113158385556}
   m_RightGrab: {fileID: 7404498001025151226}
@@ -155,30 +208,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2396661088174654535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057790021818202861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f511c1adaa1e94ebe7ca97bbcabd17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pose: {fileID: 0}
-  interactWithUI:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  active: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  thickness: 0.002
-  clickColor: {r: 0, g: 1, b: 0, a: 1}
-  holder: {fileID: 0}
-  pointer: {fileID: 0}
-  addRigidBody: 0
-  reference: {fileID: 0}
 --- !u!114 &2857831940372421487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +220,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725eb431de893d945abe756ae20006d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LaserPointer: {fileID: 0}
+  pose: {fileID: 0}
+  m_ActivateAction:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
+  m_GrabAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  active: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  thickness: 0.002
+  clickColor: {r: 0, g: 1, b: 0, a: 1}
+  grabColor: {r: 1, g: 0, b: 0, a: 1}
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
 --- !u!114 &7404498001025151226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,31 +255,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   m_IsGrabbing: 0
-  m_GrabbedObject: {fileID: 0}
---- !u!114 &1712908880699396143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057790021818298571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f511c1adaa1e94ebe7ca97bbcabd17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pose: {fileID: 0}
-  interactWithUI:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  active: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  thickness: 0.002
-  clickColor: {r: 0, g: 1, b: 0, a: 1}
-  holder: {fileID: 0}
-  pointer: {fileID: 0}
-  addRigidBody: 0
-  reference: {fileID: 0}
+  m_GrabbedObjectRb: {fileID: 0}
 --- !u!114 &173149155251752165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +268,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725eb431de893d945abe756ae20006d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LaserPointer: {fileID: 0}
+  pose: {fileID: 0}
+  m_ActivateAction:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
+  m_GrabAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  active: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  thickness: 0.002
+  clickColor: {r: 0, g: 1, b: 0, a: 1}
+  grabColor: {r: 1, g: 0, b: 0, a: 1}
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
 --- !u!114 &3699603113158385556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +303,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   m_IsGrabbing: 0
-  m_GrabbedObject: {fileID: 0}
+  m_GrabbedObjectRb: {fileID: 0}
 --- !u!1001 &3057790021818340425
 PrefabInstance:
   m_ObjectHideFlags: 0
