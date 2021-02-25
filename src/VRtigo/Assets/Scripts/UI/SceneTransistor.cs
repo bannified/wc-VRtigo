@@ -26,9 +26,10 @@ public class SceneTransistor : MonoBehaviour
 
     private void Start()
     {
+        m_PlayerCamera = Camera.main;
         if (m_PlayerCamera == null)
         {
-            // TODO: Automate finding for any scene
+            Debug.LogError("There is no camera tagged as MainCamera");
         }
 
         m_SceneTransistorAnimator = GetComponent<Animator>();

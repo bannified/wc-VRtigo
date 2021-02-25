@@ -6,60 +6,60 @@ using Valve.VR;
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class Character_MainMenu : Character
 {
-	[Header("PlayerController")]
-	[SerializeField]
-	protected PlayerController_MainMenu m_CastedPlayerController;
+    [Header("PlayerController")]
+    [SerializeField]
+    protected PlayerController_MainMenu m_CastedPlayerController;
 
-	[Header("Components")]
-	[SerializeField]
-	protected Camera m_VRCamera;
-	[SerializeField]
-	protected GameObject m_CameraRig;
+    [Header("Components")]
+    [SerializeField]
+    protected Camera m_VRCamera;
+    [SerializeField]
+    protected GameObject m_CameraRig;
 
-	[SerializeField]
-	protected Rigidbody m_Rigidbody;
+    [SerializeField]
+    protected Rigidbody m_Rigidbody;
 
-	[Header("Settings", order = 0)]
-	[Header("Enable/Disable Movement Features", order = 1)]
-	[SerializeField]
-	protected PlayerInitiatedMovementBitmask m_MovementMask = 0;
+    [Header("Settings", order = 0)]
+    [Header("Enable/Disable Movement Features", order = 1)]
+    [SerializeField]
+    protected PlayerInitiatedMovementBitmask m_MovementMask = 0;
 
-	[Header("Linear Movement Settings")]
-	[SerializeField]
-	protected float m_LinearMovementInputThreshold = 0.05f;
+    [Header("Linear Movement Settings")]
+    [SerializeField]
+    protected float m_LinearMovementInputThreshold = 0.05f;
 
-	[SerializeField]
-	protected float m_MaxMoveSpeed = 200.0f;
+    [SerializeField]
+    protected float m_MaxMoveSpeed = 200.0f;
 
-	[Header("Non-Linear Movement Settings")]
+    [Header("Non-Linear Movement Settings")]
 
-	[SerializeField]
-	protected AnimationCurve m_AccelerationCurve;
+    [SerializeField]
+    protected AnimationCurve m_AccelerationCurve;
 
-	[SerializeField]
-	protected AnimationCurve m_DecelerationCurve;
+    [SerializeField]
+    protected AnimationCurve m_DecelerationCurve;
 
-	[SerializeField]
-	protected float m_DecelerationMagnitudeThreshold = 0.1f;
+    [SerializeField]
+    protected float m_DecelerationMagnitudeThreshold = 0.1f;
 
-	[SerializeField]
-	protected float m_TurnRate = 1.0f;
+    [SerializeField]
+    protected float m_TurnRate = 1.0f;
 
-	[SerializeField]
-	protected float m_TurnInputThreshold = 0.1f;
+    [SerializeField]
+    protected float m_TurnInputThreshold = 0.1f;
 
-	[Header("Turning Settings")]
-	[SerializeField]
-	protected Vector2 m_InputDirection;
+    [Header("Turning Settings")]
+    [SerializeField]
+    protected Vector2 m_InputDirection;
 
-	[SerializeField]
-	protected Vector2 m_TurnInputDirection;
+    [SerializeField]
+    protected Vector2 m_TurnInputDirection;
 
-	[SerializeField]
-	protected float m_InputAxisValue;
+    [SerializeField]
+    protected float m_InputAxisValue;
 
-	[Header("Non-VR debug settings")]
-	protected float m_TurnAngle = 15.0f;
+    [Header("Non-VR debug settings")]
+    protected float m_TurnAngle = 15.0f;
 
     private void Start()
     {
