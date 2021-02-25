@@ -25,8 +25,6 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
     private bool m_IsFadingIn = false;
     private bool m_IsFadingOut = false;
 
-    public bool start = false;
-
     void Start()
     {
         m_TextMesh = GetComponentInChildren<TMP_Text>();
@@ -39,11 +37,6 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 
     void Update()
     {
-        if (start)
-        {
-            Activate();
-        }
-
         if (m_IsFadingIn)
         {
             m_FadeInEffect.Update();
