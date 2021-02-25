@@ -79,11 +79,6 @@ public class FadeOutScatterTextEffect
         m_DurationSoFar += Time.deltaTime;
     }
 
-    public float GetProgress()
-    {
-        return m_Progress;
-    }
-
     /**
      * Produces slightly perturbed direction away from the origin, scaled by the offset argument
      */
@@ -91,5 +86,19 @@ public class FadeOutScatterTextEffect
     {
         Vector3 to = vertices[index + Random.Range(0, 3)];
         return (to - origin).normalized * offset;
+    }
+
+    public float GetProgress()
+    {
+        return m_Progress;
+    }
+
+    public Vector3[] GetVerticesPosition()
+    {
+        return m_PrevVerts;
+    }
+    public void SetVerticesPosition(Vector3[] newPos)
+    {
+        m_PrevVerts = newPos;
     }
 }

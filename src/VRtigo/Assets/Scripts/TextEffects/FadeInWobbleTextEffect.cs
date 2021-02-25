@@ -6,11 +6,13 @@ public class FadeInWobbleTextEffect
     protected TMP_Text m_TextMesh;
     protected float m_Progress;
 
-    private float m_XWobbleFinal;   // Extent of wobble in x direction after fade in finishes
-    private float m_YWobbleFinal;   // Extent of wobble in y direction after fade in finishes
-    private float m_FadeDuration;   // Total duration of fade in effect
-    private float m_WobbleRange;    // During fade in, the extent of wobble will interpolate from (wobbleFinal + range) to wobbleFinal
-    private float m_DurationSoFar;  // Duration of effect so far
+    private float m_XWobbleFinal;       // Extent of wobble in x direction after fade in finishes
+    private float m_YWobbleFinal;       // Extent of wobble in y direction after fade in finishes
+    private float m_FadeDuration;       // Total duration of fade in effect
+    private float m_WobbleRange;        // During fade in, the extent of wobble will interpolate from (wobbleFinal + range) to wobbleFinal
+    private float m_DurationSoFar;      // Duration of effect so far
+
+    private Vector3[] m_PrevVerts;      // Position of vertices from the previous frame
 
     public FadeInWobbleTextEffect(TMP_Text textMesh, float xWobbleFinal, float yWobbleFinal, float fadeDuration, float wobbleRange)
     {
@@ -23,6 +25,7 @@ public class FadeInWobbleTextEffect
         textMesh.ForceMeshUpdate();
 
         m_TextMesh = textMesh;
+        m_PrevVerts = textMesh.mesh.vertices;
     }
 
     public void SetParameters(float xWobbleFinal, float yWobbleFinal, float fadeDuration, float wobbleRange)
@@ -38,22 +41,31 @@ public class FadeInWobbleTextEffect
 
     public void Update()
     {
-        if (m_DurationSoFar > m_FadeDuration) return;
-
         m_TextMesh.ForceMeshUpdate();
         Mesh mesh = m_TextMesh.mesh;
         Vector3[] vertices = mesh.vertices;
         Color[] colours = mesh.colors;
 
-        // Update progress by tracking duration
-        m_Progress = m_DurationSoFar / m_FadeDuration;
+        float amp = 1.0f;
+        float alpha = 1.0f;
+
+        // We are still in fade in
+        if (m_DurationSoFar < m_FadeDuration)
+        {
+            // Update progress by tracking duration
+            m_Progress = m_DurationSoFar / m_FadeDuration;
+
+            // Extent of wobble decreases as progress increases
+            amp = 1.0f + (m_WobbleRange * (1.0f - m_Progress));
+            alpha = m_Progress;
+
+            // Update duration
+            m_DurationSoFar += Time.deltaTime;
+        }
 
         for (int i = 0; i < vertices.Length; i++)
         {
-            // Extent of wobble decreases as progress increases
-            float amp = 1.0f + (m_WobbleRange * (1.0f - m_Progress));
             // Since progress is [0, 1], we can use it for alpha too
-            float alpha = m_Progress;
             Vector3 offset = WobbleWithAmplitude(Time.time + i, m_XWobbleFinal, m_YWobbleFinal, amp);
 
             // Update vertices info and colours info
@@ -68,13 +80,7 @@ public class FadeInWobbleTextEffect
         // Update the actual mesh
         m_TextMesh.UpdateGeometry(mesh, 0);
 
-        // Update duration
-        m_DurationSoFar += Time.deltaTime;
-    }
-
-    public float GetProgress()
-    {
-        return m_Progress;
+        m_PrevVerts = vertices;
     }
 
     /**
@@ -83,5 +89,20 @@ public class FadeInWobbleTextEffect
     private static Vector2 WobbleWithAmplitude(float seed, float xWobble, float yWobble, float amplify)
     {
         return new Vector2(Mathf.Sin(seed * xWobble * amplify), Mathf.Cos(seed * yWobble * amplify));
+    }
+
+    public float GetProgress()
+    {
+        return m_Progress;
+    }
+
+    public Vector3[] GetVerticesPosition()
+    {
+        return m_PrevVerts;
+    }
+
+    public void SetVerticesPosition(Vector3[] newPos)
+    {
+        m_PrevVerts = newPos;
     }
 }
