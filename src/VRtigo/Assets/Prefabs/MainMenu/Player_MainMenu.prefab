@@ -208,34 +208,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2857831940372421487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057790021818202861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725eb431de893d945abe756ae20006d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pose: {fileID: 0}
-  m_ActivateAction:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  m_GrabAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  active: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  thickness: 0.002
-  clickColor: {r: 0, g: 1, b: 0, a: 1}
-  grabColor: {r: 1, g: 0, b: 0, a: 1}
-  holder: {fileID: 0}
-  pointer: {fileID: 0}
-  addRigidBody: 0
-  reference: {fileID: 0}
 --- !u!114 &7404498001025151226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d940571ecc1954340971a0212775fa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Colliders: []
   m_HandSource: 2
   m_GrabRadius: 0.2
   m_MaxAngularVelocity: 20
@@ -256,34 +229,6 @@ MonoBehaviour:
     m_Bits: 8
   m_IsGrabbing: 0
   m_GrabbedObjectRb: {fileID: 0}
---- !u!114 &173149155251752165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057790021818298571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725eb431de893d945abe756ae20006d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pose: {fileID: 0}
-  m_ActivateAction:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  m_GrabAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  active: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  thickness: 0.002
-  clickColor: {r: 0, g: 1, b: 0, a: 1}
-  grabColor: {r: 1, g: 0, b: 0, a: 1}
-  holder: {fileID: 0}
-  pointer: {fileID: 0}
-  addRigidBody: 0
-  reference: {fileID: 0}
 --- !u!114 &3699603113158385556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d940571ecc1954340971a0212775fa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Colliders: []
   m_HandSource: 1
   m_GrabRadius: 0.2
   m_MaxAngularVelocity: 20
