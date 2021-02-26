@@ -214,10 +214,10 @@ public class Character_MainMenu : Character
         m_MaxMoveSpeed = maxMoveSpeed;
     }
 
-    public void Grab(SteamVR_Action_Boolean isGrab)
+    public void Grab(bool isLeftGrabbing, bool isRightGrabbing)
     {
-        m_LeftGrab.CheckForGrab(isGrab);
-        m_RightGrab.CheckForGrab(isGrab);
+        m_LeftGrab.CheckForGrab(isLeftGrabbing);
+        m_RightGrab.CheckForGrab(isRightGrabbing);
     }
 }
 

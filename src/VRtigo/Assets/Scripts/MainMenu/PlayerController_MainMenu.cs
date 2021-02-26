@@ -162,7 +162,7 @@ public class PlayerController_MainMenu : PlayerController
     }
     protected virtual void OnVRFixedUpdate()
     {
-        m_CastedCharacter.Grab(m_Grabbing);
+        m_CastedCharacter.Grab(m_Grabbing.GetState(m_LeftHandType), m_Grabbing.GetState(m_RightHandType));
     }
 
     void NonVRFixedUpdate()

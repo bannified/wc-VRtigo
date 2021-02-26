@@ -1,12 +1,8 @@
 using UnityEngine;
-using Valve.VR;
 
 public class GrabController_MainMenu : MonoBehaviour
 {
     public Collider[] m_Colliders;
-
-    [SerializeField]
-    protected SteamVR_Input_Sources m_HandSource = SteamVR_Input_Sources.LeftHand;
 
     [SerializeField]
     protected float m_GrabDistance = 0.5f;
@@ -26,9 +22,9 @@ public class GrabController_MainMenu : MonoBehaviour
     [SerializeField]
     private Rigidbody m_GrabbedObjectRb;
 
-    public void CheckForGrab(SteamVR_Action_Boolean isGrab)
+    public void CheckForGrab(bool isGrab)
     {
-        m_IsGrabbing = isGrab.GetState(m_HandSource);
+        m_IsGrabbing = isGrab;
 
         if (!m_IsGrabbing)
         {
