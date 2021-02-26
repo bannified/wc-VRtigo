@@ -13,10 +13,8 @@ public class SceneTransistorGrabbable : MonoBehaviour, IGrabbable
 
     void Start()
     {
-        m_SceneTransistor = GameObject.FindGameObjectWithTag("SceneTransistor").GetComponent<SceneTransistor>();
         Debug.Assert(m_SceneTransistor != null, "SceneTransistorActivatable requires SceneTransistor");
     }
-
 
     public void Grabbed()
     {
