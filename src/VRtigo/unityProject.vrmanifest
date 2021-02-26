@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.vrtigo.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\Projects\\wc-VRtigo\\src\\VRtigo\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\e0201877.NUSSTU\\source\\repos\\wc-VRtigo\\src\\VRtigo\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "VRtigo [Testing]"

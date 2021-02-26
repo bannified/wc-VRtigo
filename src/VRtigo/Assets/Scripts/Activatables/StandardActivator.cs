@@ -19,7 +19,7 @@ public class StandardActivator : MonoBehaviour, IActivatable
         foreach (MonoBehaviour mb in m_Activatables)
         {
             IActivatable activatable = mb as IActivatable;
-            if (activatable != null) 
+            if (activatable != null)
             {
                 m_Activatables_Internal.Add(activatable);
             }

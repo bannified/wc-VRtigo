@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-#region Singleton Implementation
+    #region Singleton Implementation
     private static object _lock = new object();
     private static GameManager _instance;
     public static GameManager Instance
@@ -50,11 +50,11 @@ public class GameManager : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// List of Registered PlayerControllers. 
+    /// List of Registered PlayerControllers.
     /// By default, PlayerControllers should be registering themselves with the GameManager on Start.
     /// </summary>
     [SerializeField]
-    private List<PlayerController> m_PlayerControllers =  new List<PlayerController>();
+    private List<PlayerController> m_PlayerControllers = new List<PlayerController>();
 
     private Dictionary<PlayerController, Character> m_ControllerToCharacterMap = new Dictionary<PlayerController, Character>();
 
@@ -93,11 +93,12 @@ public class GameManager : MonoBehaviour
         if (m_PlayerControllers.Count > controllerIndex)
         {
             PlayerController pc = m_PlayerControllers[controllerIndex];
-            
+
             Character result;
             m_ControllerToCharacterMap.TryGetValue(pc, out result);
             return result;
-        } else
+        }
+        else
         {
             return null;
         }
