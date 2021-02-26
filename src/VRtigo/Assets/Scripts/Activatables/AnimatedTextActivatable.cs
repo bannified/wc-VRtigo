@@ -22,8 +22,6 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
     private FadeOutScatterTextEffect m_ScatterEffect;
 
     private bool m_IsAnimating = false;
-    private bool m_IsFadingIn = false;
-    private bool m_IsFadingOut = false;
 
     void Start()
     {
@@ -35,18 +33,6 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         m_ScatterEffect = new FadeOutScatterTextEffect(m_TextMesh, m_ScatterRange, m_FadeOutDuration);
     }
 
-    void Update()
-    {
-        if (m_IsFadingIn)
-        {
-            m_FadeInEffect.Update();
-        }
-        else if (m_IsFadingOut)
-        {
-            m_ScatterEffect.Update();
-        }
-    }
-
     public void Activate()
     {
         if (!m_IsAnimating)
@@ -55,22 +41,33 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 
     IEnumerator AnimateText()
     {
+        float durationSoFar = 0.0f;
+        float totalDur = m_FadeInDuration + m_DisplayDuration;
+
         m_IsAnimating = true;
         m_TextMesh.SetText(m_Text);
         m_TextMesh.ForceMeshUpdate();
 
-        m_IsFadingIn = true;
+        while (durationSoFar < totalDur)
+        {
+            m_FadeInEffect.Update();
+            durationSoFar += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
 
-        yield return new WaitForSeconds(m_FadeInDuration + m_DisplayDuration);
+        durationSoFar = 0.0f;
+        totalDur = m_FadeOutDuration;
 
         m_ScatterEffect.SetText(m_TextMesh);
         m_ScatterEffect.SetVerticesPosition(m_FadeInEffect.GetVerticesPosition());
-        m_IsFadingIn = false;
-        m_IsFadingOut = true;
 
-        yield return new WaitForSeconds(m_FadeOutDuration);
+        while (durationSoFar < totalDur)
+        {
+            m_ScatterEffect.Update();
+            durationSoFar += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
 
-        m_IsFadingOut = false;
         m_IsAnimating = false;
     }
 }
