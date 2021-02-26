@@ -18,6 +18,7 @@ public class FadeInWobbleTextEffect
     {
         SetText(textMesh);
         SetParameters(xWobbleFinal, yWobbleFinal, fadeDuration, wobbleRange);
+        Reset();
     }
 
     public void SetText(TMP_Text textMesh)
@@ -34,7 +35,10 @@ public class FadeInWobbleTextEffect
         m_YWobbleFinal = yWobbleFinal;
         m_FadeDuration = fadeDuration;
         m_WobbleRange = wobbleRange;
+    }
 
+    public void Reset()
+    {
         m_DurationSoFar = 0.0f;
         m_Progress = 0.0f;
     }
@@ -83,14 +87,6 @@ public class FadeInWobbleTextEffect
         m_PrevVerts = vertices;
     }
 
-    /**
-     * Output a vector2 offset based on the given seed.
-     */
-    private static Vector2 WobbleWithAmplitude(float seed, float xWobble, float yWobble, float amplify)
-    {
-        return new Vector2(Mathf.Sin(seed * xWobble * amplify), Mathf.Cos(seed * yWobble * amplify));
-    }
-
     public float GetProgress()
     {
         return m_Progress;
@@ -104,5 +100,13 @@ public class FadeInWobbleTextEffect
     public void SetVerticesPosition(Vector3[] newPos)
     {
         m_PrevVerts = newPos;
+    }
+
+    /**
+     * Output a vector2 offset based on the given seed.
+     */
+    private static Vector2 WobbleWithAmplitude(float seed, float xWobble, float yWobble, float amplify)
+    {
+        return new Vector2(Mathf.Sin(seed * xWobble * amplify), Mathf.Cos(seed * yWobble * amplify));
     }
 }

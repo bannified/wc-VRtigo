@@ -48,6 +48,7 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         m_TextMesh.SetText(m_Text);
         m_TextMesh.ForceMeshUpdate();
 
+        // Keep updating FadeInEffect on each frame
         while (durationSoFar < totalDur)
         {
             m_FadeInEffect.Update();
@@ -61,12 +62,17 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         m_ScatterEffect.SetText(m_TextMesh);
         m_ScatterEffect.SetVerticesPosition(m_FadeInEffect.GetVerticesPosition());
 
+        // Keep updating ScatterEffect on each frame
         while (durationSoFar < totalDur)
         {
             m_ScatterEffect.Update();
             durationSoFar += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+
+        // Prepare for next Activate() call
+        m_FadeInEffect.Reset();
+        m_ScatterEffect.Reset();
 
         m_IsAnimating = false;
     }
