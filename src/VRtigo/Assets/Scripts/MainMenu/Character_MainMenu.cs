@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,10 @@ public class Character_MainMenu : Character
     protected Camera m_VRCamera;
     [SerializeField]
     protected GameObject m_CameraRig;
+    [SerializeField]
+    protected GrabController_MainMenu m_LeftGrab;
+    [SerializeField]
+    protected GrabController_MainMenu m_RightGrab;
 
     [SerializeField]
     protected Rigidbody m_Rigidbody;
@@ -207,6 +212,12 @@ public class Character_MainMenu : Character
     public void SetMaxMoveSpeed(float maxMoveSpeed)
     {
         m_MaxMoveSpeed = maxMoveSpeed;
+    }
+
+    public void Grab(SteamVR_Action_Boolean isGrab)
+    {
+        m_LeftGrab.CheckForGrab(isGrab);
+        m_RightGrab.CheckForGrab(isGrab);
     }
 }
 

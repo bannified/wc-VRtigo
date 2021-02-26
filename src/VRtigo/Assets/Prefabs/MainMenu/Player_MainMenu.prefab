@@ -80,10 +80,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerController: {fileID: 0}
-  m_Camera: {fileID: 3037816739789372453}
   m_CastedPlayerController: {fileID: 0}
   m_VRCamera: {fileID: 3037816739789372453}
   m_CameraRig: {fileID: 3057790021818214813}
+  m_LeftGrab: {fileID: 3699603113158385556}
+  m_RightGrab: {fileID: 7404498001025151226}
   m_Rigidbody: {fileID: 3057790021016051255}
   m_MovementMask: -1
   m_LinearMovementInputThreshold: 0.05
@@ -177,8 +178,6 @@ MonoBehaviour:
   m_Grabbing:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
-  m_LeftGrab: {fileID: 3699603113158385556}
-  m_RightGrab: {fileID: 7404498001025151226}
 --- !u!54 &3057790021016051255
 Rigidbody:
   m_ObjectHideFlags: 0

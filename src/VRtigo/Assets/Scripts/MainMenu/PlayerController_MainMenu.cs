@@ -26,8 +26,6 @@ public class PlayerController_MainMenu : PlayerController
 
     /* Grabbing */
     public SteamVR_Action_Boolean m_Grabbing;
-    public GrabController_MainMenu m_LeftGrab;
-    public GrabController_MainMenu m_RightGrab;
 
     private void SetupVRInputs()
     {
@@ -164,8 +162,7 @@ public class PlayerController_MainMenu : PlayerController
     }
     protected virtual void OnVRFixedUpdate()
     {
-        m_LeftGrab.CheckForGrab(m_Grabbing);
-        m_RightGrab.CheckForGrab(m_Grabbing);
+        m_CastedCharacter.Grab(m_Grabbing);
     }
 
     void NonVRFixedUpdate()
