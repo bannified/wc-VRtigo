@@ -21,7 +21,13 @@ namespace Valve.VR
         
         private static SteamVR_Input_ActionSet_platformer p_platformer;
         
+        private static SteamVR_Input_ActionSet_buggy p_buggy;
+        
+        private static SteamVR_Input_ActionSet_mixedreality p_mixedreality;
+        
         private static SteamVR_Input_ActionSet_EXPPlayerMovement p_EXPPlayerMovement;
+        
+        private static SteamVR_Input_ActionSet_ForcedCameraRotation p_ForcedCameraRotation;
         
         public static SteamVR_Input_ActionSet_default _default
         {
@@ -39,6 +45,22 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Input_ActionSet_buggy buggy
+        {
+            get
+            {
+                return SteamVR_Actions.p_buggy.GetCopy<SteamVR_Input_ActionSet_buggy>();
+            }
+        }
+        
+        public static SteamVR_Input_ActionSet_mixedreality mixedreality
+        {
+            get
+            {
+                return SteamVR_Actions.p_mixedreality.GetCopy<SteamVR_Input_ActionSet_mixedreality>();
+            }
+        }
+        
         public static SteamVR_Input_ActionSet_EXPPlayerMovement EXPPlayerMovement
         {
             get
@@ -47,15 +69,29 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Input_ActionSet_ForcedCameraRotation ForcedCameraRotation
+        {
+            get
+            {
+                return SteamVR_Actions.p_ForcedCameraRotation.GetCopy<SteamVR_Input_ActionSet_ForcedCameraRotation>();
+            }
+        }
+        
         private static void StartPreInitActionSets()
         {
             SteamVR_Actions.p__default = ((SteamVR_Input_ActionSet_default)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_default>("/actions/default")));
             SteamVR_Actions.p_platformer = ((SteamVR_Input_ActionSet_platformer)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_platformer>("/actions/platformer")));
+            SteamVR_Actions.p_buggy = ((SteamVR_Input_ActionSet_buggy)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_buggy>("/actions/buggy")));
+            SteamVR_Actions.p_mixedreality = ((SteamVR_Input_ActionSet_mixedreality)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_mixedreality>("/actions/mixedreality")));
             SteamVR_Actions.p_EXPPlayerMovement = ((SteamVR_Input_ActionSet_EXPPlayerMovement)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_EXPPlayerMovement>("/actions/EXPPlayerMovement")));
+            SteamVR_Actions.p_ForcedCameraRotation = ((SteamVR_Input_ActionSet_ForcedCameraRotation)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_ForcedCameraRotation>("/actions/ForcedCameraRotation")));
             Valve.VR.SteamVR_Input.actionSets = new Valve.VR.SteamVR_ActionSet[] {
                     SteamVR_Actions._default,
                     SteamVR_Actions.platformer,
-                    SteamVR_Actions.EXPPlayerMovement};
+                    SteamVR_Actions.buggy,
+                    SteamVR_Actions.mixedreality,
+                    SteamVR_Actions.EXPPlayerMovement,
+                    SteamVR_Actions.ForcedCameraRotation};
         }
     }
 }
