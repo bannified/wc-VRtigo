@@ -147,6 +147,10 @@
     {
       "name": "/actions/ForcedCameraRotation",
       "usage": "leftright"
+    },
+    {
+      "name": "/actions/Classroom",
+      "usage": "single"
     }
   ],
   "default_bindings": [
