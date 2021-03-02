@@ -83,6 +83,26 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/EXPPlayerMovement/in/Move",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/EXPPlayerMovement/in/MoveDirection",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/EXPPlayerMovement/in/TurnDirection",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/EXPPlayerMovement/in/Menu",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/EXPPlayerMovement/out/Haptic",
+      "type": "vibration"
+    },
+    {
       "name": "/actions/ForcedCameraRotation/in/Walking",
       "type": "vector2"
     },
@@ -118,6 +138,10 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/EXPPlayerMovement",
       "usage": "single"
     },
     {
@@ -197,7 +221,8 @@
       "/actions/ForcedCameraRotation/in/Walking": "Walking",
       "/actions/ForcedCameraRotation/in/CameraRotateRight": "Camera Rotate Right",
       "/actions/ForcedCameraRotation/in/CameraLookUp": " Camera Look Up",
-      "/actions/ForcedCameraRotation/in/CameraLookDown": "Camera Look Down"
+      "/actions/ForcedCameraRotation/in/CameraLookDown": "Camera Look Down",
+      "/actions/EXPPlayerMovement/out/Haptic": "Haptic"
     }
   ]
 }
