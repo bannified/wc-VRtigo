@@ -19,12 +19,12 @@ public class CarMovement : MonoBehaviour
         transform.Translate(speed * direction * Time.deltaTime);
     }
 
-    public void updateSpeed(float newSpeed) 
+    public void UpdateSpeed(float newSpeed) 
     {
         speed = newSpeed;
     }
 
-    public void updateDirection(Vector3 newDirection) 
+    public void UpdateDirection(Vector3 newDirection) 
     {
         direction = newDirection;
     }

@@ -33,8 +33,8 @@ public class CarSpawner : MonoBehaviour
     {
         GameObject car = Instantiate(carPrefabs[0], transform.position, Quaternion.identity) as GameObject;
         CarMovement component = car.GetComponent<CarMovement>();
-        component.updateSpeed(carSpeed);
-        component.updateDirection(carDirection);
+        component.UpdateSpeed(carSpeed);
+        component.UpdateDirection(carDirection);
         Destroy(car, despawnTime);
     }
 }

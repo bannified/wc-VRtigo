@@ -83,11 +83,11 @@ public class Movement : MonoBehaviour
             {
                 // Todo: Add head spinning maybe?
             }
-            flashDeathUI();
+            FlashDeathUI();
         }
     }
 
-    void flashDeathUI() 
+    void FlashDeathUI() 
     {
 
         Text ui = GameObject.Find("Death Screen/Text").GetComponent<Text>();
