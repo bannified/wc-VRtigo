@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poseAction:
-    actionPath: /actions/EXPPlayerMovement/in/Pose
+    actionPath: /actions/Classroom/in/Pose
     needsReinit: 0
   inputSource: 2
   origin: {fileID: 0}
