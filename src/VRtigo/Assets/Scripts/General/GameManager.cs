@@ -58,6 +58,19 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<PlayerController, Character> m_ControllerToCharacterMap = new Dictionary<PlayerController, Character>();
 
+    [SerializeField]
+    private ClassroomLessonData m_ClassroomData;
+
+    public void SetClassroomData(ClassroomLessonData classroomData)
+    {
+        m_ClassroomData = classroomData;
+    }
+
+    public ClassroomLessonData GetClassroomData()
+    {
+        return m_ClassroomData;
+    }
+
     public void RegisterPlayerController(PlayerController controller)
     {
         m_PlayerControllers.Add(controller);

@@ -12,6 +12,9 @@ public class StandardActivator : MonoBehaviour, IActivatable
     [SerializeField]
     private bool m_Activated = false;
 
+    [SerializeField]
+    private bool m_Reactivatable = false;
+
     private void Awake()
     {
         m_Activatables_Internal = new List<IActivatable>();
@@ -43,6 +46,11 @@ public class StandardActivator : MonoBehaviour, IActivatable
         foreach (IActivatable activatable in m_Activatables)
         {
             activatable.Activate();
+        }
+
+        if (m_Reactivatable)
+        {
+            m_Activated = false;
         }
     }
 }
