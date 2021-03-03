@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
+[System.Serializable]
+public struct ClassroomManagerPayload
+{
+    public ClassroomLessonData m_LessonData;
+}
+
 public class ClassroomManager : MonoBehaviour
 {
     #region Singleton Implementation
@@ -92,9 +98,9 @@ public class ClassroomManager : MonoBehaviour
             VRT_Helpers.ResetHMDPosition();
         }
 
-        if (m_AutoplayClassroom && m_ClassroomLessonData != null)
+        if (m_AutoplayClassroom && GameManager.Instance != null)
         {
-            StartLesson();
+            StartLesson(GameManager.Instance.GetClassroomManagerPayload().m_LessonData);
         }
     }
 

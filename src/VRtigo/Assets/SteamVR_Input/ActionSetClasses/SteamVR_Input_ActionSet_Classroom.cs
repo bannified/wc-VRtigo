@@ -16,5 +16,13 @@ namespace Valve.VR
     
     public class SteamVR_Input_ActionSet_Classroom : Valve.VR.SteamVR_ActionSet
     {
+        
+        public virtual SteamVR_Action_Pose Pose
+        {
+            get
+            {
+                return SteamVR_Actions.classroom_Pose;
+            }
+        }
     }
 }

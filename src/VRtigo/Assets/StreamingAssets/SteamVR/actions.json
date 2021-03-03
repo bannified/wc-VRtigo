@@ -99,6 +99,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/EXPPlayerMovement/in/Pose",
+      "type": "pose"
+    },
+    {
       "name": "/actions/EXPPlayerMovement/out/Haptic",
       "type": "vibration"
     },
@@ -121,6 +125,10 @@
     {
       "name": "/actions/ForcedCameraRotation/in/CameraLookDown",
       "type": "vector1"
+    },
+    {
+      "name": "/actions/Classroom/in/Pose",
+      "type": "pose"
     }
   ],
   "action_sets": [
