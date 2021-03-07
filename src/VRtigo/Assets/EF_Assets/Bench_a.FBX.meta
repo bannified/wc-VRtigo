@@ -3,7 +3,17 @@ guid: 4f2874461853f8545a5e01e6ae377c07
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BenchLeather_a_Mat
+    second: {fileID: 2100000, guid: 80b0b0e4e4b831045a5ee1592b09ac62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WritingDeskWood_a_Mat
+    second: {fileID: 2100000, guid: d362f217a4a5ce4419b645f449e90dea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

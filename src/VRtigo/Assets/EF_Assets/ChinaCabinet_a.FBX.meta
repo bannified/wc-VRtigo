@@ -3,7 +3,17 @@ guid: 3099c5bcac5a6084498f0e05f8a3ef7e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brass_a_Mat
+    second: {fileID: 2100000, guid: 4d8c30bf581341d4e8dbf29dc6080ed9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WM_WoodRough_b_mat
+    second: {fileID: 2100000, guid: 13f3c64becfe2b048b8b73269c96d68b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,12 @@ guid: 2f2c7be9b5be8fe43b6fb683576a8dee
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DiningRoomChandelier_a_Mat
+    second: {fileID: 2100000, guid: 45fc78ff658242d45b679176b88ab086, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

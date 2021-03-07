@@ -3,7 +3,17 @@ guid: e52f6d5bb6a61a14bb945a5d096c3dd3
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SamRoomFlag_a_Mat
+    second: {fileID: 2100000, guid: 80b0b0e4e4b831045a5ee1592b09ac62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WM_MetalBasic_a_mat
+    second: {fileID: 2100000, guid: 969e037b9856b5c4f8996e9806473842, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

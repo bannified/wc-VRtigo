@@ -3,7 +3,12 @@ guid: 3cbc5b12cd95436468f36bd188c8bd54
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WM_LaqueredWhiteWood_a_Mat
+    second: {fileID: 2100000, guid: 13f3c64becfe2b048b8b73269c96d68b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

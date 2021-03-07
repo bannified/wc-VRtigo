@@ -3,7 +3,17 @@ guid: 971042da9c4772b4d89b7a2752096bdb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brick_a_mat
+    second: {fileID: 2100000, guid: c01d19adc771b184cb4b2878be4ad88f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WM_ConcreteBare_a_mat
+    second: {fileID: 2100000, guid: 7f971918aa585c040bedbbeed33c40ad, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
