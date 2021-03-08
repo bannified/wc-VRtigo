@@ -3,7 +3,17 @@ guid: 1398ac32dd576e5418bb73d473048218
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShelfWoodTrim_Mat
+    second: {fileID: 2100000, guid: 085a847102b001e4c9b791279fa1ce42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShelfWood_Mat
+    second: {fileID: 2100000, guid: d362f217a4a5ce4419b645f449e90dea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

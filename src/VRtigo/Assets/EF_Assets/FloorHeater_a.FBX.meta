@@ -3,7 +3,12 @@ guid: a98b021226a502f42812ab4f44e65f08
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorHeater_a_Mat
+    second: {fileID: 2100000, guid: 522c8e9364563af429ba71b5d1e0305b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

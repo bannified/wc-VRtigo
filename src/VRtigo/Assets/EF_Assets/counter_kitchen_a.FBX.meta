@@ -3,7 +3,22 @@ guid: 3508e02289406fe4e8332e81d129b10f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabinetPaintedWood_a_Mat
+    second: {fileID: 2100000, guid: 8f91b8f20e179d144b2b98fe0f7a6fd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CleanMetal_a_Mat
+    second: {fileID: 2100000, guid: 6ffd619294b9cea4d8045a79066b5cac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CounterWood_a_Mat
+    second: {fileID: 2100000, guid: d362f217a4a5ce4419b645f449e90dea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
