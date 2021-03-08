@@ -7,6 +7,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: LivingRoomWindow_a_mat
+    second: {fileID: 2100000, guid: 71a1b6c7fb941d24ca5e0e151128dcee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LivingRoomWindow_b_mat
+    second: {fileID: 2100000, guid: 71a1b6c7fb941d24ca5e0e151128dcee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LivingRoomWindow_c_mat
+    second: {fileID: 2100000, guid: 71a1b6c7fb941d24ca5e0e151128dcee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: WM_MetalBasic_a_mat
     second: {fileID: 2100000, guid: 969e037b9856b5c4f8996e9806473842, type: 2}
   - first:
