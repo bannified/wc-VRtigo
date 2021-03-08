@@ -26,18 +26,7 @@ public class SceneTransistor : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            if (_instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
+        _instance = this;
     }
     #endregion
 
@@ -52,18 +41,38 @@ public class SceneTransistor : MonoBehaviour
 
     private string m_SceneName = "SampleScene";
 
-    private void Update()
+    private void Start()
     {
+        m_PlayerCamera = Camera.main;
         if (m_PlayerCamera == null)
         {
-            return;
+            Debug.LogError("There is no camera tagged as MainCamera");
         }
 
-        Vector3 cameraForward = m_PlayerCamera.transform.forward;
+        //m_SceneTransistorAnimator = GetComponent<Animator>();
 
-        // Make sure entire canvas is always in front of camera and rotated correctly
-        transform.position = m_PlayerCamera.transform.position + cameraForward * 0.00001f;
-        transform.LookAt(2 * transform.position - m_PlayerCamera.transform.position);
+        //// Reset transform
+        //transform.position = Vector3.zero;
+        //transform.rotation = Quaternion.identity;
+
+        //// Set it to world space
+        //Canvas fadeCanvas = GetComponent<Canvas>();
+        //fadeCanvas.renderMode = RenderMode.WorldSpace;
+        //fadeCanvas.worldCamera = m_PlayerCamera;
+
+        //Vector3 cameraForward = m_PlayerCamera.transform.forward;
+        //cameraForward.y = 0.0f;
+
+        // Make sure black screen is always in front of camera and rotated correctly
+        //Image blackScreen = GetComponentInChildren<Image>();
+        //blackScreen.transform.position = m_PlayerCamera.transform.position + cameraForward;
+        //blackScreen.transform.rotation = Quaternion.LookRotation(cameraForward);
+
+        // Set camera as parent, so it moves as camera moves
+        transform.SetParent(m_PlayerCamera.transform);
+
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
 
     /**
@@ -75,10 +84,6 @@ public class SceneTransistor : MonoBehaviour
      */
     public void FadeToScene(string sceneName)
     {
-        m_PlayerCamera = Camera.main;
-        m_Canvas.worldCamera = m_PlayerCamera;
-
-        this.gameObject.SetActive(true);
         m_SceneName = sceneName;
 
         // Start animation
@@ -91,8 +96,5 @@ public class SceneTransistor : MonoBehaviour
     public void LoadScene()
     {
         SceneManager.LoadScene(m_SceneName);
-        m_SceneTransistorAnimator.SetTrigger("FadeIn");
-        m_PlayerCamera = Camera.main;
-        m_Canvas.worldCamera = m_PlayerCamera;
     }
 }
