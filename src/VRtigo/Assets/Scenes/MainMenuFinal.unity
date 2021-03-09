@@ -3671,6 +3671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBookcase_b
       objectReference: {fileID: 0}
+    - target: {fileID: 4890696129163862185, guid: c8de1992b3b38a04fa9c787ba2aa785d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc2a14b8a3f639744b36def5d5350b4c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8de1992b3b38a04fa9c787ba2aa785d, type: 3}
 --- !u!4 &1874582351 stripped
