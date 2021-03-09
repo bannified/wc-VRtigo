@@ -17,6 +17,9 @@ public class GrabController_MainMenu : MonoBehaviour
     private bool m_IsGrabbing = false;
 
     [SerializeField]
+    private GameObject m_GrabbedObject;
+
+    [SerializeField]
     private IGrabbable m_GrabbedObjectGrabbable;
 
     [SerializeField]
@@ -34,6 +37,7 @@ public class GrabController_MainMenu : MonoBehaviour
 
             if (bHit)
             {
+                m_GrabbedObject = hit.collider.gameObject;
                 m_GrabbedObjectRb = hit.collider.transform.root.GetComponent<Rigidbody>();
                 m_GrabbedObjectRb.maxAngularVelocity = m_MaxAngularVelocity;
 
@@ -50,6 +54,7 @@ public class GrabController_MainMenu : MonoBehaviour
                     m_GrabbedObjectGrabbable.Dropped();
                 }
 
+                m_GrabbedObject = null;
                 m_GrabbedObjectGrabbable = null;
                 m_GrabbedObjectRb = null;
             }
@@ -75,4 +80,8 @@ public class GrabController_MainMenu : MonoBehaviour
         }
     }
 
+    public GameObject GetGrabbedObject()
+    {
+        return m_GrabbedObject;
+    }
 }

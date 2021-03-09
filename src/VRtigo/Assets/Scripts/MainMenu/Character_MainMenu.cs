@@ -137,5 +137,11 @@ public class Character_MainMenu : Character
         m_LeftGrab.CheckForGrab(isLeftGrabbing);
         m_RightGrab.CheckForGrab(isRightGrabbing);
     }
+
+    // Returns an GameObject[] of [left grabbed object, right grabbed object]
+    public GameObject[] GetGrabbedObjects()
+    {
+        return new GameObject[] { m_LeftGrab.GetGrabbedObject(), m_RightGrab.GetGrabbedObject() };
+    }
 }
 
