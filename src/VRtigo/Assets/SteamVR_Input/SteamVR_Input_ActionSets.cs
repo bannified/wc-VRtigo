@@ -31,6 +31,8 @@ namespace Valve.VR
         
         private static SteamVR_Input_ActionSet_Classroom p_Classroom;
         
+        private static SteamVR_Input_ActionSet_PlayerForcedMovement p_PlayerForcedMovement;
+        
         public static SteamVR_Input_ActionSet_default _default
         {
             get
@@ -87,6 +89,14 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Input_ActionSet_PlayerForcedMovement PlayerForcedMovement
+        {
+            get
+            {
+                return SteamVR_Actions.p_PlayerForcedMovement.GetCopy<SteamVR_Input_ActionSet_PlayerForcedMovement>();
+            }
+        }
+        
         private static void StartPreInitActionSets()
         {
             SteamVR_Actions.p__default = ((SteamVR_Input_ActionSet_default)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_default>("/actions/default")));
@@ -96,6 +106,7 @@ namespace Valve.VR
             SteamVR_Actions.p_EXPPlayerMovement = ((SteamVR_Input_ActionSet_EXPPlayerMovement)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_EXPPlayerMovement>("/actions/EXPPlayerMovement")));
             SteamVR_Actions.p_ForcedCameraRotation = ((SteamVR_Input_ActionSet_ForcedCameraRotation)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_ForcedCameraRotation>("/actions/ForcedCameraRotation")));
             SteamVR_Actions.p_Classroom = ((SteamVR_Input_ActionSet_Classroom)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_Classroom>("/actions/Classroom")));
+            SteamVR_Actions.p_PlayerForcedMovement = ((SteamVR_Input_ActionSet_PlayerForcedMovement)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_PlayerForcedMovement>("/actions/PlayerForcedMovement")));
             Valve.VR.SteamVR_Input.actionSets = new Valve.VR.SteamVR_ActionSet[] {
                     SteamVR_Actions._default,
                     SteamVR_Actions.platformer,
@@ -103,7 +114,8 @@ namespace Valve.VR
                     SteamVR_Actions.mixedreality,
                     SteamVR_Actions.EXPPlayerMovement,
                     SteamVR_Actions.ForcedCameraRotation,
-                    SteamVR_Actions.Classroom};
+                    SteamVR_Actions.Classroom,
+                    SteamVR_Actions.PlayerForcedMovement};
         }
     }
 }

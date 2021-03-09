@@ -79,6 +79,12 @@ namespace Valve.VR
         
         private static SteamVR_Action_Pose p_classroom_Pose;
         
+        private static SteamVR_Action_Boolean p_playerForcedMovement_Fire;
+        
+        private static SteamVR_Action_Pose p_playerForcedMovement_Pose;
+        
+        private static SteamVR_Action_Vibration p_playerForcedMovement_Haptic;
+        
         public static SteamVR_Action_Boolean default_InteractUI
         {
             get
@@ -327,6 +333,30 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Action_Boolean playerForcedMovement_Fire
+        {
+            get
+            {
+                return SteamVR_Actions.p_playerForcedMovement_Fire.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
+        public static SteamVR_Action_Pose playerForcedMovement_Pose
+        {
+            get
+            {
+                return SteamVR_Actions.p_playerForcedMovement_Pose.GetCopy<SteamVR_Action_Pose>();
+            }
+        }
+        
+        public static SteamVR_Action_Vibration playerForcedMovement_Haptic
+        {
+            get
+            {
+                return SteamVR_Actions.p_playerForcedMovement_Haptic.GetCopy<SteamVR_Action_Vibration>();
+            }
+        }
+        
         private static void InitializeActionArrays()
         {
             Valve.VR.SteamVR_Input.actions = new Valve.VR.SteamVR_Action[] {
@@ -360,7 +390,10 @@ namespace Valve.VR
                     SteamVR_Actions.forcedCameraRotation_CameraRotateRight,
                     SteamVR_Actions.forcedCameraRotation_CameraLookUp,
                     SteamVR_Actions.forcedCameraRotation_CameraLookDown,
-                    SteamVR_Actions.classroom_Pose};
+                    SteamVR_Actions.classroom_Pose,
+                    SteamVR_Actions.playerForcedMovement_Fire,
+                    SteamVR_Actions.playerForcedMovement_Pose,
+                    SteamVR_Actions.playerForcedMovement_Haptic};
             Valve.VR.SteamVR_Input.actionsIn = new Valve.VR.ISteamVR_Action_In[] {
                     SteamVR_Actions.default_InteractUI,
                     SteamVR_Actions.default_Teleport,
@@ -390,18 +423,23 @@ namespace Valve.VR
                     SteamVR_Actions.forcedCameraRotation_CameraRotateRight,
                     SteamVR_Actions.forcedCameraRotation_CameraLookUp,
                     SteamVR_Actions.forcedCameraRotation_CameraLookDown,
-                    SteamVR_Actions.classroom_Pose};
+                    SteamVR_Actions.classroom_Pose,
+                    SteamVR_Actions.playerForcedMovement_Fire,
+                    SteamVR_Actions.playerForcedMovement_Pose};
             Valve.VR.SteamVR_Input.actionsOut = new Valve.VR.ISteamVR_Action_Out[] {
                     SteamVR_Actions.default_Haptic,
-                    SteamVR_Actions.eXPPlayerMovement_Haptic};
+                    SteamVR_Actions.eXPPlayerMovement_Haptic,
+                    SteamVR_Actions.playerForcedMovement_Haptic};
             Valve.VR.SteamVR_Input.actionsVibration = new Valve.VR.SteamVR_Action_Vibration[] {
                     SteamVR_Actions.default_Haptic,
-                    SteamVR_Actions.eXPPlayerMovement_Haptic};
+                    SteamVR_Actions.eXPPlayerMovement_Haptic,
+                    SteamVR_Actions.playerForcedMovement_Haptic};
             Valve.VR.SteamVR_Input.actionsPose = new Valve.VR.SteamVR_Action_Pose[] {
                     SteamVR_Actions.default_Pose,
                     SteamVR_Actions.mixedreality_ExternalCamera,
                     SteamVR_Actions.eXPPlayerMovement_Pose,
-                    SteamVR_Actions.classroom_Pose};
+                    SteamVR_Actions.classroom_Pose,
+                    SteamVR_Actions.playerForcedMovement_Pose};
             Valve.VR.SteamVR_Input.actionsBoolean = new Valve.VR.SteamVR_Action_Boolean[] {
                     SteamVR_Actions.default_InteractUI,
                     SteamVR_Actions.default_Teleport,
@@ -413,7 +451,8 @@ namespace Valve.VR
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Brake,
                     SteamVR_Actions.buggy_Reset,
-                    SteamVR_Actions.eXPPlayerMovement_Menu};
+                    SteamVR_Actions.eXPPlayerMovement_Menu,
+                    SteamVR_Actions.playerForcedMovement_Fire};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.default_Squeeze,
                     SteamVR_Actions.buggy_Throttle,
@@ -455,7 +494,8 @@ namespace Valve.VR
                     SteamVR_Actions.forcedCameraRotation_CameraRotateLeft,
                     SteamVR_Actions.forcedCameraRotation_CameraRotateRight,
                     SteamVR_Actions.forcedCameraRotation_CameraLookUp,
-                    SteamVR_Actions.forcedCameraRotation_CameraLookDown};
+                    SteamVR_Actions.forcedCameraRotation_CameraLookDown,
+                    SteamVR_Actions.playerForcedMovement_Fire};
         }
         
         private static void PreInitActions()
@@ -491,6 +531,9 @@ namespace Valve.VR
             SteamVR_Actions.p_forcedCameraRotation_CameraLookUp = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/ForcedCameraRotation/in/CameraLookUp")));
             SteamVR_Actions.p_forcedCameraRotation_CameraLookDown = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/ForcedCameraRotation/in/CameraLookDown")));
             SteamVR_Actions.p_classroom_Pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/Classroom/in/Pose")));
+            SteamVR_Actions.p_playerForcedMovement_Fire = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/PlayerForcedMovement/in/Fire")));
+            SteamVR_Actions.p_playerForcedMovement_Pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/PlayerForcedMovement/in/Pose")));
+            SteamVR_Actions.p_playerForcedMovement_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/PlayerForcedMovement/out/Haptic")));
         }
     }
 }
