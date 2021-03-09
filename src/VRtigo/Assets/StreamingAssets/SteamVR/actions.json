@@ -129,6 +129,18 @@
     {
       "name": "/actions/Classroom/in/Pose",
       "type": "pose"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/in/Fire",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/in/Pose",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/out/Haptic",
+      "type": "vibration"
     }
   ],
   "action_sets": [
@@ -158,6 +170,10 @@
     },
     {
       "name": "/actions/Classroom",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement",
       "usage": "single"
     }
   ],
