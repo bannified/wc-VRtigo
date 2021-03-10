@@ -15,6 +15,9 @@ public class ClassroomScreen : MonoBehaviour
 
     private Coroutine m_DialogueRevealCoroutine;
 
+    [SerializeField]
+    private ClassroomNarrator m_Narrator;
+
     private void Start()
     {
         SetupListeners();
@@ -33,6 +36,8 @@ public class ClassroomScreen : MonoBehaviour
         m_SubtitleText.maxVisibleCharacters = 0;
 
         m_DialogueRevealCoroutine = StartCoroutine(DialogueRevealRoutine());
+
+        m_Narrator.NarrateString(m_SubtitleText.text);
     }
 
     private void HandleOnLessonStepEnd(LessonStep lessonStep)
