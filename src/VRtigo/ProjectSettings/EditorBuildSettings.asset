@@ -6,17 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenuFinal.unity
-    guid: 3b916b33c98a4fb4dbe133f44bbef8c6
+    path: Assets/Scenes/SampleScene.unity
+    guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/Scenes/ForcedRotationScene.unity
-    guid: 39d9db36cfbdec142b1d47db8d38e577
+    path: Assets/Scenes/Classroom/Scene_Classroom.unity
+    guid: ffbb5b16bf15500468a7471315b1ed4f
   - enabled: 1
-    path: Assets/Scenes/Experiences/PlayerForcedMovement/PlayerForcedMovement.unity
-    guid: 1143497f4f9f00246ba38c05a7b3fb31
-  - enabled: 1
-    path: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_PlayerInitiatedMovement
-      1.unity
+    path: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_PlayerInitiatedMovement.unity
     guid: c368c53e280ac0344b4a9012200047fb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1e045e76051ed2b4ba3a4bb224cb3b4c, type: 2}

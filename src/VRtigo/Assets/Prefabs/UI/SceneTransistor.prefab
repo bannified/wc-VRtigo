@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7665725260401784673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7291602369993993696}
@@ -208,5 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0527320e7251d0e42b8edd61030fed51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneTransistorAnimator: {fileID: 0}
+  m_SceneTransistorAnimator: {fileID: 3378198719663135572}
   m_PlayerCamera: {fileID: 0}
+  m_Canvas: {fileID: 7597100891739831412}

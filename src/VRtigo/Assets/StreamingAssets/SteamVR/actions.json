@@ -99,6 +99,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/EXPPlayerMovement/in/Pose",
+      "type": "pose"
+    },
+    {
       "name": "/actions/EXPPlayerMovement/out/Haptic",
       "type": "vibration"
     },
@@ -121,6 +125,22 @@
     {
       "name": "/actions/ForcedCameraRotation/in/CameraLookDown",
       "type": "vector1"
+    },
+    {
+      "name": "/actions/Classroom/in/Pose",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/in/Fire",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/in/Pose",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/out/Haptic",
+      "type": "vibration"
     }
   ],
   "action_sets": [
@@ -147,6 +167,14 @@
     {
       "name": "/actions/ForcedCameraRotation",
       "usage": "leftright"
+    },
+    {
+      "name": "/actions/Classroom",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement",
+      "usage": "single"
     }
   ],
   "default_bindings": [

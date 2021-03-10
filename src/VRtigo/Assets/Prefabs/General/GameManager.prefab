@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d8d5335b687d441ab779b47cdbd37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerControllers: []
+  m_ClassroomManagerPayload:
+    m_LessonData: {fileID: 11400000, guid: e6b83bb5cd890f34b9e77243467cace9, type: 2}
