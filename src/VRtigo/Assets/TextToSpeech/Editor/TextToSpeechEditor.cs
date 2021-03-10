@@ -29,5 +29,8 @@ public class TextToSpeechEditor : EditorWindow
         {
             TextToSpeechManager.clearSpeechQueue();
         }
+
+        string statusMessage = string.Format("Current Status: {0}", TextToSpeechManager.GetStatusMessage());
+        GUILayout.Label(statusMessage, EditorStyles.boldLabel);
     }
 }

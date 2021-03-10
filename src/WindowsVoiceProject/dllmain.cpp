@@ -75,7 +75,7 @@ namespace WindowsVoice {
           theStatusMessage = L"Error: SPRS_IS_SPEAKING but text is NULL";
         else
         {
-            SetStatus(VoiceStatus::Speaking);
+          SetStatus(VoiceStatus::Speaking);
           theStatusMessage = L"Speaking: ";
           theStatusMessage.append(priorText);
           if (!theSpeechQueue.empty())
@@ -92,7 +92,7 @@ namespace WindowsVoice {
       }
       else
       {
-          SetStatus(VoiceStatus::Waiting);
+        SetStatus(VoiceStatus::Waiting);
         theStatusMessage = L"Waiting.";
         if (priorText != NULL)
         {
@@ -138,6 +138,11 @@ namespace WindowsVoice {
     }
   }
 
+  bool getIsInitialized()
+  {
+      return theSpeechThread != nullptr;
+  }
+
   void clearSpeechQueue()
   {
     theMutex.lock();
@@ -170,6 +175,7 @@ namespace WindowsVoice {
     theSpeechQueue.clear();
     delete theSpeechThread;
     theSpeechThread = nullptr;
+    statusUpdateCallback = nullptr;
     CoUninitialize();
     theStatusMessage = L"Speech destroyed.";
   }

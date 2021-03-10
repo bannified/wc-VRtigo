@@ -23,6 +23,7 @@ namespace WindowsVoice {
   typedef void (__stdcall* WV_CALLBACK)(VoiceStatus);
 
   extern "C" {
+    DLL_API bool __cdecl getIsInitialized();
     DLL_API void __cdecl initSpeech();
     DLL_API void __cdecl addToSpeechQueue(const char* text);
     DLL_API void __cdecl clearSpeechQueue();
@@ -30,7 +31,6 @@ namespace WindowsVoice {
     DLL_API void __cdecl statusMessage(char* msg,  int msgLen);
     DLL_API void __cdecl setStatusUpdateCallback(WV_CALLBACK callback);
   }
-
 
   WV_CALLBACK statusUpdateCallback;
 

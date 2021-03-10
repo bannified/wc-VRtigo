@@ -16,6 +16,8 @@ public enum VoiceStatus : sbyte
 public class TextToSpeechManager
 {
     [DllImport("WindowsVoice")]
+    public static extern bool getIsInitialized();
+    [DllImport("WindowsVoice")]
     public static extern void initSpeech();
     [DllImport("WindowsVoice")]
     public static extern void destroySpeech();
@@ -32,25 +34,43 @@ public class TextToSpeechManager
     //[UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void statusUpdateCallback(VoiceStatus status);
 
-    private static bool bIsInitialized = false;
+    private static statusUpdateCallback m_StatusUpdateCallback;
 
     static TextToSpeechManager()
     {
-        if (bIsInitialized)
+        AssemblyReloadEvents.beforeAssemblyReload -= OnBeforeAssemblyReload;
+        AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyReload;
+
+        EditorApplication.quitting -= OnEditorApplicationQuitting;
+        EditorApplication.quitting += OnEditorApplicationQuitting;
+
+        m_StatusUpdateCallback = new statusUpdateCallback(OnStatusUpdate);
+        setStatusUpdateCallback(m_StatusUpdateCallback);
+
+        if (!getIsInitialized())
+        {
+            initSpeech();
+        }
+    }
+
+    private static void OnBeforeAssemblyReload()
+    {
+        if (getIsInitialized())
         {
             destroySpeech();
         }
-
-        setStatusUpdateCallback(new statusUpdateCallback(OnStatusUpdate));
-        bIsInitialized = true;
-        initSpeech();
-        EditorApplication.quitting += OnEditorApplicationQuitting;
     }
 
     private static void OnStatusUpdate(VoiceStatus status)
     {
         Debug.Log(string.Format("TTS Manage status changed: {0}", status.ToString()));
+    }
 
+    public static string GetStatusMessage()
+    {
+        StringBuilder sb = new StringBuilder(40);
+        statusMessage(sb, 40);
+        return sb.ToString();
     }
 
     private static void OnEditorApplicationQuitting()
