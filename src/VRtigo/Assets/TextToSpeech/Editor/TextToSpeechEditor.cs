@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class TextToSpeechEditor : EditorWindow
 {
-    private string m_InputText;
+    private string m_InputText = "";
 
     [MenuItem("VRtigo/Text-To-Speech")]
     public static void ShowWindow()
@@ -25,12 +25,17 @@ public class TextToSpeechEditor : EditorWindow
             TextToSpeechManager.addToSpeechQueue(m_InputText);
         }
 
+        if (GUILayout.Button("Skip current Speech"))
+        {
+            TextToSpeechManager.stopSpeech();
+        }
+
         if (GUILayout.Button("Clear Speech queue"))
         {
             TextToSpeechManager.clearSpeechQueue();
         }
 
-        string statusMessage = string.Format("Current Status: {0}", TextToSpeechManager.GetStatusMessage());
+        string statusMessage = string.Format("Current Status: {0}", TextToSpeechManager.GetStatusMessage(m_InputText.Length));
         GUILayout.Label(statusMessage, EditorStyles.boldLabel);
     }
 }

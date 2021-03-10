@@ -3,6 +3,9 @@
 #include "WindowsVoice.h"
 
 #include <sapi.h>
+#pragma warning(disable:4996)
+#include <sphelper.h>
+#pragma warning(default:4996) 
 //#include <iostream>
 
 namespace WindowsVoice {
@@ -10,11 +13,11 @@ namespace WindowsVoice {
   void speechThreadFunc()
   {
       SetStatus(VoiceStatus::Initializing);
-    ISpVoice * pVoice = NULL;
+      pVoice = NULL;
 
     if (FAILED(::CoInitializeEx(NULL, COINITBASE_MULTITHREADED)))
     {
-      theStatusMessage = L"Failed to initialize COM for Voice.";
+        SetStatusMessage(L"Failed to initialize COM for Voice.");
       return;
     }
 
@@ -26,10 +29,19 @@ namespace WindowsVoice {
       ::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
         NULL, hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), pText, 0, NULL);
       LocalFree(pText);
-      theStatusMessage = L"Failed to create Voice instance.";
+      SetStatusMessage(L"Failed to create Voice instance.");
       return;
     }
-    theStatusMessage = L"Speech ready.";
+
+    CComPtr<ISpAudio> audio;
+    CSpStreamFormat format;
+    format.AssignFormat(SPSF_Default);
+    SpCreateDefaultObjectFromCategoryId(SPCAT_AUDIOOUT, &audio);
+    voiceAudio = audio;
+    audio->SetFormat(format.FormatId(), format.WaveFormatExPtr());
+    pVoice->SetOutput(audio, FALSE);
+
+    SetStatusMessage(L"Speech ready.");
 /*
     //std::cout << "Speech ready.\n";
     wchar_t* priorText = nullptr;
@@ -72,12 +84,13 @@ namespace WindowsVoice {
       if (voiceStatus.dwRunningState == SPRS_IS_SPEAKING)
       {
         if (priorText == nullptr)
-          theStatusMessage = L"Error: SPRS_IS_SPEAKING but text is NULL";
+          SetStatusMessage(L"Error: SPRS_IS_SPEAKING but text is NULL");
         else
         {
           SetStatus(VoiceStatus::Speaking);
-          theStatusMessage = L"Speaking: ";
-          theStatusMessage.append(priorText);
+          std::wstring msg = L"Speaking: ";
+          msg.append(priorText);
+          SetStatusMessage(msg);
           if (!theSpeechQueue.empty())
           {
             theMutex.lock();
@@ -93,7 +106,7 @@ namespace WindowsVoice {
       else
       {
         SetStatus(VoiceStatus::Waiting);
-        theStatusMessage = L"Waiting.";
+        SetStatusMessage(L"Waiting.");
         if (priorText != NULL)
         {
           delete[] priorText;
@@ -105,16 +118,19 @@ namespace WindowsVoice {
           priorText = theSpeechQueue.front();
           theSpeechQueue.pop_front();
           theMutex.unlock();
-          pVoice->Speak(priorText, SPF_IS_XML | SPF_ASYNC, NULL);
+          audioMutex.lock();
+          voiceAudio->SetState(SPAS_RUN, 0);
+          pVoice->Speak(priorText, SPF_IS_XML | SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
+          audioMutex.unlock();
         }
       }
-      Sleep(50);
+      Sleep(20);
     }
     SetStatus(VoiceStatus::Terminating);
     pVoice->Pause();
     pVoice->Release();
 
-    theStatusMessage = L"Speech thread terminated.";
+    SetStatusMessage(L"Speech thread terminated.");
   }
 
   void setStatusUpdateCallback(WV_CALLBACK callback)
@@ -155,21 +171,29 @@ namespace WindowsVoice {
     shouldTerminate = false;
     if (theSpeechThread != nullptr)
     {
-      theStatusMessage = L"Windows Voice thread already started.";
+        SetStatusMessage(L"Windows Voice thread already started.");
       return;
     }
-    theStatusMessage = L"Starting Windows Voice.";
+    SetStatusMessage(L"Starting Windows Voice.");
     theSpeechThread = new std::thread(WindowsVoice::speechThreadFunc);
+  }
+
+  void stopSpeech()
+  {
+      //pVoice->Pause();
+      audioMutex.lock();
+      voiceAudio->SetState(SPAS_STOP, 0);
+      audioMutex.unlock();
   }
 
   void destroySpeech()
   {
     if (theSpeechThread == nullptr)
     {
-      theStatusMessage = L"Speach thread already destroyed or not started.";
+        SetStatusMessage(L"Speach thread already destroyed or not started.");
       return;
     }
-    theStatusMessage = L"Destroying speech.";
+    SetStatusMessage(L"Destroying speech.");
     shouldTerminate = true;
     theSpeechThread->join();
     theSpeechQueue.clear();
@@ -177,7 +201,7 @@ namespace WindowsVoice {
     theSpeechThread = nullptr;
     statusUpdateCallback = nullptr;
     CoUninitialize();
-    theStatusMessage = L"Speech destroyed.";
+    SetStatusMessage(L"Speech destroyed.");
   }
 
   void statusMessage(char* msg, int msgLen)
@@ -197,6 +221,11 @@ namespace WindowsVoice {
               statusUpdateCallback(status);
           }
       }
+  }
+
+  void SetStatusMessage(const std::wstring& message)
+  {
+      theStatusMessage = message;
   }
 }
 

@@ -26,6 +26,8 @@ public class TextToSpeechManager
     [DllImport("WindowsVoice")]
     public static extern void clearSpeechQueue();
     [DllImport("WindowsVoice")]
+    public static extern void stopSpeech();
+    [DllImport("WindowsVoice")]
     public static extern void statusMessage(StringBuilder str, int length);
 
     [DllImport("WindowsVoice")]
@@ -66,10 +68,10 @@ public class TextToSpeechManager
         Debug.Log(string.Format("TTS Manage status changed: {0}", status.ToString()));
     }
 
-    public static string GetStatusMessage()
+    public static string GetStatusMessage(int additionalLength = 0)
     {
-        StringBuilder sb = new StringBuilder(40);
-        statusMessage(sb, 40);
+        StringBuilder sb = new StringBuilder(40 + additionalLength);
+        statusMessage(sb, 40 + additionalLength);
         return sb.ToString();
     }
 
