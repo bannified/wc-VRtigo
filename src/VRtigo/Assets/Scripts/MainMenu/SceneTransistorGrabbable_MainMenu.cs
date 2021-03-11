@@ -7,26 +7,15 @@ public class SceneTransistorGrabbable_MainMenu : MonoBehaviour, IGrabbable
 {
     [SerializeField]
     protected RecordPlayer_MainMenu m_RecordPlayer;
-
-    public bool fly = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (fly)
-        {
-            m_RecordPlayer.SetDisc(this);
-            fly = false;
-        }
-    }
+    [SerializeField]
+    protected string m_SceneName;
+    [SerializeField]
+    protected string m_MusicName;
 
     public void Grabbed() { }
 
     public void Dropped() { }
+
+    public string GetSceneName() { return m_SceneName; }
+    public string GetMusicName() { return m_MusicName; }
 }

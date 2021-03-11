@@ -4,9 +4,11 @@ using System.Collections;
 public class RecordPlayer_MainMenu : MonoBehaviour
 {
     [SerializeField]
-    protected bool m_RecordPlayerActive = false;
+    protected SceneTransistor m_SceneTransistor;
     [SerializeField]
-    protected bool m_SettingDisc = false;
+    protected float m_MusicDelay = 0.5f;
+    [SerializeField]
+    protected float m_MusicDurBeforeFade = 1.5f;
 
     [SerializeField]
     protected float m_SettingSpeed = 0.05f;
@@ -22,6 +24,10 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     [SerializeField]
     protected SceneTransistorGrabbable_MainMenu m_CurrDisc;
 
+    private bool m_RecordPlayerActive = false;
+    private bool m_SettingDisc = false;
+    private bool m_Transitioning = false;
+
     private float m_ArmAngle;
     private float m_DiscAngle;
     private float m_DiscSpeed;
@@ -32,26 +38,39 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_DiscAngle = 0.0f;
         m_DiscSpeed = 0.0f;
     }
-    public void Activate()
+
+    public void SetDisc(SceneTransistorGrabbable_MainMenu disc)
     {
-        if (!m_RecordPlayerActive)
+        if (!m_Transitioning)
         {
-            StartCoroutine("PlayDisc");
+            m_CurrDisc = disc;
+            StartCoroutine("SetDiscAndTransition");
         }
     }
 
-    public void Deactivate()
+    public void DeactivateRecordPlayer()
     {
         m_RecordPlayerActive = false;
     }
 
-    public void SetDisc(SceneTransistorGrabbable_MainMenu disc)
+    IEnumerator SetDiscAndTransition()
     {
+        m_Transitioning = true;
+
         if (!m_SettingDisc)
-        {
-            m_CurrDisc = disc;
-            StartCoroutine("SetDiscToTarget");
-        }
+            yield return StartCoroutine("SetDiscToTarget");
+
+        if (!m_RecordPlayerActive)
+            StartCoroutine("PlayDisc");
+
+        yield return new WaitForSeconds(m_MusicDelay);
+
+        // TODO: play music
+
+        yield return new WaitForSeconds(m_MusicDurBeforeFade);
+
+        m_SceneTransistor.FadeToScene(m_CurrDisc.GetSceneName());
+        m_Transitioning = false;
     }
 
     IEnumerator SetDiscToTarget()
@@ -94,6 +113,8 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         objRb.velocity = Vector3.zero;
 
         m_SettingDisc = false;
+
+        yield return null;
     }
 
     IEnumerator PlayDisc()
@@ -149,5 +170,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
         m_ArmAngle = 0.0f;
         m_DiscSpeed = 0.0f;
+
+        yield return null;
     }
 }
