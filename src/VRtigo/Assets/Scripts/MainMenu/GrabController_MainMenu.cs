@@ -75,7 +75,7 @@ public class GrabController_MainMenu : MonoBehaviour
                 );
                 eulerRot *= Mathf.Deg2Rad;
 
-                m_GrabbedObjectRb.angularVelocity = eulerRot / Time.deltaTime;
+                m_GrabbedObjectRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
             }
         }
     }

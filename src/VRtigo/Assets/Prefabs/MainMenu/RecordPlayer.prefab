@@ -181,12 +181,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RecordPlayerActive: 0
+  m_SettingDisc: 0
+  m_SettingSpeed: 0.05
+  m_SettingMaxAngularVelocity: 20
   m_Disc: {fileID: 823108644751576580}
   m_Arm: {fileID: 100000}
   m_DiscTarget: {fileID: 7887816038604831265}
-  m_ArmAngle: 0
-  m_DiscAngle: 0
-  m_DiscSpeed: 0
+  m_CurrDisc: {fileID: 0}
 --- !u!1 &823108644751576580
 GameObject:
   m_ObjectHideFlags: 0

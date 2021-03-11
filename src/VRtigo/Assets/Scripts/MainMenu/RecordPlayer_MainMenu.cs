@@ -9,13 +9,18 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     protected bool m_SettingDisc = false;
 
     [SerializeField]
+    protected float m_SettingSpeed = 0.05f;
+    [SerializeField]
+    protected float m_SettingMaxAngularVelocity = 20.0f;
+
+    [SerializeField]
     protected GameObject m_Disc;
     [SerializeField]
     protected GameObject m_Arm;
     [SerializeField]
     protected GameObject m_DiscTarget;
     [SerializeField]
-    protected SceneTransistorGrabbable m_CurrDisc;
+    protected SceneTransistorGrabbable_MainMenu m_CurrDisc;
 
     private int m_Mode;
     private float m_ArmAngle;
@@ -43,7 +48,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_RecordPlayerActive = false;
     }
 
-    public void SetDisc(SceneTransistorGrabbable disc)
+    public void SetDisc(SceneTransistorGrabbable_MainMenu disc)
     {
         if (!m_SettingDisc)
         {
@@ -65,13 +70,15 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
         bool isAtPosition = false;
         bool isAtRotation = false;
+        objRb.maxAngularVelocity = m_SettingMaxAngularVelocity;
 
-        while (!isAtPosition && !isAtRotation)
+        while (!isAtPosition || !isAtRotation)
         {
-            // Adjust moving velocity into hand
+            // Adjust moving velocity into target
             objRb.velocity = (targetPos - objRb.transform.position) / Time.fixedDeltaTime;
+            objRb.velocity *= m_SettingSpeed;
 
-            // Follow hand rotation
+            // Follow target rotation
             Quaternion deltaRot = targetRot * Quaternion.Inverse(objRb.transform.rotation);
             Vector3 eulerRot = new Vector3(
                 Mathf.DeltaAngle(0, deltaRot.eulerAngles.x),
@@ -80,13 +87,14 @@ public class RecordPlayer_MainMenu : MonoBehaviour
             );
             eulerRot *= Mathf.Deg2Rad;
 
-            objRb.angularVelocity = eulerRot / Time.deltaTime;
+            objRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
 
-            isAtPosition = Mathf.Approximately((targetPos - objRb.transform.position).magnitude, 0.0f);
-            isAtRotation = Mathf.Approximately(Mathf.Abs(Quaternion.Dot(targetRot, objRb.transform.rotation)), 1.0f);
-
-            yield return new WaitForEndOfFrame();
+            isAtPosition = (targetPos - objRb.transform.position).magnitude < 0.01f;
+            isAtRotation = Mathf.Abs(Quaternion.Dot(targetRot, objRb.transform.rotation) - 1.0f) < 0.01f;
+            yield return new WaitForFixedUpdate();
         }
+
+        objRb.velocity = Vector3.zero;
 
         m_SettingDisc = false;
     }
