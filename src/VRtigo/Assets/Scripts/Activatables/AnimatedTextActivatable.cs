@@ -25,7 +25,7 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 
     void Start()
     {
-        m_TextMesh = GetComponentInChildren<TMP_Text>();
+        m_TextMesh = GetComponent<TMP_Text>();
         m_Text = m_TextMesh.text;
         m_TextMesh.SetText("");
 
@@ -59,7 +59,7 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         m_TextMesh.ForceMeshUpdate();
 
         // Fade In effect
-        while (durationSoFar < totalDur)
+        while (durationSoFar <= totalDur)
         {
             m_FadeInEffect.Update();
             durationSoFar += Time.deltaTime;
@@ -80,7 +80,7 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         m_ScatterEffect.SetVerticesPosition(m_FadeInEffect.GetVerticesPosition());
 
         // Keep updating ScatterEffect on each frame
-        while (durationSoFar < totalDur)
+        while (durationSoFar <= totalDur)
         {
             m_ScatterEffect.Update();
             durationSoFar += Time.deltaTime;
