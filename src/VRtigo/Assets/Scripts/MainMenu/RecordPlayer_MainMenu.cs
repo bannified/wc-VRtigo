@@ -39,13 +39,16 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_DiscSpeed = 0.0f;
     }
 
-    public void SetDisc(SceneTransistorGrabbable_MainMenu disc)
+    public bool SetDisc(SceneTransistorGrabbable_MainMenu disc)
     {
         if (!m_Transitioning)
         {
             m_CurrDisc = disc;
             StartCoroutine("SetDiscAndTransition");
+            return true;
         }
+
+        return false;
     }
 
     public void DeactivateRecordPlayer()

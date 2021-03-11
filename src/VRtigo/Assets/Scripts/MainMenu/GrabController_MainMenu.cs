@@ -11,7 +11,7 @@ public class GrabController_MainMenu : MonoBehaviour
     protected float m_MaxAngularVelocity = 20.0f;
 
     [SerializeField]
-    protected LayerMask m_GrabbingLayer;
+    protected float m_GrabbingSpeed = 0.05f;
 
     [SerializeField]
     private bool m_IsGrabbing = false;
@@ -65,6 +65,7 @@ public class GrabController_MainMenu : MonoBehaviour
             {
                 // Adjust moving velocity into hand
                 m_GrabbedObjectRb.velocity = (transform.position - m_GrabbedObjectRb.transform.position) / Time.fixedDeltaTime;
+                m_GrabbedObjectRb.velocity *= m_GrabbingSpeed;
 
                 // Follow hand rotation
                 Quaternion deltaRot = transform.rotation * Quaternion.Inverse(m_GrabbedObjectRb.transform.rotation);
