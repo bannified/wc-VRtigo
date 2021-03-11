@@ -22,19 +22,16 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     [SerializeField]
     protected SceneTransistorGrabbable_MainMenu m_CurrDisc;
 
-    private int m_Mode;
     private float m_ArmAngle;
     private float m_DiscAngle;
     private float m_DiscSpeed;
 
     void Start()
     {
-        m_Mode = 0;
         m_ArmAngle = 0.0f;
         m_DiscAngle = 0.0f;
         m_DiscSpeed = 0.0f;
     }
-
     public void Activate()
     {
         if (!m_RecordPlayerActive)
@@ -106,60 +103,13 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_ArmAngle = 0.0f;
         m_DiscAngle = 0.0f;
         m_DiscSpeed = 0.0f;
-        m_Mode = 1;
 
-        while (m_Mode != 0)
+        // Activate
+        while (m_ArmAngle < 30.0f)
         {
-            // Mode 1: activation
-            if (m_Mode == 1)
-            {
-                if (m_RecordPlayerActive == true)
-                {
-                    m_ArmAngle += Time.deltaTime * 30.0f;
-                    if (m_ArmAngle >= 30.0f)
-                    {
-                        m_ArmAngle = 30.0f;
-                        m_Mode = 2;
-                    }
-                    m_DiscAngle += Time.deltaTime * m_DiscSpeed;
-                    m_DiscSpeed += Time.deltaTime * 80.0f;
-                }
-                else
-                    m_Mode = 3;
-            }
-            // Mode 2: running
-            else if (m_Mode == 2)
-            {
-                if (m_RecordPlayerActive == true)
-                {
-                    m_DiscAngle += Time.deltaTime * m_DiscSpeed;
-                    m_DiscAngle %= 360.0f;
-                }
-                else
-                {
-                    m_Mode = 3;
-                }
-            }
-            // Mode 3: stopping
-            else
-            {
-                if (m_RecordPlayerActive == false)
-                {
-                    m_ArmAngle -= Time.deltaTime * 30.0f;
-                    if (m_ArmAngle <= 0.0f)
-                        m_ArmAngle = 0.0f;
-
-                    m_DiscAngle += Time.deltaTime * m_DiscSpeed;
-                    m_DiscSpeed -= Time.deltaTime * 80.0f;
-                    if (m_DiscSpeed <= 0.0f)
-                        m_DiscSpeed = 0.0f;
-
-                    if ((m_DiscSpeed == 0.0f) && (m_ArmAngle == 0.0f))
-                        m_Mode = 0;
-                }
-                else
-                    m_Mode = 1;
-            }
+            m_ArmAngle += Time.deltaTime * 30.0f;
+            m_DiscAngle += Time.deltaTime * m_DiscSpeed;
+            m_DiscSpeed += Time.deltaTime * 80.0f;
 
             // Update objects
             m_Arm.transform.localEulerAngles = new Vector3(0.0f, m_ArmAngle, 0.0f);
@@ -167,5 +117,37 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+
+        m_ArmAngle = 30.0f;
+
+        // Running
+        while (m_RecordPlayerActive)
+        {
+            m_DiscAngle += Time.deltaTime * m_DiscSpeed;
+            m_DiscAngle %= 360.0f;
+
+            // Update objects
+            m_Disc.transform.localEulerAngles = new Vector3(0.0f, m_DiscAngle, 0.0f);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        // Stopping
+        while (m_DiscSpeed > 0.0f || m_ArmAngle > 0.0f)
+        {
+            m_ArmAngle -= Time.deltaTime * 30.0f;
+
+            m_DiscAngle += Time.deltaTime * m_DiscSpeed;
+            m_DiscSpeed -= Time.deltaTime * 80.0f;
+
+            // Update objects
+            m_Arm.transform.localEulerAngles = new Vector3(0.0f, m_ArmAngle, 0.0f);
+            m_Disc.transform.localEulerAngles = new Vector3(0.0f, m_DiscAngle, 0.0f);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        m_ArmAngle = 0.0f;
+        m_DiscSpeed = 0.0f;
     }
 }
