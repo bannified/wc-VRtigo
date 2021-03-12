@@ -12,9 +12,6 @@ public class AudioManager : MonoBehaviour
     private Hashtable m_SoundsInternal;
 
     [SerializeField]
-    private float m_VolumeStep = 0.01f;
-    
-    [SerializeField]
     private float m_FadeDuration = 2.0f;
 
     [SerializeField]
