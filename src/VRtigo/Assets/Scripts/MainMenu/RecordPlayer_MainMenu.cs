@@ -11,7 +11,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     protected float m_MusicDurBeforeFade = 1.5f;
 
     [SerializeField]
-    protected float m_SettingSpeed = 9.0f;
+    protected float m_SettingSpeed = 250.0f;
     [SerializeField]
     protected float m_SettingMaxAngularVelocity = 20.0f;
 

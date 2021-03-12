@@ -25,7 +25,6 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 
     void Start()
     {
-        m_TextMesh = GetComponent<TMP_Text>();
         m_Text = m_TextMesh.text;
         m_TextMesh.SetText("");
 
