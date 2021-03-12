@@ -62,6 +62,27 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/buggy/in/Steering",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/buggy/in/Throttle",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/buggy/in/Brake",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/buggy/in/Reset",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/mixedreality/in/ExternalCamera",
+      "type": "pose",
+      "requirement": "optional"
+    },
+    {
       "name": "/actions/EXPPlayerMovement/in/Move",
       "type": "vector1"
     },
@@ -78,7 +99,47 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/EXPPlayerMovement/in/Pose",
+      "type": "pose"
+    },
+    {
       "name": "/actions/EXPPlayerMovement/out/Haptic",
+      "type": "vibration"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/Walking",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/CameraRotateLeft",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/CameraRotateRight",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/CameraLookUp",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/CameraLookDown",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/Classroom/in/Pose",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/in/Fire",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/in/Pose",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement/out/Haptic",
       "type": "vibration"
     }
   ],
@@ -92,7 +153,27 @@
       "usage": "single"
     },
     {
+      "name": "/actions/buggy",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
       "name": "/actions/EXPPlayerMovement",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation",
+      "usage": "leftright"
+    },
+    {
+      "name": "/actions/Classroom",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/PlayerForcedMovement",
       "usage": "single"
     }
   ],
@@ -164,6 +245,11 @@
       "/actions/platformer/in/Jump": "Jump",
       "/actions/default/in/SnapTurnLeft": "Snap Turn (Left)",
       "/actions/default/in/SnapTurnRight": "Snap Turn (Right)",
+      "/actions/ForcedCameraRotation/in/CameraRotateLeft": "Camera Rotate Left",
+      "/actions/ForcedCameraRotation/in/Walking": "Walking",
+      "/actions/ForcedCameraRotation/in/CameraRotateRight": "Camera Rotate Right",
+      "/actions/ForcedCameraRotation/in/CameraLookUp": " Camera Look Up",
+      "/actions/ForcedCameraRotation/in/CameraLookDown": "Camera Look Down",
       "/actions/EXPPlayerMovement/out/Haptic": "Haptic"
     }
   ]

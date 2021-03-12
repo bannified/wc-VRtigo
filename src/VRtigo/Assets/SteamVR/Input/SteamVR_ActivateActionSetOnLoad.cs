@@ -35,7 +35,7 @@ namespace Valve.VR
             if (actionSet != null && deactivateOnDestroy)
             {
                 //Debug.Log(string.Format("[SteamVR] Deactivating {0} action set.", actionSet.fullPath));
-                actionSet.Deactivate(forSources);
+                //actionSet.Deactivate(forSources);
             }
         }
     }
