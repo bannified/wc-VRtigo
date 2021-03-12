@@ -61,6 +61,7 @@ public class AudioManager : MonoBehaviour
             s.m_Source = gameObject.AddComponent<AudioSource>();
             s.m_Source.clip = s.GetClip();
             s.m_Source.loop = s.loop;
+            s.m_Source.spatialBlend = s.spatialBlend;
 
             try
             {
@@ -85,9 +86,12 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = GetSound(soundName);
 
-        s.m_Source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-        s.m_Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
-        s.m_Source.Play();
+        if (s != null)
+        {
+            s.m_Source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+            s.m_Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+            s.m_Source.Play();
+        }
     }
 
     public void PlayBackgroundMusic(string soundName)
@@ -108,9 +112,23 @@ public class AudioManager : MonoBehaviour
         Play(soundName);
     }
 
+    public void FadeOutSoundWithName(string soundName)
+    {
+        StartCoroutine("FadeOutSound", soundName);
+    }
+
+    public void FadeInSoundWithName(string soundName)
+    {
+        StartCoroutine("FadeInSound", soundName);
+    }
+
     private Sound GetSound(string soundName)
     {
-        // TODO: Handle when soundName does not exist
+        if (!m_SoundsInternal.Contains(soundName))
+        {
+            Debug.LogError(string.Format("{0} does not exist!", soundName));
+            return null;
+        }
         return m_SoundsInternal[soundName] as Sound;
     }
 
@@ -121,10 +139,10 @@ public class AudioManager : MonoBehaviour
         if (!s.m_Source.isPlaying)
             yield break;
 
+        float oriVol = s.m_Source.volume;
         float durationSoFar = 0.0f;
         float totalDuration = m_FadeDuration;
         float progress = 0.0f;
-        float oriVol = s.m_Source.volume;
 
         while (s.m_Source.volume > 0.0f)
         {
@@ -132,19 +150,22 @@ public class AudioManager : MonoBehaviour
             s.m_Source.volume = (1.0f - progress - Time.deltaTime / totalDuration) * oriVol;
             durationSoFar += Time.deltaTime;
 
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
+
+        s.m_Source.Stop();
     }
 
     IEnumerator FadeInSound(string soundName)
     {
         Sound s = GetSound(soundName);
 
-        if (!s.m_Source.isPlaying)
+        if (s == null || s.m_Source.isPlaying)
             yield break;
 
         s.m_Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
         s.m_Source.volume = 0.0f;
+        s.m_Source.Play();
 
         float finalVolume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
         float durationSoFar = 0.0f;
@@ -157,7 +178,7 @@ public class AudioManager : MonoBehaviour
             s.m_Source.volume = (progress + Time.deltaTime / totalDuration) * finalVolume;
             durationSoFar += Time.deltaTime;
 
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
     }
 }

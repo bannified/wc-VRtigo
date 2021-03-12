@@ -20,6 +20,9 @@ public class Sound
 	[Range(0f, 1f)]
 	public float pitchVariance = 0.0f;
 
+	[Range(0f, 1f)]
+	public float spatialBlend = 0.2f;
+
 	public bool loop = false;
 
 	[HideInInspector]
