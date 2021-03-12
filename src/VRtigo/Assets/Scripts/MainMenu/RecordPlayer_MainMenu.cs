@@ -11,7 +11,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     protected float m_MusicDurBeforeFade = 1.5f;
 
     [SerializeField]
-    protected float m_SettingSpeed = 0.05f;
+    protected float m_SettingSpeed = 9.0f;
     [SerializeField]
     protected float m_SettingMaxAngularVelocity = 20.0f;
 
@@ -94,8 +94,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         while (!isAtPosition || !isAtRotation)
         {
             // Adjust moving velocity into target
-            objRb.velocity = (targetPos - objRb.transform.position) / Time.fixedDeltaTime;
-            objRb.velocity *= m_SettingSpeed;
+            objRb.velocity = (targetPos - objRb.transform.position) * Time.fixedDeltaTime * m_SettingSpeed;
 
             // Follow target rotation
             Quaternion deltaRot = targetRot * Quaternion.Inverse(objRb.transform.rotation);
@@ -160,7 +159,6 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         while (m_DiscSpeed > 0.0f || m_ArmAngle > 0.0f)
         {
             m_ArmAngle -= Time.deltaTime * 30.0f;
-
             m_DiscAngle += Time.deltaTime * m_DiscSpeed;
             m_DiscSpeed -= Time.deltaTime * 80.0f;
 

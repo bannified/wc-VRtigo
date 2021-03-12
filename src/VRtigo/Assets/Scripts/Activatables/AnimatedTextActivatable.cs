@@ -63,14 +63,14 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         {
             m_FadeInEffect.Update();
             durationSoFar += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         // Keep updating FadeInEffect on each frame as long as needed
         while (!m_StopAnimating)
         {
             m_FadeInEffect.Update();
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         durationSoFar = 0.0f;
@@ -84,7 +84,7 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         {
             m_ScatterEffect.Update();
             durationSoFar += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         m_IsAnimating = false;
