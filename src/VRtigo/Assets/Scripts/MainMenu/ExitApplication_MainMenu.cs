@@ -8,6 +8,9 @@ public class ExitApplication_MainMenu : MonoBehaviour
     [SerializeField]
     protected float m_ExitDuration = 3.0f;
 
+    [SerializeField]
+    protected ProgressTiles m_ProgressTiles;
+
     private SteamVR_Action_Boolean m_ExitAction;
     private SteamVR_Action_Vibration m_Haptic;
     private PlayerController_MainMenu m_PlayerController;
@@ -51,14 +54,14 @@ public class ExitApplication_MainMenu : MonoBehaviour
 
     private void StartExitCountdown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        // TODO: Add Radial Loading
+        m_ProgressTiles.StartProgress();
         m_ExitCoroutine = ExitCountdown();
         StartCoroutine(m_ExitCoroutine);
     }
 
     private void StopExitCountdown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        // TODO: Remove Radial Loading
+        m_ProgressTiles.CancelProgress();
         StopCoroutine(m_ExitCoroutine);
     }
 
@@ -68,7 +71,8 @@ public class ExitApplication_MainMenu : MonoBehaviour
 
         while (durationSoFar < m_ExitDuration)
         {
-            // TODO: Update Radial Loading
+            // Update progress tiles
+            m_ProgressTiles.SetProgress(durationSoFar / m_ExitDuration);
 
             // Add haptic feedback
             m_Haptic.Execute(0.0f, Time.deltaTime, 5.0f, 0.1f, SteamVR_Input_Sources.Any);
@@ -76,6 +80,9 @@ public class ExitApplication_MainMenu : MonoBehaviour
             durationSoFar += Time.deltaTime;
             yield return null;
         }
+
+        // Delay quit so the progress tiles is fully filled before quitting
+        yield return new WaitForSeconds(0.5f);
 
         Application.Quit(0);
     }

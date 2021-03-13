@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ProgressTiles : MonoBehaviour
 {
     [SerializeField]
+    protected List<Image> m_ProgressTilesBgs;
+
+    [SerializeField]
     protected List<Image> m_ProgressTiles;
 
     [SerializeField]
@@ -15,11 +18,27 @@ public class ProgressTiles : MonoBehaviour
 
     void Start()
     {
+        ResetProgress();
+    }
+
+    public void StartProgress()
+    {
+        ResetProgress();
+        for (int i = 0; i < m_ProgressTilesBgs.Count; i++)
+        {
+            StartCoroutine("FadeInImage", m_ProgressTilesBgs[i]);
+        }
+    }
+
+    public void CancelProgress()
+    {
         for (int i = 0; i < m_ProgressTiles.Count; i++)
         {
-            Color imageColor = m_ProgressTiles[i].color;
-            imageColor.a = 0.0f;
-            m_ProgressTiles[i].color = imageColor;
+            StartCoroutine("FadeOutImage", m_ProgressTiles[i]);
+        }
+        for (int i = 0; i < m_ProgressTilesBgs.Count; i++)
+        {
+            StartCoroutine("FadeOutImage", m_ProgressTilesBgs[i]);
         }
     }
 
@@ -29,11 +48,30 @@ public class ProgressTiles : MonoBehaviour
         if (idxToActivate > m_lastActivatedTileIdx)
         {
             m_lastActivatedTileIdx = idxToActivate;
-            StartCoroutine("FadeTileIn", idxToActivate);
+            StartCoroutine("FadeInImage", m_ProgressTiles[idxToActivate]);
         }
     }
 
-    IEnumerator FadeTileIn(int idx)
+    private void ResetProgress()
+    {
+
+        for (int i = 0; i < m_ProgressTilesBgs.Count; i++)
+        {
+            Color imageColor = m_ProgressTilesBgs[i].color;
+            imageColor.a = 0.0f;
+            m_ProgressTilesBgs[i].color = imageColor;
+        }
+
+        for (int i = 0; i < m_ProgressTiles.Count; i++)
+        {
+            Color imageColor = m_ProgressTiles[i].color;
+            imageColor.a = 0.0f;
+            m_ProgressTiles[i].color = imageColor;
+        }
+        m_lastActivatedTileIdx = -1;
+    }
+
+    IEnumerator FadeInImage(Image img)
     {
         float durationSoFar = 0.0f;
         float progress = 0.0f;
@@ -44,9 +82,29 @@ public class ProgressTiles : MonoBehaviour
             progress = durationSoFar / m_TileFadeInDuration;
             alpha = progress + (Time.deltaTime / m_TileFadeInDuration);
 
-            Color imageColor = m_ProgressTiles[idx].color;
+            Color imageColor = img.color;
             imageColor.a = alpha;
-            m_ProgressTiles[idx].color = imageColor;
+            img.color = imageColor;
+
+            durationSoFar += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeOutImage(Image img)
+    {
+        float durationSoFar = 0.0f;
+        float progress = 0.0f;
+        float alpha = 1.0f;
+
+        while (durationSoFar < m_TileFadeInDuration)
+        {
+            progress = durationSoFar / m_TileFadeInDuration;
+            alpha = 1.0f - progress - (Time.deltaTime / m_TileFadeInDuration);
+
+            Color imageColor = img.color;
+            imageColor.a = alpha;
+            img.color = imageColor;
 
             durationSoFar += Time.deltaTime;
             yield return null;
