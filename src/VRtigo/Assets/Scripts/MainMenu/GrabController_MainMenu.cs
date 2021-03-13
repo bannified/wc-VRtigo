@@ -11,10 +11,13 @@ public class GrabController_MainMenu : MonoBehaviour
     protected float m_MaxAngularVelocity = 20.0f;
 
     [SerializeField]
-    protected LayerMask m_GrabbingLayer;
+    protected float m_GrabbingSpeed = 250.0f;
 
     [SerializeField]
     private bool m_IsGrabbing = false;
+
+    [SerializeField]
+    private GameObject m_GrabbedObject;
 
     [SerializeField]
     private IGrabbable m_GrabbedObjectGrabbable;
@@ -34,6 +37,7 @@ public class GrabController_MainMenu : MonoBehaviour
 
             if (bHit)
             {
+                m_GrabbedObject = hit.collider.gameObject;
                 m_GrabbedObjectRb = hit.collider.transform.root.GetComponent<Rigidbody>();
                 m_GrabbedObjectRb.maxAngularVelocity = m_MaxAngularVelocity;
 
@@ -50,6 +54,7 @@ public class GrabController_MainMenu : MonoBehaviour
                     m_GrabbedObjectGrabbable.Dropped();
                 }
 
+                m_GrabbedObject = null;
                 m_GrabbedObjectGrabbable = null;
                 m_GrabbedObjectRb = null;
             }
@@ -59,7 +64,7 @@ public class GrabController_MainMenu : MonoBehaviour
             if (m_GrabbedObjectRb != null)
             {
                 // Adjust moving velocity into hand
-                m_GrabbedObjectRb.velocity = (transform.position - m_GrabbedObjectRb.transform.position) / Time.fixedDeltaTime;
+                m_GrabbedObjectRb.velocity = (transform.position - m_GrabbedObjectRb.transform.position) * Time.fixedDeltaTime * m_GrabbingSpeed;
 
                 // Follow hand rotation
                 Quaternion deltaRot = transform.rotation * Quaternion.Inverse(m_GrabbedObjectRb.transform.rotation);
@@ -70,9 +75,13 @@ public class GrabController_MainMenu : MonoBehaviour
                 );
                 eulerRot *= Mathf.Deg2Rad;
 
-                m_GrabbedObjectRb.angularVelocity = eulerRot / Time.deltaTime;
+                m_GrabbedObjectRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
             }
         }
     }
 
+    public GameObject GetGrabbedObject()
+    {
+        return m_GrabbedObject;
+    }
 }

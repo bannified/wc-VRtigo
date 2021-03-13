@@ -63,7 +63,7 @@ public class FadeOutScatterTextEffect
 
             Vector3 offset = GetScatterOffsetForChar(m_PrevVerts, index, m_TextOrigin, m_ScatterStep);
             // Alpha decreases as progress increases
-            float alpha = 1.0f - m_Progress;
+            float alpha = 1.0f - (m_Progress + Time.deltaTime / m_ScatterDuration);
 
             // Each character has 4 vertices, update them
             for (int j = index; j < index + 4; j++)
