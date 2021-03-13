@@ -68,7 +68,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(m_MusicDelay);
 
-        // TODO: play music
+        AudioManager.Instance.PlayBackgroundMusic(m_CurrDisc.GetMusicName());
 
         yield return new WaitForSeconds(m_MusicDurBeforeFade);
 
