@@ -12,8 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Classroom/Scene_Classroom.unity
     guid: ffbb5b16bf15500468a7471315b1ed4f
   - enabled: 1
-    path: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_PlayerInitiatedMovement.unity
+    path: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_PlayerInitiatedMovement_artpass.unity
     guid: c368c53e280ac0344b4a9012200047fb
+  - enabled: 1
+    path: 
+    guid: 4c91e30539652304aa6ab2bf4da03c53
+  - enabled: 1
+    path: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_Main_PlayerInitiatedMovement.unity
+    guid: 7516760e8ced7354cb3a3046e72f01c9
+  - enabled: 1
+    path: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_PlayerInitiatedMovement_gameplay.unity
+    guid: 8e3238508a2ccd443876b353a41d1854
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1e045e76051ed2b4ba3a4bb224cb3b4c, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: af6e54fadb3eab04980e5144ccee7e32, type: 2}
