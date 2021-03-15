@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!43 &64726790
+--- !u!43 &22036338
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1107,7 +1107,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -68.993, y: 0, z: -30.008}
---- !u!21 &852799648
+--- !u!21 &557599736
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -2342,11 +2342,11 @@ PrefabInstance:
     - target: {fileID: 3057790021815026367, guid: f071f54e961a96143a5e03eb6245dea5, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 64726790}
+      objectReference: {fileID: 22036338}
     - target: {fileID: 3057790021816058683, guid: f071f54e961a96143a5e03eb6245dea5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 852799648}
+      objectReference: {fileID: 557599736}
     - target: {fileID: 3699603113158385556, guid: f071f54e961a96143a5e03eb6245dea5, type: 3}
       propertyPath: m_GrabbingSpeed
       value: 250

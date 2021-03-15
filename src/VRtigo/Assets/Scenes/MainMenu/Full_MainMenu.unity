@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5786185018146055346, guid: ba535361e33564b4783a3eb64a192093, type: 3}
       propertyPath: m_AdditiveScenes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5786185018146055346, guid: ba535361e33564b4783a3eb64a192093, type: 3}
       propertyPath: m_AdditiveScenes.Array.data[0].scenePath
@@ -147,6 +147,10 @@ PrefabInstance:
       value: Assets/Scenes/MainMenu/MainMenu_Gameplay_Common.unity
       objectReference: {fileID: 0}
     - target: {fileID: 5786185018146055346, guid: ba535361e33564b4783a3eb64a192093, type: 3}
+      propertyPath: m_AdditiveScenes.Array.data[3].scenePath
+      value: Assets/Scenes/MainMenu/MainMenu_Classroom_Gameplay.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786185018146055346, guid: ba535361e33564b4783a3eb64a192093, type: 3}
       propertyPath: m_AdditiveScenes.Array.data[0].sceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: 3b916b33c98a4fb4dbe133f44bbef8c6, type: 3}
@@ -158,6 +162,10 @@ PrefabInstance:
       propertyPath: m_AdditiveScenes.Array.data[2].sceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: a5dc110c514797542a3eed4896620a41, type: 3}
+    - target: {fileID: 5786185018146055346, guid: ba535361e33564b4783a3eb64a192093, type: 3}
+      propertyPath: m_AdditiveScenes.Array.data[3].sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: a326f868bc9e5b94cafc9f3973c8f4ec, type: 3}
     - target: {fileID: 5786185018146055347, guid: ba535361e33564b4783a3eb64a192093, type: 3}
       propertyPath: m_RootOrder
       value: 0
