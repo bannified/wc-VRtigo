@@ -65,6 +65,9 @@ public class ClassroomManager : MonoBehaviour
     [SerializeField]
     private bool m_IsLessonStepCompleted = false;
 
+    [SerializeField]
+    private Transform m_PlayerSpawnPoint;
+
     /// <summary>
     /// Classroom Events
     /// </summary>
@@ -72,6 +75,11 @@ public class ClassroomManager : MonoBehaviour
     public System.Action<LessonStep> OnLessonStepStart;
     public System.Action<LessonStep> OnLessonStepSkip;
     public System.Action<LessonStep> OnLessonStepEnd;
+
+    public Transform GetPlayerSpawnPoint()
+    {
+        return m_PlayerSpawnPoint;
+    }
 
     public void StartLesson(ClassroomLessonData classroomData)
     {
@@ -93,6 +101,8 @@ public class ClassroomManager : MonoBehaviour
 
     private void Start()
     {
+        TrySpawnPlayerAtClassroom();
+
         if (SteamVR.active)
         {
             VRT_Helpers.ResetHMDPosition();
@@ -100,7 +110,19 @@ public class ClassroomManager : MonoBehaviour
 
         if (m_AutoplayClassroom && GameManager.Instance != null)
         {
+            // [TODO]: Store a reference to a ScriptableObject that contains all of the Experiences, lessons, and lesson steps
+            // and the acquire the lesson data from there
             StartLesson(GameManager.Instance.GetClassroomManagerPayload().m_LessonData);
+        }
+    }
+
+    private void TrySpawnPlayerAtClassroom()
+    {
+        if (GameManager.Instance.bSpawnInClassroom)
+        {
+            Character character = GameManager.Instance.GetCharacter(0);
+            character.transform.position = m_PlayerSpawnPoint.transform.position;
+            character.transform.rotation = m_PlayerSpawnPoint.transform.rotation;
         }
     }
 

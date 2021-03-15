@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<PlayerController, Character> m_ControllerToCharacterMap = new Dictionary<PlayerController, Character>();
 
+    public bool bSpawnInClassroom = false;
+
     [SerializeField]
     private ClassroomManagerPayload m_ClassroomManagerPayload;
 
