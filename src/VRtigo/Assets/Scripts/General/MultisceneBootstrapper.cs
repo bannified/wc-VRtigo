@@ -21,8 +21,6 @@ public class MultisceneBootstrapper : MonoBehaviour
 
             Scene scene = SceneManager.GetSceneByBuildIndex(buildIndex);
 
-            Debug.Log(scene.name);
-
             if (scene.isLoaded)
             {
                 continue;
