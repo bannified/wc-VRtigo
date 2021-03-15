@@ -91,16 +91,16 @@ namespace WindowsVoice {
           std::wstring msg = L"Speaking: ";
           msg.append(priorText);
           SetStatusMessage(msg);
+          theMutex.lock();
           if (!theSpeechQueue.empty())
           {
-            theMutex.lock();
             if (lstrcmpW(theSpeechQueue.front(), priorText) == 0)
             {
               delete[] theSpeechQueue.front();
               theSpeechQueue.pop_front();
             }
-            theMutex.unlock();
           }
+          theMutex.unlock();
         }
       }
       else
@@ -112,17 +112,17 @@ namespace WindowsVoice {
           delete[] priorText;
           priorText = NULL;
         }
+        theMutex.lock();
         if (!theSpeechQueue.empty())
         {
-          theMutex.lock();
           priorText = theSpeechQueue.front();
           theSpeechQueue.pop_front();
-          theMutex.unlock();
           audioMutex.lock();
           voiceAudio->SetState(SPAS_RUN, 0);
           pVoice->Speak(priorText, SPF_IS_XML | SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
           audioMutex.unlock();
         }
+        theMutex.unlock();
       }
       Sleep(20);
     }
