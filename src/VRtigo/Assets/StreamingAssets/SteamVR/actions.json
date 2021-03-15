@@ -103,6 +103,10 @@
       "type": "pose"
     },
     {
+      "name": "/actions/EXPPlayerMovement/in/Exit",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/EXPPlayerMovement/out/Haptic",
       "type": "vibration"
     },

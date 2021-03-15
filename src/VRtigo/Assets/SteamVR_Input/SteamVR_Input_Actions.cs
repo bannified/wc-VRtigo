@@ -65,6 +65,8 @@ namespace Valve.VR
         
         private static SteamVR_Action_Pose p_eXPPlayerMovement_Pose;
         
+        private static SteamVR_Action_Boolean p_eXPPlayerMovement_Exit;
+        
         private static SteamVR_Action_Vibration p_eXPPlayerMovement_Haptic;
         
         private static SteamVR_Action_Vector2 p_forcedCameraRotation_Walking;
@@ -277,6 +279,14 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Action_Boolean eXPPlayerMovement_Exit
+        {
+            get
+            {
+                return SteamVR_Actions.p_eXPPlayerMovement_Exit.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
         public static SteamVR_Action_Vibration eXPPlayerMovement_Haptic
         {
             get
@@ -384,6 +394,7 @@ namespace Valve.VR
                     SteamVR_Actions.eXPPlayerMovement_TurnDirection,
                     SteamVR_Actions.eXPPlayerMovement_Menu,
                     SteamVR_Actions.eXPPlayerMovement_Pose,
+                    SteamVR_Actions.eXPPlayerMovement_Exit,
                     SteamVR_Actions.eXPPlayerMovement_Haptic,
                     SteamVR_Actions.forcedCameraRotation_Walking,
                     SteamVR_Actions.forcedCameraRotation_CameraRotateLeft,
@@ -418,6 +429,7 @@ namespace Valve.VR
                     SteamVR_Actions.eXPPlayerMovement_TurnDirection,
                     SteamVR_Actions.eXPPlayerMovement_Menu,
                     SteamVR_Actions.eXPPlayerMovement_Pose,
+                    SteamVR_Actions.eXPPlayerMovement_Exit,
                     SteamVR_Actions.forcedCameraRotation_Walking,
                     SteamVR_Actions.forcedCameraRotation_CameraRotateLeft,
                     SteamVR_Actions.forcedCameraRotation_CameraRotateRight,
@@ -452,6 +464,7 @@ namespace Valve.VR
                     SteamVR_Actions.buggy_Brake,
                     SteamVR_Actions.buggy_Reset,
                     SteamVR_Actions.eXPPlayerMovement_Menu,
+                    SteamVR_Actions.eXPPlayerMovement_Exit,
                     SteamVR_Actions.playerForcedMovement_Fire};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.default_Squeeze,
@@ -490,6 +503,7 @@ namespace Valve.VR
                     SteamVR_Actions.eXPPlayerMovement_MoveDirection,
                     SteamVR_Actions.eXPPlayerMovement_TurnDirection,
                     SteamVR_Actions.eXPPlayerMovement_Menu,
+                    SteamVR_Actions.eXPPlayerMovement_Exit,
                     SteamVR_Actions.forcedCameraRotation_Walking,
                     SteamVR_Actions.forcedCameraRotation_CameraRotateLeft,
                     SteamVR_Actions.forcedCameraRotation_CameraRotateRight,
@@ -524,6 +538,7 @@ namespace Valve.VR
             SteamVR_Actions.p_eXPPlayerMovement_TurnDirection = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/EXPPlayerMovement/in/TurnDirection")));
             SteamVR_Actions.p_eXPPlayerMovement_Menu = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/EXPPlayerMovement/in/Menu")));
             SteamVR_Actions.p_eXPPlayerMovement_Pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/EXPPlayerMovement/in/Pose")));
+            SteamVR_Actions.p_eXPPlayerMovement_Exit = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/EXPPlayerMovement/in/Exit")));
             SteamVR_Actions.p_eXPPlayerMovement_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/EXPPlayerMovement/out/Haptic")));
             SteamVR_Actions.p_forcedCameraRotation_Walking = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/ForcedCameraRotation/in/Walking")));
             SteamVR_Actions.p_forcedCameraRotation_CameraRotateLeft = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/ForcedCameraRotation/in/CameraRotateLeft")));

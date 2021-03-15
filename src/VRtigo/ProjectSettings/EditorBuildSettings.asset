@@ -23,6 +23,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_PlayerInitiatedMovement_gameplay.unity
     guid: 8e3238508a2ccd443876b353a41d1854
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/MainMenu_StudyRoom_Visual.unity
+    guid: 3b916b33c98a4fb4dbe133f44bbef8c6
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/MainMenu_Classroom_Visual.unity
+    guid: a37c12651450995498289f20b7089b5b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/MainMenu_Gameplay_Common.unity
+    guid: a5dc110c514797542a3eed4896620a41
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1e045e76051ed2b4ba3a4bb224cb3b4c, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: af6e54fadb3eab04980e5144ccee7e32, type: 2}
