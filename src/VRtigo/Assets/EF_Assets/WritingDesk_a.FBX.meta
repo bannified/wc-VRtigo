@@ -3,7 +3,12 @@ guid: aee560e027171ca4e81b9e8e42d95aed
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WritingDeskWood_a_Mat
+    second: {fileID: 2100000, guid: d362f217a4a5ce4419b645f449e90dea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

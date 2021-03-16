@@ -3,7 +3,17 @@ guid: 769309b8eafc0ad41b023142224f250a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Birdcage_b_Mat
+    second: {fileID: 2100000, guid: 42dacb0c97661d54f8f29ef2bab2455b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGrate_a_Mat
+    second: {fileID: 2100000, guid: f102e386f1825a64a900aba447d9074b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
