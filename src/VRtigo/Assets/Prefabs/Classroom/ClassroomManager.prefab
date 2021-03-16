@@ -48,6 +48,8 @@ MonoBehaviour:
   m_AutoplayClassroom: 1
   m_CurrentDialogueIndex: 0
   m_IsLessonStepCompleted: 0
+  m_PlayerSpawnPoint: {fileID: 0}
+  m_ClassroomData: {fileID: 11400000, guid: 0138806d57b9fa84fba682c62f9809de, type: 2}
 --- !u!114 &6151417481406422740
 MonoBehaviour:
   m_ObjectHideFlags: 0

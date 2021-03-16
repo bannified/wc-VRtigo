@@ -15,6 +15,9 @@ public class StandardActivator : MonoBehaviour, IActivatable
     [SerializeField]
     private bool m_Reactivatable = false;
 
+    [SerializeField]
+    private List<string> m_TagsThatActivate = new List<string> { "Player" };
+
     private void Awake()
     {
         m_Activatables_Internal = new List<IActivatable>();
@@ -31,7 +34,7 @@ public class StandardActivator : MonoBehaviour, IActivatable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (m_TagsThatActivate.Contains(other.gameObject.tag))
         {
             if (!m_Activated)
             {

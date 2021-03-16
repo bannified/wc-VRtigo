@@ -14,4 +14,12 @@ namespace VRT_Constants
             public static string NONLINEAR_ENABLED_KEY_BOOL = "PIM_NonLinearMovementEnabled";
         }
     }
+
+    namespace MainMenuConstants
+    {
+        public static class MainMenuConstants
+        {
+            public static string SPAWN_IN_CLASSROOM_BOOL = "MENU_SpawnInClassroom";
+        }
+    }
 }

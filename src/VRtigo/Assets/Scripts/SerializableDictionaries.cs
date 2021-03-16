@@ -8,3 +8,6 @@ public class StringToIntDictionary : SerializableDictionaryBase<string, int> { }
 
 [System.Serializable]
 public class StringToBoolDictionary : SerializableDictionaryBase<string, bool> { }
+
+[System.Serializable]
+public class ExperiencesDictionary : SerializableDictionaryBase<string, ExperienceData> { }

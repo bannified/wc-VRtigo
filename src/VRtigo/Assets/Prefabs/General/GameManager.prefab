@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerControllers: []
-  bSpawnInClassroom: 0
   m_ClassroomManagerPayload:
     m_LessonData: {fileID: 0}
 --- !u!114 &6398717410261798900
@@ -113,11 +112,13 @@ MonoBehaviour:
     - PIM_TurnEnabled
     - PIM_LateralMovementEnabled
     - PIM_NonLinearMovementEnabled
+    - MENU_SpawnInClassroom
     _keys:
     - PIM_TurnEnabled
     - PIM_LateralMovementEnabled
     - PIM_NonLinearMovementEnabled
-    _values: 000000
+    - MENU_SpawnInClassroom
+    _values: 00000000
   IntDictionary:
     reorderableList:
       canAdd: 1
