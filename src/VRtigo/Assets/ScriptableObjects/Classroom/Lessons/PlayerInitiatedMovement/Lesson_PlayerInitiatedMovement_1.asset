@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e2412c87638a942b571fad5d879d57, type: 3}
+  m_Name: Lesson_PlayerInitiatedMovement_1
+  m_EditorClassIdentifier: 
+  ClassroomTitle: Player Initiated Movement
+  LessonSteps:
+  - m_DialogueString: <b>Vection</b> is when you feel that your body is moving when
+      no physical movement is taking place.
+  - m_DialogueString: <b>Movement in Virtual Reality</b> experiences evokes vection.
+  NextLessonScene:
+    sceneAsset: {fileID: 102900000, guid: 7516760e8ced7354cb3a3046e72f01c9, type: 3}
+    scenePath: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_Main_PlayerInitiatedMovement.unity
+  NextLessonKey: PIM_2

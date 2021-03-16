@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu/MainMenu_Classroom_Gameplay.unity
     guid: a326f868bc9e5b94cafc9f3973c8f4ec
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/Full_MainMenu.unity
+    guid: bb3ce1afcdc2f5d439ad8d8488865fdb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1e045e76051ed2b4ba3a4bb224cb3b4c, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: af6e54fadb3eab04980e5144ccee7e32, type: 2}
