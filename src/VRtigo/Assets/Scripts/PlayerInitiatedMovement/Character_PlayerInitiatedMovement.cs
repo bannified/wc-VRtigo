@@ -152,7 +152,7 @@ public class Character_PlayerInitiatedMovement : Character
             }
         }
 
-        Vector3 resultMoveDirection = m_VRCamera.transform.forward;
+        Vector3 resultMoveDirection = m_VRCamera.transform.forward * m_InputDirection.y;
         resultMoveDirection.y = 0;
         resultMoveDirection.Normalize();
 
