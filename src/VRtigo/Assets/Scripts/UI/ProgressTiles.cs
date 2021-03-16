@@ -95,12 +95,13 @@ public class ProgressTiles : MonoBehaviour
     {
         float durationSoFar = 0.0f;
         float progress = 0.0f;
-        float alpha = 1.0f;
+        float oriAlpha = img.color.a;
+        float alpha = oriAlpha;
 
-        while (durationSoFar < m_TileFadeInDuration)
+        while (alpha > 0.0f || durationSoFar < m_TileFadeInDuration)
         {
             progress = durationSoFar / m_TileFadeInDuration;
-            alpha = 1.0f - progress - (Time.deltaTime / m_TileFadeInDuration);
+            alpha = oriAlpha - progress - (Time.deltaTime / m_TileFadeInDuration);
 
             Color imageColor = img.color;
             imageColor.a = alpha;

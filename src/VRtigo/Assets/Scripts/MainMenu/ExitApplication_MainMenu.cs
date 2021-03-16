@@ -11,7 +11,6 @@ public class ExitApplication_MainMenu : MonoBehaviour
     [SerializeField]
     protected ProgressTiles m_ProgressTiles;
 
-    private SteamVR_Action_Boolean m_ExitAction;
     private SteamVR_Action_Vibration m_Haptic;
     private PlayerController_MainMenu m_PlayerController;
 
@@ -24,11 +23,9 @@ public class ExitApplication_MainMenu : MonoBehaviour
             m_PlayerController = other.gameObject.GetComponent<PlayerController_MainMenu>();
             if (m_PlayerController != null)
             {
-                m_ExitAction = m_PlayerController.m_ExitAppAction;
                 m_Haptic = m_PlayerController.m_Haptic;
 
-                m_ExitAction.AddOnStateDownListener(StartExitCountdown, m_PlayerController.m_LeftHandType);
-                m_ExitAction.AddOnStateUpListener(StopExitCountdown, m_PlayerController.m_LeftHandType);
+                StartExitCountdown();
             }
         }
     }
@@ -37,28 +34,24 @@ public class ExitApplication_MainMenu : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (m_PlayerController != null && m_ExitAction != null)
+            if (m_PlayerController != null)
             {
-                // Regardless whether button is paused or not, cancel the exit countdown when player move outside the boundary
-                StopExitCountdown(m_ExitAction, m_PlayerController.m_RightHandType);
+                // Cancel the exit countdown when player move outside the boundary
+                StopExitCountdown();
 
-                m_ExitAction.RemoveOnStateDownListener(StartExitCountdown, m_PlayerController.m_LeftHandType);
-                m_ExitAction.RemoveOnStateDownListener(StopExitCountdown, m_PlayerController.m_LeftHandType);
-
-                m_ExitAction = null;
                 m_Haptic = null;
                 m_PlayerController = null;
             }
         }
     }
 
-    private void StartExitCountdown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    private void StartExitCountdown()
     {
         m_ProgressTiles.StartProgress();
         m_ExitCoroutine = StartCoroutine(ExitCountdown());
     }
 
-    private void StopExitCountdown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    private void StopExitCountdown()
     {
         m_ProgressTiles.CancelProgress();
         if (m_ExitCoroutine != null)
