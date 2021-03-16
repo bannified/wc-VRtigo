@@ -57,11 +57,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean Exit
+        public virtual SteamVR_Action_Boolean Grab
         {
             get
             {
-                return SteamVR_Actions.eXPPlayerMovement_Exit;
+                return SteamVR_Actions.eXPPlayerMovement_Grab;
             }
         }
         
