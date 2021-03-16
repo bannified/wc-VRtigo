@@ -39,12 +39,15 @@ public class GrabController_MainMenu : MonoBehaviour
             {
                 m_GrabbedObject = hit.collider.gameObject;
                 m_GrabbedObjectRb = hit.collider.transform.root.GetComponent<Rigidbody>();
-                m_GrabbedObjectRb.maxAngularVelocity = m_MaxAngularVelocity;
-
-                m_GrabbedObjectGrabbable = hit.collider.transform.root.GetComponent<IGrabbable>();
-                if (m_GrabbedObjectGrabbable != null)
+                if (m_GrabbedObjectRb != null)
                 {
-                    m_GrabbedObjectGrabbable.Grabbed();
+                    m_GrabbedObjectRb.maxAngularVelocity = m_MaxAngularVelocity;
+
+                    m_GrabbedObjectGrabbable = hit.collider.transform.root.GetComponent<IGrabbable>();
+                    if (m_GrabbedObjectGrabbable != null)
+                    {
+                        m_GrabbedObjectGrabbable.Grabbed();
+                    }
                 }
             }
             else

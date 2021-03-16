@@ -86,58 +86,8 @@ MonoBehaviour:
   m_LeftGrab: {fileID: 3699603113158385556}
   m_RightGrab: {fileID: 7404498001025151226}
   m_Rigidbody: {fileID: 3057790021016051255}
-  m_MovementMask: -1
   m_LinearMovementInputThreshold: 0.05
   m_MaxMoveSpeed: 2.5
-  m_AccelerationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0.5
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_DecelerationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0010008006
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 3
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_DecelerationMagnitudeThreshold: 0.1
   m_TurnRate: 25
   m_TurnInputThreshold: 0.01
   m_InputDirection: {x: 0, y: 0}
@@ -161,6 +111,9 @@ MonoBehaviour:
   m_LeftHandType: 1
   m_RightHandType: 2
   m_SystemMenuAction:
+    actionPath: /actions/EXPPlayerMovement/in/Menu
+    needsReinit: 0
+  m_ExitAppAction:
     actionPath: /actions/EXPPlayerMovement/in/Menu
     needsReinit: 0
   m_MoveAction:
@@ -221,13 +174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Colliders: []
-  m_HandSource: 2
   m_GrabDistance: 0.5
   m_MaxAngularVelocity: 20
-  m_GrabbingLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  m_GrabbingSpeed: 250
   m_IsGrabbing: 0
+  m_GrabbedObject: {fileID: 0}
   m_GrabbedObjectRb: {fileID: 0}
 --- !u!114 &3699603113158385556
 MonoBehaviour:
@@ -242,13 +193,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Colliders: []
-  m_HandSource: 1
   m_GrabDistance: 0.5
   m_MaxAngularVelocity: 20
-  m_GrabbingLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  m_GrabbingSpeed: 250
   m_IsGrabbing: 0
+  m_GrabbedObject: {fileID: 0}
   m_GrabbedObjectRb: {fileID: 0}
 --- !u!1001 &3057790021818340425
 PrefabInstance:
@@ -349,9 +298,13 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010110554832, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: poseAction.actionPath
+      value: /actions/EXPPlayerMovement/in/Pose
+      objectReference: {fileID: 0}
     - target: {fileID: 114000010876603736, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: poseAction.actionPath
-      value: /actions/default/in/Pose
+      value: /actions/EXPPlayerMovement/in/Pose
       objectReference: {fileID: 0}
     - target: {fileID: 114000010876603736, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: poseAction.needsReinit
