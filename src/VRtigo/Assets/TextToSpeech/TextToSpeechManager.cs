@@ -12,7 +12,9 @@ public enum VoiceStatus : sbyte
     Terminating
 }
 
+#if UNITY_EDITOR
 [InitializeOnLoad]
+#endif
 public class TextToSpeechManager
 {
     [DllImport("WindowsVoice")]
@@ -40,11 +42,16 @@ public class TextToSpeechManager
 
     static TextToSpeechManager()
     {
+#if UNITY_EDITOR
         AssemblyReloadEvents.beforeAssemblyReload -= OnBeforeAssemblyReload;
         AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyReload;
 
         EditorApplication.quitting -= OnEditorApplicationQuitting;
         EditorApplication.quitting += OnEditorApplicationQuitting;
+#else
+        Application.quitting -= OnApplicationQuitting;
+        Application.quitting += OnApplicationQuitting;
+#endif
 
         m_StatusUpdateCallback = new statusUpdateCallback(OnStatusUpdate);
         setStatusUpdateCallback(m_StatusUpdateCallback);
@@ -54,6 +61,14 @@ public class TextToSpeechManager
             initSpeech();
         }
     }
+
+#if !UNITY_EDITOR
+    [RuntimeInitializeOnLoadMethod]
+    private static void OnRuntimeLoad()
+    {
+        // This forces the static constructor to be called at runtime
+    }
+#endif
 
     private static void OnBeforeAssemblyReload()
     {
@@ -74,10 +89,17 @@ public class TextToSpeechManager
         statusMessage(sb, 40 + additionalLength);
         return sb.ToString();
     }
-
+#if UNITY_EDITOR
     private static void OnEditorApplicationQuitting()
     {
         Debug.Log("TextToSpeechManager.OnEditorApplicationQuitting");
         destroySpeech();
     }
+#else
+    private static void OnApplicationQuitting()
+    {
+        Debug.Log("TextToSpeechManager.OnApplicationQuitting");
+        destroySpeech();
+    }
+#endif
 }
