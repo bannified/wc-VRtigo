@@ -53,6 +53,9 @@ public class ClassroomManager : MonoBehaviour
     [SerializeField]
     private bool m_AutoplayClassroom = false;
 
+    [SerializeField]
+    private ClassroomDoor m_ClassroomDoor;
+
     [Header("Runtime Classroom Data")]
     [SerializeField]
     private int m_CurrentDialogueIndex = 0;
@@ -162,13 +165,18 @@ public class ClassroomManager : MonoBehaviour
 
     public void OnLessonEnded(ClassroomLessonData classroomLessonData)
     {
+        m_ClassroomDoor.hasLessonEnd = true;
         ExperienceData currentExperience = GameManager.Instance.GetCurrentExperience();
         
         if (currentExperience != null)
         {
             if (currentExperience.NextExperienceData != null)
             {
-                GameManager.Instance.StartNextExperience();
+                m_ClassroomDoor.SetExp(currentExperience.NextExperienceData);
+            } 
+            else
+            {
+                m_ClassroomDoor.OpenDoor();
             }
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class ClassroomDoor : MonoBehaviour
 {
     [SerializeField]
-    protected Sound doorLockedSound;
+    protected Sound m_DoorLockedSound;
 
     [SerializeField]
     protected ExperienceData m_ExpData;
@@ -14,19 +14,39 @@ public class ClassroomDoor : MonoBehaviour
     [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "Player" };
 
+    [SerializeField]
+    private GameObject m_DoorObject;
+
+    [SerializeField]
+    private float m_MaxDoorAngRot = 90.0f;
+
+    [SerializeField]
+    private float m_DoorSpeed = 0.8f;
+
     public bool hasLessonEnd = false;
     
     private bool isDoorClosed = true;
 
+    public bool openPls = false;
+
     void Start()
     {
-        AudioManager.InitAudioSourceOn(doorLockedSound, this.gameObject);
+        //AudioManager.InitAudioSourceOn(m_DoorLockedSound, this.gameObject);
+    }
+
+    private void Update()
+    {
+        if (openPls)
+        {
+            OpenDoor();
+            openPls = false;
+        }
     }
 
     public void OpenDoor()
     {
         isDoorClosed = false;
-        StartCoroutine("OpenDoorAnim");
+        StartCoroutine("RotateDoor");
     }
     
     public void SetExp(ExperienceData expData)
@@ -38,11 +58,11 @@ public class ClassroomDoor : MonoBehaviour
     {
         // Player can only transition to other scene when the door is closed
         if (isDoorClosed && m_TagsThatActivate.Contains(other.gameObject.tag))
-        {
+        { 
             if (hasLessonEnd)
             {
                 // Door is locked, player must finish the lesson
-                doorLockedSound.m_Source.Play();
+                //m_DoorLockedSound.m_Source.Play();
             }
             else
             {
@@ -52,10 +72,19 @@ public class ClassroomDoor : MonoBehaviour
         }
     }
 
-    // Door open animation
-    IEnumerator OpenDoorAnim()
+    IEnumerator RotateDoor()
     {
-        // TODO
-        yield return null;
+        float rotateSoFar = 0.0f;
+        float rotationTarget = m_DoorObject.transform.rotation.y + m_MaxDoorAngRot;
+        float angleToRotate;
+
+        while (rotateSoFar < m_MaxDoorAngRot)
+        {
+            angleToRotate = (rotationTarget - m_DoorObject.transform.rotation.y) * Time.deltaTime * m_DoorSpeed;
+            m_DoorObject.transform.Rotate(Vector3.up, -angleToRotate);
+            
+            rotateSoFar += angleToRotate;
+            yield return null;
+        }
     }
 }
