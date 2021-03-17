@@ -18,7 +18,7 @@ public class ClassroomScreen : MonoBehaviour
     [SerializeField]
     private ClassroomNarrator m_Narrator;
 
-    private void Start()
+    private void Awake()
     {
         SetupListeners();
     }
