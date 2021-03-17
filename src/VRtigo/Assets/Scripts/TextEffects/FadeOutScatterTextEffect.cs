@@ -27,7 +27,7 @@ public class FadeOutScatterTextEffect
 
         m_TextMesh = textMesh;
         m_PrevVerts = textMesh.mesh.vertices;
-        m_TextOrigin = textMesh.transform.root.position;
+        m_TextOrigin = textMesh.rectTransform.rect.center;
     }
 
     public void SetParameters(float maxScatterRange, float duration)
