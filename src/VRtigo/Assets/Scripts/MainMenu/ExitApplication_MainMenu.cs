@@ -11,6 +11,9 @@ public class ExitApplication_MainMenu : MonoBehaviour
     [SerializeField]
     protected ProgressTiles m_ProgressTiles;
 
+    [SerializeField]
+    private List<string> m_TagsThatActivate = new List<string> { "Player" };
+
     private SteamVR_Action_Vibration m_Haptic;
     private PlayerController_MainMenu m_PlayerController;
 
@@ -32,7 +35,7 @@ public class ExitApplication_MainMenu : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (m_TagsThatActivate.Contains(other.gameObject.tag))
         {
             if (m_PlayerController != null)
             {

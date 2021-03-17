@@ -55,15 +55,13 @@ public class AudioManager : MonoBehaviour
         m_SoundsInternal = new Hashtable();
         foreach (Sound s in m_Sounds)
         {
-            s.m_Source = gameObject.AddComponent<AudioSource>();
-            s.m_Source.clip = s.GetClip();
-            s.m_Source.loop = s.loop;
-            s.m_Source.spatialBlend = s.spatialBlend;
+            InitAudioSourceOn(s, this.gameObject);
 
             try
             {
                 m_SoundsInternal.Add(s.GetName(), s);
-            } catch
+            }
+            catch
             {
                 Debug.LogWarning(string.Format("Audio Manager: Duplicate clip name '{0}' detected", s.GetName()));
             }
@@ -78,6 +76,14 @@ public class AudioManager : MonoBehaviour
         return audioManager;
     }
     #endregion
+
+    public static void InitAudioSourceOn(Sound s, GameObject parent)
+    {
+        s.m_Source = parent.AddComponent<AudioSource>();
+        s.m_Source.clip = s.GetClip();
+        s.m_Source.loop = s.loop;
+        s.m_Source.spatialBlend = s.spatialBlend;
+    }
 
     public void Play(string soundName)
     {

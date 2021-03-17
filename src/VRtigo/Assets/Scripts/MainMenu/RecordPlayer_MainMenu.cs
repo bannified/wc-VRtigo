@@ -4,8 +4,6 @@ using System.Collections;
 public class RecordPlayer_MainMenu : MonoBehaviour
 {
     [SerializeField]
-    protected SceneTransistor m_SceneTransistor;
-    [SerializeField]
     protected float m_MusicDelay = 0.5f;
     [SerializeField]
     protected float m_MusicDurBeforeFade = 1.5f;
