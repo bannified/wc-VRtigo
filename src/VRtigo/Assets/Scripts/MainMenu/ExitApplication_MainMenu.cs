@@ -60,6 +60,7 @@ public class ExitApplication_MainMenu : MonoBehaviour
         if (m_ExitCoroutine != null)
         {
             StopCoroutine(m_ExitCoroutine);
+            m_ExitCoroutine = null;
         }
     }
 
@@ -73,7 +74,8 @@ public class ExitApplication_MainMenu : MonoBehaviour
             m_ProgressTiles.SetProgress(durationSoFar / m_ExitDuration);
 
             // Add haptic feedback
-            m_Haptic.Execute(0.0f, Time.deltaTime, 5.0f, 0.1f, SteamVR_Input_Sources.Any);
+            if (m_Haptic != null)
+                m_Haptic.Execute(0.0f, Time.deltaTime, 5.0f, 0.1f, SteamVR_Input_Sources.Any);
 
             durationSoFar += Time.deltaTime;
             yield return null;
