@@ -19,6 +19,9 @@ public class IconTrigger : MonoBehaviour
 
     private Coroutine m_FaceCamCoroutine;
 
+    private bool m_IsWithinBoundary = false; // Tracks whether Player is currently within boundary
+    private bool m_IsEnabled = true; // Tracks whether Icon should be shown or not
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,23 +34,46 @@ public class IconTrigger : MonoBehaviour
         m_Icon.color = imageColor;
     }
 
+    /**
+     * Once enabled, Icon will appear when player is within trigger boundary
+     */
+    public void EnableIcon()
+    {
+        m_IsEnabled = true;
+        if (m_IsWithinBoundary)
+            ShowIcon();
+    }
+
+    /**
+     * Once disabled, Icon will not appear even when player is within trigger boundary.
+     */
+    public void DisableIcon()
+    {
+        m_IsEnabled = false;
+        if (m_IsWithinBoundary)
+            FadeOutIcon();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (m_TagsThatActivate.Contains(other.gameObject.tag))
-        {
-            ActivateCircleIcon();
-        }
+        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
+            ShowIcon();
+
+        m_IsWithinBoundary = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (m_TagsThatActivate.Contains(other.gameObject.tag))
-        {
-            DeactivateCircleIcon();
-        }
+        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
+            FadeOutIcon();
+
+        m_IsWithinBoundary = false;
     }
 
-    public void ActivateCircleIcon()
+    /**
+     * Fade in the icon and make it always face the camera.
+     */
+    public void ShowIcon()
     {
         // Fade In Icon
         StartCoroutine("FadeInImage", m_Icon);
@@ -56,7 +82,10 @@ public class IconTrigger : MonoBehaviour
         m_FaceCamCoroutine = StartCoroutine(FaceToCamera(m_Icon));
     }
 
-    public void DeactivateCircleIcon()
+    /**
+     * Fade out the icon.
+     */
+    public void FadeOutIcon()
     {
         // Fade Out Icon
         StartCoroutine("FadeOutImage", m_Icon);

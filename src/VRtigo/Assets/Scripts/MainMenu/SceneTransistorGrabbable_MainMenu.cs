@@ -11,10 +11,26 @@ public class SceneTransistorGrabbable_MainMenu : MonoBehaviour, IGrabbable
     protected string m_MusicName;
     [SerializeField]
     protected bool m_IsGrabbed;
+    [SerializeField]
+    protected IconTrigger m_IconTrigger;
 
-    public void Grabbed() { m_IsGrabbed = true; }
+    public void Grabbed()
+    {
+        m_IsGrabbed = true;
 
-    public void Dropped() { m_IsGrabbed = false; }
+        // Once grabbed, the icon should not appear
+        if (m_IconTrigger != null)
+            m_IconTrigger.DisableIcon();
+    }
+
+    public void Dropped()
+    {
+        m_IsGrabbed = false;
+
+        // Once let go, icon may appear again
+        if (m_IconTrigger != null)
+            m_IconTrigger.EnableIcon();
+    }
 
     public ExperienceData GetExperience() { return m_ExperienceData; }
 
