@@ -60,17 +60,21 @@ public class FadeInWobbleTextEffect
             m_Progress = m_DurationSoFar / m_FadeDuration;
 
             // Extent of wobble decreases as progress increases
-            amp = 1.0f + (m_WobbleRange * (1.0f - m_Progress));
+            amp = 1.0f + m_WobbleRange * (1.0f - m_Progress);
+
+            // Since progress is [0, 1], we can use it for alpha too
             alpha = m_Progress;
 
             // Update duration
             m_DurationSoFar += Time.deltaTime;
         }
 
+        Vector3 offset = Vector3.zero;
         for (int i = 0; i < vertices.Length; i++)
         {
-            // Since progress is [0, 1], we can use it for alpha too
-            Vector3 offset = WobbleWithAmplitude(Time.time + i, m_XWobbleFinal, m_YWobbleFinal, amp);
+            //Vector3 offset = WobbleWithAmplitude(Time.time + i, m_XWobbleFinal, m_YWobbleFinal, amp);
+            offset.x = amp * m_XWobbleFinal * Mathf.Sin(Time.time + i);
+            offset.y = amp * m_YWobbleFinal * Mathf.Cos(Time.time + i);
 
             // Update vertices info and colours info
             vertices[i] += offset;
@@ -100,13 +104,5 @@ public class FadeInWobbleTextEffect
     public void SetVerticesPosition(Vector3[] newPos)
     {
         m_PrevVerts = newPos;
-    }
-
-    /**
-     * Output a vector2 offset based on the given seed.
-     */
-    private static Vector2 WobbleWithAmplitude(float seed, float xWobble, float yWobble, float amplify)
-    {
-        return new Vector2(Mathf.Sin(seed * xWobble * amplify), Mathf.Cos(seed * yWobble * amplify));
     }
 }
