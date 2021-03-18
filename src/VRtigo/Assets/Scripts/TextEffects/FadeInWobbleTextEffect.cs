@@ -72,7 +72,6 @@ public class FadeInWobbleTextEffect
         Vector3 offset = Vector3.zero;
         for (int i = 0; i < vertices.Length; i++)
         {
-            //Vector3 offset = WobbleWithAmplitude(Time.time + i, m_XWobbleFinal, m_YWobbleFinal, amp);
             offset.x = amp * m_XWobbleFinal * Mathf.Sin(Time.time + i);
             offset.y = amp * m_YWobbleFinal * Mathf.Cos(Time.time + i);
 
