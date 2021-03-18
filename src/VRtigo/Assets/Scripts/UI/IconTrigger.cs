@@ -75,7 +75,7 @@ public class IconTrigger : MonoBehaviour
         {
             Vector3 camForward = m_Camera.transform.forward;
             camForward.y = 0.0f;
-            
+
             img.transform.rotation = Quaternion.LookRotation(camForward);
             yield return null;
         }

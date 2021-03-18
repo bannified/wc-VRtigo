@@ -12,7 +12,7 @@ public class ClassroomDoor : MonoBehaviour
     protected ExperienceData m_ExpData;
 
     [SerializeField]
-    private List<string> m_TagsThatActivate = new List<string> { "Player" };
+    private List<string> m_TagsThatActivate = new List<string> { "PlayerHands" };
 
     [SerializeField]
     private GameObject m_DoorObject;
@@ -24,7 +24,7 @@ public class ClassroomDoor : MonoBehaviour
     private float m_DoorSpeed = 0.8f;
 
     public bool hasLessonEnd = false;
-    
+
     private bool isDoorClosed = true;
 
     public bool openPls = false;
@@ -48,7 +48,7 @@ public class ClassroomDoor : MonoBehaviour
         isDoorClosed = false;
         StartCoroutine("RotateDoor");
     }
-    
+
     public void SetExp(ExperienceData expData)
     {
         m_ExpData = expData;
@@ -58,7 +58,7 @@ public class ClassroomDoor : MonoBehaviour
     {
         // Player can only transition to other scene when the door is closed
         if (isDoorClosed && m_TagsThatActivate.Contains(other.gameObject.tag))
-        { 
+        {
             if (hasLessonEnd)
             {
                 // Door is locked, player must finish the lesson
@@ -82,7 +82,7 @@ public class ClassroomDoor : MonoBehaviour
         {
             angleToRotate = (rotationTarget - m_DoorObject.transform.rotation.y) * Time.deltaTime * m_DoorSpeed;
             m_DoorObject.transform.Rotate(Vector3.up, -angleToRotate);
-            
+
             rotateSoFar += angleToRotate;
             yield return null;
         }

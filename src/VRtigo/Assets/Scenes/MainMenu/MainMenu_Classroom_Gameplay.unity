@@ -242,7 +242,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
   m_ExpData: {fileID: 0}
   m_TagsThatActivate:
-  - Player
+  - PlayerHands
   m_DoorObject: {fileID: 606781125}
   m_MaxDoorAngRot: 90
   m_DoorSpeed: 0.8
