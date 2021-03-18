@@ -27,22 +27,10 @@ public class ClassroomDoor : MonoBehaviour
 
     private bool isDoorClosed = true;
 
-    public bool openPls = false;
-
     void Start()
     {
-        //AudioManager.InitAudioSourceOn(m_DoorLockedSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_DoorLockedSound, this.gameObject);
     }
-
-    private void Update()
-    {
-        if (openPls)
-        {
-            OpenDoor();
-            openPls = false;
-        }
-    }
-
     public void OpenDoor()
     {
         isDoorClosed = false;
@@ -62,7 +50,7 @@ public class ClassroomDoor : MonoBehaviour
             if (hasLessonEnd)
             {
                 // Door is locked, player must finish the lesson
-                //m_DoorLockedSound.m_Source.Play();
+                m_DoorLockedSound.m_Source.Play();
             }
             else
             {
