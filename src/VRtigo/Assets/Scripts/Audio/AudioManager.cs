@@ -14,8 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private float m_FadeDuration = 2.0f;
 
-    [SerializeField]
-    private string m_BackgroundMusicName;
+    private List<string> m_BackgroundMusicNames;
 
     #region Singleton Implementation and Initialisation
     private static object _lock = new object();
@@ -97,22 +96,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayBackgroundMusic(string soundName)
+    public void PlayBackgroundMusic(List<string> soundNames)
     {
         // Currently there is a background music playing
-        if (m_BackgroundMusicName != null && m_BackgroundMusicName != "")
+        if (m_BackgroundMusicNames != null && m_BackgroundMusicNames.Count > 1)
         {
-            StartCoroutine("FadeOutSound", m_BackgroundMusicName);
+            // Play the new background music
+            foreach (string bgmSoundName in m_BackgroundMusicNames)
+                FadeOutSoundWithName(bgmSoundName);
         }
 
-        m_BackgroundMusicName = soundName;
+        m_BackgroundMusicNames = soundNames;
 
         // No new background music
-        if (soundName == "")
+        if (soundNames == null || soundNames.Count < 1)
             return;
 
         // Play the new background music
-        Play(soundName);
+        foreach (string soundName in soundNames)
+            Play(soundName);
     }
 
     public void FadeOutSoundWithName(string soundName)
