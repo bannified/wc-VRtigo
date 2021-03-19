@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class IconTrigger : MonoBehaviour
 {
     [SerializeField]
+    protected Grabbable m_GrabbableObj;
+
+    [SerializeField]
     protected Image m_Icon;
 
     [SerializeField]
@@ -32,6 +35,12 @@ public class IconTrigger : MonoBehaviour
         Color imageColor = m_Icon.color;
         imageColor.a = 0.0f;
         m_Icon.color = imageColor;
+
+        if (m_GrabbableObj != null)
+        {
+            m_GrabbableObj.m_GrabbedEvent.AddListener(DisableIcon);
+            m_GrabbableObj.m_DroppedEvent.AddListener(EnableIcon);
+        }
     }
 
     /**

@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878bc962e808c38438284850cb983626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GrabbableObj: {fileID: 0}
   m_Icon: {fileID: 66648320}
   m_FadeDuration: 0.2
   m_TagsThatActivate:
@@ -365,41 +366,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 160140720306691661, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
   m_PrefabInstance: {fileID: 906936262}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &327530925
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &364752060
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878bc962e808c38438284850cb983626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GrabbableObj: {fileID: 1587381582}
   m_Icon: {fileID: 826476923}
   m_FadeDuration: 0.2
   m_TagsThatActivate:
@@ -702,6 +669,41 @@ MonoBehaviour:
   m_FadeInDuration: 0.5
   m_FadeOutDuration: 0.5
   m_ScatterRange: 0.5
+--- !u!21 &404817582
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &447779948
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +903,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8050056194439277648, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
+--- !u!114 &519353564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7808740979382773219, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
+  m_PrefabInstance: {fileID: 519353563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a93ad0867b18db4fa905a8c51bcc2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &826476922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1131,7 +1144,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8050056194439277648, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
---- !u!43 &1069390989
+--- !u!114 &906936263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7808740979382773219, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
+  m_PrefabInstance: {fileID: 906936262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a93ad0867b18db4fa905a8c51bcc2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!43 &1105355708
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1806,6 +1830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878bc962e808c38438284850cb983626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GrabbableObj: {fileID: 519353564}
   m_Icon: {fileID: 1171578844}
   m_FadeDuration: 0.2
   m_TagsThatActivate:
@@ -2492,6 +2517,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 160140720306691661, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
   m_PrefabInstance: {fileID: 1587381580}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587381582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7808740979382773219, guid: bb0ce15f47b830049b565ffa1eb8ac4e, type: 3}
+  m_PrefabInstance: {fileID: 1587381580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a93ad0867b18db4fa905a8c51bcc2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1590630122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3209,11 +3245,11 @@ PrefabInstance:
     - target: {fileID: 3057790021815026367, guid: f071f54e961a96143a5e03eb6245dea5, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1069390989}
+      objectReference: {fileID: 1105355708}
     - target: {fileID: 3057790021816058683, guid: f071f54e961a96143a5e03eb6245dea5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 327530925}
+      objectReference: {fileID: 404817582}
     - target: {fileID: 3057790021818340427, guid: f071f54e961a96143a5e03eb6245dea5, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
@@ -3561,6 +3597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878bc962e808c38438284850cb983626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GrabbableObj: {fileID: 906936263}
   m_Icon: {fileID: 1783565405}
   m_FadeDuration: 0.2
   m_TagsThatActivate:
