@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayBackgroundMusic(List<string> soundNames)
+    public void PlayBackgroundMusics(List<string> soundNames)
     {
         // Currently there is a background music playing
         if (m_BackgroundMusicNames != null && m_BackgroundMusicNames.Count > 1)

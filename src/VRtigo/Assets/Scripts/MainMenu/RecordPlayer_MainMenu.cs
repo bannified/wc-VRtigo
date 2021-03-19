@@ -37,16 +37,13 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_DiscSpeed = 0.0f;
     }
 
-    public bool SetDisc(SceneTransistorGrabbable_MainMenu disc)
+    public void SetDisc(SceneTransistorGrabbable_MainMenu disc)
     {
         if (!m_Transitioning)
         {
             m_CurrDisc = disc;
             StartCoroutine("SetDiscAndTransition");
-            return true;
         }
-
-        return false;
     }
 
     public void DeactivateRecordPlayer()
@@ -66,7 +63,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(m_MusicDelay);
 
-        AudioManager.Instance.PlayBackgroundMusic(m_CurrDisc.GetMusicName());
+        AudioManager.Instance.PlayBackgroundMusics(m_CurrDisc.GetMusicNames());
 
         yield return new WaitForSeconds(m_MusicDurBeforeFade);
 
