@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SubtitleText: {fileID: 6911070345245477113}
   m_SubtitleRevealSpeed: 10
+  m_Narrator: {fileID: 0}
 --- !u!1 &6911070344712990365
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,10 @@ public class ClassroomScreen : MonoBehaviour
 
     private Coroutine m_DialogueRevealCoroutine;
 
-    private void Start()
+    [SerializeField]
+    private ClassroomNarrator m_Narrator;
+
+    private void Awake()
     {
         SetupListeners();
     }
@@ -32,7 +35,14 @@ public class ClassroomScreen : MonoBehaviour
         m_SubtitleText.SetText(lessonStep.m_DialogueString);
         m_SubtitleText.maxVisibleCharacters = 0;
 
+        if (m_DialogueRevealCoroutine != null)
+        {
+            StopCoroutine(m_DialogueRevealCoroutine);
+        }
+
         m_DialogueRevealCoroutine = StartCoroutine(DialogueRevealRoutine());
+
+        m_Narrator.NarrateString(m_SubtitleText.text);
     }
 
     private void HandleOnLessonStepEnd(LessonStep lessonStep)
@@ -60,7 +70,6 @@ public class ClassroomScreen : MonoBehaviour
     private IEnumerator DialogueRevealRoutine()
     {
         int parsedTextLength = m_SubtitleText.text.Length;
-        Debug.Log("Dialogue Reveal Routine Started." + parsedTextLength);
         while (m_SubtitleText.maxVisibleCharacters < parsedTextLength)
         {
             ++m_SubtitleText.maxVisibleCharacters;
@@ -68,6 +77,7 @@ public class ClassroomScreen : MonoBehaviour
             yield return new WaitForSeconds(1.0f / m_SubtitleRevealSpeed);
         }
 
+        ClassroomManager.Instance.EndLessonStep();
         yield return null;
     }
 
