@@ -22,9 +22,7 @@ MonoBehaviour:
   - m_DialogueString: "Almost no motion sickness is experienced when the scene moves
       in\r constant/linear velocity. The mismatch between what is seen (visual cues)\r\nand
       what is physically felt (vestibular cues) is okay!"
-  - m_DialogueString: 'The mismatch between what is seen (visual cues)
-
-      and
-      what is physically felt (vestibular cues) is okay!'
+  - m_DialogueString: The mismatch between what is seen (visual cues) and what is
+      physically felt (vestibular cues) is okay!
   - m_DialogueString: "However, when the scene movement accelerates or there is a
       angular \rmotion VR sickness happens."
