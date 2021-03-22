@@ -5,6 +5,15 @@ using TMPro;
 
 public class ClassroomScreen : MonoBehaviour
 {
+    [Header("Audio Cues")]
+    [SerializeField]
+    private AudioSource m_AudioSource;
+
+    [SerializeField, Tooltip("The audio cue that's played when a lesson step starts")]
+    private AudioClip m_OnLessonStepStartSound;
+    [SerializeField, Tooltip("The audio cue that's played when a lesson step gets skipped")]
+    private AudioClip m_OnLessonSkipSound;
+
     [Header("Subtitles")]
     [SerializeField]
     private TMP_Text m_SubtitleText;
@@ -15,6 +24,7 @@ public class ClassroomScreen : MonoBehaviour
     [SerializeField]
     private ClassroomNarrator m_Narrator;
 
+    [Header("Lesson Properties")]
     [SerializeField, 
         Tooltip("The length of the lesson in seconds. After this duration, the lesson will skip to the End of the Lesson.\n" +
         "If this value is negative, the lesson will go to the end of the lesson automatically.")]
@@ -55,6 +65,11 @@ public class ClassroomScreen : MonoBehaviour
 
         m_DialogueRevealCoroutine = StartCoroutine(DialogueRevealRoutine());
 
+        if (m_OnLessonStepStartSound != null)
+        {
+            m_AudioSource.PlayOneShot(m_OnLessonStepStartSound);
+        }
+
         m_Narrator.NarrateString(m_SubtitleText.text);
     }
 
@@ -73,6 +88,11 @@ public class ClassroomScreen : MonoBehaviour
         }
 
         RevealWholeSubtitle();
+
+        if (m_OnLessonSkipSound != null)
+        {
+            m_AudioSource.PlayOneShot(m_OnLessonSkipSound);
+        }
     }
 
     private void RevealWholeSubtitle()
