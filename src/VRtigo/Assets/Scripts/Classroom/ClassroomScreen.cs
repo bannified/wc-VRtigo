@@ -92,7 +92,13 @@ public class ClassroomScreen : MonoBehaviour
             m_AudioSource.PlayOneShot(m_OnLessonStepStartSound);
         }
 
-        m_Narrator.NarrateString(m_SubtitleText.text);
+        if (lessonStep.m_VoiceoverClip != null)
+        {
+            m_Narrator.PlayVoiceoverClip(lessonStep.m_VoiceoverClip);
+        } else
+        {
+            m_Narrator.NarrateString(m_SubtitleText.text);
+        }
     }
 
     private void HandleOnLessonStepEnd(LessonStep lessonStep)

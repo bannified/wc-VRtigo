@@ -16,9 +16,11 @@ public class LessonStep
 
 
     [Header("Image")]
-
     public bool m_ClearPreviousImage = true;
     public Sprite m_MainImage;
+
+    [Header("Audio")]
+    public AudioClip m_VoiceoverClip;
 
     public LessonStep()
     {
