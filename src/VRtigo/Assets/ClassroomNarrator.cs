@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ClassroomNarrator : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource m_NarratorAudioSource;
+
+    public void PlayVoiceoverClip(AudioClip clip)
+    {
+        m_NarratorAudioSource.PlayOneShot(clip);
+    }
 
     public void NarrateString(string message)
     {
