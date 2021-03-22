@@ -2,12 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
-
-[System.Serializable]
-public struct ClassroomManagerPayload
-{
-    public ClassroomLessonData m_LessonData;
-}
+using VRT_Constants.MainMenuConstants;
 
 public class ClassroomManager : MonoBehaviour
 {
@@ -65,6 +60,7 @@ public class ClassroomManager : MonoBehaviour
     [SerializeField]
     private bool m_IsLessonStepCompleted = false;
 
+    [Header("Static data (MUST BE ASSIGNED)")]
     [SerializeField]
     private Transform m_PlayerSpawnPoint;
 
@@ -75,20 +71,21 @@ public class ClassroomManager : MonoBehaviour
     public System.Action<LessonStep> OnLessonStepStart;
     public System.Action<LessonStep> OnLessonStepSkip;
     public System.Action<LessonStep> OnLessonStepEnd;
+    public System.Action<ClassroomLessonData> OnLessonEnd;
 
     public Transform GetPlayerSpawnPoint()
     {
         return m_PlayerSpawnPoint;
     }
 
-    public void StartLesson(ClassroomLessonData classroomData)
+    public void StartLesson(ClassroomLessonData classroomLessonData)
     {
-        if (classroomData == null)
+        if (classroomLessonData == null)
         {
             return;
         }
 
-        m_ClassroomLessonData = classroomData;
+        m_ClassroomLessonData = classroomLessonData;
         StartLesson();
     }
 
@@ -110,15 +107,22 @@ public class ClassroomManager : MonoBehaviour
 
         if (m_AutoplayClassroom && GameManager.Instance != null)
         {
-            // [TODO]: Store a reference to a ScriptableObject that contains all of the Experiences, lessons, and lesson steps
-            // and the acquire the lesson data from there
-            StartLesson(GameManager.Instance.GetClassroomManagerPayload().m_LessonData);
+            ExperienceData experience = GameManager.Instance.GetCurrentExperience();
+            if (experience != null) 
+            {
+                StartLesson(GameManager.Instance.GetCurrentExperience().LessonData);
+            }
         }
+
+        OnLessonEnd += OnLessonEnded;
     }
 
     private void TrySpawnPlayerAtClassroom()
     {
-        if (GameManager.Instance.bSpawnInClassroom)
+        bool shouldSpawnInClassroom = false;
+        PersistenceManager.Instance.TryGetBool(MainMenuConstants.SPAWN_IN_CLASSROOM_BOOL, ref shouldSpawnInClassroom);
+
+        if (shouldSpawnInClassroom)
         {
             Character character = GameManager.Instance.GetCharacter(0);
             character.transform.position = m_PlayerSpawnPoint.transform.position;
@@ -145,8 +149,28 @@ public class ClassroomManager : MonoBehaviour
 
     public void EndLessonStep()
     {
-        OnLessonStepEnd?.Invoke(m_ClassroomLessonData.LessonSteps[m_CurrentDialogueIndex]);
-        m_IsLessonStepCompleted = true;
+        if (!m_IsLessonStepCompleted)
+        {
+            OnLessonStepEnd?.Invoke(m_ClassroomLessonData.LessonSteps[m_CurrentDialogueIndex]);
+            m_IsLessonStepCompleted = true;
+            if (m_CurrentDialogueIndex == m_ClassroomLessonData.LessonSteps.Count - 1)
+            {
+                OnLessonEnd?.Invoke(m_ClassroomLessonData);
+            }
+        }
+    }
+
+    public void OnLessonEnded(ClassroomLessonData classroomLessonData)
+    {
+        ExperienceData currentExperience = GameManager.Instance.GetCurrentExperience();
+        
+        if (currentExperience != null)
+        {
+            if (currentExperience.NextExperienceData != null)
+            {
+                GameManager.Instance.StartNextExperience();
+            }
+        }
     }
 
     public void GoToLessonNextStep()

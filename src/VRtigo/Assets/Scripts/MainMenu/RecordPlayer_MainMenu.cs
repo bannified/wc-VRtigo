@@ -72,7 +72,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(m_MusicDurBeforeFade);
 
-        m_SceneTransistor.FadeToScene(m_CurrDisc.GetSceneName());
+        GameManager.Instance.StartExperience(m_CurrDisc.GetExperience());
         m_Transitioning = false;
     }
 

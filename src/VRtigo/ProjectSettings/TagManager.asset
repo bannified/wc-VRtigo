@@ -8,6 +8,7 @@ TagManager:
   - Car
   - FxTemporaire
   - SceneTransistor
+  - PlayerHands
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Target
   - 
   - 
   - 

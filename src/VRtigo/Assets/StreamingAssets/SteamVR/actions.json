@@ -103,7 +103,7 @@
       "type": "pose"
     },
     {
-      "name": "/actions/EXPPlayerMovement/in/Exit",
+      "name": "/actions/EXPPlayerMovement/in/Grab",
       "type": "boolean"
     },
     {

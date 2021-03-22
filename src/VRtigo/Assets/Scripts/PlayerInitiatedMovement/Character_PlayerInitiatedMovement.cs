@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using VRT_Constants.ExperienceConstants;
 
 [System.Serializable, System.Flags]
 public enum PlayerInitiatedMovementBitmask
@@ -76,6 +77,41 @@ public class Character_PlayerInitiatedMovement : Character
         {
             VRT_Helpers.ResetHMDPosition();
         }
+
+        LoadInitialParameters();
+    }
+
+    private void LoadInitialParameters()
+    {
+        PersistenceManager persistenceManager = PersistenceManager.Instance;
+        if (persistenceManager == null)
+        {
+            return;
+        }
+
+        m_MovementMask = 0;
+
+        bool pimTurnEnabled = false;
+        persistenceManager.TryGetBool(PlayerInitiatedMovement.TURN_ENABLED_KEY_BOOL, ref pimTurnEnabled);
+
+        if (pimTurnEnabled)
+        {
+            m_MovementMask |= PlayerInitiatedMovementBitmask.TurnEnabled;
+        }
+
+        bool pimNonLinearEnabled = false;
+        persistenceManager.TryGetBool(PlayerInitiatedMovement.NONLINEAR_ENABLED_KEY_BOOL, ref pimNonLinearEnabled);
+        if (pimNonLinearEnabled)
+        {
+            m_MovementMask |= PlayerInitiatedMovementBitmask.NonLinearMovement;
+        }
+
+        bool pimLateralEnabled = false;
+        persistenceManager.TryGetBool(PlayerInitiatedMovement.LATERAL_ENABLED_KEY_BOOL, ref pimLateralEnabled);
+        if (pimLateralEnabled)
+        {
+            m_MovementMask |= PlayerInitiatedMovementBitmask.LateralMovementEnabled;
+        }
     }
 
     public void MoveForward(float axisValue)
@@ -139,6 +175,10 @@ public class Character_PlayerInitiatedMovement : Character
                     return;
                 }
             }
+
+            resultMoveDirection = m_VRCamera.transform.forward * m_InputDirection.y;
+            resultMoveDirection.y = 0;
+            resultMoveDirection.Normalize();
 
             if (m_InputAxisValue > m_LinearMovementInputThreshold)
             {

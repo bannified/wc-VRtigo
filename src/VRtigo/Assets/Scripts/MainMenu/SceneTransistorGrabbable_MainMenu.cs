@@ -6,7 +6,7 @@ using UnityEngine;
 public class SceneTransistorGrabbable_MainMenu : MonoBehaviour, IGrabbable
 {
     [SerializeField]
-    protected string m_SceneName;
+    protected ExperienceData m_ExperienceData;
     [SerializeField]
     protected string m_MusicName;
     [SerializeField]
@@ -16,7 +16,7 @@ public class SceneTransistorGrabbable_MainMenu : MonoBehaviour, IGrabbable
 
     public void Dropped() { m_IsGrabbed = false; }
 
-    public string GetSceneName() { return m_SceneName; }
+    public ExperienceData GetExperience() { return m_ExperienceData; }
 
     public string GetMusicName() { return m_MusicName; }
 
