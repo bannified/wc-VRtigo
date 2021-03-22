@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ClassroomScreen : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class ClassroomScreen : MonoBehaviour
     [SerializeField, Tooltip("The audio cue that's played when a lesson step gets skipped")]
     private AudioClip m_OnLessonSkipSound;
 
+    [Header("Image")]
+    [SerializeField]
+    private Image m_ScreenMainImage;
+
     [Header("Subtitles")]
     [SerializeField]
     private TMP_Text m_SubtitleText;
@@ -25,7 +30,7 @@ public class ClassroomScreen : MonoBehaviour
     private ClassroomNarrator m_Narrator;
 
     [Header("Lesson Properties")]
-    [SerializeField, 
+    [SerializeField,
         Tooltip("The length of the lesson in seconds. After this duration, the lesson will skip to the End of the Lesson.\n" +
         "If this value is negative, the lesson will go to the end of the lesson automatically.")]
     private float m_LessonLength = 20.0f;
@@ -50,6 +55,23 @@ public class ClassroomScreen : MonoBehaviour
 
     private void HandleOnLessonStepStart(LessonStep lessonStep)
     {
+        if (lessonStep.m_ClearPreviousImage)
+        {
+            m_ScreenMainImage.sprite = null;
+        }
+
+        if (lessonStep.m_MainImage != null)
+        {
+            m_ScreenMainImage.sprite = lessonStep.m_MainImage;
+            m_ScreenMainImage.gameObject.SetActive(true);
+            m_ScreenMainImage.preserveAspect = true;
+        }
+
+        if (m_ScreenMainImage.sprite == null)
+        {
+            m_ScreenMainImage.gameObject.SetActive(false);
+        }
+
         m_SubtitleText.SetText(lessonStep.m_DialogueString);
         m_SubtitleText.maxVisibleCharacters = 0;
 

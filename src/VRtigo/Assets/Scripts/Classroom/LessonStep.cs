@@ -14,8 +14,15 @@ public class LessonStep
     [TextArea(3, 5)]
     public string m_DialogueString;
 
+
+    [Header("Image")]
+
+    public bool m_ClearPreviousImage = true;
+    public Sprite m_MainImage;
+
     public LessonStep()
     {
         m_DialogueString = "Lorem Ipsum blah";
+        m_MainImage = null;
     }
 }
