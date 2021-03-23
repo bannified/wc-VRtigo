@@ -156,10 +156,6 @@ public class ClassroomManager : MonoBehaviour
         {
             OnLessonStepEnd?.Invoke(m_ClassroomLessonData.LessonSteps[m_CurrentDialogueIndex]);
             m_IsLessonStepCompleted = true;
-            if (m_CurrentDialogueIndex == m_ClassroomLessonData.LessonSteps.Count - 1)
-            {
-                OnLessonEnd?.Invoke(m_ClassroomLessonData);
-            }
         }
     }
 
@@ -188,6 +184,11 @@ public class ClassroomManager : MonoBehaviour
         if (m_CurrentDialogueIndex < m_ClassroomLessonData.LessonSteps.Count)
         {
             StartLessonStep(m_ClassroomLessonData.LessonSteps[m_CurrentDialogueIndex]);
+        }
+
+        if (m_CurrentDialogueIndex == m_ClassroomLessonData.LessonSteps.Count)
+        {
+            OnLessonEnd?.Invoke(m_ClassroomLessonData);
         }
     }
 
