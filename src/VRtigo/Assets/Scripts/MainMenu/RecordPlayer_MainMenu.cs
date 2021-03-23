@@ -4,8 +4,6 @@ using System.Collections;
 public class RecordPlayer_MainMenu : MonoBehaviour
 {
     [SerializeField]
-    protected float m_MusicDelay = 0.5f;
-    [SerializeField]
     protected float m_MusicDurBeforeFade = 1.5f;
 
     [SerializeField]
@@ -22,6 +20,9 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     [SerializeField]
     protected SceneTransistorGrabbable_MainMenu m_CurrDisc;
 
+    [SerializeField]
+    protected Sound m_ArmSound;
+
     private bool m_RecordPlayerActive = false;
     private bool m_SettingDisc = false;
     private bool m_Transitioning = false;
@@ -35,6 +36,8 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_ArmAngle = 0.0f;
         m_DiscAngle = 0.0f;
         m_DiscSpeed = 0.0f;
+
+        AudioManager.InitAudioSourceOn(m_ArmSound, this.gameObject);
     }
 
     public void SetDisc(SceneTransistorGrabbable_MainMenu disc)
@@ -61,7 +64,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         if (!m_RecordPlayerActive)
             StartCoroutine("PlayDisc");
 
-        yield return new WaitForSeconds(m_MusicDelay);
+        yield return new WaitUntil(() => m_RecordPlayerActive);
 
         AudioManager.Instance.PlayBackgroundMusics(m_CurrDisc.GetMusicNames());
 
@@ -103,12 +106,13 @@ public class RecordPlayer_MainMenu : MonoBehaviour
             objRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
 
             isAtPosition = (targetPos - objRb.transform.position).magnitude < 0.01f;
-            isAtRotation = Mathf.Abs(Quaternion.Dot(targetRot, objRb.transform.rotation) - 1.0f) < 0.01f;
+            isAtRotation = Mathf.Approximately(Quaternion.Dot(targetRot, objRb.transform.rotation), 1.0f);
             yield return new WaitForFixedUpdate();
         }
 
         objRb.velocity = Vector3.zero;
-
+        m_CurrDisc.transform.SetParent(m_Disc.transform);
+        
         m_SettingDisc = false;
 
         yield return null;
@@ -116,11 +120,12 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
     IEnumerator PlayDisc()
     {
-        m_RecordPlayerActive = true;
 
         m_ArmAngle = 0.0f;
         m_DiscAngle = 0.0f;
         m_DiscSpeed = 0.0f;
+
+        m_ArmSound.m_Source.Play();
 
         // Activate
         while (m_ArmAngle < 30.0f)
@@ -137,6 +142,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         }
 
         m_ArmAngle = 30.0f;
+        m_RecordPlayerActive = true;
 
         // Running
         while (m_RecordPlayerActive)
