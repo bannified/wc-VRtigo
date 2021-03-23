@@ -253,7 +253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167630899}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.223, y: 1.0869999, z: -0.521}
+  m_LocalPosition: {x: -3.31, y: 1.0869999, z: -0.521}
   m_LocalScale: {x: 0.26545995, y: 0.26546, z: 0.32399386}
   m_Children: []
   m_Father: {fileID: 1596144920}
@@ -293,12 +293,12 @@ MonoBehaviour:
     m_Source: {fileID: 0}
   m_ExpData: {fileID: 0}
   m_TagsThatActivate:
-  - PlayerHands
+  - Player
   m_DoorObject: {fileID: 606781125}
-  m_OpenDoorAngRot: 90
-  m_LockedDoorAngRot: 5
+  m_OpenDoorAngRot: -90
+  m_LockedDoorAngRot: -0.5
   m_OpenDoorSpeed: 0.8
-  m_LockedDoorSpeed: 1.3
+  m_LockedDoorSpeed: 7
 --- !u!65 &1167630902
 BoxCollider:
   m_ObjectHideFlags: 0

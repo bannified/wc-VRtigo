@@ -21,21 +21,20 @@ public class ClassroomDoor : MonoBehaviour
     private GameObject m_DoorObject;
 
     [SerializeField]
-    private float m_OpenDoorAngRot = 90.0f;
+    private float m_OpenDoorAngRot = -90.0f;
 
     [SerializeField]
-    private float m_LockedDoorAngRot = 5.0f;
+    private float m_LockedDoorAngRot = -0.5f;
 
     [SerializeField]
     private float m_OpenDoorSpeed = 0.8f;
 
     [SerializeField]
-    private float m_LockedDoorSpeed = 1.3f;
+    private float m_LockedDoorSpeed = 7f;
 
     private Coroutine m_LockedDoorCoroutine;
 
     private float m_DoorSpeed = 0.8f;
-    private float m_MaxDoorAngRot = 90.0f;
 
     private bool hasLessonEnd = false;
     private bool isDoorClosed = true;
@@ -58,19 +57,18 @@ public class ClassroomDoor : MonoBehaviour
 
     public void PlayOpenDoorAnim()
     {
-        m_MaxDoorAngRot = m_OpenDoorAngRot;
         m_DoorSpeed = m_OpenDoorSpeed;
         
-        StartCoroutine("RotateDoor");
+        StartCoroutine("RotateDoor", m_OpenDoorAngRot);
     }
 
     public void PlayLockedDoorAnim()
     {
-        m_MaxDoorAngRot = m_LockedDoorAngRot;
-        m_DoorSpeed = m_LockedDoorSpeed;
-
-        if (m_LockedDoorCoroutine != null)
-            m_LockedDoorCoroutine = StartCoroutine(LockedDoorAnim());
+        if (m_LockedDoorCoroutine == null)
+        {
+            m_DoorSpeed = m_LockedDoorSpeed;
+            m_LockedDoorCoroutine = StartCoroutine("LockedDoorAnim", m_LockedDoorAngRot);
+        }
     }
 
     private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
@@ -98,7 +96,7 @@ public class ClassroomDoor : MonoBehaviour
         // Player can only transition to other scene when the door is closed
         if (isDoorClosed && m_TagsThatActivate.Contains(other.gameObject.tag))
         {
-            if (hasLessonEnd)
+            if (!hasLessonEnd)
             {
                 // Door is locked, player must finish the lesson
                 m_DoorLockSound.m_Source.Play();
@@ -112,30 +110,31 @@ public class ClassroomDoor : MonoBehaviour
         }
     }
 
-    IEnumerator LockedDoorAnim()
+    IEnumerator LockedDoorAnim(float deltaRot)
     {
-        yield return StartCoroutine("RotateDoor");
-        m_MaxDoorAngRot *= -1;
+        yield return StartCoroutine("RotateDoor", deltaRot);
 
-        yield return StartCoroutine("RotateDoor");
-        m_MaxDoorAngRot *= -1;
+        yield return StartCoroutine("RotateDoor", -deltaRot);
 
         m_LockedDoorCoroutine = null;
     }
 
-    IEnumerator RotateDoor()
+    IEnumerator RotateDoor(float deltaRot)
     {
-        float rotateSoFar = 0.0f;
-        float rotationTarget = m_DoorObject.transform.rotation.y + m_MaxDoorAngRot;
+        float absDeltaRot = Mathf.Abs(deltaRot);
+        float rotationTarget = m_DoorObject.transform.rotation.y + deltaRot;
+        float angleRotatedSoFar = 0.0f;
         float angleToRotate;
 
-        while (rotateSoFar < m_MaxDoorAngRot)
+        while (angleRotatedSoFar < absDeltaRot)
         {
             angleToRotate = (rotationTarget - m_DoorObject.transform.rotation.y) * Time.deltaTime * m_DoorSpeed;
-            m_DoorObject.transform.Rotate(Vector3.up, -angleToRotate);
+            m_DoorObject.transform.Rotate(Vector3.up, angleToRotate);
 
-            rotateSoFar += angleToRotate;
+            angleRotatedSoFar += Mathf.Abs(angleToRotate);
             yield return null;
         }
+
+        yield return null;
     }
 }
