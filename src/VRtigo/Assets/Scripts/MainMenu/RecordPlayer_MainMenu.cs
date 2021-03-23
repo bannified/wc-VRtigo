@@ -45,6 +45,8 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         if (!m_Transitioning)
         {
             m_CurrDisc = disc;
+            disc.SetNonInteractable();
+
             StartCoroutine("SetDiscAndTransition");
         }
     }

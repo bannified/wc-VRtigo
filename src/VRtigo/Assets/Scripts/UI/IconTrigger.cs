@@ -43,6 +43,9 @@ public class IconTrigger : MonoBehaviour
         {
             m_GrabbableObj.onGrab += DisableIcon;
             m_GrabbableObj.onDrop += EnableIcon;
+
+            m_GrabbableObj.onNonInteractable += DisableIcon;
+            m_GrabbableObj.OnInteractable += EnableIcon;
         }
     }
 
@@ -52,6 +55,9 @@ public class IconTrigger : MonoBehaviour
         {
             m_GrabbableObj.onGrab -= DisableIcon;
             m_GrabbableObj.onDrop -= EnableIcon;
+
+            m_GrabbableObj.onNonInteractable -= DisableIcon;
+            m_GrabbableObj.OnInteractable -= EnableIcon;
         }
     }
 
