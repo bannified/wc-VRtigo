@@ -35,18 +35,24 @@ public class IconTrigger : MonoBehaviour
         Color imageColor = m_Icon.color;
         imageColor.a = 0.0f;
         m_Icon.color = imageColor;
+    }
 
-        if (m_GrabbableObj != null)
-        {
-            m_GrabbableObj.m_GrabbedEvent.AddListener(DisableIcon);
-            m_GrabbableObj.m_DroppedEvent.AddListener(EnableIcon);
-        }
+    private void OnEnable()
+    {
+        m_GrabbableObj.onGrab += DisableIcon;
+        m_GrabbableObj.onDrop += EnableIcon;
+    }
+
+    private void OnDisable()
+    {
+        m_GrabbableObj.onGrab -= DisableIcon;
+        m_GrabbableObj.onDrop -= EnableIcon;
     }
 
     /**
      * Once enabled, Icon will appear when player is within trigger boundary
      */
-    public void EnableIcon()
+    public void EnableIcon(Grabbable grabObj)
     {
         m_IsEnabled = true;
         if (m_IsWithinBoundary)
@@ -56,7 +62,7 @@ public class IconTrigger : MonoBehaviour
     /**
      * Once disabled, Icon will not appear even when player is within trigger boundary.
      */
-    public void DisableIcon()
+    public void DisableIcon(Grabbable grabObj)
     {
         m_IsEnabled = false;
         if (m_IsWithinBoundary)
