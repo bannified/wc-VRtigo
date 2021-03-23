@@ -12,7 +12,7 @@ public class ClassroomDoor : MonoBehaviour
     protected Sound m_DoorOpenSound;
 
     [SerializeField]
-    protected ExperienceData m_ExpData;
+    private List<BoxCollider> m_UITriggers;
 
     [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "PlayerHands" };
@@ -32,6 +32,8 @@ public class ClassroomDoor : MonoBehaviour
     [SerializeField]
     private float m_LockedDoorSpeed = 7f;
 
+    private ExperienceData m_ExpData;
+
     private Coroutine m_LockedDoorCoroutine;
 
     private float m_DoorSpeed = 0.8f;
@@ -43,6 +45,8 @@ public class ClassroomDoor : MonoBehaviour
     {
         AudioManager.InitAudioSourceOn(m_DoorLockSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_DoorOpenSound, this.gameObject);
+
+        SetUITriggersEnabled(false);
     }
 
     private void OnEnable()
@@ -84,6 +88,7 @@ public class ClassroomDoor : MonoBehaviour
             if (currentExperience.NextExperienceData != null)
             {
                 m_ExpData = currentExperience.NextExperienceData;
+                SetUITriggersEnabled(true);
             }
             else
             {
@@ -110,6 +115,12 @@ public class ClassroomDoor : MonoBehaviour
                 GameManager.Instance.StartExperience(m_ExpData);
             }
         }
+    }
+
+    private void SetUITriggersEnabled(bool val)
+    {
+        for (int i = 0; i < m_UITriggers.Count; i++)
+            m_UITriggers[i].enabled = val;
     }
 
     IEnumerator OpenDoorAnim(float deltaRot)

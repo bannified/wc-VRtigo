@@ -106,13 +106,14 @@ public class RecordPlayer_MainMenu : MonoBehaviour
             objRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
 
             isAtPosition = (targetPos - objRb.transform.position).magnitude < 0.01f;
-            isAtRotation = Mathf.Approximately(Quaternion.Dot(targetRot, objRb.transform.rotation), 1.0f);
+            isAtRotation = Mathf.Approximately(Mathf.Abs(Quaternion.Dot(targetRot, objRb.transform.rotation)), 1.0f);
+
             yield return new WaitForFixedUpdate();
         }
 
         objRb.velocity = Vector3.zero;
         m_CurrDisc.transform.SetParent(m_Disc.transform);
-        
+
         m_SettingDisc = false;
 
         yield return null;
