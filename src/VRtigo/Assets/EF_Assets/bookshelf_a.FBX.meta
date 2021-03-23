@@ -3,7 +3,17 @@ guid: 218cbb3503da1c745bb1b3ce8e956626
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MollyDresserKnob_a_Mat
+    second: {fileID: 2100000, guid: 9d642a2fa7fb1a04e87466c5391078ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WM_LaqueredWhiteWood_a_Mat
+    second: {fileID: 2100000, guid: d362f217a4a5ce4419b645f449e90dea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
