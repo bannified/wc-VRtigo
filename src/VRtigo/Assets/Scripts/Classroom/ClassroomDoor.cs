@@ -42,6 +42,34 @@ public class ClassroomDoor : MonoBehaviour
         m_ExpData = expData;
     }
 
+    public void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
+    {
+        hasLessonEnd = true;
+
+        ExperienceData currentExperience = GameManager.Instance.GetCurrentExperience();
+        if (currentExperience != null)
+        {
+            if (currentExperience.NextExperienceData != null)
+            {
+                SetExp(currentExperience.NextExperienceData);
+            }
+            else
+            {
+                OpenDoor();
+            }
+        }
+    }
+
+    private void OnDisable()
+    {
+        ClassroomManager.Instance.OnLessonEnd -= ClassroomLessonEnd;
+    }
+
+    private void OnEnable()
+    {
+        ClassroomManager.Instance.OnLessonEnd += ClassroomLessonEnd;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Player can only transition to other scene when the door is closed
