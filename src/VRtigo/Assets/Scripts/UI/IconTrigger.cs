@@ -39,14 +39,20 @@ public class IconTrigger : MonoBehaviour
 
     private void OnEnable()
     {
-        m_GrabbableObj.onGrab += DisableIcon;
-        m_GrabbableObj.onDrop += EnableIcon;
+        if (m_GrabbableObj != null)
+        {
+            m_GrabbableObj.onGrab += DisableIcon;
+            m_GrabbableObj.onDrop += EnableIcon;
+        }
     }
 
     private void OnDisable()
     {
-        m_GrabbableObj.onGrab -= DisableIcon;
-        m_GrabbableObj.onDrop -= EnableIcon;
+        if (m_GrabbableObj != null)
+        {
+            m_GrabbableObj.onGrab -= DisableIcon;
+            m_GrabbableObj.onDrop -= EnableIcon;
+        }
     }
 
     /**

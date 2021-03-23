@@ -6,7 +6,10 @@ using UnityEngine.Audio;
 public class ClassroomDoor : MonoBehaviour
 {
     [SerializeField]
-    protected Sound m_DoorLockedSound;
+    protected Sound m_DoorLockSound;
+
+    [SerializeField]
+    protected Sound m_DoorOpenSound;
 
     [SerializeField]
     protected ExperienceData m_ExpData;
@@ -18,46 +21,34 @@ public class ClassroomDoor : MonoBehaviour
     private GameObject m_DoorObject;
 
     [SerializeField]
-    private float m_MaxDoorAngRot = 90.0f;
+    private float m_OpenDoorAngRot = 90.0f;
 
     [SerializeField]
+    private float m_LockedDoorAngRot = 5.0f;
+
+    [SerializeField]
+    private float m_OpenDoorSpeed = 0.8f;
+
+    [SerializeField]
+    private float m_LockedDoorSpeed = 1.3f;
+
+    private Coroutine m_LockedDoorCoroutine;
+
     private float m_DoorSpeed = 0.8f;
+    private float m_MaxDoorAngRot = 90.0f;
 
-    public bool hasLessonEnd = false;
-
+    private bool hasLessonEnd = false;
     private bool isDoorClosed = true;
 
     void Start()
     {
-        AudioManager.InitAudioSourceOn(m_DoorLockedSound, this.gameObject);
-    }
-    public void OpenDoor()
-    {
-        isDoorClosed = false;
-        StartCoroutine("RotateDoor");
+        AudioManager.InitAudioSourceOn(m_DoorLockSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_DoorOpenSound, this.gameObject);
     }
 
-    public void SetExp(ExperienceData expData)
+    private void OnEnable()
     {
-        m_ExpData = expData;
-    }
-
-    public void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
-    {
-        hasLessonEnd = true;
-
-        ExperienceData currentExperience = GameManager.Instance.GetCurrentExperience();
-        if (currentExperience != null)
-        {
-            if (currentExperience.NextExperienceData != null)
-            {
-                SetExp(currentExperience.NextExperienceData);
-            }
-            else
-            {
-                OpenDoor();
-            }
-        }
+        ClassroomManager.Instance.OnLessonEnd += ClassroomLessonEnd;
     }
 
     private void OnDisable()
@@ -65,9 +56,41 @@ public class ClassroomDoor : MonoBehaviour
         ClassroomManager.Instance.OnLessonEnd -= ClassroomLessonEnd;
     }
 
-    private void OnEnable()
+    public void PlayOpenDoorAnim()
     {
-        ClassroomManager.Instance.OnLessonEnd += ClassroomLessonEnd;
+        m_MaxDoorAngRot = m_OpenDoorAngRot;
+        m_DoorSpeed = m_OpenDoorSpeed;
+        
+        StartCoroutine("RotateDoor");
+    }
+
+    public void PlayLockedDoorAnim()
+    {
+        m_MaxDoorAngRot = m_LockedDoorAngRot;
+        m_DoorSpeed = m_LockedDoorSpeed;
+
+        if (m_LockedDoorCoroutine != null)
+            m_LockedDoorCoroutine = StartCoroutine(LockedDoorAnim());
+    }
+
+    private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
+    {
+        hasLessonEnd = true;
+        isDoorClosed = false;
+
+        ExperienceData currentExperience = GameManager.Instance.GetCurrentExperience();
+        if (currentExperience != null)
+        {
+            if (currentExperience.NextExperienceData != null)
+            {
+                m_ExpData = currentExperience.NextExperienceData;
+            }
+            else
+            {
+                m_DoorOpenSound.m_Source.Play();
+                PlayOpenDoorAnim();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -78,7 +101,8 @@ public class ClassroomDoor : MonoBehaviour
             if (hasLessonEnd)
             {
                 // Door is locked, player must finish the lesson
-                m_DoorLockedSound.m_Source.Play();
+                m_DoorLockSound.m_Source.Play();
+                PlayLockedDoorAnim();
             }
             else
             {
@@ -86,6 +110,17 @@ public class ClassroomDoor : MonoBehaviour
                 GameManager.Instance.StartExperience(m_ExpData);
             }
         }
+    }
+
+    IEnumerator LockedDoorAnim()
+    {
+        yield return StartCoroutine("RotateDoor");
+        m_MaxDoorAngRot *= -1;
+
+        yield return StartCoroutine("RotateDoor");
+        m_MaxDoorAngRot *= -1;
+
+        m_LockedDoorCoroutine = null;
     }
 
     IEnumerator RotateDoor()

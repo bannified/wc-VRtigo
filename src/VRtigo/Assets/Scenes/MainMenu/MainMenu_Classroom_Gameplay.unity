@@ -162,6 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 606781126}
+  - component: {fileID: 606781127}
   m_Layer: 0
   m_Name: ClassroomDoor
   m_TagString: Untagged
@@ -184,6 +185,46 @@ Transform:
   m_Father: {fileID: 1596144920}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &606781127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606781125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bc6069d1ac2284296c682b47b4294b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DoorLockSound:
+    m_Name: 
+    m_Clip: {fileID: 0}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 0.2
+    loop: 0
+    m_Source: {fileID: 0}
+  m_DoorOpenSound:
+    m_Name: 
+    m_Clip: {fileID: 0}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 0.2
+    loop: 0
+    m_Source: {fileID: 0}
+  m_ExpData: {fileID: 0}
+  m_TagsThatActivate:
+  - PlayerHands
+  m_DoorObject: {fileID: 0}
+  m_OpenDoorAngRot: 90
+  m_LockedDoorAngRot: 5
+  m_OpenDoorSpeed: 0.8
+  m_LockedDoorSpeed: 1.3
 --- !u!1 &1167630899
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167630899}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.1010005, y: 1.0869999, z: -0.52099967}
+  m_LocalPosition: {x: -3.223, y: 1.0869999, z: -0.521}
   m_LocalScale: {x: 0.26545995, y: 0.26546, z: 0.32399386}
   m_Children: []
   m_Father: {fileID: 1596144920}
@@ -230,24 +271,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc6069d1ac2284296c682b47b4294b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DoorLockedSound:
-    m_Name: 
-    m_Clip: {fileID: 0}
+  m_DoorLockSound:
+    m_Name: DoorLock
+    m_Clip: {fileID: 8300000, guid: 16ffd18121cbe7a449eeaab3f1bfc402, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0
-    spatialBlend: 0.2
+    spatialBlend: 1
+    loop: 0
+    m_Source: {fileID: 0}
+  m_DoorOpenSound:
+    m_Name: DoorOpen
+    m_Clip: {fileID: 8300000, guid: 139e68d3937eba642996802b10571efa, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 1
     loop: 0
     m_Source: {fileID: 0}
   m_ExpData: {fileID: 0}
   m_TagsThatActivate:
   - PlayerHands
   m_DoorObject: {fileID: 606781125}
-  m_MaxDoorAngRot: 90
-  m_DoorSpeed: 0.8
-  hasLessonEnd: 0
-  openPls: 0
+  m_OpenDoorAngRot: 90
+  m_LockedDoorAngRot: 5
+  m_OpenDoorSpeed: 0.8
+  m_LockedDoorSpeed: 1.3
 --- !u!65 &1167630902
 BoxCollider:
   m_ObjectHideFlags: 0
