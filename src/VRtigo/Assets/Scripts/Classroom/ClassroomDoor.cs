@@ -57,9 +57,12 @@ public class ClassroomDoor : MonoBehaviour
 
     public void PlayOpenDoorAnim()
     {
-        m_DoorSpeed = m_OpenDoorSpeed;
-        
-        StartCoroutine("RotateDoor", m_OpenDoorAngRot);
+        if (isDoorClosed)
+        {
+            isDoorClosed = false;
+            m_DoorSpeed = m_OpenDoorSpeed;
+            StartCoroutine("OpenDoorAnim", m_OpenDoorAngRot);
+        }
     }
 
     public void PlayLockedDoorAnim()
@@ -74,7 +77,6 @@ public class ClassroomDoor : MonoBehaviour
     private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
     {
         hasLessonEnd = true;
-        isDoorClosed = false;
 
         ExperienceData currentExperience = GameManager.Instance.GetCurrentExperience();
         if (currentExperience != null)
@@ -110,12 +112,18 @@ public class ClassroomDoor : MonoBehaviour
         }
     }
 
+    IEnumerator OpenDoorAnim(float deltaRot)
+    {
+        // Delay to wait for sound effect start
+        // TODO: Find better door opening SFX or cut the current one
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine("RotateDoor", deltaRot);
+    }
+
     IEnumerator LockedDoorAnim(float deltaRot)
     {
         yield return StartCoroutine("RotateDoor", deltaRot);
-
         yield return StartCoroutine("RotateDoor", -deltaRot);
-
         m_LockedDoorCoroutine = null;
     }
 
