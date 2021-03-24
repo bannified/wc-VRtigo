@@ -23,7 +23,7 @@ public class ExitApplication_MainMenu : MonoBehaviour
     {
         if (m_TagsThatActivate.Contains(other.gameObject.tag))
         {
-            m_PlayerController = other.gameObject.GetComponent<PlayerController_MainMenu>();
+            m_PlayerController = other.transform.root.GetComponent<PlayerController_MainMenu>();
             if (m_PlayerController != null)
             {
                 m_Haptic = m_PlayerController.m_Haptic;
