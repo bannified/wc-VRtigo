@@ -114,12 +114,19 @@ public class PlayerController_ForcedHeadRotation : PlayerController
 
         if (Input.GetButtonDown("NVR_TurnLeft"))
         {
-            m_CastedCharacter.TurnHeadLeft();
+            m_CastedCharacter.StartTurnHeadLeft();
+        } else if (Input.GetButtonUp("NVR_TurnLeft"))
+        {
+            m_CastedCharacter.EndTurnHeadLeft();
         }
 
         if (Input.GetButtonDown("NVR_TurnRight"))
         {
-            m_CastedCharacter.TurnHeadRight();
+            m_CastedCharacter.StartTurnHeadRight();
+        }
+        else if (Input.GetButtonUp("NVR_TurnRight"))
+        {
+            m_CastedCharacter.EndTurnHeadRight();
         }
     }
 

@@ -5,6 +5,13 @@ using Valve.VR;
 using UnityEngine.SpatialTracking;
 using VRT_Constants.ExperienceConstants;
 
+public enum TurnMode
+{
+    CENTER,
+    LEFT,
+    RIGHT
+}
+
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class Character_ForcedHeadRotation : Character
 {
@@ -16,11 +23,11 @@ public class Character_ForcedHeadRotation : Character
     [SerializeField]
     protected Camera m_VRCamera;
     [SerializeField]
-    protected Animator m_CameraRootAnimator;
-    [SerializeField]
     protected TrackedPoseDriver m_CameraTrackedPoseDriver;
     [SerializeField]
     protected Animator m_BlackScreenAnimator;
+    [SerializeField]
+    protected Transform m_CameraRoot;
 
     [SerializeField]
     protected Rigidbody m_Rigidbody;
@@ -45,8 +52,26 @@ public class Character_ForcedHeadRotation : Character
     [SerializeField]
     protected bool m_CameraRotLocked = false;
 
+    [SerializeField]
+    protected float m_TurnPositionSpeed = 5.0f;
+    [SerializeField]
+    protected float m_TurnRotationSpeed = 5.0f;
+
+    [SerializeField]
+    protected Transform m_CenterTransform;
+    [SerializeField]
+    protected Transform m_LeftTransform;
+    [SerializeField]
+    protected Transform m_RightTransform;
+
+    protected Coroutine m_TurningCoroutine;
+
+    [SerializeField]
+    protected TurnMode m_TurnMode = TurnMode.CENTER;
+
     [Header("Walk Point")]
     protected WalkPoint m_LastWalkPoint;
+
 
     private void Start()
     {
@@ -80,24 +105,33 @@ public class Character_ForcedHeadRotation : Character
         }
     }
 
-    public void TurnHeadRight()
+    public void StartTurnHeadRight()
     {
         if (!m_CameraRotLocked)
         {
             return;
         }
 
-
+        m_TurnMode = TurnMode.RIGHT;
     }
 
-    public void TurnHeadLeft()
+    public void EndTurnHeadRight()
+    {
+        m_TurnMode = TurnMode.CENTER;
+    }
+
+    public void StartTurnHeadLeft()
     {
         if (!m_CameraRotLocked)
         {
             return;
         }
 
-
+        m_TurnMode = TurnMode.LEFT;
+    }
+    public void EndTurnHeadLeft()
+    {
+        m_TurnMode = TurnMode.CENTER;
     }
 
     public void MoveForward(float axisValue)
@@ -119,6 +153,24 @@ public class Character_ForcedHeadRotation : Character
         else
         {
             m_Rigidbody.velocity = Vector3.zero;
+        }
+
+        switch (m_TurnMode)
+        {
+            case TurnMode.CENTER:
+                m_CameraRoot.position = Vector3.Lerp(m_CameraRoot.position, m_CenterTransform.position, m_TurnPositionSpeed * Time.fixedDeltaTime);
+                m_CameraRoot.rotation = Quaternion.Lerp(m_CameraRoot.rotation, m_CenterTransform.rotation, m_TurnRotationSpeed * Time.fixedDeltaTime);
+                break;
+            case TurnMode.LEFT:
+                m_CameraRoot.position = Vector3.Lerp(m_CameraRoot.position, m_LeftTransform.position, m_TurnPositionSpeed * Time.fixedDeltaTime);
+                m_CameraRoot.rotation = Quaternion.Lerp(m_CameraRoot.rotation, m_LeftTransform.rotation, m_TurnRotationSpeed * Time.fixedDeltaTime);
+                break;
+            case TurnMode.RIGHT:
+                m_CameraRoot.position = Vector3.Lerp(m_CameraRoot.position, m_RightTransform.position, m_TurnPositionSpeed * Time.fixedDeltaTime);
+                m_CameraRoot.rotation = Quaternion.Lerp(m_CameraRoot.rotation, m_RightTransform.rotation, m_TurnRotationSpeed * Time.fixedDeltaTime);
+                break;
+            default:
+                break;
         }
     }
 
