@@ -56,5 +56,29 @@ namespace Valve.VR
                 return SteamVR_Actions.forcedCameraRotation_CameraLookDown;
             }
         }
+        
+        public virtual SteamVR_Action_Single WalkAction
+        {
+            get
+            {
+                return SteamVR_Actions.forcedCameraRotation_WalkAction;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean SystemMenu
+        {
+            get
+            {
+                return SteamVR_Actions.forcedCameraRotation_SystemMenu;
+            }
+        }
+        
+        public virtual SteamVR_Action_Vibration Haptic
+        {
+            get
+            {
+                return SteamVR_Actions.forcedCameraRotation_Haptic;
+            }
+        }
     }
 }

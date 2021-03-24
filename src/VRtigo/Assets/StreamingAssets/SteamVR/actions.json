@@ -131,6 +131,18 @@
       "type": "vector1"
     },
     {
+      "name": "/actions/ForcedCameraRotation/in/WalkAction",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/in/SystemMenu",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/ForcedCameraRotation/out/Haptic",
+      "type": "vibration"
+    },
+    {
       "name": "/actions/Classroom/in/Pose",
       "type": "pose"
     },
