@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1188835010}
-  m_IndirectSpecularColor: {r: 0.18154702, g: 0.22719009, b: 0.30740646, a: 1}
+  m_IndirectSpecularColor: {r: 0.6997336, g: 0.5594266, b: 0.38041604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 87492b6d047774640bdc567c76f978dd, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8fc6f916dbf941a4abd0ae34e6d22f9e, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: d183bf5933afb834e9349ab9715df7e5, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -156,7 +156,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &13879315
 Transform:
@@ -190,7 +190,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &15057168
 Transform:
@@ -261,13 +261,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3760934561537971591, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 122616500428061548, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 122616500428061548, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
       propertyPath: m_Name
       value: shelf_kitchen_b
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
@@ -327,13 +339,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7653351570842560745, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -3284493449937603381, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2856943632029607776, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
       propertyPath: m_Name
       value: counter_island_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
@@ -401,6 +425,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoyerFloor1_Window_a (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337036000169386709, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485438090137666015, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 72d8457c11129264493ff06aab51647c, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
       value: 0.06978529
@@ -408,6 +444,10 @@ PrefabInstance:
     - target: {fileID: 5155054941403282883, guid: 72d8457c11129264493ff06aab51647c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155054941403282883, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5596874821966917236, guid: 72d8457c11129264493ff06aab51647c, type: 3}
       propertyPath: m_Materials.Array.data[3]
@@ -417,6 +457,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[4]
       value: 
       objectReference: {fileID: 2100000, guid: c6d4db9a435f8354690e098e0ee784ab, type: 2}
+    - target: {fileID: 8156716371436771332, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72d8457c11129264493ff06aab51647c, type: 3}
 --- !u!4 &51689595 stripped
@@ -502,6 +546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomWalls_d
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 12615116aa1c1ff42adcbeae82d2d714, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12615116aa1c1ff42adcbeae82d2d714, type: 3}
 --- !u!4 &60111672 stripped
@@ -526,7 +574,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &60664984
 Transform:
@@ -621,7 +669,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &62381744
 Transform:
@@ -713,7 +761,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &68507017
 Transform:
@@ -751,7 +799,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &79492086
 Transform:
@@ -878,6 +926,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorTwin_a (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795919644801894594, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978974755550018858, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
 --- !u!4 &100230678 stripped
@@ -936,13 +996,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -1009,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
       propertyPath: m_Name
       value: LivingRoomBeam_b (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
@@ -1096,13 +1172,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.281
       objectReference: {fileID: 0}
+    - target: {fileID: -3446119311420534252, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_Name
       value: LivingRoomWindow_b (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
@@ -1128,7 +1216,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &131380314
 Transform:
@@ -1261,14 +1349,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1567508175383118063, guid: 6031dbb284e8284478ce00c19c2505be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6031dbb284e8284478ce00c19c2505be, type: 3}
       propertyPath: m_Name
       value: DiningRoomWalls_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6031dbb284e8284478ce00c19c2505be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4844556454012858569, guid: 6031dbb284e8284478ce00c19c2505be, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c5afe8f5528b23c449ef263f73d64e5a, type: 2}
+    - target: {fileID: 5207019456801713929, guid: 6031dbb284e8284478ce00c19c2505be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6031dbb284e8284478ce00c19c2505be, type: 3}
 --- !u!4 &147885778 stripped
@@ -1339,6 +1439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KitchenWall_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 83853e4a6d905e24eb7135433eafa57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83853e4a6d905e24eb7135433eafa57b, type: 3}
 --- !u!4 &151376494 stripped
@@ -1363,7 +1467,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &160005532
 Transform:
@@ -1458,7 +1562,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &160034198
 MeshCollider:
@@ -1551,7 +1655,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &166295201
 Transform:
@@ -1638,6 +1742,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorTwin_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795919644801894594, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978974755550018858, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
 --- !u!4 &169864536 stripped
@@ -1662,7 +1778,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &170431626
 Transform:
@@ -1795,6 +1911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &172745296 stripped
@@ -1819,7 +1939,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &174085919
 Transform:
@@ -1914,7 +2034,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &174349529
 Transform:
@@ -2043,9 +2163,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2577692085443741887, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Name
       value: cupboard_kitchen_a (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531097966407620171, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8592563552964539029, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Enabled
@@ -2075,7 +2207,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &230764122
 Transform:
@@ -2168,7 +2300,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &242779341
 Transform:
@@ -2235,13 +2367,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.760364e+20, y: 2.6785335e+20, z: 1.9204594e+31, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -2263,7 +2395,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &243020606
 Transform:
@@ -2404,6 +2536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &246330680 stripped
@@ -2490,13 +2626,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.281
       objectReference: {fileID: 0}
+    - target: {fileID: -3446119311420534252, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_Name
       value: LivingRoomWindow_b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
@@ -2556,13 +2704,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7653351570842560745, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -3284493449937603381, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2856943632029607776, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
       propertyPath: m_Name
       value: counter_island_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
@@ -2588,7 +2748,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &256239636
 Transform:
@@ -2717,9 +2877,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -126453777748204203, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 443945514613282700, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Name
       value: LivingRoomBookcase_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5263935994591263089, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Enabled
@@ -2795,9 +2967,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBookcase_c
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185459553999032517, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7247357913221128685, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247357913221128685, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
@@ -2869,6 +3053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &268864775 stripped
@@ -2912,7 +3100,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &302412082
 Transform:
@@ -3007,7 +3195,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &304213953
 BoxCollider:
@@ -3102,7 +3290,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &312254677
 Transform:
@@ -3197,7 +3385,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &318346398
 Transform:
@@ -3326,9 +3514,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -126453777748204203, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 443945514613282700, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Name
       value: LivingRoomBookcase_a (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5263935994591263089, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Enabled
@@ -3358,7 +3558,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &333809744
 Transform:
@@ -3453,7 +3653,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &342765744
 MeshCollider:
@@ -3583,13 +3783,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -3649,13 +3861,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4469630779650583924, guid: 7e7a2c32c4692984993ace205cd06315, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -2093591441227434093, guid: 7e7a2c32c4692984993ace205cd06315, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 13f3c64becfe2b048b8b73269c96d68b, type: 2}
+    - target: {fileID: 842019421763528379, guid: 7e7a2c32c4692984993ace205cd06315, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7e7a2c32c4692984993ace205cd06315, type: 3}
       propertyPath: m_Name
       value: FoyerBanisterRailing_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e7a2c32c4692984993ace205cd06315, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3811226983509894210, guid: 7e7a2c32c4692984993ace205cd06315, type: 3}
       propertyPath: m_Enabled
@@ -3702,7 +3926,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &362494638
 Transform:
@@ -3769,13 +3993,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.6875, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -3816,7 +4040,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &379087253
 Transform:
@@ -3953,6 +4177,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &382416305 stripped
@@ -3975,7 +4203,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &382832574
 Transform:
@@ -4042,13 +4270,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -4070,7 +4298,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &385292636
 Transform:
@@ -4211,6 +4439,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7006850122324619437, guid: 95f4a6c0aa8f20b4887d6f2300ba01ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4437562515739014946, guid: 95f4a6c0aa8f20b4887d6f2300ba01ba, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.0929
@@ -4242,6 +4474,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95f4a6c0aa8f20b4887d6f2300ba01ba, type: 3}
       propertyPath: m_Name
       value: FrontDoor_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95f4a6c0aa8f20b4887d6f2300ba01ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413860426153906972, guid: 95f4a6c0aa8f20b4887d6f2300ba01ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3249919771778198299, guid: 95f4a6c0aa8f20b4887d6f2300ba01ba, type: 3}
       propertyPath: m_Enabled
@@ -4285,7 +4525,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &403545329
 BoxCollider:
@@ -4430,9 +4670,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f4193cbca730ba242b8ac196702d4ad2, type: 2}
+    - target: {fileID: -2576631271937843955, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224053779708884933, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
       propertyPath: m_Name
       value: SamRoomFlag_a (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
@@ -4458,7 +4710,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &431229967
 Transform:
@@ -4599,6 +4851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &444186552 stripped
@@ -4620,7 +4876,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &448246946
 Transform:
@@ -4722,6 +4978,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoyerNewelPost_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ade8add7be88c8e4cbf0ba9279a12917, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784272343691281328, guid: ade8add7be88c8e4cbf0ba9279a12917, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671277821303125010, guid: ade8add7be88c8e4cbf0ba9279a12917, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade8add7be88c8e4cbf0ba9279a12917, type: 3}
 --- !u!4 &452684066 stripped
@@ -4788,6 +5056,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningTable_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688682769677667972, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524423591712104501, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
 --- !u!4 &452888785 stripped
@@ -4809,7 +5089,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &456192943
 Transform:
@@ -4895,13 +5175,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -4927,7 +5219,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &470361214
 MeshCollider:
@@ -5057,13 +5349,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -5105,7 +5409,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &480994948
 Transform:
@@ -5141,7 +5445,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &490237359
 Transform:
@@ -5255,7 +5559,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &495375005
 Transform:
@@ -5350,7 +5654,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &498752449
 Transform:
@@ -5442,7 +5746,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &498903375
 Transform:
@@ -5480,7 +5784,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &502438890
 MeshCollider:
@@ -5637,6 +5941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &534158017 stripped
@@ -5680,7 +5988,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &543247042
 Transform:
@@ -5775,7 +6083,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &544427744
 BoxCollider:
@@ -5889,7 +6197,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &548138870
 Transform:
@@ -5984,7 +6292,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &550333959
 Transform:
@@ -6076,7 +6384,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &554731851
 Transform:
@@ -6150,9 +6458,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8164665636629087796, guid: 971042da9c4772b4d89b7a2752096bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -6209687577890146958, guid: 971042da9c4772b4d89b7a2752096bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 971042da9c4772b4d89b7a2752096bdb, type: 3}
       propertyPath: m_Name
       value: LivingRoomCimney
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 971042da9c4772b4d89b7a2752096bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2062837900084569928, guid: 971042da9c4772b4d89b7a2752096bdb, type: 3}
       propertyPath: m_Enabled
@@ -6243,6 +6563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &571941177 stripped
@@ -6267,7 +6591,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &580034658
 Transform:
@@ -6396,13 +6720,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -6428,7 +6764,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &587975740
 Transform:
@@ -6520,7 +6856,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &591916417
 Transform:
@@ -6614,6 +6950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &592629260 stripped
@@ -6680,6 +7020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &596484159 stripped
@@ -6704,7 +7048,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &614298914
 Transform:
@@ -6841,6 +7185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &631114929 stripped
@@ -6862,7 +7210,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &631807506
 Transform:
@@ -6900,7 +7248,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &634400015
 Transform:
@@ -6992,7 +7340,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &647936792
 Transform:
@@ -7027,7 +7375,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &653633310
 Transform:
@@ -7156,9 +7504,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2577692085443741887, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Name
       value: cupboard_kitchen_a (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531097966407620171, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8592563552964539029, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Enabled
@@ -7205,7 +7565,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &662071589
 Transform:
@@ -7272,13 +7632,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7300,7 +7660,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &663572171
 MeshCollider:
@@ -7450,6 +7810,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &665867063 stripped
@@ -7472,7 +7836,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &673079953
 Transform:
@@ -7539,13 +7903,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7601,9 +7965,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2577692085443741887, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Name
       value: cupboard_kitchen_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531097966407620171, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8592563552964539029, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Enabled
@@ -7687,6 +8063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &696457282 stripped
@@ -7708,7 +8088,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &706039887
 Transform:
@@ -7789,6 +8169,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
       propertyPath: m_Name
       value: LivingRoomBeam_b (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
@@ -7875,6 +8259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &712763809 stripped
@@ -7899,7 +8287,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &716856323
 Transform:
@@ -7992,7 +8380,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &726878068
 Transform:
@@ -8059,13 +8447,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -8087,7 +8475,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &736653909
 Transform:
@@ -8182,7 +8570,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &748570714
 Transform:
@@ -8275,7 +8663,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &756304069
 Transform:
@@ -8342,13 +8730,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -8443,6 +8831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &763288790 stripped
@@ -8509,6 +8901,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -126453777748204203, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 443945514613282700, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Name
       value: LivingRoomBookcase_a (1)
@@ -8516,6 +8916,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5263935994591263089, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Enabled
@@ -8587,9 +8991,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: counter_kitchen_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3508e02289406fe4e8332e81d129b10f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8453970293920490434, guid: 3508e02289406fe4e8332e81d129b10f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453970293920490434, guid: 3508e02289406fe4e8332e81d129b10f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8740903389653473810, guid: 3508e02289406fe4e8332e81d129b10f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3508e02289406fe4e8332e81d129b10f, type: 3}
@@ -8615,7 +9031,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &774462053
 Transform:
@@ -8710,7 +9126,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &775115667
 Transform:
@@ -8803,7 +9219,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &788617235
 Transform:
@@ -8870,13 +9286,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -8955,6 +9371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &809625540 stripped
@@ -8976,7 +9396,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &815154098
 Transform:
@@ -9010,7 +9430,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &829232491
 Transform:
@@ -9066,7 +9486,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &836772850
 BoxCollider:
@@ -9228,13 +9648,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.281
       objectReference: {fileID: 0}
+    - target: {fileID: -3446119311420534252, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_Name
       value: LivingRoomWindow_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
@@ -9306,6 +9738,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3848336358390545947, guid: ed2162b2c9649c044a33d5f27b236fee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -3740751764120146384, guid: ed2162b2c9649c044a33d5f27b236fee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -2157269635870193588, guid: ed2162b2c9649c044a33d5f27b236fee, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -9313,6 +9753,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed2162b2c9649c044a33d5f27b236fee, type: 3}
       propertyPath: m_Name
       value: GrandfatherClock_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed2162b2c9649c044a33d5f27b236fee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2162b2c9649c044a33d5f27b236fee, type: 3}
@@ -9399,9 +9843,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -126453777748204203, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 443945514613282700, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Name
       value: LivingRoomBookcase_a (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5263935994591263089, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Enabled
@@ -9428,7 +9884,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &891653325
 Transform:
@@ -9509,6 +9965,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChinaCabinet_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3099c5bcac5a6084498f0e05f8a3ef7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177200808786334791, guid: 3099c5bcac5a6084498f0e05f8a3ef7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021208573821207341, guid: 3099c5bcac5a6084498f0e05f8a3ef7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3099c5bcac5a6084498f0e05f8a3ef7e, type: 3}
 --- !u!4 &892928956 stripped
@@ -9567,13 +10035,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -9641,6 +10121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &928871304 stripped
@@ -9662,7 +10146,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &929050611
 Transform:
@@ -9748,9 +10232,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1356305129405007151, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 562875076443613140, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
       propertyPath: m_Name
       value: shelf_kitchen_a (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
@@ -9776,7 +10272,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &944473269
 Transform:
@@ -9871,7 +10367,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &946528578
 Transform:
@@ -9966,7 +10462,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &947054152
 Transform:
@@ -10077,7 +10573,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &961356315
 Transform:
@@ -10239,6 +10735,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorTwin_a (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795919644801894594, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978974755550018858, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
 --- !u!4 &963442248 stripped
@@ -10305,6 +10813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &964502391 stripped
@@ -10345,7 +10857,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &970219599
 Transform:
@@ -10383,7 +10895,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &970231922
 Transform:
@@ -10461,13 +10973,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7674724660273032736, guid: 4c409f817ab0d484eade6edf49ce6b42, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -7323135562286199487, guid: 4c409f817ab0d484eade6edf49ce6b42, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7323135562286199487, guid: 4c409f817ab0d484eade6edf49ce6b42, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4c409f817ab0d484eade6edf49ce6b42, type: 3}
       propertyPath: m_Name
       value: FoyerFloor1_wall_d
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c409f817ab0d484eade6edf49ce6b42, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1352938123211581328, guid: 4c409f817ab0d484eade6edf49ce6b42, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10501,7 +11025,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &988475024
 Transform:
@@ -10638,6 +11162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &989146274 stripped
@@ -10708,6 +11236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &995456407 stripped
@@ -10751,7 +11283,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1000459008
 Transform:
@@ -10846,7 +11378,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1007196296
 Transform:
@@ -10941,7 +11473,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1020257643
 Transform:
@@ -11074,6 +11606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &1024907331 stripped
@@ -11135,6 +11671,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
       propertyPath: m_Name
       value: DiningRoomChandelier_a (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
@@ -11218,9 +11758,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5282890065269176794, guid: 455fa4b9b00ead240b8f5657ba0a13cc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 455fa4b9b00ead240b8f5657ba0a13cc, type: 3}
       propertyPath: m_Name
       value: CoffeeTable_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 455fa4b9b00ead240b8f5657ba0a13cc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435043238187231462, guid: 455fa4b9b00ead240b8f5657ba0a13cc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7558199127687962503, guid: 455fa4b9b00ead240b8f5657ba0a13cc, type: 3}
       propertyPath: m_Enabled
@@ -11250,7 +11802,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1061833245
 Transform:
@@ -11350,7 +11902,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1068605909
 Transform:
@@ -11491,6 +12043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1080967603 stripped
@@ -11512,7 +12068,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1086188945
 Transform:
@@ -11554,7 +12110,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1099483885
 Transform:
@@ -11699,6 +12255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoyerFloor2_wall_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba02ac0582407594abbfdfeea1bebc58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba02ac0582407594abbfdfeea1bebc58, type: 3}
 --- !u!4 &1109104670 stripped
@@ -11785,13 +12345,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.281
       objectReference: {fileID: 0}
+    - target: {fileID: -3446119311420534252, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_Name
       value: LivingRoomWindow_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974486142890927255, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976f0c0a83c01cf44865fbf02d524dab, type: 3}
@@ -11859,6 +12431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1127003882 stripped
@@ -11880,7 +12456,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1127511567
 Transform:
@@ -11965,9 +12541,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBookcase_c (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185459553999032517, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7247357913221128685, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247357913221128685, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
@@ -11991,7 +12579,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1140094942
 Transform:
@@ -12058,13 +12646,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -12122,7 +12710,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1172546928
 Transform:
@@ -12189,13 +12777,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -12217,7 +12805,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1178475981
 Transform:
@@ -12309,7 +12897,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1187540430
 Transform:
@@ -12344,7 +12932,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &1188835010
 Light:
@@ -12403,7 +12991,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -12439,7 +13027,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &1190997068
 MeshCollider:
@@ -12533,7 +13121,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1200515424
 Transform:
@@ -12606,7 +13194,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -12666,6 +13254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClothingRack_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 997d3e4adfbe8f547824f4b6dd95cbbf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 997d3e4adfbe8f547824f4b6dd95cbbf, type: 3}
 --- !u!4 &1203457374 stripped
@@ -12724,13 +13316,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6542128208146232184, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -2136701327467051070, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -862452033906911281, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
       propertyPath: m_Name
       value: Bench_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
@@ -12751,7 +13355,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1206891050
 Transform:
@@ -12846,7 +13450,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1213385642
 Transform:
@@ -13006,6 +13610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1217689709 stripped
@@ -13049,7 +13657,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1225405502
 Transform:
@@ -13182,13 +13790,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorHeater_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a98b021226a502f42812ab4f44e65f08, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3108471019503655571, guid: a98b021226a502f42812ab4f44e65f08, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3108471019503655571, guid: a98b021226a502f42812ab4f44e65f08, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8203921187469533083, guid: a98b021226a502f42812ab4f44e65f08, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887608559267752826, guid: a98b021226a502f42812ab4f44e65f08, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a98b021226a502f42812ab4f44e65f08, type: 3}
@@ -13214,7 +13834,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1228111475
 Transform:
@@ -13343,13 +13963,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -13409,9 +14041,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
@@ -13420,6 +14060,10 @@ PrefabInstance:
     - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -13507,6 +14151,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorTwin_a (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795919644801894594, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978974755550018858, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a405fa5b046eb34f803880ff395be97, type: 3}
 --- !u!4 &1261736697 stripped
@@ -13531,7 +14187,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1268993951
 Transform:
@@ -13626,7 +14282,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1269067782
 Transform:
@@ -13759,6 +14415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &1284982728 stripped
@@ -13821,6 +14481,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5473458361785458382, guid: c1327c4f91466e7419db226fe6f36733, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -1840047341221640625, guid: c1327c4f91466e7419db226fe6f36733, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -13828,6 +14492,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c1327c4f91466e7419db226fe6f36733, type: 3}
       propertyPath: m_Name
       value: Foyer_to_attic_stairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c1327c4f91466e7419db226fe6f36733, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079369247651346080, guid: c1327c4f91466e7419db226fe6f36733, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1327c4f91466e7419db226fe6f36733, type: 3}
@@ -13891,9 +14563,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6431666103646960685, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -520019759988202370, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
       propertyPath: m_Name
       value: Couch_a (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
@@ -13919,7 +14603,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1325740477
 Transform:
@@ -14052,9 +14736,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1356305129405007151, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 562875076443613140, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
       propertyPath: m_Name
       value: shelf_kitchen_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a9a4112d78a97f4ab221c2feb285a83, type: 3}
@@ -14122,6 +14818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1327119730 stripped
@@ -14146,7 +14846,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1341377385
 Transform:
@@ -14241,7 +14941,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1353107103
 Transform:
@@ -14336,7 +15036,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1367520293
 Transform:
@@ -14432,7 +15132,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1376964009
 Transform:
@@ -14569,6 +15269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoyerBanisterTopRail_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 77e04d868f83453439b87c54c509c9a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77e04d868f83453439b87c54c509c9a9, type: 3}
 --- !u!4 &1378572585 stripped
@@ -14631,7 +15335,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1383575492
 Transform:
@@ -14726,7 +15430,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1386419134
 Transform:
@@ -14863,6 +15567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1393182408 stripped
@@ -14952,6 +15660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1398802796 stripped
@@ -15010,9 +15722,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -126453777748204203, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 443945514613282700, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Name
       value: LivingRoomBookcase_a (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5263935994591263089, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Enabled
@@ -15080,6 +15804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &1419547916 stripped
@@ -15146,6 +15874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomWalls_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5b22c0c99055efa4d8ad51a6f5536395, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b22c0c99055efa4d8ad51a6f5536395, type: 3}
 --- !u!4 &1424207752 stripped
@@ -15168,7 +15900,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1424858274
 Transform:
@@ -15235,13 +15967,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -15261,7 +15993,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1450664186
 Transform:
@@ -15328,13 +16060,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2906.7168, z: 4.5904e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -15390,13 +16122,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2577692085443741887, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Name
       value: cupboard_kitchen_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8531097966407620171, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531097966407620171, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8592563552964539029, guid: 32b4781b9d02228419aa7c56e6c43bb1, type: 3}
       propertyPath: m_Enabled
@@ -15472,6 +16216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1455022688 stripped
@@ -15496,7 +16244,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1459844909
 Transform:
@@ -15588,7 +16336,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1463694781
 Transform:
@@ -15659,13 +16407,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3760934561537971591, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 122616500428061548, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 122616500428061548, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
       propertyPath: m_Name
       value: shelf_kitchen_b (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1398ac32dd576e5418bb73d473048218, type: 3}
@@ -15733,6 +16493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoyerFloor1_stairs_runner_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa66e7ae4f46e4a49b12bd28a6ab70a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa66e7ae4f46e4a49b12bd28a6ab70a7, type: 3}
 --- !u!4 &1489774051 stripped
@@ -15799,6 +16563,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningTable_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688682769677667972, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524423591712104501, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a65a4cb323930644bc312eb6d713ea1, type: 3}
 --- !u!4 &1503596348 stripped
@@ -15823,7 +16599,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1507491034
 Transform:
@@ -15918,7 +16694,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1535936381
 Transform:
@@ -16055,6 +16831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1536866610 stripped
@@ -16121,6 +16901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1546605869 stripped
@@ -16145,7 +16929,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1547204136
 Transform:
@@ -16282,6 +17066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1552172354 stripped
@@ -16306,7 +17094,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1559159449
 Transform:
@@ -16401,7 +17189,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1562616850
 Transform:
@@ -16542,6 +17330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1562884103 stripped
@@ -16602,7 +17394,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1584681224
 Transform:
@@ -16669,13 +17461,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -0.0000000131554145}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -16697,7 +17489,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1585775782
 Transform:
@@ -16842,9 +17634,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: d79141af087003340a024c20f5f7ddfc, type: 2}
+    - target: {fileID: -2576631271937843955, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224053779708884933, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
       propertyPath: m_Name
       value: SamRoomFlag_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
@@ -16870,7 +17674,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1601705010
 BoxCollider:
@@ -17003,7 +17807,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1628469644
 Transform:
@@ -17140,6 +17944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1634834753 stripped
@@ -17164,7 +17972,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1643210376
 Transform:
@@ -17297,6 +18105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &1647928450 stripped
@@ -17319,7 +18131,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1651914941
 Transform:
@@ -17386,13 +18198,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -0.0000000012973587}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -17411,7 +18223,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1668494615
 Transform:
@@ -17552,6 +18364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1676517429 stripped
@@ -17610,13 +18426,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6685077526253560513, guid: 2634e9930f7364d44a9d54c4b1ea640d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2634e9930f7364d44a9d54c4b1ea640d, type: 3}
       propertyPath: m_Name
       value: shelf_kitchen_c
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2634e9930f7364d44a9d54c4b1ea640d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4799818073202698941, guid: 2634e9930f7364d44a9d54c4b1ea640d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4799818073202698941, guid: 2634e9930f7364d44a9d54c4b1ea640d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2634e9930f7364d44a9d54c4b1ea640d, type: 3}
@@ -17684,6 +18512,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoyerFloor1_Window_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337036000169386709, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485438090137666015, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 72d8457c11129264493ff06aab51647c, type: 3}
       propertyPath: m_LocalReferencePoint.x
       value: -0.31719422
@@ -17704,6 +18544,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155054941403282883, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5596874821966917236, guid: 72d8457c11129264493ff06aab51647c, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
@@ -17712,6 +18556,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[4]
       value: 
       objectReference: {fileID: 2100000, guid: c6d4db9a435f8354690e098e0ee784ab, type: 2}
+    - target: {fileID: 8156716371436771332, guid: 72d8457c11129264493ff06aab51647c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72d8457c11129264493ff06aab51647c, type: 3}
 --- !u!4 &1718602414 stripped
@@ -17778,9 +18626,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBookcase_c
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185459553999032517, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7247357913221128685, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247357913221128685, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cbc5b12cd95436468f36bd188c8bd54, type: 3}
@@ -17863,7 +18723,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1772167124
 Transform:
@@ -17958,7 +18818,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1779745344
 BoxCollider:
@@ -18091,6 +18951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &1780882816 stripped
@@ -18195,6 +19059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1819593704 stripped
@@ -18219,7 +19087,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1837840231
 Transform:
@@ -18387,6 +19255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1860956071 stripped
@@ -18430,7 +19302,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1887042926
 Transform:
@@ -18525,7 +19397,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1937547586
 Transform:
@@ -18662,9 +19534,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -126453777748204203, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 443945514613282700, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
       propertyPath: m_Name
       value: LivingRoomBookcase_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce925bda006b654ead35f952eb34657, type: 3}
@@ -18724,13 +19608,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7653351570842560745, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -3284493449937603381, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2856943632029607776, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
       propertyPath: m_Name
       value: counter_island_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11cb713de1c4779478677c878f7cb094, type: 3}
@@ -18756,7 +19652,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1957603218
 Transform:
@@ -18851,7 +19747,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1957839416
 Transform:
@@ -18984,9 +19880,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6431666103646960685, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -520019759988202370, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
       propertyPath: m_Name
       value: Couch_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 402551b3fb4a5b641bf3a5cf7cc200d4, type: 3}
@@ -19009,7 +19917,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1967173460
 Transform:
@@ -19087,6 +19995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &1972452788 stripped
@@ -19130,7 +20042,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1977399706
 Transform:
@@ -19259,13 +20171,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6542128208146232184, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -2136701327467051070, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -862452033906911281, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
       propertyPath: m_Name
       value: Bench_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
@@ -19291,7 +20215,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2015519348
 Transform:
@@ -19428,6 +20352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &2016470213 stripped
@@ -19449,7 +20377,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2022981509
 Transform:
@@ -19486,7 +20414,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2025858653
 Transform:
@@ -19615,13 +20543,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7142411362049671055, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Name
       value: DiningChair_a (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3879044396994441488, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453957879173047300, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a580b966fb284586ec009aba7f2ef, type: 3}
@@ -19645,7 +20585,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2044150925
 Transform:
@@ -19718,7 +20658,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -2.3822021, z: 4.5904e-41, w: -0.0000000016691972}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -19778,6 +20718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &2045183132 stripped
@@ -19836,6 +20780,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6542128208146232184, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -2136701327467051070, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -19876,9 +20824,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 8.713
       objectReference: {fileID: 0}
+    - target: {fileID: -862452033906911281, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
       propertyPath: m_Name
       value: Bench_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3367250813807978464, guid: 4f2874461853f8545a5e01e6ae377c07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19990,9 +20946,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f4193cbca730ba242b8ac196702d4ad2, type: 2}
+    - target: {fileID: -2576631271937843955, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224053779708884933, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
       propertyPath: m_Name
       value: SamRoomFlag_a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52f6d5bb6a61a14bb945a5d096c3dd3, type: 3}
@@ -20059,6 +21027,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
       propertyPath: m_Name
       value: LivingRoomBeam_b (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
@@ -20141,6 +21113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiningRoomChandelier_a (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2c7be9b5be8fe43b6fb683576a8dee, type: 3}
 --- !u!4 &2090815883 stripped
@@ -20162,7 +21138,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2099060730
 Transform:
@@ -20197,7 +21173,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2106339850
 Transform:
@@ -20292,7 +21268,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2109229512
 Transform:
@@ -20448,6 +21424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &2129671418 stripped
@@ -20514,6 +21494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoomBeam_b (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48baa8f2ce9c0794788d1319c61e43bd, type: 3}
 --- !u!4 &2133914795 stripped
@@ -20538,7 +21522,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2138921466
 Transform:
