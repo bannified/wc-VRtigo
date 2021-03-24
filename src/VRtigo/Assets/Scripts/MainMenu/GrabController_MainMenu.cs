@@ -5,7 +5,7 @@ public class GrabController_MainMenu : MonoBehaviour
     public Collider[] m_Colliders;
 
     [SerializeField]
-    protected float m_GrabDistance = 0.5f;
+    protected float m_GrabRadius = 0.3f;
 
     [SerializeField]
     protected float m_MaxAngularVelocity = 20.0f;
@@ -20,7 +20,7 @@ public class GrabController_MainMenu : MonoBehaviour
     private GameObject m_GrabbedObject;
 
     [SerializeField]
-    private IGrabbable m_GrabbedObjectGrabbable;
+    private Grabbable m_GrabbedObjectGrabbable;
 
     [SerializeField]
     private Rigidbody m_GrabbedObjectRb;
@@ -31,31 +31,27 @@ public class GrabController_MainMenu : MonoBehaviour
 
         if (!m_IsGrabbing)
         {
-            Ray raycast = new Ray(transform.position, transform.forward);
-            RaycastHit hit;
-            bool bHit = Physics.Raycast(raycast, out hit, m_GrabDistance);
-
-            if (bHit)
+            Collider[] colliders = Physics.OverlapSphere(transform.position, m_GrabRadius, 1 << LayerMask.NameToLayer("Grabbable"));
+            if (colliders.Length > 0)
             {
-                m_GrabbedObject = hit.collider.gameObject;
-                m_GrabbedObjectRb = hit.collider.transform.root.GetComponent<Rigidbody>();
+                Collider chosenCollider = colliders[0];
+
+                m_GrabbedObject = chosenCollider.gameObject;
+                m_GrabbedObjectRb = chosenCollider.transform.root.GetComponent<Rigidbody>();
+
                 if (m_GrabbedObjectRb != null)
                 {
                     m_GrabbedObjectRb.maxAngularVelocity = m_MaxAngularVelocity;
+                    m_GrabbedObjectGrabbable = chosenCollider.transform.root.GetComponent<Grabbable>();
 
-                    m_GrabbedObjectGrabbable = hit.collider.transform.root.GetComponent<IGrabbable>();
                     if (m_GrabbedObjectGrabbable != null)
-                    {
                         m_GrabbedObjectGrabbable.Grabbed();
-                    }
                 }
             }
             else
             {
                 if (m_GrabbedObjectGrabbable != null)
-                {
                     m_GrabbedObjectGrabbable.Dropped();
-                }
 
                 m_GrabbedObject = null;
                 m_GrabbedObjectGrabbable = null;

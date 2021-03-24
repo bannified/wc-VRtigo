@@ -5,6 +5,9 @@ using UnityEngine;
 public class AnimatedTextActivator : MonoBehaviour, IActivatable
 {
     [SerializeField]
+    private List<string> m_TagsThatActivate = new List<string> { "Player" };
+
+    [SerializeField]
     private List<AnimatedTextActivatable> m_Activatables;
 
     private List<AnimatedTextActivatable> m_Activatables_Internal;
@@ -28,7 +31,7 @@ public class AnimatedTextActivator : MonoBehaviour, IActivatable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (m_TagsThatActivate.Contains(other.gameObject.tag))
         {
             if (!m_Activated)
             {
@@ -39,7 +42,7 @@ public class AnimatedTextActivator : MonoBehaviour, IActivatable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (m_TagsThatActivate.Contains(other.gameObject.tag))
         {
             if (m_Activated)
             {

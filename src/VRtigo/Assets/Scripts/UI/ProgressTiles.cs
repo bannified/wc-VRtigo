@@ -74,8 +74,7 @@ public class ProgressTiles : MonoBehaviour
     IEnumerator FadeInImage(Image img)
     {
         float durationSoFar = 0.0f;
-        float progress = 0.0f;
-        float alpha = 0.0f;
+        float progress, alpha;
 
         while (durationSoFar < m_TileFadeInDuration)
         {
@@ -94,13 +93,14 @@ public class ProgressTiles : MonoBehaviour
     IEnumerator FadeOutImage(Image img)
     {
         float durationSoFar = 0.0f;
-        float progress = 0.0f;
-        float alpha = 1.0f;
+        float oriAlpha = img.color.a;
+        float alpha = oriAlpha;
+        float progress;
 
-        while (durationSoFar < m_TileFadeInDuration)
+        while (alpha > 0.0f || durationSoFar < m_TileFadeInDuration)
         {
             progress = durationSoFar / m_TileFadeInDuration;
-            alpha = 1.0f - progress - (Time.deltaTime / m_TileFadeInDuration);
+            alpha = oriAlpha - progress - (Time.deltaTime / m_TileFadeInDuration);
 
             Color imageColor = img.color;
             imageColor.a = alpha;

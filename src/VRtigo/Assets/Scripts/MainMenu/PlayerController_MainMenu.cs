@@ -10,7 +10,6 @@ public class PlayerController_MainMenu : PlayerController
     public SteamVR_Input_Sources m_RightHandType;
 
     public SteamVR_Action_Boolean m_SystemMenuAction;
-    public SteamVR_Action_Boolean m_ExitAppAction;
 
     /* Movement */
     public SteamVR_Action_Single m_MoveAction;
