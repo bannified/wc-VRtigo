@@ -116,19 +116,11 @@
     },
     {
       "name": "/actions/ForcedCameraRotation/in/CameraRotateLeft",
-      "type": "vector1"
+      "type": "boolean"
     },
     {
       "name": "/actions/ForcedCameraRotation/in/CameraRotateRight",
-      "type": "vector1"
-    },
-    {
-      "name": "/actions/ForcedCameraRotation/in/CameraLookUp",
-      "type": "vector1"
-    },
-    {
-      "name": "/actions/ForcedCameraRotation/in/CameraLookDown",
-      "type": "vector1"
+      "type": "boolean"
     },
     {
       "name": "/actions/ForcedCameraRotation/in/WalkAction",
@@ -264,8 +256,6 @@
       "/actions/ForcedCameraRotation/in/CameraRotateLeft": "Camera Rotate Left",
       "/actions/ForcedCameraRotation/in/Walking": "Walking",
       "/actions/ForcedCameraRotation/in/CameraRotateRight": "Camera Rotate Right",
-      "/actions/ForcedCameraRotation/in/CameraLookUp": " Camera Look Up",
-      "/actions/ForcedCameraRotation/in/CameraLookDown": "Camera Look Down",
       "/actions/EXPPlayerMovement/out/Haptic": "Haptic"
     }
   ]

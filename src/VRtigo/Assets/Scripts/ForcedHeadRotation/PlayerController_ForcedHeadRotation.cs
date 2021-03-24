@@ -21,8 +21,8 @@ public class PlayerController_ForcedHeadRotation : PlayerController
     public SteamVR_Action_Vibration m_Haptic;
 
     /* Turning */
-    public SteamVR_Action_Single m_TurnLeftAction;
-    public SteamVR_Action_Single m_TurnRightAction;
+    public SteamVR_Action_Boolean m_TurnLeftAction;
+    public SteamVR_Action_Boolean m_TurnRightAction;
 
     /* Non-VR movement */
     protected float m_MoveForwardAxisValue = 0.0f;
@@ -36,6 +36,32 @@ public class PlayerController_ForcedHeadRotation : PlayerController
 
         m_MoveAction.AddOnChangeListener(MoveAction_onChange, m_LeftHandType);
         m_MoveDirection.AddOnChangeListener(MoveDirection_onChange, m_LeftHandType);
+
+        m_TurnLeftAction.AddOnStateDownListener(TurnLeftAction_onStateDown, m_LeftHandType);
+        m_TurnLeftAction.AddOnStateUpListener(TurnLeftAction_onStateUp, m_LeftHandType);
+
+        m_TurnRightAction.AddOnStateDownListener(TurnRightAction_onStateDown, m_RightHandType);
+        m_TurnRightAction.AddOnStateUpListener(TurnRightAction_onStateUp, m_RightHandType);
+    }
+
+    private void TurnRightAction_onStateUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.EndTurnHeadRight();
+    }
+
+    private void TurnRightAction_onStateDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.StartTurnHeadRight();
+    }
+
+    private void TurnLeftAction_onStateUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.EndTurnHeadLeft();
+    }
+
+    private void TurnLeftAction_onStateDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.StartTurnHeadLeft();
     }
 
     private void TeardownVRInputs()

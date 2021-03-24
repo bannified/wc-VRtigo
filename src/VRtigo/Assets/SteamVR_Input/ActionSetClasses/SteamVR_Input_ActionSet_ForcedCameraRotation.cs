@@ -25,7 +25,7 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Single CameraRotateLeft
+        public virtual SteamVR_Action_Boolean CameraRotateLeft
         {
             get
             {
@@ -33,27 +33,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Single CameraRotateRight
+        public virtual SteamVR_Action_Boolean CameraRotateRight
         {
             get
             {
                 return SteamVR_Actions.forcedCameraRotation_CameraRotateRight;
-            }
-        }
-        
-        public virtual SteamVR_Action_Single CameraLookUp
-        {
-            get
-            {
-                return SteamVR_Actions.forcedCameraRotation_CameraLookUp;
-            }
-        }
-        
-        public virtual SteamVR_Action_Single CameraLookDown
-        {
-            get
-            {
-                return SteamVR_Actions.forcedCameraRotation_CameraLookDown;
             }
         }
         

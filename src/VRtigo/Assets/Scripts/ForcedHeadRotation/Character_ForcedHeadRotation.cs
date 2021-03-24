@@ -93,7 +93,7 @@ public class Character_ForcedHeadRotation : Character
             return;
         }
 
-        persistenceManager.TryGetBool(PlayerInitiatedMovement.TURN_ENABLED_KEY_BOOL, ref m_CameraRotLocked);
+        persistenceManager.TryGetBool(ForcedHeadRotation.CAMERA_ROTATION_LOCK_BOOL, ref m_CameraRotLocked);
 
         if (!m_CameraRotLocked) // Default Implementation
         {
