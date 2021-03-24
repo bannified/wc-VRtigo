@@ -13,7 +13,6 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
     public float m_InitWobbleRange = 2.0f;
     public float m_FadeInDuration = 3.0f;
     public float m_FadeOutDuration = 3.0f;
-    public float m_DisplayDuration = 5.0f;
     public float m_ScatterRange = 10.0f;
 
     private string m_Text;
@@ -22,10 +21,10 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
     private FadeOutScatterTextEffect m_ScatterEffect;
 
     private bool m_IsAnimating = false;
+    private bool m_StopAnimating = false;
 
     void Start()
     {
-        m_TextMesh = GetComponentInChildren<TMP_Text>();
         m_Text = m_TextMesh.text;
         m_TextMesh.SetText("");
 
@@ -39,21 +38,38 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
             StartCoroutine("AnimateText");
     }
 
+    public void Deactivate()
+    {
+        m_StopAnimating = true;
+    }
+
     IEnumerator AnimateText()
     {
         float durationSoFar = 0.0f;
-        float totalDur = m_FadeInDuration + m_DisplayDuration;
+        float totalDur = m_FadeInDuration;
 
+        m_StopAnimating = false;
         m_IsAnimating = true;
+
+        m_FadeInEffect.Reset();
+        m_ScatterEffect.Reset();
+
         m_TextMesh.SetText(m_Text);
         m_TextMesh.ForceMeshUpdate();
 
-        // Keep updating FadeInEffect on each frame
-        while (durationSoFar < totalDur)
+        // Fade In effect
+        while (durationSoFar <= totalDur)
         {
             m_FadeInEffect.Update();
             durationSoFar += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
+        }
+
+        // Keep updating FadeInEffect on each frame as long as needed
+        while (!m_StopAnimating)
+        {
+            m_FadeInEffect.Update();
+            yield return null;
         }
 
         durationSoFar = 0.0f;
@@ -63,16 +79,12 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         m_ScatterEffect.SetVerticesPosition(m_FadeInEffect.GetVerticesPosition());
 
         // Keep updating ScatterEffect on each frame
-        while (durationSoFar < totalDur)
+        while (durationSoFar <= totalDur)
         {
             m_ScatterEffect.Update();
             durationSoFar += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
-
-        // Prepare for next Activate() call
-        m_FadeInEffect.Reset();
-        m_ScatterEffect.Reset();
 
         m_IsAnimating = false;
     }

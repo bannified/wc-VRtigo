@@ -59,16 +59,46 @@ public class GameManager : MonoBehaviour
     private Dictionary<PlayerController, Character> m_ControllerToCharacterMap = new Dictionary<PlayerController, Character>();
 
     [SerializeField]
-    private ClassroomManagerPayload m_ClassroomManagerPayload;
+    private ExperienceData m_CurrentExperience;
 
-    public void SetClassroomManagerPayload(ClassroomManagerPayload payload)
+    public void StartNextExperience()
     {
-        m_ClassroomManagerPayload = payload;
+        if (m_CurrentExperience == null)
+        {
+            return;
+        }
+
+        StartExperience(m_CurrentExperience.NextExperienceData);
     }
 
-    public ClassroomManagerPayload GetClassroomManagerPayload()
+    public void StartExperience()
     {
-        return m_ClassroomManagerPayload;
+        if (m_CurrentExperience == null)
+        {
+            return;
+        }
+
+        if (m_CurrentExperience.ExperienceScene != null)
+        {
+            m_CurrentExperience.UpdateSettings(PersistenceManager.Instance);
+            SceneTransistor.Instance.FadeToScene(m_CurrentExperience.ExperienceScene);
+        }
+    }
+
+    public void StartExperience(ExperienceData experienceData)
+    {
+        SetCurrentExperience(experienceData);
+        StartExperience();
+    }
+
+    public void SetCurrentExperience(ExperienceData experienceData)
+    {
+        m_CurrentExperience = experienceData;
+    }
+
+    public ExperienceData GetCurrentExperience()
+    {
+        return m_CurrentExperience;
     }
 
     public void RegisterPlayerController(PlayerController controller)

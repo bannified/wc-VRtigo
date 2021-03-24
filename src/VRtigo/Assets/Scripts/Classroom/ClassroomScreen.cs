@@ -2,20 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ClassroomScreen : MonoBehaviour
 {
+    [Header("Audio Cues")]
+    [SerializeField]
+    private AudioSource m_AudioSource;
+
+    [SerializeField, Tooltip("The audio cue that's played when a lesson step starts")]
+    private AudioClip m_OnLessonStepStartSound;
+    [SerializeField, Tooltip("The audio cue that's played when a lesson step gets skipped")]
+    private AudioClip m_OnLessonSkipSound;
+
+    [Header("Image")]
+    [SerializeField]
+    private Image m_ScreenMainImage;
+
     [Header("Subtitles")]
     [SerializeField]
     private TMP_Text m_SubtitleText;
 
-    // Subtitle Reveal Speed in characters per second
-    [SerializeField]
-    private float m_SubtitleRevealSpeed = 10.0f;
-
     private Coroutine m_DialogueRevealCoroutine;
+    private Coroutine m_PostLessonCoroutine;
 
-    private void Start()
+    [SerializeField]
+    private ClassroomNarrator m_Narrator;
+
+    [Header("Lesson Properties")]
+    [SerializeField,
+        Tooltip("The length of the lesson in seconds. After this duration, the lesson will skip to the End of the Lesson.\n" +
+        "If this value is negative, the lesson will go to the end of the lesson automatically.")]
+    private float m_LessonLength = 20.0f;
+
+    [SerializeField,
+    Tooltip("The duration to be elapsed post LessonLength in seconds, before the lesson goes to the next step. " +
+        "After this duration, the lesson will skip to the next step.\n" +
+    "If this value is negative, the lesson will not skip forward to the next step automatically.")]
+    private float m_PostLessonEndAutoSkipDelay = -1.0f;
+
+    private void Awake()
     {
         SetupListeners();
     }
@@ -29,17 +55,57 @@ public class ClassroomScreen : MonoBehaviour
 
     private void HandleOnLessonStepStart(LessonStep lessonStep)
     {
+        if (lessonStep.m_ClearPreviousImage)
+        {
+            m_ScreenMainImage.sprite = null;
+        }
+
+        if (lessonStep.m_MainImage != null)
+        {
+            m_ScreenMainImage.sprite = lessonStep.m_MainImage;
+            m_ScreenMainImage.gameObject.SetActive(true);
+            m_ScreenMainImage.preserveAspect = true;
+        }
+
+        if (m_ScreenMainImage.sprite == null)
+        {
+            m_ScreenMainImage.gameObject.SetActive(false);
+        }
+
         m_SubtitleText.SetText(lessonStep.m_DialogueString);
         m_SubtitleText.maxVisibleCharacters = 0;
 
+        if (m_DialogueRevealCoroutine != null)
+        {
+            StopCoroutine(m_DialogueRevealCoroutine);
+        }
+
+        if (m_PostLessonCoroutine != null)
+        {
+            StopCoroutine(m_PostLessonCoroutine);
+        }
+
         m_DialogueRevealCoroutine = StartCoroutine(DialogueRevealRoutine());
+
+        if (m_OnLessonStepStartSound != null)
+        {
+            m_AudioSource.PlayOneShot(m_OnLessonStepStartSound);
+        }
+
+        if (lessonStep.m_VoiceoverClip != null)
+        {
+            m_Narrator.PlayVoiceoverClip(lessonStep.m_VoiceoverClip);
+        } else
+        {
+            m_Narrator.NarrateString(m_SubtitleText.text);
+        }
     }
 
     private void HandleOnLessonStepEnd(LessonStep lessonStep)
     {
-        m_DialogueRevealCoroutine = null;
-
         RevealWholeSubtitle();
+
+        m_PostLessonCoroutine = StartCoroutine(PostLessonRoutine());
     }
 
     private void HandleOnLessonStepSkip(LessonStep lessonStep)
@@ -50,22 +116,38 @@ public class ClassroomScreen : MonoBehaviour
         }
 
         RevealWholeSubtitle();
+
+        if (m_OnLessonSkipSound != null)
+        {
+            m_AudioSource.PlayOneShot(m_OnLessonSkipSound);
+        }
     }
 
     private void RevealWholeSubtitle()
     {
-        m_SubtitleText.maxVisibleCharacters = m_SubtitleText.GetParsedText().Length;
+        m_SubtitleText.maxVisibleCharacters = m_SubtitleText.text.Length;
     }
 
     private IEnumerator DialogueRevealRoutine()
     {
-        int parsedTextLength = m_SubtitleText.text.Length;
-        Debug.Log("Dialogue Reveal Routine Started." + parsedTextLength);
-        while (m_SubtitleText.maxVisibleCharacters < parsedTextLength)
-        {
-            ++m_SubtitleText.maxVisibleCharacters;
+        RevealWholeSubtitle();
 
-            yield return new WaitForSeconds(1.0f / m_SubtitleRevealSpeed);
+        if (m_LessonLength >= 0.0f)
+        {
+            yield return new WaitForSeconds(m_LessonLength);
+        }
+
+        ClassroomManager.Instance.EndLessonStep();
+
+        yield return null;
+    }
+
+    private IEnumerator PostLessonRoutine()
+    {
+        if (m_PostLessonEndAutoSkipDelay >= 0.0f)
+        {
+            yield return new WaitForSeconds(m_PostLessonEndAutoSkipDelay);
+            ClassroomManager.Instance.NextStep();
         }
 
         yield return null;
