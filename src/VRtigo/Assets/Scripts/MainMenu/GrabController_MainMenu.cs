@@ -31,7 +31,7 @@ public class GrabController_MainMenu : MonoBehaviour
 
         if (!m_IsGrabbing)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, m_GrabRadius);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, m_GrabRadius, 1 << LayerMask.NameToLayer("Grabbable"));
             if (colliders.Length > 0)
             {
                 Collider chosenCollider = colliders[0];
