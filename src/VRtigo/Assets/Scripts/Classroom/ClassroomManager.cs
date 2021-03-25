@@ -156,18 +156,7 @@ public class ClassroomManager : MonoBehaviour
         }
     }
 
-    public void OnLessonEnded(ClassroomLessonData classroomLessonData)
-    {
-        ExperienceData currentExperience = GameManager.Instance.GetCurrentExperience();
-        
-        if (currentExperience != null)
-        {
-            if (currentExperience.NextExperienceData != null)
-            {
-                GameManager.Instance.StartNextExperience();
-            }
-        }
-    }
+    public void OnLessonEnded(ClassroomLessonData classroomLessonData) { }
 
     public void GoToLessonNextStep()
     {

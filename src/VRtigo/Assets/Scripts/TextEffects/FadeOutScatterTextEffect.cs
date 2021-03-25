@@ -27,7 +27,7 @@ public class FadeOutScatterTextEffect
 
         m_TextMesh = textMesh;
         m_PrevVerts = textMesh.mesh.vertices;
-        m_TextOrigin = textMesh.transform.root.position;
+        m_TextOrigin = textMesh.rectTransform.rect.center;
     }
 
     public void SetParameters(float maxScatterRange, float duration)
@@ -55,13 +55,17 @@ public class FadeOutScatterTextEffect
         // Update progress by tracking duration
         m_Progress = m_DurationSoFar / m_ScatterDuration;
 
+        Vector3 offset, dir;
         for (int i = 0; i < m_TextMesh.textInfo.characterCount; i++)
         {
             // Instead by each vertices, we do by each character
             TMP_CharacterInfo c = m_TextMesh.textInfo.characterInfo[i];
             int index = c.vertexIndex;
 
-            Vector3 offset = GetScatterOffsetForChar(m_PrevVerts, index, m_TextOrigin, m_ScatterStep);
+            // Calculate offset
+            dir = (m_PrevVerts[index + Random.Range(0, 3)] - m_TextOrigin).normalized;
+            offset = (dir + Random.onUnitSphere).normalized * m_ScatterStep;
+
             // Alpha decreases as progress increases
             float alpha = 1.0f - (m_Progress + Time.deltaTime / m_ScatterDuration);
 
@@ -96,14 +100,5 @@ public class FadeOutScatterTextEffect
     public void SetVerticesPosition(Vector3[] newPos)
     {
         m_PrevVerts = newPos;
-    }
-
-    /**
-     * Produces slightly perturbed direction away from the origin, scaled by the offset argument
-     */
-    private Vector2 GetScatterOffsetForChar(Vector3[] vertices, int index, Vector3 origin, float offset)
-    {
-        Vector3 to = vertices[index + Random.Range(0, 3)];
-        return (to - origin).normalized * offset;
     }
 }
