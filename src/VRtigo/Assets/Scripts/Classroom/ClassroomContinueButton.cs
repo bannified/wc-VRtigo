@@ -14,11 +14,27 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     private float m_ButtonSpeed = 2.0f;
 
     [SerializeField]
+    private List<GameObject> m_GameObjects;
+
+    [SerializeField]
     private float m_ButtonDisplacement = -0.0457f;
+
+    [SerializeField]
+    private bool m_isButtonPressed = false;
 
     void Start()
     {
         AudioManager.InitAudioSourceOn(m_ButtonSound, this.gameObject);
+    }
+
+    private void OnEnable()
+    {
+        ClassroomManager.Instance.OnLessonEnd += ClassroomLessonEnd;
+    }
+
+    private void OnDisable()
+    {
+        ClassroomManager.Instance.OnLessonEnd -= ClassroomLessonEnd;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,26 +45,43 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
         }
     }
 
+    private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
+    {
+        SetGameObjsActive(false);
+    }
+
+    private void SetGameObjsActive(bool val)
+    {
+        for (int i = 0; i < m_GameObjects.Count; i++)
+            m_GameObjects[i].SetActive(val);
+    }
+
     public void Activate()
     {
-        Debug.Log("Activate");
-        // Play button sound
-        m_ButtonSound.m_Source.Play();
+        if (!m_isButtonPressed)
+        {
+            // Play button sound
+            m_ButtonSound.m_Source.Play();
 
-        // Play animation
-        StartCoroutine("PressButton", new Vector3(0, m_ButtonDisplacement, 0));
+            // Play animation
+            StartCoroutine("PressButton", new Vector3(0, m_ButtonDisplacement, 0));
 
-        // Proceed to next step
-        ClassroomManager.Instance.NextStep();
+            // Proceed to next step
+            ClassroomManager.Instance.NextStep();
+        }
     }
 
     IEnumerator PressButton(Vector3 displacement)
     {
+        m_isButtonPressed = true;
+
         // Press
         yield return StartCoroutine("MoveButton", displacement);
         
         // Back to original position
         yield return StartCoroutine("MoveButton", -displacement);
+
+        m_isButtonPressed = false;
     }
 
     IEnumerator MoveButton(Vector3 displacement)
