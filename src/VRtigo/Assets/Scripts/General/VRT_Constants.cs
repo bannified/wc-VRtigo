@@ -13,6 +13,11 @@ namespace VRT_Constants
             public static string LATERAL_ENABLED_KEY_BOOL = "PIM_LateralMovementEnabled";
             public static string NONLINEAR_ENABLED_KEY_BOOL = "PIM_NonLinearMovementEnabled";
         }
+
+        public static class ForcedHeadRotation
+        {
+            public static string CAMERA_ROTATION_LOCK_BOOL = "FHR_CameraRotationLock";
+        }
     }
 
     namespace MainMenuConstants
