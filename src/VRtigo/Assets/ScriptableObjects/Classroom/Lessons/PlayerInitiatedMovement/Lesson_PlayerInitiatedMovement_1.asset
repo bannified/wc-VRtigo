@@ -12,12 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e2412c87638a942b571fad5d879d57, type: 3}
   m_Name: Lesson_PlayerInitiatedMovement_1
   m_EditorClassIdentifier: 
-  ClassroomTitle: Player Initiated Movement
+  ClassroomTitle: Player Initiated Movement (Base)
   LessonSteps:
-  - m_DialogueString: <b>Vection</b> is when you feel that your body is moving when
-      no physical movement is taking place.
-  - m_DialogueString: <b>Movement in Virtual Reality</b> experiences evokes vection.
-  NextLessonScene:
-    sceneAsset: {fileID: 102900000, guid: 7516760e8ced7354cb3a3046e72f01c9, type: 3}
-    scenePath: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_Main_PlayerInitiatedMovement.unity
-  NextLessonKey: PIM_2
+  - m_DialogueString: "Welcome to the Classroom. \r\nYou have just experienced the
+      first variant of Player Initiated Movement. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: Player Initiated Movement refers to the controls a user has
+      to initiate movement in an application. This is highly important in Virtual
+      Reality applications due to its immersive nature.
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 4bc0e11d3c7b93e419edc08f628c2a69, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Hence, it is vital we understand the different variants of
+      designing player initiated movement controls and their effects on users. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 4bc0e11d3c7b93e419edc08f628c2a69, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'In VR, there are up to 6 degrees of freedom. '
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: f7ede7d64932faa4fa8688a47e3c2711, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "3 of these 6 degrees of freedom are rotational movement, as
+      shown on the head. The remaining 3 are translation movement, as shown on the
+      body\r."
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: f7ede7d64932faa4fa8688a47e3c2711, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "In this first level, you have navigated around using single
+      axis movement controls with linear speed motion.\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: b8faf5119957ef14ca6b5831f4fcec2d, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "By limiting the movements to a single axis of forward and
+      back, it reduces one\u2019s sensitivity to motion and acceleration along axes.\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: b8faf5119957ef14ca6b5831f4fcec2d, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Next, you will be tasked to navigate through the same level,
+      but with slightly different settings implemented.\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Whenever you are ready, head to the door on your left. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
+    m_VoiceoverClip: {fileID: 0}
