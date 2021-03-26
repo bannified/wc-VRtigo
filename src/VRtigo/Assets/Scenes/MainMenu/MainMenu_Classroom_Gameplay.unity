@@ -489,7 +489,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 606781126}
-  - component: {fileID: 606781127}
   m_Layer: 0
   m_Name: ClassroomDoor
   m_TagString: Untagged
@@ -517,46 +516,6 @@ Transform:
   m_Father: {fileID: 1596144920}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &606781127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606781125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bc6069d1ac2284296c682b47b4294b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DoorLockSound:
-    m_Name: 
-    m_Clip: {fileID: 0}
-    volume: 0.75
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0
-    spatialBlend: 0.2
-    loop: 0
-    m_Source: {fileID: 0}
-  m_DoorOpenSound:
-    m_Name: 
-    m_Clip: {fileID: 0}
-    volume: 0.75
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0
-    spatialBlend: 0.2
-    loop: 0
-    m_Source: {fileID: 0}
-  m_UITriggers: []
-  m_TagsThatActivate:
-  - PlayerHands
-  m_DoorObject: {fileID: 0}
-  m_OpenDoorAngRot: 90
-  m_LockedDoorAngRot: 5
-  m_OpenDoorSpeed: 0.8
-  m_LockedDoorSpeed: 1.3
 --- !u!1 &678720999
 GameObject:
   m_ObjectHideFlags: 0

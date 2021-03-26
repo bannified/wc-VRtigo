@@ -56,7 +56,10 @@ public class ClassroomDoor : MonoBehaviour
 
     private void OnDisable()
     {
-        ClassroomManager.Instance.OnLessonEnd -= ClassroomLessonEnd;
+        if (ClassroomManager.Instance != null)
+        {
+            ClassroomManager.Instance.OnLessonEnd -= ClassroomLessonEnd;
+        }
     }
 
     public void PlayOpenDoorAnim()
