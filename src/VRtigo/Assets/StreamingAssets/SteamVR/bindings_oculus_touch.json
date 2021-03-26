@@ -176,11 +176,11 @@
       "poses": [
         {
           "output": "/actions/expplayermovement/in/pose",
-          "path": "/user/hand/left/pose/base"
+          "path": "/user/hand/left/pose/raw"
         },
         {
           "output": "/actions/expplayermovement/in/pose",
-          "path": "/user/hand/right/pose/base"
+          "path": "/user/hand/right/pose/raw"
         }
       ],
       "haptics": [
