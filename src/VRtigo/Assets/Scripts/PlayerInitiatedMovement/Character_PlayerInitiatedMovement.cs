@@ -47,6 +47,9 @@ public class Character_PlayerInitiatedMovement : Character
     protected AnimationCurve m_AccelerationCurve;
 
     [SerializeField]
+    protected float m_AccelerationScale = 1.0f;
+
+    [SerializeField]
     protected AnimationCurve m_DecelerationCurve;
 
     [SerializeField]
@@ -183,7 +186,7 @@ public class Character_PlayerInitiatedMovement : Character
             if (m_InputAxisValue > m_LinearMovementInputThreshold)
             {
                 float accel = m_AccelerationCurve.Evaluate(m_InputAxisValue);
-                m_Rigidbody.velocity = m_Rigidbody.velocity + resultMoveDirection * accel * Time.fixedDeltaTime;
+                m_Rigidbody.velocity = m_Rigidbody.velocity + resultMoveDirection * accel * Time.fixedDeltaTime * m_AccelerationScale;
             } else
             {
                 Decelerate();
@@ -252,5 +255,10 @@ public class Character_PlayerInitiatedMovement : Character
     public void SetMaxMoveSpeed(float maxMoveSpeed)
     {
         m_MaxMoveSpeed = maxMoveSpeed;
+    }
+
+    public void SetAccelScale(float accelScale)
+    {
+        m_AccelerationScale = accelScale;
     }
 }
