@@ -14,9 +14,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: Player Initiated Movement (Turning Enabled)
   LessonSteps:
-  - m_DialogueString: "However, when the scene movement accelerates or there is a
-      angular \rmotion VR sickness happens."
-  NextLessonScene:
-    sceneAsset: {fileID: 0}
-    scenePath: 
-  NextLessonKey: 
+  - m_DialogueString: "Welcome back to the classroom. You have just experienced the
+      fourth and last design implementation for Player Initiated Movement. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Take a moment and think about how this experience differs
+      with your previous experiences you have had. \r\n\r\n"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Turning is a triple-axis movement, combination of yawing,
+      strafing and surging. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 666639eba170a864c88c0659772ec20b, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Turning not only causes visual-proprioception mismatch, but
+      also causes a visual-vestibular mismatch. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 6c471d85ee948f14ab12bc098a28b091, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Vestibular sense is often referred to as a sense of balance,
+      that is detected by a set of structures in your inner ear which is actually
+      known as the vestibular organ. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 6c471d85ee948f14ab12bc098a28b091, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This sensory system specifically responds to any change in
+      the head\u2019s motion vector, both rotational or translational. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Hence, turning causes a visual-vestibular mismatch as our
+      vision sends information of the supposed head motion but our vestibular sense
+      detects that we are staying still. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "After experiencing all 4 design implementations for the Player
+      Initiated Movement, I hope you have a better understanding of the discomfort
+      they bring about. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: This concludes the end of the Player Initiated Movement experience,
+      you may now return to the Study Room for the next experience.
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
+    m_VoiceoverClip: {fileID: 0}

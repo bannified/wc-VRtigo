@@ -14,9 +14,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: Player Initiated Movement (Strafing Enabled)
   LessonSteps:
-  - m_DialogueString: The mismatch between what is seen (visual cues) and what is
-      physically felt (vestibular cues) is okay!
-  NextLessonScene:
-    sceneAsset: {fileID: 102900000, guid: 7516760e8ced7354cb3a3046e72f01c9, type: 3}
-    scenePath: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_Main_PlayerInitiatedMovement.unity
-  NextLessonKey: PIM_4
+  - m_DialogueString: "Welcome back to the classroom. You have just experienced the
+      third variant of Player Initiated Movement. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Take a moment and think about how this experience differs
+      with your previous experience. Did the controls feel more intuitive? Were you
+      more comfortable?\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'In this third design implementation, controls have been enabled
+      to allow lateral movement, also known as strafing, using the joystick. '
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: b8faf5119957ef14ca6b5831f4fcec2d, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This dual-axis movement is a combination of strafing and surging.
+      It might be tempting to give players more control over their movements. However,
+      it is a double edged sword.\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: b8faf5119957ef14ca6b5831f4fcec2d, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Similar to acceleration, strafing in Virtual Reality causes
+      vection due to a mismatch between perceived motion and actual physical motion.
+      \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 762a6196fad3d6d458bd5d806c203d8a, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This results in a visual-proprioception mismatch. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 762a6196fad3d6d458bd5d806c203d8a, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Proprioception refers to the perception or awareness of the
+      position, movement, and extent of the body and its constituent parts.\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 762a6196fad3d6d458bd5d806c203d8a, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Hence, repeated lateral movements lead to motion sickness,
+      as our sense of proprioception detects minimal change in physical movements,
+      yet our vision tells us that we are moving sideways. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 762a6196fad3d6d458bd5d806c203d8a, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Now that you have experienced strafing, your next experience
+      introduces another variant of movement for you to navigate through the level.\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Whenever you are ready, head to the door on your left. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
+    m_VoiceoverClip: {fileID: 0}

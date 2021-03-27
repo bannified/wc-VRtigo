@@ -14,12 +14,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: Player Initiated Movement (Acceleration)
   LessonSteps:
-  - m_DialogueString: However, <b>vection</b> does not necessarily always cause motion
-      sickness.
-  - m_DialogueString: "Almost no motion sickness is experienced when the scene moves
-      in\r constant/linear velocity. The mismatch between what is seen (visual cues)\r\nand
-      what is physically felt (vestibular cues) is okay!"
-  NextLessonScene:
-    sceneAsset: {fileID: 102900000, guid: 7516760e8ced7354cb3a3046e72f01c9, type: 3}
-    scenePath: Assets/Scenes/Experiences/PlayerInitiatedMovement/Level_Main_PlayerInitiatedMovement.unity
-  NextLessonKey: PIM_3
+  - m_DialogueString: "Welcome back to the Classroom. You have just experienced the
+      second variant of Player Initiated Movement. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Take a moment and think about how this experience compares
+      to your previous experience. Did you notice any difference? \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "In this second level, the same controls are implemented and
+      you are moving along the same single-axis. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: b8faf5119957ef14ca6b5831f4fcec2d, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "However, instead of moving at a linear movement speed, you
+      are now accelerating as you moved from one point to the other.\r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 7280631b2df96584b8dda5e83d64f365, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "In virtual reality, vection is very common. Vection is the
+      illusory perception of self-motion based on visual input consistent with such
+      movements. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 764a234187353b044bde9a9b765deae8, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This occurs most commonly when using artificial locomotion
+      to move or turn in the virtual environment. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 764a234187353b044bde9a9b765deae8, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "The brain weighs the input from your sense of vision so heavily,
+      you may even feel as if you are moving despite actually staying still. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 764a234187353b044bde9a9b765deae8, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Compared to the first experience in linear motion speed, there
+      is a greater mismatch between staying stationery in reality and acceleration
+      in virtual experience. '
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: f92cba5a1bfd64e4083c020467919e66, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Hence, you would experience greater discomfort in this second
+      variant. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: f92cba5a1bfd64e4083c020467919e66, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Next, you will be tasked to navigate through the same level,
+      but with different controls and design implementation. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 0}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Whenever you are ready, head to the door on your left. \r"
+    m_ClearPreviousImage: 1
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
+    m_VoiceoverClip: {fileID: 0}
