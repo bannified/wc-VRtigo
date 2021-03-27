@@ -76,7 +76,6 @@ public class RecordPlayer_MainMenu : MonoBehaviour
 
     IEnumerator PlayDisc()
     {
-
         m_ArmAngle = 0.0f;
         m_DiscAngle = 0.0f;
         m_DiscSpeed = 0.0f;

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IconTrigger : MonoBehaviour
+public class IconTrigger : MonoBehaviour, IUIComponent
 {
     [SerializeField]
-    protected Grabbable m_GrabbableObj;
+    private Grabbable m_GrabbableObj;
 
     [SerializeField]
     protected Image m_Icon;
@@ -41,11 +41,11 @@ public class IconTrigger : MonoBehaviour
     {
         if (m_GrabbableObj != null)
         {
-            m_GrabbableObj.onGrab += DisableIcon;
-            m_GrabbableObj.onDrop += EnableIcon;
+            m_GrabbableObj.onGrab += SetDisableOnGrabbable;
+            m_GrabbableObj.onDrop += SetActiveOnGrabbable;
 
-            m_GrabbableObj.onNonInteractable += DisableIcon;
-            m_GrabbableObj.OnInteractable += EnableIcon;
+            m_GrabbableObj.onNonInteractable += SetDisableOnGrabbable;
+            m_GrabbableObj.OnInteractable += SetActiveOnGrabbable;
         }
     }
 
@@ -53,69 +53,45 @@ public class IconTrigger : MonoBehaviour
     {
         if (m_GrabbableObj != null)
         {
-            m_GrabbableObj.onGrab -= DisableIcon;
-            m_GrabbableObj.onDrop -= EnableIcon;
+            m_GrabbableObj.onGrab -= SetDisableOnGrabbable;
+            m_GrabbableObj.onDrop -= SetActiveOnGrabbable;
 
-            m_GrabbableObj.onNonInteractable -= DisableIcon;
-            m_GrabbableObj.OnInteractable -= EnableIcon;
+            m_GrabbableObj.onNonInteractable -= SetDisableOnGrabbable;
+            m_GrabbableObj.OnInteractable -= SetActiveOnGrabbable;
         }
     }
 
-    /**
-     * Once enabled, Icon will appear when player is within trigger boundary
-     */
-    public void EnableIcon(Grabbable grabObj)
+    // Wrappers
+    private void SetActiveOnGrabbable(Grabbable grabbable) { SetActive(); }
+    private void SetDisableOnGrabbable(Grabbable grabbable) { SetDisable(); }
+
+    public void SetActive()
     {
         m_IsEnabled = true;
         if (m_IsWithinBoundary)
-            ShowIcon();
+            SetVisible();
     }
 
-    /**
-     * Once disabled, Icon will not appear even when player is within trigger boundary.
-     */
-    public void DisableIcon(Grabbable grabObj)
+    public void SetDisable()
     {
         m_IsEnabled = false;
         if (m_IsWithinBoundary)
-            FadeOutIcon();
+            SetInvisible();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
-            ShowIcon();
-
-        m_IsWithinBoundary = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
-            FadeOutIcon();
-
-        m_IsWithinBoundary = false;
-    }
-
-    /**
-     * Fade in the icon and make it always face the camera.
-     */
-    public void ShowIcon()
+    public void SetVisible()
     {
         // Fade In Icon
-        StartCoroutine("FadeInImage", m_Icon);
+        StartCoroutine(Image_Utils.FadeInImageCoroutine(m_Icon, m_FadeDuration));
 
         // Face to camera
-        m_FaceCamCoroutine = StartCoroutine(FaceToCamera(m_Icon));
+        m_FaceCamCoroutine = StartCoroutine(Image_Utils.FaceToCameraCoroutine(m_Icon, m_Camera));
     }
 
-    /**
-     * Fade out the icon.
-     */
-    public void FadeOutIcon()
+    public void SetInvisible()
     {
         // Fade Out Icon
-        StartCoroutine("FadeOutImage", m_Icon);
+        StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_Icon, m_FadeDuration));
 
         // Stop face to camera coroutine
         if (m_FaceCamCoroutine != null)
@@ -125,55 +101,19 @@ public class IconTrigger : MonoBehaviour
         }
     }
 
-    IEnumerator FaceToCamera(Image img)
+    private void OnTriggerEnter(Collider other)
     {
-        while (true)
-        {
-            Vector3 camForward = m_Camera.transform.forward;
-            camForward.y = 0.0f;
+        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
+            SetVisible();
 
-            img.transform.rotation = Quaternion.LookRotation(camForward);
-            yield return null;
-        }
+        m_IsWithinBoundary = true;
     }
 
-    IEnumerator FadeInImage(Image img)
+    private void OnTriggerExit(Collider other)
     {
-        float durationSoFar = 0.0f;
-        float progress, alpha;
+        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
+            SetInvisible();
 
-        while (durationSoFar < m_FadeDuration)
-        {
-            progress = durationSoFar / m_FadeDuration;
-            alpha = progress + (Time.deltaTime / m_FadeDuration);
-
-            Color imageColor = img.color;
-            imageColor.a = alpha;
-            img.color = imageColor;
-
-            durationSoFar += Time.deltaTime;
-            yield return null;
-        }
-    }
-
-    IEnumerator FadeOutImage(Image img)
-    {
-        float durationSoFar = 0.0f;
-        float oriAlpha = img.color.a;
-        float alpha = oriAlpha;
-        float progress;
-
-        while (alpha > 0.0f || durationSoFar < m_FadeDuration)
-        {
-            progress = durationSoFar / m_FadeDuration;
-            alpha = oriAlpha - progress - (Time.deltaTime / m_FadeDuration);
-
-            Color imageColor = img.color;
-            imageColor.a = alpha;
-            img.color = imageColor;
-
-            durationSoFar += Time.deltaTime;
-            yield return null;
-        }
+        m_IsWithinBoundary = false;
     }
 }

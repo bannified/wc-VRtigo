@@ -108,7 +108,7 @@ public class ClassroomManager : MonoBehaviour
         if (m_AutoplayClassroom && GameManager.Instance != null)
         {
             ExperienceData experience = GameManager.Instance.GetCurrentExperience();
-            if (experience != null) 
+            if (experience != null)
             {
                 StartLesson(GameManager.Instance.GetCurrentExperience().LessonData);
             }
@@ -135,7 +135,8 @@ public class ClassroomManager : MonoBehaviour
         if (!m_IsLessonStepCompleted)
         {
             SkipToLessonStepEnd();
-        } else
+        }
+        else
         {
             GoToLessonNextStep();
         }
