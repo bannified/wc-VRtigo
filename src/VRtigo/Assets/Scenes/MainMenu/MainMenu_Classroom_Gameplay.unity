@@ -458,9 +458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TagsThatActivate:
   - Player
-  m_Activatables:
+  m_AnimTexts:
   - {fileID: 1684120646}
-  m_Activated: 0
 --- !u!65 &936054268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -571,9 +570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TagsThatActivate:
   - Player
-  m_Activatables:
+  m_AnimTexts:
   - {fileID: 279321151}
-  m_Activated: 0
 --- !u!65 &1069395017
 BoxCollider:
   m_ObjectHideFlags: 0

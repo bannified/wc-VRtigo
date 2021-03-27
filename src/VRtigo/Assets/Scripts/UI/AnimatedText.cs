@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class AnimatedTextActivatable : MonoBehaviour, IActivatable
+public class AnimatedText : MonoBehaviour
 {
     [SerializeField]
     protected TMP_Text m_TextMesh;
@@ -32,13 +32,13 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
         m_ScatterEffect = new FadeOutScatterTextEffect(m_TextMesh, m_ScatterRange, m_FadeOutDuration);
     }
 
-    public void Activate()
+    public void TransitionIn()
     {
         if (!m_IsAnimating)
             StartCoroutine("AnimateText");
     }
 
-    public void Deactivate()
+    public void TransitionOut()
     {
         m_StopAnimating = true;
     }
