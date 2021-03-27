@@ -50,13 +50,13 @@ public class ExitApplication_MainMenu : MonoBehaviour
 
     private void StartExitCountdown()
     {
-        m_ProgressTiles.StartProgress();
+        m_ProgressTiles.SetVisible();
         m_ExitCoroutine = StartCoroutine(ExitCountdown());
     }
 
     private void StopExitCountdown()
     {
-        m_ProgressTiles.CancelProgress();
+        m_ProgressTiles.SetInvisible();
         if (m_ExitCoroutine != null)
         {
             StopCoroutine(m_ExitCoroutine);
