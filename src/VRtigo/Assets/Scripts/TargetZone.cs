@@ -27,24 +27,30 @@ public class TargetZone : MonoBehaviour
         // Must currently not be setting and target zone is empty
         if (isNotGrabbed && !m_IsSetting && m_CurrObj == null)
         {
+            grabbableObj.SetNonInteractable();
+
             onObjectStartSet?.Invoke(grabbableObj.gameObject);
-            StartCoroutine("SetObjToTarget", grabbableObj.gameObject);
+
+            StartCoroutine("SetObjToTarget", grabbableObj);
         }
     }
 
-    IEnumerator SetObjToTarget(GameObject obj)
+    IEnumerator SetObjToTarget(Grabbable grabbableObj)
     {
         m_IsSetting = true;
 
         Vector3 targetPos = m_TargetTransform.transform.position;
         Quaternion targetRot = m_TargetTransform.transform.rotation;
-        Rigidbody objRb = obj.GetComponent<Rigidbody>();
+        Rigidbody objRb = grabbableObj.GetComponent<Rigidbody>();
 
         if (objRb == null)
             yield break;
 
         bool isAtPosition = false;
         bool isAtRotation = false;
+
+        // Item on target zone is not affected by gravity
+        objRb.useGravity = false;
         objRb.maxAngularVelocity = m_SettingMaxAngularVelocity;
 
         while (!isAtPosition || !isAtRotation)
@@ -71,8 +77,12 @@ public class TargetZone : MonoBehaviour
 
         objRb.velocity = Vector3.zero;
 
+        // Clean up
+        grabbableObj.SetInteractable();
         m_IsSetting = false;
-        onObjectFinishSet?.Invoke(obj);
+
+        // Signal action
+        onObjectFinishSet?.Invoke(grabbableObj.gameObject);
 
         yield return null;
     }

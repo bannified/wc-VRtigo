@@ -7,24 +7,18 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     protected float m_MusicDurBeforeFade = 1.5f;
 
     [SerializeField]
-    protected float m_SettingSpeed = 250.0f;
-    [SerializeField]
-    protected float m_SettingMaxAngularVelocity = 20.0f;
-
+    private TargetZone m_TargetZone;
     [SerializeField]
     protected GameObject m_Disc;
     [SerializeField]
     protected GameObject m_Arm;
-    [SerializeField]
-    protected GameObject m_DiscTarget;
-    [SerializeField]
-    protected SceneTransistorGrabbable_MainMenu m_CurrDisc;
 
     [SerializeField]
     protected Sound m_ArmSound;
 
+    private SceneTransistorGrabbable_MainMenu m_CurrDisc;
+
     private bool m_RecordPlayerActive = false;
-    private bool m_SettingDisc = false;
     private bool m_Transitioning = false;
 
     private float m_ArmAngle;
@@ -40,85 +34,44 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         AudioManager.InitAudioSourceOn(m_ArmSound, this.gameObject);
     }
 
-    public void SetDisc(SceneTransistorGrabbable_MainMenu disc)
+    private void OnEnable()
     {
-        if (!m_Transitioning)
+        m_TargetZone.onObjectFinishSet += OnDiscFinishSet;
+    }
+
+    private void OnDisable()
+    {
+        m_TargetZone.onObjectFinishSet -= OnDiscFinishSet;
+    }
+
+    private void OnDiscFinishSet(GameObject obj)
+    {
+        SceneTransistorGrabbable_MainMenu disc = obj.GetComponent<SceneTransistorGrabbable_MainMenu>();
+        if (disc != null & !m_Transitioning && m_CurrDisc == null)
         {
             m_CurrDisc = disc;
-            disc.SetNonInteractable();
-
-            StartCoroutine("SetDiscAndTransition");
+            StartCoroutine("PlayDiscAndTransition");
         }
     }
 
-    public void DeactivateRecordPlayer()
-    {
-        m_RecordPlayerActive = false;
-    }
-
-    IEnumerator SetDiscAndTransition()
+    IEnumerator PlayDiscAndTransition()
     {
         m_Transitioning = true;
 
-        if (!m_SettingDisc)
-            yield return StartCoroutine("SetDiscToTarget");
+        m_CurrDisc.transform.SetParent(m_Disc.transform);
+        m_CurrDisc.SetNonInteractable();
 
-        if (!m_RecordPlayerActive)
-            StartCoroutine("PlayDisc");
-
+        // Play disc playing animation, and wait until animation is ready
+        StartCoroutine("PlayDisc");
         yield return new WaitUntil(() => m_RecordPlayerActive);
 
+        // Pre-play music
         AudioManager.Instance.PlayBackgroundMusics(m_CurrDisc.GetMusicNames());
-
         yield return new WaitForSeconds(m_MusicDurBeforeFade);
 
+        // Transition
         GameManager.Instance.StartExperience(m_CurrDisc.GetExperience());
         m_Transitioning = false;
-    }
-
-    IEnumerator SetDiscToTarget()
-    {
-        m_SettingDisc = true;
-
-        Vector3 targetPos = m_DiscTarget.transform.position;
-        Quaternion targetRot = m_DiscTarget.transform.rotation;
-        Rigidbody objRb = m_CurrDisc.GetComponent<Rigidbody>();
-
-        if (objRb == null)
-            yield break;
-
-        bool isAtPosition = false;
-        bool isAtRotation = false;
-        objRb.maxAngularVelocity = m_SettingMaxAngularVelocity;
-
-        while (!isAtPosition || !isAtRotation)
-        {
-            // Adjust moving velocity into target
-            objRb.velocity = (targetPos - objRb.transform.position) * Time.fixedDeltaTime * m_SettingSpeed;
-
-            // Follow target rotation
-            Quaternion deltaRot = targetRot * Quaternion.Inverse(objRb.transform.rotation);
-            Vector3 eulerRot = new Vector3(
-                Mathf.DeltaAngle(0, deltaRot.eulerAngles.x),
-                Mathf.DeltaAngle(0, deltaRot.eulerAngles.y),
-                Mathf.DeltaAngle(0, deltaRot.eulerAngles.z)
-            );
-            eulerRot *= Mathf.Deg2Rad;
-
-            objRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
-
-            isAtPosition = (targetPos - objRb.transform.position).magnitude < 0.01f;
-            isAtRotation = Mathf.Approximately(Mathf.Abs(Quaternion.Dot(targetRot, objRb.transform.rotation)), 1.0f);
-
-            yield return new WaitForFixedUpdate();
-        }
-
-        objRb.velocity = Vector3.zero;
-        m_CurrDisc.transform.SetParent(m_Disc.transform);
-
-        m_SettingDisc = false;
-
-        yield return null;
     }
 
     IEnumerator PlayDisc()
