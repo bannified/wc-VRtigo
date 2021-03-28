@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace VRT_Constants
 {
     public static class Tags
@@ -25,6 +27,7 @@ namespace VRT_Constants
         public static class MainMenuConstants
         {
             public static string SPAWN_IN_CLASSROOM_BOOL = "MENU_SpawnInClassroom";
+            public static List<string> MAIN_MENU_BGM_LIST = new List<string> { "DistantStorm" };
         }
     }
 }

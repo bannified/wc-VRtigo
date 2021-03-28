@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class ClassroomDoor : MonoBehaviour
 {
@@ -101,6 +100,8 @@ public class ClassroomDoor : MonoBehaviour
             else
             {
                 m_DoorOpenSound.m_Source.Play();
+
+                AudioManager.Instance.PlayBackgroundMusics(VRT_Constants.MainMenuConstants.MainMenuConstants.MAIN_MENU_BGM_LIST);
                 PlayOpenDoorAnim();
             }
         }
