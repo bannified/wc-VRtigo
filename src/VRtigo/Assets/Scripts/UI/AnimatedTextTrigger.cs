@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatedTextTrigger : MonoBehaviour, IUIComponent
+public class AnimatedTextTrigger : UIComponent
 {
     [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "Player" };
@@ -13,27 +13,27 @@ public class AnimatedTextTrigger : MonoBehaviour, IUIComponent
     private bool m_IsEnabled = true;
     private bool m_IsWithinBoundary = false;
 
-    public void SetActive()
+    public override void SetEnable()
     {
         m_IsEnabled = true;
         if (m_IsWithinBoundary)
             SetVisible();
     }
 
-    public void SetDisable()
+    public override void SetDisable()
     {
         m_IsEnabled = false;
         if (m_IsWithinBoundary)
             SetInvisible();
     }
 
-    public void SetVisible()
+    public override void SetVisible()
     {
         foreach (AnimatedText animText in m_AnimTexts)
             animText.TransitionIn();
     }
 
-    public void SetInvisible()
+    public override void SetInvisible()
     {
         foreach (AnimatedText animText in m_AnimTexts)
             animText.TransitionOut();

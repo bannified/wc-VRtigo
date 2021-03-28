@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressTiles : MonoBehaviour, IUIComponent
+public class ProgressTiles : UIComponent
 {
     [SerializeField]
     protected List<Image> m_ProgressTilesBgs;
@@ -22,19 +22,19 @@ public class ProgressTiles : MonoBehaviour, IUIComponent
         ResetProgress();
     }
 
-    public void SetActive()
+    public override void SetEnable()
     {
         m_IsEnabled = true;
         SetVisible();
     }
 
-    public void SetDisable()
+    public override void SetDisable()
     {
         SetInvisible();
         m_IsEnabled = false;
     }
 
-    public void SetVisible()
+    public override void SetVisible()
     {
         if (m_IsEnabled)
         {
@@ -46,7 +46,7 @@ public class ProgressTiles : MonoBehaviour, IUIComponent
         }
     }
 
-    public void SetInvisible()
+    public override void SetInvisible()
     {
         for (int i = 0; i < m_ProgressTiles.Count; i++)
         {

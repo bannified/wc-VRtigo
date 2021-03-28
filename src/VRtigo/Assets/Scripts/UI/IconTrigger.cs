@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IconTrigger : MonoBehaviour, IUIComponent
+public class IconTrigger : UIComponent
 {
     [SerializeField]
     private Grabbable m_GrabbableObj;
@@ -62,24 +62,24 @@ public class IconTrigger : MonoBehaviour, IUIComponent
     }
 
     // Wrappers
-    private void SetActiveOnGrabbable(Grabbable grabbable) { SetActive(); }
+    private void SetActiveOnGrabbable(Grabbable grabbable) { SetEnable(); }
     private void SetDisableOnGrabbable(Grabbable grabbable) { SetDisable(); }
 
-    public void SetActive()
+    public override void SetEnable()
     {
         m_IsEnabled = true;
         if (m_IsWithinBoundary)
             SetVisible();
     }
 
-    public void SetDisable()
+    public override void SetDisable()
     {
         m_IsEnabled = false;
         if (m_IsWithinBoundary)
             SetInvisible();
     }
 
-    public void SetVisible()
+    public override void SetVisible()
     {
         // Fade In Icon
         StartCoroutine(Image_Utils.FadeInImageCoroutine(m_Icon, m_FadeDuration));
@@ -88,7 +88,7 @@ public class IconTrigger : MonoBehaviour, IUIComponent
         m_FaceCamCoroutine = StartCoroutine(Image_Utils.FaceToCameraCoroutine(m_Icon, m_Camera));
     }
 
-    public void SetInvisible()
+    public override void SetInvisible()
     {
         // Fade Out Icon
         StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_Icon, m_FadeDuration));

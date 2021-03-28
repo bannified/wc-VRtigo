@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IUIComponent
+public class UIComponent : MonoBehaviour
 {
     /**
      * Set the UI component to be visible or invisible. UI component
      * should perform their necessary transition (fade in/fade out) here.
      */
-    void SetVisible();
-    void SetInvisible();
+    public virtual void SetVisible() { }
+
+    public virtual void SetInvisible() { }
 
     /**
      * Set the UI Component active/disabled. When UI Component is disabled,
@@ -21,6 +22,6 @@ public interface IUIComponent
      * Use case: After player finished the lesson, the 'Continue' UI component
      * of the continue button should no longer appear.
      */
-    void SetActive();
-    void SetDisable();
+    public virtual void SetEnable() { }
+    public virtual void SetDisable() { }
 }

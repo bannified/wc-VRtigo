@@ -14,12 +14,11 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     private float m_ButtonSpeed = 2.0f;
 
     [SerializeField]
-    private List<GameObject> m_GameObjects;
-
-    [SerializeField]
     private float m_ButtonDisplacement = -0.0457f;
 
     [SerializeField]
+    private List<UIComponent> m_ContinueButtonUIs;
+
     private bool m_isButtonPressed = false;
 
     void Start()
@@ -50,13 +49,9 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
     {
-        SetGameObjsActive(false);
-    }
-
-    private void SetGameObjsActive(bool val)
-    {
-        for (int i = 0; i < m_GameObjects.Count; i++)
-            m_GameObjects[i].SetActive(val);
+        // There is no more need for continue button
+        for (int i = 0; i < m_ContinueButtonUIs.Count; i++)
+            m_ContinueButtonUIs[i].SetDisable();
     }
 
     public void Activate()
