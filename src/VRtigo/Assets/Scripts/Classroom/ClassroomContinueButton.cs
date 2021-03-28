@@ -8,6 +8,9 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     protected Sound m_ButtonSound;
 
     [SerializeField]
+    protected Sound m_ProjectorSound;
+
+    [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "PlayerHands" };
 
     [SerializeField]
@@ -24,6 +27,7 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     void Start()
     {
         AudioManager.InitAudioSourceOn(m_ButtonSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_ProjectorSound, this.gameObject);
     }
 
     private void OnEnable()
@@ -60,6 +64,9 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
         {
             // Play button sound
             m_ButtonSound.m_Source.Play();
+
+            // Play projector sound
+            m_ProjectorSound.m_Source.Play();
 
             // Play animation
             StartCoroutine("PressButton", new Vector3(0, m_ButtonDisplacement, 0));
