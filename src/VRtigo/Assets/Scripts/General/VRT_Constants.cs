@@ -18,6 +18,12 @@ namespace VRT_Constants
         {
             public static string CAMERA_ROTATION_LOCK_BOOL = "FHR_CameraRotationLock";
         }
+
+        public static class PlayerForcedMovement
+        {
+            public static string GENTLE_TURNS_BOOL = "FPM_GentleTurns";
+            public static string FRAME_OF_REF_BOOL = "FPM_WithFrameOfReference";
+        }
     }
 
     namespace MainMenuConstants
