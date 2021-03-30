@@ -6,9 +6,6 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField]
-    protected List<SoundData> m_Sounds;
-
-    [SerializeField]
     private float m_FadeDuration = 2.0f;
 
     private List<SoundData> m_BackgroundMusics;

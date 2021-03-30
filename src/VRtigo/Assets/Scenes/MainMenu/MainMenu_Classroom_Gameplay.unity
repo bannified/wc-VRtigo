@@ -680,26 +680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc6069d1ac2284296c682b47b4294b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DoorLockSound:
-    m_Name: DoorLock
-    m_Clip: {fileID: 8300000, guid: 16ffd18121cbe7a449eeaab3f1bfc402, type: 3}
-    volume: 0.75
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0
-    spatialBlend: 1
-    loop: 0
-    m_Source: {fileID: 0}
-  m_DoorOpenSound:
-    m_Name: DoorOpen
-    m_Clip: {fileID: 8300000, guid: 139e68d3937eba642996802b10571efa, type: 3}
-    volume: 0.75
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0
-    spatialBlend: 1
-    loop: 0
-    m_Source: {fileID: 0}
+  m_DoorLockSound: {fileID: 11400000, guid: 5d6c910ecd831e248855821364f1bbc4, type: 2}
+  m_DoorOpenSound: {fileID: 11400000, guid: 5955a6ee08f8cf544b51bf931384f391, type: 2}
   m_ClassroomDoorUIs:
   - {fileID: 1069395016}
   - {fileID: 1648827626}
@@ -1299,26 +1281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4d3df9a0a2ace45aa89785ce3e9784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ButtonSound:
-    m_Name: Click
-    m_Clip: {fileID: 8300000, guid: af5e134562346014e8317f6407760b40, type: 3}
-    volume: 0.493
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0
-    spatialBlend: 0.885
-    loop: 0
-    m_Source: {fileID: 0}
-  m_ProjectorSound:
-    m_Name: CameraShutter
-    m_Clip: {fileID: 8300000, guid: 8986d59e98663654f86cf18b157be058, type: 3}
-    volume: 0.525
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0
-    spatialBlend: 0.2
-    loop: 0
-    m_Source: {fileID: 0}
+  m_ButtonSound: {fileID: 11400000, guid: acd814d98a4e4b749b3aa2ee9298a7aa, type: 2}
+  m_ProjectorSound: {fileID: 11400000, guid: 2cb21ad324a61e945865f51d88ba3152, type: 2}
   m_TagsThatActivate:
   - PlayerHands
   m_ButtonSpeed: 2

@@ -2,7 +2,7 @@ using UnityEngine.Audio;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Sound_", menuName = "Sound")]
-public class SoundData
+public class SoundData : ScriptableObject
 {
     [SerializeField]
     protected string m_Name;
