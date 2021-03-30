@@ -126,5 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a93ad0867b18db4fa905a8c51bcc2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GrabSound: {fileID: 11400000, guid: ef1c0c43d1c0c1c46b1f3ee09498692a, type: 2}
+  m_DropSound: {fileID: 11400000, guid: 27a975fbbab26e44bbbdb3172e2ac91b, type: 2}
   m_ExperienceData: {fileID: 0}
   m_Musics: []
