@@ -112,8 +112,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.024445187, y: 0.02444518, z: 0.00074224366}
-  m_Center: {x: 0, y: 0, z: -0.0001784916}
+  m_Size: {x: 0.024445187, y: 0.024445182, z: 0.0054007596}
+  m_Center: {x: 0, y: 0, z: -0.000082694554}
 --- !u!114 &8422081068473483354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExperienceData: {fileID: 0}
-  m_MusicNames: []
+  m_Musics: []
