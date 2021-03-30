@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace VRT_Constants
 {
     public static class Tags
