@@ -1,8 +1,8 @@
 using UnityEngine.Audio;
 using UnityEngine;
 
-[System.Serializable]
-public class Sound
+[CreateAssetMenu(fileName = "Sound_", menuName = "Sound")]
+public class SoundData
 {
     [SerializeField]
     protected string m_Name;

@@ -5,10 +5,10 @@ using UnityEngine;
 public class ClassroomDoor : MonoBehaviour
 {
     [SerializeField]
-    protected Sound m_DoorLockSound;
+    protected SoundData m_DoorLockSound;
 
     [SerializeField]
-    protected Sound m_DoorOpenSound;
+    protected SoundData m_DoorOpenSound;
 
     [SerializeField]
     private List<UIComponent> m_ClassroomDoorUIs;

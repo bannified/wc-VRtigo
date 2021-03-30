@@ -49,7 +49,7 @@ public class Level_MainMenu : MonoBehaviour
     }
     #endregion
 
-    public List<string> m_MainMenuBGMs;
+    public List<SoundData> m_MainMenuBGMs;
 
     void Start()
     {

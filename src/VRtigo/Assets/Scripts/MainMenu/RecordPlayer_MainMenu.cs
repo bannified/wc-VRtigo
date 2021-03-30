@@ -14,7 +14,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     protected GameObject m_Arm;
 
     [SerializeField]
-    protected Sound m_ArmSound;
+    protected SoundData m_ArmSound;
 
     private SceneTransistorGrabbable_MainMenu m_CurrDisc;
 
@@ -66,7 +66,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         yield return new WaitUntil(() => m_RecordPlayerActive);
 
         // Pre-play music
-        AudioManager.Instance.PlayBackgroundMusics(m_CurrDisc.GetMusicNames());
+        AudioManager.Instance.PlayBackgroundMusics(m_CurrDisc.GetMusics());
         yield return new WaitForSeconds(m_MusicDurBeforeFade);
 
         // Transition

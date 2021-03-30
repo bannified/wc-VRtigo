@@ -6,17 +6,14 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField]
-    protected List<Sound> m_Sounds;
-
-    [SerializeField]
-    private Hashtable m_SoundsInternal;
+    protected List<SoundData> m_Sounds;
 
     [SerializeField]
     private float m_FadeDuration = 2.0f;
 
-    private List<string> m_BackgroundMusicNames;
+    private List<SoundData> m_BackgroundMusics;
 
-    #region Singleton Implementation and Initialisation
+    #region Singleton Implementation
     private static object _lock = new object();
     private static AudioManager _instance;
     public static AudioManager Instance
@@ -50,21 +47,6 @@ public class AudioManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-        m_SoundsInternal = new Hashtable();
-        foreach (Sound s in m_Sounds)
-        {
-            InitAudioSourceOn(s, this.gameObject);
-
-            try
-            {
-                m_SoundsInternal.Add(s.GetName(), s);
-            }
-            catch
-            {
-                Debug.LogWarning(string.Format("Audio Manager: Duplicate clip name '{0}' detected", s.GetName()));
-            }
-        }
     }
 
     private static AudioManager CreateInstance()
@@ -76,7 +58,7 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
-    public static void InitAudioSourceOn(Sound s, GameObject parent)
+    public static void InitAudioSourceOn(SoundData s, GameObject parent)
     {
         s.m_Source = parent.AddComponent<AudioSource>();
         s.m_Source.clip = s.GetClip();
@@ -84,70 +66,61 @@ public class AudioManager : MonoBehaviour
         s.m_Source.spatialBlend = s.spatialBlend;
     }
 
-    public void Play(string soundName)
+    public void Play(SoundData s)
     {
-        Sound s = GetSound(soundName);
+        InitAudioSourceOn(s, this.gameObject);
 
-        if (s != null)
-        {
-            s.m_Source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-            s.m_Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
-            s.m_Source.Play();
-        }
+        s.m_Source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.m_Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+        s.m_Source.Play();
+
+        if (!s.m_Source.loop)
+            DeleteAudioSourceOnFinish(s);
     }
 
-    public void PlayBackgroundMusics(List<string> soundNames)
+    public void PlayBackgroundMusics(List<SoundData> bgmSounds)
     {
         // Currently there is a background music playing
-        if (m_BackgroundMusicNames != null && m_BackgroundMusicNames.Count > 1)
+        if (m_BackgroundMusics != null && m_BackgroundMusics.Count > 1)
         {
             // Fade out the existing BGM
-            foreach (string bgmSoundName in m_BackgroundMusicNames)
-                FadeOutSoundWithName(bgmSoundName);
+            foreach (SoundData bgmSound in m_BackgroundMusics)
+                FadeOutAndDestroy(bgmSound);
         }
 
-        m_BackgroundMusicNames = soundNames;
+        m_BackgroundMusics = bgmSounds;
 
         // No new background music
-        if (soundNames == null || soundNames.Count < 1)
+        if (bgmSounds == null || bgmSounds.Count < 1)
             return;
 
         // Play the new background music
-        foreach (string soundName in soundNames)
-            Play(soundName);
+        foreach (SoundData bgmSound in bgmSounds)
+            Play(bgmSound);
     }
 
-    public void FadeOutSoundWithName(string soundName)
+    public void FadeOutAndDestroy(SoundData s)
     {
-        StartCoroutine("FadeOutSound", soundName);
+        StartCoroutine(FadeOutAndDestroyCoroutine(s));
     }
 
-    public void FadeInSoundWithName(string soundName)
+    public void FadeInSound(SoundData s)
     {
-        StartCoroutine("FadeInSound", soundName);
+        if (s.m_Source == null)
+            InitAudioSourceOn(s, this.gameObject);
+
+        StartCoroutine(FadeInSoundCoroutine(s));
     }
 
-    private Sound GetSound(string soundName)
+    IEnumerator FadeOutAndDestroyCoroutine(SoundData s)
     {
-        if (!m_SoundsInternal.Contains(soundName))
-        {
-            Debug.LogError(string.Format("{0} does not exist!", soundName));
-            return null;
-        }
-        return m_SoundsInternal[soundName] as Sound;
-    }
-
-    IEnumerator FadeOutSound(string soundName)
-    {
-        Sound s = GetSound(soundName);
-
         if (!s.m_Source.isPlaying)
             yield break;
 
         float oriVol = s.m_Source.volume;
         float durationSoFar = 0.0f;
         float totalDuration = m_FadeDuration;
-        float progress = 0.0f;
+        float progress;
 
         while (s.m_Source.volume > 0.0f)
         {
@@ -159,12 +132,11 @@ public class AudioManager : MonoBehaviour
         }
 
         s.m_Source.Stop();
+        Destroy(s.m_Source);
     }
 
-    IEnumerator FadeInSound(string soundName)
+    IEnumerator FadeInSoundCoroutine(SoundData s)
     {
-        Sound s = GetSound(soundName);
-
         if (s == null || s.m_Source.isPlaying)
             yield break;
 
@@ -185,5 +157,13 @@ public class AudioManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private Coroutine DeleteAudioSourceOnFinish(SoundData s) { return StartCoroutine(DeleteAudioSourceOnFinishCoroutine(s)); }
+
+    IEnumerator DeleteAudioSourceOnFinishCoroutine(SoundData s)
+    {
+        yield return new WaitForSeconds(s.GetClip().length);
+        Destroy(s.m_Source);
     }
 }

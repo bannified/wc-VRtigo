@@ -5,10 +5,10 @@ using UnityEngine;
 public class ClassroomContinueButton : MonoBehaviour, IActivatable
 {
     [SerializeField]
-    protected Sound m_ButtonSound;
+    protected SoundData m_ButtonSound;
 
     [SerializeField]
-    protected Sound m_ProjectorSound;
+    protected SoundData m_ProjectorSound;
 
     [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "PlayerHands" };
