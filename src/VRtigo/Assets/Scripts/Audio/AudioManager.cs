@@ -61,6 +61,8 @@ public class AudioManager : MonoBehaviour
         s.m_Source.clip = s.GetClip();
         s.m_Source.loop = s.loop;
         s.m_Source.spatialBlend = s.spatialBlend;
+        s.m_Source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.m_Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
     }
 
     public void Play(SoundData s)

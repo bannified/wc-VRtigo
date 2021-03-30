@@ -5,6 +5,12 @@ using TMPro;
 public class AnimatedText : MonoBehaviour
 {
     [SerializeField]
+    private SoundData m_TransitionInSound;
+
+    [SerializeField]
+    private SoundData m_TransitionOutSound;
+
+    [SerializeField]
     protected TMP_Text m_TextMesh;
 
     [Header("Settings")]
@@ -30,16 +36,23 @@ public class AnimatedText : MonoBehaviour
 
         m_FadeInEffect = new FadeInWobbleTextEffect(m_TextMesh, m_XWobble, m_YWobble, m_FadeInDuration, m_InitWobbleRange);
         m_ScatterEffect = new FadeOutScatterTextEffect(m_TextMesh, m_ScatterRange, m_FadeOutDuration);
+
+        AudioManager.InitAudioSourceOn(m_TransitionInSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_TransitionOutSound, this.gameObject);
     }
 
     public void TransitionIn()
     {
         if (!m_IsAnimating)
+        {
+            m_TransitionInSound.m_Source.Play();
             StartCoroutine("AnimateText");
+        }
     }
 
     public void TransitionOut()
     {
+        m_TransitionOutSound.m_Source.Play();
         m_StopAnimating = true;
     }
 

@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4777188b5ad02145a5622ffe107ef0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TransitionInSound: {fileID: 11400000, guid: 7572c2b1157d70244b2e166e857352bb, type: 2}
+  m_TransitionOutSound: {fileID: 11400000, guid: 4c8dd149fc5cf4d4bb00f4c223723413, type: 2}
   m_TextMesh: {fileID: 279321152}
   m_XWobble: 0.05
   m_YWobble: 0.01
@@ -901,6 +903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4777188b5ad02145a5622ffe107ef0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TransitionInSound: {fileID: 11400000, guid: 7572c2b1157d70244b2e166e857352bb, type: 2}
+  m_TransitionOutSound: {fileID: 11400000, guid: 4c8dd149fc5cf4d4bb00f4c223723413, type: 2}
   m_TextMesh: {fileID: 1684120647}
   m_XWobble: 0.05
   m_YWobble: 0.01
