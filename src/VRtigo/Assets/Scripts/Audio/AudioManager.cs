@@ -101,7 +101,7 @@ public class AudioManager : MonoBehaviour
         // Currently there is a background music playing
         if (m_BackgroundMusicNames != null && m_BackgroundMusicNames.Count > 1)
         {
-            // Play the new background music
+            // Fade out the existing BGM
             foreach (string bgmSoundName in m_BackgroundMusicNames)
                 FadeOutSoundWithName(bgmSoundName);
         }

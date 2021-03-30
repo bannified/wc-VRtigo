@@ -51,7 +51,6 @@ public class Level_MainMenu : MonoBehaviour
 
     public List<string> m_MainMenuBGMs;
 
-    // Start is called before the first frame update
     void Start()
     {
         AudioManager.Instance.PlayBackgroundMusics(Instance.m_MainMenuBGMs);
