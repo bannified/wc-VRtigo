@@ -62,17 +62,17 @@ public class IconTrigger : UIComponent
     }
 
     // Wrappers
-    private void SetActiveOnGrabbable(Grabbable grabbable) { SetEnable(); }
-    private void SetDisableOnGrabbable(Grabbable grabbable) { SetDisable(); }
+    private void SetActiveOnGrabbable(Grabbable grabbable) { Enable(); }
+    private void SetDisableOnGrabbable(Grabbable grabbable) { Disable(); }
 
-    public override void SetEnable()
+    public override void Enable()
     {
         m_IsEnabled = true;
         if (m_IsWithinBoundary)
             SetVisible();
     }
 
-    public override void SetDisable()
+    public override void Disable()
     {
         m_IsEnabled = false;
         if (m_IsWithinBoundary)

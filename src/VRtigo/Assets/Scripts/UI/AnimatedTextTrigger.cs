@@ -13,14 +13,14 @@ public class AnimatedTextTrigger : UIComponent
     private bool m_IsEnabled = true;
     private bool m_IsWithinBoundary = false;
 
-    public override void SetEnable()
+    public override void Enable()
     {
         m_IsEnabled = true;
         if (m_IsWithinBoundary)
             SetVisible();
     }
 
-    public override void SetDisable()
+    public override void Disable()
     {
         m_IsEnabled = false;
         if (m_IsWithinBoundary)

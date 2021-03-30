@@ -32,7 +32,6 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_DiscSpeed = 0.0f;
 
         AudioManager.InitAudioSourceOn(m_ArmSound, this.gameObject);
-        AudioManager.Instance.PlayBackgroundMusics(VRT_Constants.MainMenuConstants.MainMenuConstants.MAIN_MENU_BGM_LIST);
     }
 
     private void OnEnable()

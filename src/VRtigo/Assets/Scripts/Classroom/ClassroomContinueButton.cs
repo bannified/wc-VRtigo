@@ -23,6 +23,8 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     private List<UIComponent> m_ContinueButtonUIs;
 
     private bool m_isButtonPressed = false;
+    private bool m_isEnabled = true;
+
 
     void Start()
     {
@@ -45,7 +47,7 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (m_TagsThatActivate.Contains(other.gameObject.tag))
+        if (m_isEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
         {
             Activate();
         }
@@ -53,9 +55,12 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
     {
-        // There is no more need for continue button
+        // There is no more need for continue button UIs
         for (int i = 0; i < m_ContinueButtonUIs.Count; i++)
-            m_ContinueButtonUIs[i].SetDisable();
+            m_ContinueButtonUIs[i].Disable();
+
+        // Continue button should not be able to be pressed again
+        m_isEnabled = false;
     }
 
     public void Activate()

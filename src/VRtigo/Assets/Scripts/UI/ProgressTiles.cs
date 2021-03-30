@@ -22,13 +22,13 @@ public class ProgressTiles : UIComponent
         ResetProgress();
     }
 
-    public override void SetEnable()
+    public override void Enable()
     {
         m_IsEnabled = true;
         SetVisible();
     }
 
-    public override void SetDisable()
+    public override void Disable()
     {
         SetInvisible();
         m_IsEnabled = false;

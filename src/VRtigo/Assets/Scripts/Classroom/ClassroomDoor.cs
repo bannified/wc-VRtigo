@@ -47,7 +47,7 @@ public class ClassroomDoor : MonoBehaviour
 
         // The classroom UIs should not appear at the start, only when the classroom ends
         for (int i = 0; i < m_ClassroomDoorUIs.Count; i++)
-            m_ClassroomDoorUIs[i].SetDisable();
+            m_ClassroomDoorUIs[i].Disable();
     }
 
     private void OnEnable()
@@ -95,13 +95,13 @@ public class ClassroomDoor : MonoBehaviour
 
                 // Classroom ends while there is alternative exp, set the UIs
                 for (int i = 0; i < m_ClassroomDoorUIs.Count; i++)
-                    m_ClassroomDoorUIs[i].SetEnable();
+                    m_ClassroomDoorUIs[i].Enable();
             }
             else
             {
                 m_DoorOpenSound.m_Source.Play();
 
-                AudioManager.Instance.PlayBackgroundMusics(VRT_Constants.MainMenuConstants.MainMenuConstants.MAIN_MENU_BGM_LIST);
+                AudioManager.Instance.PlayBackgroundMusics(Level_MainMenu.Instance.m_MainMenuBGMs);
                 PlayOpenDoorAnim();
             }
         }

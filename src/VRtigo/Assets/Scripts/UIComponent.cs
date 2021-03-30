@@ -22,6 +22,6 @@ public class UIComponent : MonoBehaviour
      * Use case: After player finished the lesson, the 'Continue' UI component
      * of the continue button should no longer appear.
      */
-    public virtual void SetEnable() { }
-    public virtual void SetDisable() { }
+    public virtual void Enable() { }
+    public virtual void Disable() { }
 }
