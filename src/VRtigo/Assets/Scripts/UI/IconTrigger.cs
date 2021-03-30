@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class IconTrigger : UIComponent
 {
     [SerializeField]
+    private SoundData m_VisibleSound;
+
+    [SerializeField]
+    private SoundData m_InvisibleSound;
+
+    [SerializeField]
     private Grabbable m_GrabbableObj;
 
     [SerializeField]
@@ -35,6 +41,9 @@ public class IconTrigger : UIComponent
         Color imageColor = m_Icon.color;
         imageColor.a = 0.0f;
         m_Icon.color = imageColor;
+
+        AudioManager.InitAudioSourceOn(m_VisibleSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_InvisibleSound, this.gameObject);
     }
 
     private void OnEnable()
@@ -81,6 +90,9 @@ public class IconTrigger : UIComponent
 
     public override void SetVisible()
     {
+        // Play sound
+        m_VisibleSound.m_Source.Play();
+
         // Fade In Icon
         StartCoroutine(Image_Utils.FadeInImageCoroutine(m_Icon, m_FadeDuration));
 
@@ -90,6 +102,9 @@ public class IconTrigger : UIComponent
 
     public override void SetInvisible()
     {
+        // Play sound
+        m_InvisibleSound.m_Source.Play();
+
         // Fade Out Icon
         StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_Icon, m_FadeDuration));
 

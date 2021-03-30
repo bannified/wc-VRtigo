@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878bc962e808c38438284850cb983626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VisibleSound: {fileID: 11400000, guid: 37688544948e4684fbabda0bedcfc136, type: 2}
+  m_InvisibleSound: {fileID: 11400000, guid: 6ea5c181fdb88df4b821e01970c52743, type: 2}
   m_GrabbableObj: {fileID: 0}
   m_Icon: {fileID: 6964080045327965086}
   m_FadeDuration: 0.2
