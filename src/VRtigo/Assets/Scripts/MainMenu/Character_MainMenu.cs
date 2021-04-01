@@ -100,11 +100,11 @@ public class Character_MainMenu : Character
 
         Vector3 resultMoveDirection = m_VRCamera.transform.forward;
         resultMoveDirection.y = 0;
-        
+
         // Lateral movement
         resultMoveDirection = m_VRCamera.transform.forward * m_InputDirection.y + m_VRCamera.transform.right * m_InputDirection.x;
         resultMoveDirection.Normalize();
-        
+
         if (m_InputAxisValue > m_LinearMovementInputThreshold)
         {
             m_Rigidbody.velocity = m_MaxMoveSpeed * resultMoveDirection;

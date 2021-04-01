@@ -5,7 +5,10 @@ using UnityEngine;
 public class ClassroomContinueButton : MonoBehaviour, IActivatable
 {
     [SerializeField]
-    protected Sound m_ButtonSound;
+    protected SoundData m_ButtonSound;
+
+    [SerializeField]
+    protected SoundData m_ProjectorSound;
 
     [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "PlayerHands" };
@@ -14,17 +17,22 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     private float m_ButtonSpeed = 2.0f;
 
     [SerializeField]
-    private List<GameObject> m_GameObjects;
-
-    [SerializeField]
     private float m_ButtonDisplacement = -0.0457f;
 
     [SerializeField]
+    private float m_DelayFromButtonToProjector = 0.5f;
+
+    [SerializeField]
+    private List<UIComponent> m_ContinueButtonUIs;
+
     private bool m_isButtonPressed = false;
+    private bool m_isEnabled = true;
+
 
     void Start()
     {
         AudioManager.InitAudioSourceOn(m_ButtonSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_ProjectorSound, this.gameObject);
     }
 
     private void OnEnable()
@@ -42,7 +50,7 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (m_TagsThatActivate.Contains(other.gameObject.tag))
+        if (m_isEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
         {
             Activate();
         }
@@ -50,28 +58,36 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)
     {
-        SetGameObjsActive(false);
-    }
+        // There is no more need for continue button UIs
+        for (int i = 0; i < m_ContinueButtonUIs.Count; i++)
+            m_ContinueButtonUIs[i].Disable();
 
-    private void SetGameObjsActive(bool val)
-    {
-        for (int i = 0; i < m_GameObjects.Count; i++)
-            m_GameObjects[i].SetActive(val);
+        // Continue button should not be able to be pressed again
+        m_isEnabled = false;
     }
 
     public void Activate()
     {
         if (!m_isButtonPressed)
         {
-            // Play button sound
-            m_ButtonSound.m_Source.Play();
-
-            // Play animation
-            StartCoroutine("PressButton", new Vector3(0, m_ButtonDisplacement, 0));
-
-            // Proceed to next step
-            ClassroomManager.Instance.GoToLessonNextStep();
+            StartCoroutine(ContinueLesson());
         }
+    }
+
+    IEnumerator ContinueLesson()
+    {
+        // Play button sound
+        m_ButtonSound.m_Source.Play();
+
+        // Play animation
+        StartCoroutine(PressButton(new Vector3(0, m_ButtonDisplacement, 0)));
+
+        // Play projector sound after delay
+        yield return new WaitForSeconds(m_DelayFromButtonToProjector);
+        m_ProjectorSound.m_Source.Play();
+
+        // Proceed to next step
+        ClassroomManager.Instance.GoToLessonNextStep();
     }
 
     IEnumerator PressButton(Vector3 displacement)

@@ -172,7 +172,8 @@ public class Character_PlayerInitiatedMovement : Character
                 if (m_InputAxisValue > m_LinearMovementInputThreshold)
                 {
                     return;
-                } else
+                }
+                else
                 {
                     Decelerate();
                     return;
@@ -186,8 +187,10 @@ public class Character_PlayerInitiatedMovement : Character
             if (m_InputAxisValue > m_LinearMovementInputThreshold)
             {
                 float accel = m_AccelerationCurve.Evaluate(m_InputAxisValue);
+
                 m_Rigidbody.velocity = m_Rigidbody.velocity + resultMoveDirection * accel * Time.fixedDeltaTime * m_AccelerationScale;
-            } else
+            } 
+            else
             {
                 Decelerate();
             }
@@ -199,7 +202,8 @@ public class Character_PlayerInitiatedMovement : Character
                 if (HasFlagsEnabled(PlayerInitiatedMovementBitmask.LateralMovementEnabled))
                 {
                     m_Rigidbody.velocity = m_MaxMoveSpeed * resultMoveDirection;
-                } else
+                }
+                else
                 { // standard movement
                     if (m_InputDirection.y > -0.3f)
                     {
@@ -212,7 +216,8 @@ public class Character_PlayerInitiatedMovement : Character
                         m_Rigidbody.velocity = m_MaxMoveSpeed * -resultMoveDirection;
                     }
                 }
-            } else
+            }
+            else
             {
                 m_Rigidbody.velocity = Vector3.zero;
             }

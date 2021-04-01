@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IconTrigger : MonoBehaviour
+public class IconTrigger : UIComponent
 {
     [SerializeField]
-    protected Grabbable m_GrabbableObj;
+    private SoundData m_VisibleSound;
+
+    [SerializeField]
+    private SoundData m_InvisibleSound;
+
+    [SerializeField]
+    private Grabbable m_GrabbableObj;
 
     [SerializeField]
     protected Image m_Icon;
@@ -35,17 +41,20 @@ public class IconTrigger : MonoBehaviour
         Color imageColor = m_Icon.color;
         imageColor.a = 0.0f;
         m_Icon.color = imageColor;
+
+        AudioManager.InitAudioSourceOn(m_VisibleSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_InvisibleSound, this.gameObject);
     }
 
     private void OnEnable()
     {
         if (m_GrabbableObj != null)
         {
-            m_GrabbableObj.onGrab += DisableIcon;
-            m_GrabbableObj.onDrop += EnableIcon;
+            m_GrabbableObj.onGrab += SetDisableOnGrabbable;
+            m_GrabbableObj.onDrop += SetActiveOnGrabbable;
 
-            m_GrabbableObj.onNonInteractable += DisableIcon;
-            m_GrabbableObj.OnInteractable += EnableIcon;
+            m_GrabbableObj.onNonInteractable += SetDisableOnGrabbable;
+            m_GrabbableObj.OnInteractable += SetActiveOnGrabbable;
         }
     }
 
@@ -53,69 +62,51 @@ public class IconTrigger : MonoBehaviour
     {
         if (m_GrabbableObj != null)
         {
-            m_GrabbableObj.onGrab -= DisableIcon;
-            m_GrabbableObj.onDrop -= EnableIcon;
+            m_GrabbableObj.onGrab -= SetDisableOnGrabbable;
+            m_GrabbableObj.onDrop -= SetActiveOnGrabbable;
 
-            m_GrabbableObj.onNonInteractable -= DisableIcon;
-            m_GrabbableObj.OnInteractable -= EnableIcon;
+            m_GrabbableObj.onNonInteractable -= SetDisableOnGrabbable;
+            m_GrabbableObj.OnInteractable -= SetActiveOnGrabbable;
         }
     }
 
-    /**
-     * Once enabled, Icon will appear when player is within trigger boundary
-     */
-    public void EnableIcon(Grabbable grabObj)
+    // Wrappers
+    private void SetActiveOnGrabbable(Grabbable grabbable) { Enable(); }
+    private void SetDisableOnGrabbable(Grabbable grabbable) { Disable(); }
+
+    public override void Enable()
     {
         m_IsEnabled = true;
         if (m_IsWithinBoundary)
-            ShowIcon();
+            SetVisible();
     }
 
-    /**
-     * Once disabled, Icon will not appear even when player is within trigger boundary.
-     */
-    public void DisableIcon(Grabbable grabObj)
+    public override void Disable()
     {
         m_IsEnabled = false;
         if (m_IsWithinBoundary)
-            FadeOutIcon();
+            SetInvisible();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void SetVisible()
     {
-        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
-            ShowIcon();
+        // Play sound
+        m_VisibleSound.m_Source.Play();
 
-        m_IsWithinBoundary = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
-            FadeOutIcon();
-
-        m_IsWithinBoundary = false;
-    }
-
-    /**
-     * Fade in the icon and make it always face the camera.
-     */
-    public void ShowIcon()
-    {
         // Fade In Icon
-        StartCoroutine("FadeInImage", m_Icon);
+        StartCoroutine(Image_Utils.FadeInImageCoroutine(m_Icon, m_FadeDuration));
 
         // Face to camera
-        m_FaceCamCoroutine = StartCoroutine(FaceToCamera(m_Icon));
+        m_FaceCamCoroutine = StartCoroutine(Image_Utils.FaceToCameraCoroutine(m_Icon, m_Camera));
     }
 
-    /**
-     * Fade out the icon.
-     */
-    public void FadeOutIcon()
+    public override void SetInvisible()
     {
+        // Play sound
+        m_InvisibleSound.m_Source.Play();
+
         // Fade Out Icon
-        StartCoroutine("FadeOutImage", m_Icon);
+        StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_Icon, m_FadeDuration));
 
         // Stop face to camera coroutine
         if (m_FaceCamCoroutine != null)
@@ -125,55 +116,19 @@ public class IconTrigger : MonoBehaviour
         }
     }
 
-    IEnumerator FaceToCamera(Image img)
+    private void OnTriggerEnter(Collider other)
     {
-        while (true)
-        {
-            Vector3 camForward = m_Camera.transform.forward;
-            camForward.y = 0.0f;
+        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
+            SetVisible();
 
-            img.transform.rotation = Quaternion.LookRotation(camForward);
-            yield return null;
-        }
+        m_IsWithinBoundary = true;
     }
 
-    IEnumerator FadeInImage(Image img)
+    private void OnTriggerExit(Collider other)
     {
-        float durationSoFar = 0.0f;
-        float progress, alpha;
+        if (m_IsEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
+            SetInvisible();
 
-        while (durationSoFar < m_FadeDuration)
-        {
-            progress = durationSoFar / m_FadeDuration;
-            alpha = progress + (Time.deltaTime / m_FadeDuration);
-
-            Color imageColor = img.color;
-            imageColor.a = alpha;
-            img.color = imageColor;
-
-            durationSoFar += Time.deltaTime;
-            yield return null;
-        }
-    }
-
-    IEnumerator FadeOutImage(Image img)
-    {
-        float durationSoFar = 0.0f;
-        float oriAlpha = img.color.a;
-        float alpha = oriAlpha;
-        float progress;
-
-        while (alpha > 0.0f || durationSoFar < m_FadeDuration)
-        {
-            progress = durationSoFar / m_FadeDuration;
-            alpha = oriAlpha - progress - (Time.deltaTime / m_FadeDuration);
-
-            Color imageColor = img.color;
-            imageColor.a = alpha;
-            img.color = imageColor;
-
-            durationSoFar += Time.deltaTime;
-            yield return null;
-        }
+        m_IsWithinBoundary = false;
     }
 }

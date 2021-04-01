@@ -2,8 +2,14 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class AnimatedTextActivatable : MonoBehaviour, IActivatable
+public class AnimatedText : MonoBehaviour
 {
+    [SerializeField]
+    private SoundData m_TransitionInSound;
+
+    [SerializeField]
+    private SoundData m_TransitionOutSound;
+
     [SerializeField]
     protected TMP_Text m_TextMesh;
 
@@ -30,16 +36,23 @@ public class AnimatedTextActivatable : MonoBehaviour, IActivatable
 
         m_FadeInEffect = new FadeInWobbleTextEffect(m_TextMesh, m_XWobble, m_YWobble, m_FadeInDuration, m_InitWobbleRange);
         m_ScatterEffect = new FadeOutScatterTextEffect(m_TextMesh, m_ScatterRange, m_FadeOutDuration);
+
+        AudioManager.InitAudioSourceOn(m_TransitionInSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_TransitionOutSound, this.gameObject);
     }
 
-    public void Activate()
+    public void TransitionIn()
     {
         if (!m_IsAnimating)
+        {
+            m_TransitionInSound.m_Source.Play();
             StartCoroutine("AnimateText");
+        }
     }
 
-    public void Deactivate()
+    public void TransitionOut()
     {
+        m_TransitionOutSound.m_Source.Play();
         m_StopAnimating = true;
     }
 

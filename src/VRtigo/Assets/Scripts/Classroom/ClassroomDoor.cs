@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class ClassroomDoor : MonoBehaviour
 {
     [SerializeField]
-    protected Sound m_DoorLockSound;
+    protected SoundData m_DoorLockSound;
 
     [SerializeField]
-    protected Sound m_DoorOpenSound;
+    protected SoundData m_DoorOpenSound;
 
     [SerializeField]
-    private List<BoxCollider> m_UITriggers;
+    private List<UIComponent> m_ClassroomDoorUIs;
 
     [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "PlayerHands" };
@@ -46,7 +45,9 @@ public class ClassroomDoor : MonoBehaviour
         AudioManager.InitAudioSourceOn(m_DoorLockSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_DoorOpenSound, this.gameObject);
 
-        SetUITriggersEnabled(false);
+        // The classroom UIs should not appear at the start, only when the classroom ends
+        for (int i = 0; i < m_ClassroomDoorUIs.Count; i++)
+            m_ClassroomDoorUIs[i].Disable();
     }
 
     private void OnEnable()
@@ -91,11 +92,16 @@ public class ClassroomDoor : MonoBehaviour
             if (currentExperience.NextExperienceData != null)
             {
                 m_ExpData = currentExperience.NextExperienceData;
-                SetUITriggersEnabled(true);
+
+                // Classroom ends while there is alternative exp, set the UIs
+                for (int i = 0; i < m_ClassroomDoorUIs.Count; i++)
+                    m_ClassroomDoorUIs[i].Enable();
             }
             else
             {
                 m_DoorOpenSound.m_Source.Play();
+
+                AudioManager.Instance.PlayBackgroundMusics(Level_MainMenu.Instance.m_MainMenuBGMs);
                 PlayOpenDoorAnim();
             }
         }
@@ -118,12 +124,6 @@ public class ClassroomDoor : MonoBehaviour
                 GameManager.Instance.StartExperience(m_ExpData);
             }
         }
-    }
-
-    private void SetUITriggersEnabled(bool val)
-    {
-        for (int i = 0; i < m_UITriggers.Count; i++)
-            m_UITriggers[i].enabled = val;
     }
 
     IEnumerator OpenDoorAnim(float deltaRot)

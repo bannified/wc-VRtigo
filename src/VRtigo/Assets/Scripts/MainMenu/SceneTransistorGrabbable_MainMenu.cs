@@ -9,9 +9,9 @@ public class SceneTransistorGrabbable_MainMenu : Grabbable
     protected ExperienceData m_ExperienceData;
 
     [SerializeField]
-    protected List<string> m_MusicNames;
+    protected List<SoundData> m_Musics;
 
     public ExperienceData GetExperience() { return m_ExperienceData; }
 
-    public List<string> GetMusicNames() { return m_MusicNames; }
+    public List<SoundData> GetMusics() { return m_Musics; }
 }
