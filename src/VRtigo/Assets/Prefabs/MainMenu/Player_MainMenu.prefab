@@ -113,9 +113,6 @@ MonoBehaviour:
   m_SystemMenuAction:
     actionPath: /actions/EXPPlayerMovement/in/Menu
     needsReinit: 0
-  m_ExitAppAction:
-    actionPath: /actions/EXPPlayerMovement/in/Menu
-    needsReinit: 0
   m_MoveAction:
     actionPath: /actions/EXPPlayerMovement/in/Move
     needsReinit: 0
@@ -203,11 +200,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Colliders: []
-  m_GrabDistance: 0.5
-  m_MaxAngularVelocity: 20
+  m_GrabRadius: 0.3
+  m_MaxAngularVelocity: 10
   m_GrabbingSpeed: 250
   m_IsGrabbing: 0
   m_GrabbedObject: {fileID: 0}
+  m_GrabbedObjectGrabbable: {fileID: 0}
   m_GrabbedObjectRb: {fileID: 0}
 --- !u!54 &5494277848633945774
 Rigidbody:
@@ -251,11 +249,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Colliders: []
-  m_GrabDistance: 0.5
-  m_MaxAngularVelocity: 20
+  m_GrabRadius: 0.3
+  m_MaxAngularVelocity: 10
   m_GrabbingSpeed: 250
   m_IsGrabbing: 0
   m_GrabbedObject: {fileID: 0}
+  m_GrabbedObjectGrabbable: {fileID: 0}
   m_GrabbedObjectRb: {fileID: 0}
 --- !u!1001 &3057790021818340425
 PrefabInstance:

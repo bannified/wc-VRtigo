@@ -1291,6 +1291,7 @@ MonoBehaviour:
   - PlayerHands
   m_ButtonSpeed: 2
   m_ButtonDisplacement: -0.00565
+  m_DelayFromButtonToProjector: 0.5
   m_ContinueButtonUIs:
   - {fileID: 936054267}
   - {fileID: 1933045313}
@@ -1301,6 +1302,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1879555595}
     m_Modifications:
+    - target: {fileID: 1307951475959144706, guid: e0ca83ac144ef1549b79a7a0caa476cb, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1987032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307951475959144706, guid: e0ca83ac144ef1549b79a7a0caa476cb, type: 3}
+      propertyPath: m_Size.z
+      value: 1.4401388
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307951475959144706, guid: e0ca83ac144ef1549b79a7a0caa476cb, type: 3}
+      propertyPath: m_Center.x
+      value: -0.09935161
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307951475959144706, guid: e0ca83ac144ef1549b79a7a0caa476cb, type: 3}
+      propertyPath: m_Center.y
+      value: -0.0008701602
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307951475959144706, guid: e0ca83ac144ef1549b79a7a0caa476cb, type: 3}
+      propertyPath: m_Center.z
+      value: -0.22008352
+      objectReference: {fileID: 0}
     - target: {fileID: 1307951475959144716, guid: e0ca83ac144ef1549b79a7a0caa476cb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1559,6 +1580,26 @@ PrefabInstance:
     - target: {fileID: 6911070344589226404, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
       propertyPath: m_Name
       value: Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911070345245477113, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911070345245477113, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911070345245477113, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911070345245477113, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911070345245477114, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}

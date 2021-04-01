@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Name: DropItem
   m_Clip: {fileID: 8300000, guid: 23c45e7fa9e03a74ca16542333548372, type: 3}
-  volume: 0.5
+  volume: 0.3
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Name: GrabItem
   m_Clip: {fileID: 8300000, guid: dd4d69aa72e61354899e444689b4331b, type: 3}
-  volume: 0.5
+  volume: 0.2
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0

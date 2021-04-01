@@ -20,6 +20,9 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     private float m_ButtonDisplacement = -0.0457f;
 
     [SerializeField]
+    private float m_DelayFromButtonToProjector = 0.5f;
+
+    [SerializeField]
     private List<UIComponent> m_ContinueButtonUIs;
 
     private bool m_isButtonPressed = false;
@@ -67,18 +70,24 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     {
         if (!m_isButtonPressed)
         {
-            // Play button sound
-            m_ButtonSound.m_Source.Play();
-
-            // Play projector sound
-            m_ProjectorSound.m_Source.Play();
-
-            // Play animation
-            StartCoroutine("PressButton", new Vector3(0, m_ButtonDisplacement, 0));
-
-            // Proceed to next step
-            ClassroomManager.Instance.GoToLessonNextStep();
+            StartCoroutine(ContinueLesson());
         }
+    }
+
+    IEnumerator ContinueLesson()
+    {
+        // Play button sound
+        m_ButtonSound.m_Source.Play();
+
+        // Play animation
+        StartCoroutine(PressButton(new Vector3(0, m_ButtonDisplacement, 0)));
+
+        // Play projector sound after delay
+        yield return new WaitForSeconds(m_DelayFromButtonToProjector);
+        m_ProjectorSound.m_Source.Play();
+
+        // Proceed to next step
+        ClassroomManager.Instance.GoToLessonNextStep();
     }
 
     IEnumerator PressButton(Vector3 displacement)
