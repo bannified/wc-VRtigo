@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Experiences/ForcedHeadRotation/ForcedRotation_Main.unity
     guid: c4abe41d6186d8743ba872678e5880c7
+  - enabled: 1
+    path: Assets/Scenes/Experiences/PlayerForcedMovement/PlayerForcedMovement.unity
+    guid: 1143497f4f9f00246ba38c05a7b3fb31
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1e045e76051ed2b4ba3a4bb224cb3b4c, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: af6e54fadb3eab04980e5144ccee7e32, type: 2}
