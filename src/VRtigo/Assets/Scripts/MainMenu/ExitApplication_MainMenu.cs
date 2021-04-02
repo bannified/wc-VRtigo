@@ -16,8 +16,8 @@ public class ExitApplication_MainMenu : MonoBehaviour
 
     private SteamVR_Action_Vibration m_Haptic;
     private PlayerController_MainMenu m_PlayerController;
-
     private Coroutine m_ExitCoroutine;
+    private int m_NumInContact = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,11 +25,13 @@ public class ExitApplication_MainMenu : MonoBehaviour
         {
             m_PlayerController = other.transform.root.GetComponent<PlayerController_MainMenu>();
             if (m_PlayerController != null)
-            {
                 m_Haptic = m_PlayerController.m_Haptic;
 
+            m_NumInContact++;
+
+            // First in contact, start exit countdown
+            if (m_NumInContact == 1)
                 StartExitCountdown();
-            }
         }
     }
 
@@ -37,7 +39,10 @@ public class ExitApplication_MainMenu : MonoBehaviour
     {
         if (m_TagsThatActivate.Contains(other.gameObject.tag))
         {
-            if (m_PlayerController != null)
+            m_NumInContact--;
+
+            // Last in contact
+            if (m_NumInContact == 0)
             {
                 // Cancel the exit countdown when player move outside the boundary
                 StopExitCountdown();
@@ -74,7 +79,7 @@ public class ExitApplication_MainMenu : MonoBehaviour
             m_ProgressTiles.SetProgress(durationSoFar / m_ExitDuration);
 
             // Add haptic feedback
-            if (m_Haptic != null)
+            if (SteamVR.enabled && m_Haptic != null)
                 m_Haptic.Execute(0.0f, Time.deltaTime, 5.0f, 0.1f, SteamVR_Input_Sources.Any);
 
             durationSoFar += Time.deltaTime;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00be7c06cf2a04b418d779d201f88198, type: 3}
   m_Name: Experience_ForcedPlayerMovement_FoR_Sharp
   m_EditorClassIdentifier: 
-  LessonData: {fileID: 11400000, guid: d07aadffada05694e853d516755aae3c, type: 2}
+  LessonData: {fileID: 0}
   ExperienceScene:
     sceneAsset: {fileID: 102900000, guid: 1143497f4f9f00246ba38c05a7b3fb31, type: 3}
     scenePath: Assets/Scenes/Experiences/PlayerForcedMovement/PlayerForcedMovement.unity

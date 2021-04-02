@@ -343,7 +343,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3723098886947275887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d024694cc4a9d4288f2991f8a4e4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TileActivateSound: {fileID: 11400000, guid: 8a9ef0bf55f368f4681bceb41e5fcfa5, type: 2}
+  m_TilePitchStep: 0.2
   m_ProgressTilesBgs:
   - {fileID: 3723098886354230447}
   - {fileID: 1450289734212957717}
@@ -383,7 +385,7 @@ MonoBehaviour:
   - {fileID: 5654300404959786027}
   - {fileID: 281212143536748043}
   - {fileID: 7895705072431947045}
-  m_TileFadeInDuration: 0.2
+  m_TileFadeDur: 0.2
 --- !u!1 &6819217749411585021
 GameObject:
   m_ObjectHideFlags: 0
