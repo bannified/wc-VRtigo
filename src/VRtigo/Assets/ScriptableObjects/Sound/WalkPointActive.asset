@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058040d6f85447e42aa78f4246d5eb76, type: 3}
   m_Name: WalkPointActive
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_Clip: {fileID: 0}
+  m_Name: WalkPointActive
+  m_Clip: {fileID: 8300000, guid: 4d5596d6481bef0409fcd83ef29093cc, type: 3}
   volume: 0.75
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0
-  spatialBlend: 0.2
+  spatialBlend: 0.82
   loop: 0
   m_Source: {fileID: 0}
