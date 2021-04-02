@@ -22,7 +22,7 @@ public class TargetZone : MonoBehaviour
         Grabbable grabbableObj = other.GetComponent<Grabbable>();
 
         // Only grabbable object is able to be dropped to target zone
-        bool isNotGrabbed = grabbableObj != null && !grabbableObj.GetIsGrabbed();
+        bool isNotGrabbed = grabbableObj != null && !grabbableObj.m_IsGrabbed;
 
         // Must currently not be setting and target zone is empty
         if (isNotGrabbed && !m_IsSetting && m_CurrObj == null)
