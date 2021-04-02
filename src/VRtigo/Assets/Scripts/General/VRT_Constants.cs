@@ -33,4 +33,13 @@ namespace VRT_Constants
             public static string SPAWN_IN_CLASSROOM_BOOL = "MENU_SpawnInClassroom";
         }
     }
+
+    namespace BridgeConstants
+    {
+        public static class BridgeConstants
+        {
+            public static string EXPERIENCE_TITLE = "BRIDGE_ExperienceTitle";
+            public static string NEXT_EXPERIENCE_REF = "BRIDGE_NextExperience";
+        }
+    }
 }

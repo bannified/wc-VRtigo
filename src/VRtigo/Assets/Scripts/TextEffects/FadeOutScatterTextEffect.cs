@@ -16,12 +16,12 @@ public class FadeOutScatterTextEffect
 
     public FadeOutScatterTextEffect(TMP_Text textMesh, float maxScatterRange, float duration)
     {
-        SetText(textMesh);
+        SetTMPText(textMesh);
         SetParameters(maxScatterRange, duration);
         Reset();
     }
 
-    public void SetText(TMP_Text textMesh)
+    public void SetTMPText(TMP_Text textMesh)
     {
         textMesh.ForceMeshUpdate();
 

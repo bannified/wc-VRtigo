@@ -16,12 +16,12 @@ public class FadeInWobbleTextEffect
 
     public FadeInWobbleTextEffect(TMP_Text textMesh, float xWobbleFinal, float yWobbleFinal, float fadeDuration, float wobbleRange)
     {
-        SetText(textMesh);
+        SetTMPText(textMesh);
         SetParameters(xWobbleFinal, yWobbleFinal, fadeDuration, wobbleRange);
         Reset();
     }
 
-    public void SetText(TMP_Text textMesh)
+    public void SetTMPText(TMP_Text textMesh)
     {
         textMesh.ForceMeshUpdate();
 
