@@ -51,9 +51,7 @@ public class SceneTransistor : MonoBehaviour
     {
         m_PlayerCamera = Camera.main;
         if (m_PlayerCamera == null)
-        {
             Debug.LogError("There is no camera tagged as MainCamera");
-        }
 
         // Set camera as parent, so it moves as camera moves
         transform.SetParent(m_PlayerCamera.transform);
@@ -81,7 +79,6 @@ public class SceneTransistor : MonoBehaviour
     public void FadeViaBridge(string sceneName)
     {
         PersistenceManager.Instance.SetString(BridgeConstants.NEXT_EXPERIENCE_REF, sceneName);
-
         StartCoroutine(FadeToSceneEnum(m_BridgeScene));
     }
 
