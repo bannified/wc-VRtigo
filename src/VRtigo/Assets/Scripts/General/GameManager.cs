@@ -81,7 +81,8 @@ public class GameManager : MonoBehaviour
         if (m_CurrentExperience.ExperienceScene != null)
         {
             m_CurrentExperience.UpdateSettings(PersistenceManager.Instance);
-            SceneTransistor.Instance.FadeToScene(m_CurrentExperience.ExperienceScene);
+
+            SceneTransistor.Instance.FadeViaBridge(m_CurrentExperience.ExperienceScene);
         }
     }
 

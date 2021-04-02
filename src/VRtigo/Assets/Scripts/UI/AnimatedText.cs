@@ -41,6 +41,11 @@ public class AnimatedText : MonoBehaviour
         AudioManager.InitAudioSourceOn(m_TransitionOutSound, this.gameObject);
     }
 
+    public void SetStringText(string text)
+    {
+        m_Text = text;
+    }
+
     public void TransitionIn()
     {
         if (!m_IsAnimating)
@@ -88,7 +93,7 @@ public class AnimatedText : MonoBehaviour
         durationSoFar = 0.0f;
         totalDur = m_FadeOutDuration;
 
-        m_ScatterEffect.SetText(m_TextMesh);
+        m_ScatterEffect.SetTMPText(m_TextMesh);
         m_ScatterEffect.SetVerticesPosition(m_FadeInEffect.GetVerticesPosition());
 
         // Keep updating ScatterEffect on each frame

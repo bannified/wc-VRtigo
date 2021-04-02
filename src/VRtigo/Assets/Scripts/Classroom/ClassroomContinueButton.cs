@@ -37,13 +37,16 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
         AudioManager.InitAudioSourceOn(m_ButtonSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_ProjectorSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_ProjectorWhirSound, this.gameObject);
+
+        // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
+        // is invoked before ClassroomContinueButton exist
+        m_ProjectorWhirSound.m_Source.Play();
     }
 
     private void OnEnable()
     {
         if (ClassroomManager.Instance != null)
         {
-            ClassroomManager.Instance.OnLessonStart += ClassroomLessonStart;
             ClassroomManager.Instance.OnLessonEnd += ClassroomLessonEnd;
         }
     }
@@ -52,7 +55,6 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     {
         if (ClassroomManager.Instance != null)
         {
-            ClassroomManager.Instance.OnLessonStart -= ClassroomLessonStart;
             ClassroomManager.Instance.OnLessonEnd -= ClassroomLessonEnd;
         }
     }
@@ -63,11 +65,6 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
         {
             Activate();
         }
-    }
-
-    private void ClassroomLessonStart(ClassroomLessonData classroomLessonData)
-    {
-        m_ProjectorWhirSound.m_Source.Play();
     }
 
     private void ClassroomLessonEnd(ClassroomLessonData classroomLessonData)

@@ -12,7 +12,8 @@ public class LoadSceneActivatable : MonoBehaviour, IActivatable
         if (SceneTransistor.Instance != null)
         {
             SceneTransistor.Instance.FadeToScene(m_SceneRef);
-        } else
+        }
+        else
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(m_SceneRef);
         }
