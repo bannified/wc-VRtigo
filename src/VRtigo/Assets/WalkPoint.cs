@@ -5,6 +5,9 @@ using Valve.VR;
 
 public class WalkPoint : MonoBehaviour
 {
+    [SerializeField]
+    private SoundData m_OnTriggerSound;
+
     [Header("Settings")]
     [SerializeField]
     protected WalkPoint m_NextWalkPoint;
@@ -44,10 +47,13 @@ public class WalkPoint : MonoBehaviour
         if (m_ActivateOnStart)
         {
             Activate();
-        } else
+        }
+        else
         {
             Deactivate();
         }
+
+        AudioManager.InitAudioSourceOn(m_OnTriggerSound, this.gameObject);
     }
 
     public void Deactivate()
@@ -81,7 +87,8 @@ public class WalkPoint : MonoBehaviour
 
             m_NextPointIndicator.transform.LookAt(lookAtPosition);
             m_NextPointIndicator.SetActive(true);
-        } else
+        }
+        else
         {
             m_NextPointIndicator.SetActive(false);
         }
@@ -92,7 +99,8 @@ public class WalkPoint : MonoBehaviour
             Debug.Assert(m_GuidingLine != null, "GuidingLine shouldn't be null. Check if it's assigned in the Monobehavior!");
             m_GuidingLine.SetPosition(1, gameObject.transform.position - m_NextWalkPoint.transform.position);
             m_GuidingLine.gameObject.SetActive(true);
-        } else
+        }
+        else
         {
             m_GuidingLine.gameObject.SetActive(false);
         }
@@ -126,10 +134,13 @@ public class WalkPoint : MonoBehaviour
             if (SteamVR.enabled)
             {
                 m_Haptic.Execute(0.0f, 0.1f, 2.0f, 1.0f, SteamVR_Input_Sources.Any);
-            } else
+            }
+            else
             {
                 Debug.Log("Attempt to execute Haptic feedback, but ignored because SteamVR isn't enabled.");
             }
+
+            m_OnTriggerSound.m_Source.Play();
         }
     }
 }
