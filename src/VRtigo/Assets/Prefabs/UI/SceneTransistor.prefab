@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 7597100891739831412}
   - component: {fileID: 7235982929437826338}
   - component: {fileID: 8539728547461673062}
-  - component: {fileID: 3378198719663135572}
   - component: {fileID: 4582460180003433460}
   m_Layer: 5
   m_Name: SceneTransistor
@@ -177,25 +176,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &3378198719663135572
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8368227916606072668}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 58b82a438bab317438ae2242c73a914d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4582460180003433460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,9 +191,7 @@ MonoBehaviour:
   m_BridgeScene:
     sceneAsset: {fileID: 102900000, guid: c0ddd3ea5d94620428f238c79f9dea3a, type: 3}
     scenePath: Assets/Scenes/Bridge/Bridge.unity
-  m_SceneTransistorAnimator: {fileID: 3378198719663135572}
   m_PlayerCamera: {fileID: 0}
-  m_Canvas: {fileID: 7597100891739831412}
   m_BlackScreen: {fileID: 8354893308549403262}
   m_FadeInDur: 1.5
   m_FadeOutDur: 1.5

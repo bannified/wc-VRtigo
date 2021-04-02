@@ -56,6 +56,7 @@ public class Level_Bridge : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("LEVEL_BRIDGE ACTIVATED");
         StartCoroutine(BridgeSequence());
     }
 
