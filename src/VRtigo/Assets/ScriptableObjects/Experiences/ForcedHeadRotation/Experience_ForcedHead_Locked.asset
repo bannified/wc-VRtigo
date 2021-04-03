@@ -96,7 +96,10 @@ MonoBehaviour:
     isExpanded: 1
     _keyValues:
     - BRIDGE_ExperienceTitle
+    - BRIDGE_ExperienceSubtitle
     _keys:
     - BRIDGE_ExperienceTitle
+    - BRIDGE_ExperienceSubtitle
     _values:
     - Forced Head Rotation
+    - 

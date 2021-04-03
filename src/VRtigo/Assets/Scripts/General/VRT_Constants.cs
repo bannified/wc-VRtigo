@@ -39,6 +39,7 @@ namespace VRT_Constants
         public static class BridgeConstants
         {
             public static string EXPERIENCE_TITLE = "BRIDGE_ExperienceTitle";
+            public static string EXPERIENCE_SUBTITLE = "BRIDGE_ExperienceSubtitle";
             public static string NEXT_EXPERIENCE_REF = "BRIDGE_NextExperience";
         }
     }
