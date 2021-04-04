@@ -244,7 +244,7 @@ MonoBehaviour:
   m_BlackScreenAnimator: {fileID: 1966718670583119683}
   m_CameraRoot: {fileID: 4865668902161552909}
   m_Rigidbody: {fileID: 3057790021016051255}
-  m_LinearMovementInputThreshold: 0.05
+  m_LinearMovementInputThreshold: 0.6
   m_MaxMoveSpeed: 2.5
   m_MoveDirection: {x: 0, y: 0, z: 1}
   m_InputDirection: {x: 0, y: 0}

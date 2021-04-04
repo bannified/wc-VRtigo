@@ -130,10 +130,10 @@ public class PlayerController_ForcedHeadRotation : PlayerController
             m_CastedCharacter.SetMoveDirection(moveDirectionAxisValue);
         }
 
-        if (moveForwardAxisValue != m_MoveForwardAxisValue)
-        {
-            m_CastedCharacter.MoveForward(moveForwardAxisValue);
-        }
+        //if (moveForwardAxisValue != m_MoveForwardAxisValue)
+        //{
+        //    m_CastedCharacter.MoveForward(moveForwardAxisValue);
+        //}
 
         m_MoveForwardAxisValue = moveForwardAxisValue;
         m_MoveDirectionAxisValue = moveDirectionAxisValue;

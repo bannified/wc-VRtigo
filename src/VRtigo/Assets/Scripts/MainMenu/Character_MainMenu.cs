@@ -64,11 +64,13 @@ public class Character_MainMenu : Character
 
     public void MoveForward(float axisValue)
     {
-        m_InputAxisValue = axisValue;
+        //m_InputAxisValue = axisValue;
     }
 
     public void SetMoveDirection(Vector2 moveDirection)
     {
+        m_InputAxisValue = moveDirection.magnitude;
+
         m_InputDirection = moveDirection.normalized;
     }
 
@@ -105,7 +107,7 @@ public class Character_MainMenu : Character
         resultMoveDirection = m_VRCamera.transform.forward * m_InputDirection.y + m_VRCamera.transform.right * m_InputDirection.x;
         resultMoveDirection.Normalize();
 
-        if (m_InputAxisValue > m_LinearMovementInputThreshold)
+        if (Mathf.Abs(m_InputAxisValue) > m_LinearMovementInputThreshold)
         {
             m_Rigidbody.velocity = m_MaxMoveSpeed * resultMoveDirection;
         }

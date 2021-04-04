@@ -141,6 +141,8 @@ public class Character_ForcedHeadRotation : Character
 
     public void SetMoveDirection(Vector2 moveDirection)
     {
+        m_InputAxisValue = moveDirection.magnitude;
+
         m_InputDirection = moveDirection.normalized;
     }
 

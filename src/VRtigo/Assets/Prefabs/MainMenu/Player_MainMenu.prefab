@@ -86,7 +86,7 @@ MonoBehaviour:
   m_LeftGrab: {fileID: 3699603113158385556}
   m_RightGrab: {fileID: 7404498001025151226}
   m_Rigidbody: {fileID: 3057790021016051255}
-  m_LinearMovementInputThreshold: 0.05
+  m_LinearMovementInputThreshold: 0.4
   m_MaxMoveSpeed: 2.5
   m_TurnRate: 25
   m_TurnInputThreshold: 0.01
