@@ -184,17 +184,8 @@ MonoBehaviour:
   m_TargetZone: {fileID: 4650930022321656491}
   m_Disc: {fileID: 823108644751576580}
   m_Arm: {fileID: 100000}
-  m_CurrDisc: {fileID: 0}
-  m_ArmSound:
-    m_Name: ArmSound
-    m_Clip: {fileID: 8300000, guid: d5ee1a4a6e1c6e14cac578f75875a363, type: 3}
-    volume: 0.75
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0
-    spatialBlend: 0.714
-    loop: 0
-    m_Source: {fileID: 0}
+  m_ArmSound: {fileID: 11400000, guid: cbe817339b039634b92e3a4dc34ab6b3, type: 2}
+  m_DiscSetSound: {fileID: 11400000, guid: 12a175788b49adc4c87793ea469e655d, type: 2}
 --- !u!1 &823108644751576580
 GameObject:
   m_ObjectHideFlags: 0

@@ -5280,6 +5280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ebfcff665e62f44b7460bc52bbb3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OnTriggerSound: {fileID: 11400000, guid: d209f43c77d50c044be19e35dd32f846, type: 2}
   m_NextWalkPoint: {fileID: 0}
   m_ActivateOnStart: 0
   m_ShowDirectionalArrow: 1

@@ -11,6 +11,9 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     protected SoundData m_ProjectorSound;
 
     [SerializeField]
+    protected SoundData m_ProjectorWhirSound;
+
+    [SerializeField]
     private List<string> m_TagsThatActivate = new List<string> { "PlayerHands" };
 
     [SerializeField]
@@ -33,11 +36,19 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     {
         AudioManager.InitAudioSourceOn(m_ButtonSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_ProjectorSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_ProjectorWhirSound, this.gameObject);
+
+        // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
+        // is invoked before ClassroomContinueButton exist
+        m_ProjectorWhirSound.m_Source.Play();
     }
 
     private void OnEnable()
     {
-        ClassroomManager.Instance.OnLessonEnd += ClassroomLessonEnd;
+        if (ClassroomManager.Instance != null)
+        {
+            ClassroomManager.Instance.OnLessonEnd += ClassroomLessonEnd;
+        }
     }
 
     private void OnDisable()
@@ -64,6 +75,9 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
         // Continue button should not be able to be pressed again
         m_isEnabled = false;
+
+        if (m_ProjectorWhirSound.m_Source.isPlaying)
+            AudioManager.Instance.FadeOutAndDestroy(m_ProjectorWhirSound);
     }
 
     public void Activate()

@@ -1287,6 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ButtonSound: {fileID: 11400000, guid: acd814d98a4e4b749b3aa2ee9298a7aa, type: 2}
   m_ProjectorSound: {fileID: 11400000, guid: 2cb21ad324a61e945865f51d88ba3152, type: 2}
+  m_ProjectorWhirSound: {fileID: 11400000, guid: 0f7999b1a88979b47ae24208cb3cd485, type: 2}
   m_TagsThatActivate:
   - PlayerHands
   m_ButtonSpeed: 2
@@ -1580,6 +1581,10 @@ PrefabInstance:
     - target: {fileID: 6911070344589226404, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
       propertyPath: m_Name
       value: Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911070345245477113, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6911070345245477113, guid: 4bc50c92066ef0642b82659e47283f4e, type: 3}
       propertyPath: m_fontSize

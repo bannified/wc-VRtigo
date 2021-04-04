@@ -12,6 +12,8 @@ public class Grabbable : MonoBehaviour
     public SoundData m_DropSound;
     public bool m_IsGrabbed { get; private set; }
 
+    private int m_NumInContact = 0;
+
     private void Start()
     {
         if (m_GrabSound)
@@ -20,23 +22,37 @@ public class Grabbable : MonoBehaviour
         if (m_DropSound)
             AudioManager.InitAudioSourceOn(m_DropSound, this.gameObject);
     }
+
     public virtual void Grabbed()
     {
-        m_IsGrabbed = true;
-        
-        if (m_GrabSound)
-            m_GrabSound.m_Source.Play();
+        m_NumInContact++;
 
-        onGrab?.Invoke(this);
+        // First to grab
+        if (m_NumInContact == 1)
+        {
+            m_IsGrabbed = true;
+
+            if (m_GrabSound)
+                m_GrabSound.m_Source.Play();
+
+            onGrab?.Invoke(this);
+        }
     }
+
     public virtual void Dropped()
     {
-        m_IsGrabbed = false;
+        m_NumInContact--;
 
-        if (m_DropSound)
-            m_DropSound.m_Source.Play();
+        // Last to grab
+        if (m_NumInContact == 0)
+        {
+            m_IsGrabbed = false;
 
-        onDrop?.Invoke(this);
+            if (m_DropSound)
+                m_DropSound.m_Source.Play();
+
+            onDrop?.Invoke(this);
+        }
     }
 
     /**
@@ -57,7 +73,4 @@ public class Grabbable : MonoBehaviour
     {
         OnInteractable?.Invoke(this);
     }
-
-    // Misc
-    public bool GetIsGrabbed() { return m_IsGrabbed; }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058040d6f85447e42aa78f4246d5eb76, type: 3}
+  m_Name: RecordPlayerSet
+  m_EditorClassIdentifier: 
+  m_Name: RecordPlayerSet
+  m_Clip: {fileID: 8300000, guid: 9dcb7e2ae83fda146bb11608da884930, type: 3}
+  volume: 0.75
+  volumeVariance: 0.1
+  pitch: 1
+  pitchVariance: 0
+  spatialBlend: 0.2
+  loop: 0
+  m_Source: {fileID: 0}

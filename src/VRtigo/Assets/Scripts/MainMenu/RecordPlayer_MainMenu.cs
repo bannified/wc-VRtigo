@@ -16,6 +16,9 @@ public class RecordPlayer_MainMenu : MonoBehaviour
     [SerializeField]
     protected SoundData m_ArmSound;
 
+    [SerializeField]
+    protected SoundData m_DiscSetSound;
+
     private SceneTransistorGrabbable_MainMenu m_CurrDisc;
 
     private bool m_RecordPlayerActive = false;
@@ -32,6 +35,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_DiscSpeed = 0.0f;
 
         AudioManager.InitAudioSourceOn(m_ArmSound, this.gameObject);
+        AudioManager.InitAudioSourceOn(m_DiscSetSound, this.gameObject);
     }
 
     private void OnEnable()
@@ -81,6 +85,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_DiscSpeed = 0.0f;
 
         m_ArmSound.m_Source.Play();
+        m_DiscSetSound.m_Source.Play();
 
         // Activate
         while (m_ArmAngle < 30.0f)

@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class ProgressTiles : UIComponent
 {
     [SerializeField]
+    private SoundData m_TileActivateSound;
+
+    [SerializeField]
+    private float m_TilePitchStep = 0.2f;
+
+    [SerializeField]
     protected List<Image> m_ProgressTilesBgs;
 
     [SerializeField]
@@ -14,12 +20,19 @@ public class ProgressTiles : UIComponent
     [SerializeField]
     protected float m_TileFadeDur = 0.2f;
 
+    private List<float> m_TileActivateSoundPitches;
     private int m_LastActivatedTileIdx = -1;
     private bool m_IsEnabled = true;
 
     void Start()
     {
         ResetProgress();
+
+        AudioManager.InitAudioSourceOn(m_TileActivateSound, this.gameObject);
+
+        m_TileActivateSoundPitches = new List<float>();
+        for (int i = 0; i < m_ProgressTiles.Count; i++)
+            m_TileActivateSoundPitches.Add(m_TileActivateSound.pitch + i * m_TilePitchStep);
     }
 
     public override void Enable()
@@ -66,6 +79,12 @@ public class ProgressTiles : UIComponent
             if (idxToActivate > m_LastActivatedTileIdx)
             {
                 m_LastActivatedTileIdx = idxToActivate;
+
+                // Play SFX
+                m_TileActivateSound.m_Source.pitch = m_TileActivateSoundPitches[idxToActivate];
+                m_TileActivateSound.m_Source.Play();
+
+                // Fade in progress tile
                 StartCoroutine(Image_Utils.FadeInImageCoroutine(m_ProgressTiles[idxToActivate], m_TileFadeDur));
             }
         }
