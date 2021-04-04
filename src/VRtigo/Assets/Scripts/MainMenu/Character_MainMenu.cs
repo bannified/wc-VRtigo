@@ -134,10 +134,14 @@ public class Character_MainMenu : Character
         m_MaxMoveSpeed = maxMoveSpeed;
     }
 
-    public void Grab(bool isLeftGrabbing, bool isRightGrabbing)
+    public void LeftGrab(bool isGrab)
     {
-        m_LeftGrab.CheckForGrab(isLeftGrabbing);
-        m_RightGrab.CheckForGrab(isRightGrabbing);
+        m_LeftGrab.CheckForGrab(isGrab);
+    }
+
+    public void RightGrab(bool isGrab)
+    {
+        m_RightGrab.CheckForGrab(isGrab);
     }
 
     // Returns an GameObject[] of [left grabbed object, right grabbed object]
