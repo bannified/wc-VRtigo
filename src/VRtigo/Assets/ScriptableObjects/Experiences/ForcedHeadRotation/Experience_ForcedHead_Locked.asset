@@ -102,4 +102,4 @@ MonoBehaviour:
     - BRIDGE_ExperienceSubtitle
     _values:
     - Forced Head Rotation
-    - 
+    - Controller-based rotation
