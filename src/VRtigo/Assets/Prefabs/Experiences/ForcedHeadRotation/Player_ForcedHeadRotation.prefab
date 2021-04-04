@@ -244,7 +244,7 @@ MonoBehaviour:
   m_BlackScreenAnimator: {fileID: 1966718670583119683}
   m_CameraRoot: {fileID: 4865668902161552909}
   m_Rigidbody: {fileID: 3057790021016051255}
-  m_LinearMovementInputThreshold: 0.05
+  m_LinearMovementInputThreshold: 0.6
   m_MaxMoveSpeed: 2.5
   m_MoveDirection: {x: 0, y: 0, z: 1}
   m_InputDirection: {x: 0, y: 0}
@@ -775,7 +775,7 @@ Animator:
   m_GameObject: {fileID: 4722902820821435211}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 58b82a438bab317438ae2242c73a914d, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8b19a4437ae22d48830459bef059376, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

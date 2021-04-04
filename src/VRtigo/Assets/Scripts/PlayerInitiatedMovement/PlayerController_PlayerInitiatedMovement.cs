@@ -116,10 +116,10 @@ public class PlayerController_PlayerInitiatedMovement : PlayerController
             m_CastedCharacter.SetTurnDirection(turnDirectionAxisValue);
         }
 
-        if (moveForwardAxisValue != m_MoveForwardAxisValue)
-        {
-            m_CastedCharacter.MoveForward(moveForwardAxisValue);
-        }
+        //if (moveForwardAxisValue != m_MoveForwardAxisValue)
+        //{
+        //    m_CastedCharacter.MoveForward(moveForwardAxisValue);
+        //}
 
         if (Input.GetButtonDown("NVR_TurnLeft"))
         {
