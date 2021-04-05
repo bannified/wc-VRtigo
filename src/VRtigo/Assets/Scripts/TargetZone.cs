@@ -29,6 +29,7 @@ public class TargetZone : MonoBehaviour
         {
             grabbableObj.SetNonInteractable();
 
+            m_CurrObj = grabbableObj.gameObject;
             onObjectStartSet?.Invoke(grabbableObj.gameObject);
 
             StartCoroutine("SetObjToTarget", grabbableObj);

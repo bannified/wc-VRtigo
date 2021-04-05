@@ -54,7 +54,9 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         if (disc != null & !m_Transitioning && m_CurrDisc == null)
         {
             m_CurrDisc = disc;
-            StartCoroutine("PlayDiscAndTransition");
+            disc.SetNonInteractable();
+
+            StartCoroutine(PlayDiscAndTransition());
         }
     }
 
@@ -63,10 +65,9 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         m_Transitioning = true;
 
         m_CurrDisc.transform.SetParent(m_Disc.transform);
-        m_CurrDisc.SetNonInteractable();
 
         // Play disc playing animation, and wait until animation is ready
-        StartCoroutine("PlayDisc");
+        StartCoroutine(PlayDisc());
         yield return new WaitUntil(() => m_RecordPlayerActive);
 
         // Pre-play music

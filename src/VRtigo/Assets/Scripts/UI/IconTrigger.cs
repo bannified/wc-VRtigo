@@ -83,36 +83,44 @@ public class IconTrigger : UIComponent
 
     public override void Disable()
     {
-        m_IsEnabled = false;
         if (m_IsWithinBoundary)
+        {
             SetInvisible();
+        }
+        m_IsEnabled = false;
     }
 
     public override void SetVisible()
     {
-        // Play sound
-        m_VisibleSound.m_Source.Play();
+        if (m_IsEnabled)
+        {
+            // Play sound
+            m_VisibleSound.m_Source.Play();
 
-        // Fade In Icon
-        StartCoroutine(Image_Utils.FadeInImageCoroutine(m_Icon, m_FadeDuration));
+            // Fade In Icon
+            StartCoroutine(Image_Utils.FadeInImageCoroutine(m_Icon, m_FadeDuration));
 
-        // Face to camera
-        m_FaceCamCoroutine = StartCoroutine(Image_Utils.FaceToCameraCoroutine(m_Icon, m_Camera));
+            // Face to camera
+            m_FaceCamCoroutine = StartCoroutine(Image_Utils.FaceToCameraCoroutine(m_Icon, m_Camera));
+        }
     }
 
     public override void SetInvisible()
     {
-        // Play sound
-        m_InvisibleSound.m_Source.Play();
-
-        // Fade Out Icon
-        StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_Icon, m_FadeDuration));
-
-        // Stop face to camera coroutine
-        if (m_FaceCamCoroutine != null)
+        if (m_IsEnabled)
         {
-            StopCoroutine(m_FaceCamCoroutine);
-            m_FaceCamCoroutine = null;
+            // Play sound
+            m_InvisibleSound.m_Source.Play();
+
+            // Fade Out Icon
+            StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_Icon, m_FadeDuration));
+
+            // Stop face to camera coroutine
+            if (m_FaceCamCoroutine != null)
+            {
+                StopCoroutine(m_FaceCamCoroutine);
+                m_FaceCamCoroutine = null;
+            }
         }
     }
 
