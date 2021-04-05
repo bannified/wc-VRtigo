@@ -64,11 +64,13 @@ public class Character_MainMenu : Character
 
     public void MoveForward(float axisValue)
     {
-        m_InputAxisValue = axisValue;
+        //m_InputAxisValue = axisValue;
     }
 
     public void SetMoveDirection(Vector2 moveDirection)
     {
+        m_InputAxisValue = moveDirection.magnitude;
+
         m_InputDirection = moveDirection.normalized;
     }
 
@@ -105,7 +107,7 @@ public class Character_MainMenu : Character
         resultMoveDirection = m_VRCamera.transform.forward * m_InputDirection.y + m_VRCamera.transform.right * m_InputDirection.x;
         resultMoveDirection.Normalize();
 
-        if (m_InputAxisValue > m_LinearMovementInputThreshold)
+        if (Mathf.Abs(m_InputAxisValue) > m_LinearMovementInputThreshold)
         {
             m_Rigidbody.velocity = m_MaxMoveSpeed * resultMoveDirection;
         }
@@ -132,10 +134,14 @@ public class Character_MainMenu : Character
         m_MaxMoveSpeed = maxMoveSpeed;
     }
 
-    public void Grab(bool isLeftGrabbing, bool isRightGrabbing)
+    public void LeftGrab(bool isGrab)
     {
-        m_LeftGrab.CheckForGrab(isLeftGrabbing);
-        m_RightGrab.CheckForGrab(isRightGrabbing);
+        m_LeftGrab.CheckForGrab(isGrab);
+    }
+
+    public void RightGrab(bool isGrab)
+    {
+        m_RightGrab.CheckForGrab(isGrab);
     }
 
     // Returns an GameObject[] of [left grabbed object, right grabbed object]

@@ -45,14 +45,20 @@ public class PlayerController : MonoBehaviour
             UnPossess();
         }
 
+        m_Character = character;
         GameManager.Instance.RegisterCharacterToController(this, character);
         character.PossessedBy(this);
         OnPossess(character);
     }
     protected virtual void OnPossess(Character character) { }
 
-    protected void UnPossess()
+    public void UnPossess()
     {
+        if (m_Character == null)
+        {
+            return;
+        }
+
         GameManager.Instance.UnregisterCharacterFromController(this, m_Character);
         m_Character.UnPossessed();
         OnUnPossess();

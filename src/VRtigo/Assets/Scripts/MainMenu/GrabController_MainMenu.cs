@@ -29,9 +29,12 @@ public class GrabController_MainMenu : MonoBehaviour
     {
         m_IsGrabbing = isGrab;
 
-        if (!m_IsGrabbing)
+        if (isGrab)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, m_GrabRadius, 1 << LayerMask.NameToLayer("Grabbable"));
+            Collider[] colliders = Physics.OverlapSphere(
+                transform.position, 
+                m_GrabRadius, 
+                1 << LayerMask.NameToLayer("Grabbable"));
             if (colliders.Length > 0)
             {
                 Collider chosenCollider = colliders[0];
@@ -48,34 +51,35 @@ public class GrabController_MainMenu : MonoBehaviour
                         m_GrabbedObjectGrabbable.Grabbed();
                 }
             }
-            else
-            {
-                if (m_GrabbedObjectGrabbable != null)
-                    m_GrabbedObjectGrabbable.Dropped();
-
-                m_GrabbedObject = null;
-                m_GrabbedObjectGrabbable = null;
-                m_GrabbedObjectRb = null;
-            }
         }
         else
         {
-            if (m_GrabbedObjectRb != null)
-            {
-                // Adjust moving velocity into hand
-                m_GrabbedObjectRb.velocity = (transform.position - m_GrabbedObjectRb.transform.position) * Time.fixedDeltaTime * m_GrabbingSpeed;
+            if (m_GrabbedObjectGrabbable != null)
+                m_GrabbedObjectGrabbable.Dropped();
 
-                // Follow hand rotation
-                Quaternion deltaRot = transform.rotation * Quaternion.Inverse(m_GrabbedObjectRb.transform.rotation);
-                Vector3 eulerRot = new Vector3(
-                    Mathf.DeltaAngle(0, deltaRot.eulerAngles.x),
-                    Mathf.DeltaAngle(0, deltaRot.eulerAngles.y),
-                    Mathf.DeltaAngle(0, deltaRot.eulerAngles.z)
-                );
-                eulerRot *= Mathf.Deg2Rad;
+            m_GrabbedObject = null;
+            m_GrabbedObjectGrabbable = null;
+            m_GrabbedObjectRb = null;
+        }
+    }
 
-                m_GrabbedObjectRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
-            }
+    private void FixedUpdate()
+    {
+        if (m_GrabbedObjectRb != null)
+        {
+            // Adjust moving velocity into hand
+            m_GrabbedObjectRb.velocity = (transform.position - m_GrabbedObjectRb.transform.position) * Time.fixedDeltaTime * m_GrabbingSpeed;
+
+            // Follow hand rotation
+            Quaternion deltaRot = transform.rotation * Quaternion.Inverse(m_GrabbedObjectRb.transform.rotation);
+            Vector3 eulerRot = new Vector3(
+                Mathf.DeltaAngle(0, deltaRot.eulerAngles.x),
+                Mathf.DeltaAngle(0, deltaRot.eulerAngles.y),
+                Mathf.DeltaAngle(0, deltaRot.eulerAngles.z)
+            );
+            eulerRot *= Mathf.Deg2Rad;
+
+            m_GrabbedObjectRb.angularVelocity = eulerRot / Time.fixedDeltaTime;
         }
     }
 

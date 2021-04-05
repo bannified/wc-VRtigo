@@ -66,6 +66,12 @@ public class PlayerController_ForcedHeadRotation : PlayerController
 
     private void TeardownVRInputs()
     {
+        m_TurnRightAction.RemoveOnStateUpListener(TurnRightAction_onStateUp, m_RightHandType);
+        m_TurnRightAction.RemoveOnStateDownListener(TurnRightAction_onStateDown, m_RightHandType);
+
+        m_TurnLeftAction.RemoveOnStateUpListener(TurnLeftAction_onStateUp, m_LeftHandType);
+        m_TurnLeftAction.RemoveOnStateDownListener(TurnLeftAction_onStateDown, m_LeftHandType);
+
         m_MoveAction.RemoveOnChangeListener(MoveAction_onChange, m_LeftHandType);
         m_MoveDirection.RemoveOnChangeListener(MoveDirection_onChange, m_LeftHandType);
 
@@ -130,10 +136,10 @@ public class PlayerController_ForcedHeadRotation : PlayerController
             m_CastedCharacter.SetMoveDirection(moveDirectionAxisValue);
         }
 
-        if (moveForwardAxisValue != m_MoveForwardAxisValue)
-        {
-            m_CastedCharacter.MoveForward(moveForwardAxisValue);
-        }
+        //if (moveForwardAxisValue != m_MoveForwardAxisValue)
+        //{
+        //    m_CastedCharacter.MoveForward(moveForwardAxisValue);
+        //}
 
         m_MoveForwardAxisValue = moveForwardAxisValue;
         m_MoveDirectionAxisValue = moveDirectionAxisValue;

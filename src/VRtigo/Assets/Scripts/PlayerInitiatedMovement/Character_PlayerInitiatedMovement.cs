@@ -71,6 +71,9 @@ public class Character_PlayerInitiatedMovement : Character
     [SerializeField]
     protected float m_InputAxisValue;
 
+    [SerializeField]
+    protected Vector2 m_MoveAxisValue;
+
     [Header("Non-VR debug settings")]
     protected float m_TurnAngle = 15.0f;
 
@@ -119,11 +122,13 @@ public class Character_PlayerInitiatedMovement : Character
 
     public void MoveForward(float axisValue)
     {
-        m_InputAxisValue = axisValue;
+        //m_InputAxisValue = axisValue;
     }
 
     public void SetMoveDirection(Vector2 moveDirection)
     {
+        m_InputAxisValue = moveDirection.magnitude;
+
         m_InputDirection = moveDirection.normalized;
     }
 
@@ -169,7 +174,7 @@ public class Character_PlayerInitiatedMovement : Character
         {
             if (m_Rigidbody.velocity.magnitude > m_MaxMoveSpeed)
             {
-                if (m_InputAxisValue > m_LinearMovementInputThreshold)
+                if (Mathf.Abs(m_InputAxisValue) > m_LinearMovementInputThreshold)
                 {
                     return;
                 }
@@ -184,9 +189,9 @@ public class Character_PlayerInitiatedMovement : Character
             resultMoveDirection.y = 0;
             resultMoveDirection.Normalize();
 
-            if (m_InputAxisValue > m_LinearMovementInputThreshold)
+            if (Mathf.Abs(m_InputAxisValue) > m_LinearMovementInputThreshold)
             {
-                float accel = m_AccelerationCurve.Evaluate(m_InputAxisValue);
+                float accel = m_AccelerationCurve.Evaluate(m_Rigidbody.velocity.magnitude / m_MaxMoveSpeed);
 
                 m_Rigidbody.velocity = m_Rigidbody.velocity + resultMoveDirection * accel * Time.fixedDeltaTime * m_AccelerationScale;
             } 
@@ -197,7 +202,7 @@ public class Character_PlayerInitiatedMovement : Character
         }
         else
         {
-            if (m_InputAxisValue > m_LinearMovementInputThreshold)
+            if (Mathf.Abs(m_InputAxisValue) > m_LinearMovementInputThreshold)
             {
                 if (HasFlagsEnabled(PlayerInitiatedMovementBitmask.LateralMovementEnabled))
                 {

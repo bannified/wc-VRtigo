@@ -24,5 +24,9 @@ public class Character : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (m_PlayerController)
+        {
+            m_PlayerController.UnPossess();
+        }
     }
 }

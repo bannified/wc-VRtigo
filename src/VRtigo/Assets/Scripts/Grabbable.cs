@@ -10,8 +10,10 @@ public class Grabbable : MonoBehaviour
 
     public SoundData m_GrabSound;
     public SoundData m_DropSound;
-    public bool m_IsGrabbed { get; private set; }
 
+    public bool m_IsGrabbed;
+
+    [SerializeField]
     private int m_NumInContact = 0;
 
     private void Start()
