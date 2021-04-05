@@ -61,13 +61,16 @@ public class ProgressTiles : UIComponent
 
     public override void SetInvisible()
     {
-        for (int i = 0; i < m_ProgressTiles.Count; i++)
+        if (m_IsEnabled)
         {
-            StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_ProgressTiles[i], m_TileFadeDur));
-        }
-        for (int i = 0; i < m_ProgressTilesBgs.Count; i++)
-        {
-            StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_ProgressTilesBgs[i], m_TileFadeDur));
+            for (int i = 0; i < m_ProgressTiles.Count; i++)
+            {
+                StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_ProgressTiles[i], m_TileFadeDur));
+            }
+            for (int i = 0; i < m_ProgressTilesBgs.Count; i++)
+            {
+                StartCoroutine(Image_Utils.FadeOutImageCoroutine(m_ProgressTilesBgs[i], m_TileFadeDur));
+            }
         }
     }
 
@@ -92,7 +95,6 @@ public class ProgressTiles : UIComponent
 
     private void ResetProgress()
     {
-
         for (int i = 0; i < m_ProgressTilesBgs.Count; i++)
         {
             Color imageColor = m_ProgressTilesBgs[i].color;

@@ -49,10 +49,14 @@ public class Level_Bridge : MonoBehaviour
     #endregion
 
     public string m_TitleText = "Default Title";
+    public string m_SubtitleText = "";
     public float m_TitleDur = 3.0f;
 
     [SerializeField]
     private AnimatedText m_AnimatedTitleText;
+
+    [SerializeField]
+    private AnimatedText m_AnimatedSubtitleText;
 
     void Start()
     {
@@ -66,18 +70,25 @@ public class Level_Bridge : MonoBehaviour
 
         // Set screen title
         m_AnimatedTitleText.SetStringText(m_TitleText);
-        string titleText = null;
-        bool success = PersistenceManager.Instance.TryGetString(BridgeConstants.EXPERIENCE_TITLE, ref titleText);
-
+        string text = null;
+        bool success = PersistenceManager.Instance.TryGetString(BridgeConstants.EXPERIENCE_TITLE, ref text);
         if (success)
-            m_AnimatedTitleText.SetStringText(titleText);
+            m_AnimatedTitleText.SetStringText(text);
+
+        // Set screen subtitle
+        m_AnimatedSubtitleText.SetStringText(m_SubtitleText);
+        success = PersistenceManager.Instance.TryGetString(BridgeConstants.EXPERIENCE_SUBTITLE, ref text);
+        if (success)
+            m_AnimatedSubtitleText.SetStringText(text);
 
         // Begin text animation
         m_AnimatedTitleText.TransitionIn();
+        m_AnimatedSubtitleText.TransitionIn();
 
-        // Wait for fixed duration, and fade out title
+        // Wait for fixed duration, and fade out text
         yield return new WaitForSeconds(m_TitleDur);
         m_AnimatedTitleText.TransitionOut();
+        m_AnimatedSubtitleText.TransitionOut();
 
         // Finally, transition to the correct scene
         string nextExpRef = null;

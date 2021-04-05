@@ -36,10 +36,41 @@ public class PlayerController_MainMenu : PlayerController
         m_MoveDirection.AddOnChangeListener(MoveDirection_onChange, m_LeftHandType);
 
         m_TurnDirection.AddOnChangeListener(m_TurnDirection_onChange, m_RightHandType);
+
+        m_Grabbing.AddOnStateUpListener(LeftGrabbing_onStateUp, m_LeftHandType);
+        m_Grabbing.AddOnStateDownListener(LeftGrabbing_onStateDown, m_LeftHandType);
+
+        m_Grabbing.AddOnStateUpListener(RightGrabbing_onStateUp, m_RightHandType);
+        m_Grabbing.AddOnStateDownListener(RightGrabbing_onStateDown, m_RightHandType);
+    }
+
+    private void LeftGrabbing_onStateUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.LeftGrab(false);
+    }
+
+    private void LeftGrabbing_onStateDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.LeftGrab(true);
+    }
+    private void RightGrabbing_onStateUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.RightGrab(false);
+    }
+
+    private void RightGrabbing_onStateDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        m_CastedCharacter.RightGrab(true);
     }
 
     private void TeardownVRInputs()
     {
+        m_Grabbing.RemoveOnStateDownListener(RightGrabbing_onStateDown, m_RightHandType);
+        m_Grabbing.RemoveOnStateUpListener(RightGrabbing_onStateUp, m_RightHandType);
+
+        m_Grabbing.RemoveOnStateDownListener(LeftGrabbing_onStateDown, m_LeftHandType);
+        m_Grabbing.RemoveOnStateUpListener(LeftGrabbing_onStateUp, m_LeftHandType);
+
         m_TurnDirection.RemoveOnChangeListener(m_TurnDirection_onChange, m_RightHandType);
 
         m_MoveAction.RemoveOnChangeListener(MoveAction_onChange, m_LeftHandType);
@@ -162,7 +193,7 @@ public class PlayerController_MainMenu : PlayerController
     }
     protected virtual void OnVRFixedUpdate()
     {
-        m_CastedCharacter.Grab(m_Grabbing.GetState(m_LeftHandType), m_Grabbing.GetState(m_RightHandType));
+
     }
 
     void NonVRFixedUpdate()

@@ -22,9 +22,9 @@ public class AnimatedTextTrigger : UIComponent
 
     public override void Disable()
     {
-        m_IsEnabled = false;
         if (m_IsWithinBoundary)
             SetInvisible();
+        m_IsEnabled = false;
     }
 
     public override void SetVisible()

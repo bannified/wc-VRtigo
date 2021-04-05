@@ -141,6 +141,8 @@ public class Character_ForcedHeadRotation : Character
 
     public void SetMoveDirection(Vector2 moveDirection)
     {
+        m_InputAxisValue = moveDirection.magnitude;
+
         m_InputDirection = moveDirection.normalized;
     }
 
@@ -214,7 +216,7 @@ public class Character_ForcedHeadRotation : Character
     private IEnumerator RespawnCoroutine()
     {
         m_BlackScreenAnimator.SetTrigger("FadeOut");
-        yield return new WaitForSeconds(0.833f);
+        yield return new WaitForSeconds(1.0f);
 
         transform.position = m_LastWalkPoint.transform.position;
 

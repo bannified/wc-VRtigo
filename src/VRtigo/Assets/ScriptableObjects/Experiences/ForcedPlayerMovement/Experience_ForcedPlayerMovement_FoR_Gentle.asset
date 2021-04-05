@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00be7c06cf2a04b418d779d201f88198, type: 3}
   m_Name: Experience_ForcedPlayerMovement_FoR_Gentle
   m_EditorClassIdentifier: 
-  LessonData: {fileID: 0}
+  LessonData: {fileID: 11400000, guid: 6020e651bbdfac5428f86e2a36651b67, type: 2}
   ExperienceScene:
     sceneAsset: {fileID: 102900000, guid: 1143497f4f9f00246ba38c05a7b3fb31, type: 3}
     scenePath: Assets/Scenes/Experiences/PlayerForcedMovement/PlayerForcedMovement.unity
@@ -98,7 +98,10 @@ MonoBehaviour:
     isExpanded: 1
     _keyValues:
     - BRIDGE_ExperienceTitle
+    - BRIDGE_ExperienceSubtitle
     _keys:
     - BRIDGE_ExperienceTitle
+    - BRIDGE_ExperienceSubtitle
     _values:
     - Forced Player Movement
+    - 

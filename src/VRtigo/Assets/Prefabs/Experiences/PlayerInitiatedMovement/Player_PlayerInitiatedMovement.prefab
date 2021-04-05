@@ -85,28 +85,28 @@ MonoBehaviour:
   m_CameraRig: {fileID: 3057790021818214813}
   m_Rigidbody: {fileID: 3057790021016051255}
   m_MovementMask: 0
-  m_LinearMovementInputThreshold: 0.05
+  m_LinearMovementInputThreshold: 0.6
   m_MaxMoveSpeed: 2.5
   m_AccelerationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.3
+      value: 0.9
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 65
       weightedMode: 0
       inWeight: 0
       outWeight: 0.46247518
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      value: 0.9
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.04559896
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -126,7 +126,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 3
+      value: 4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -137,11 +137,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_DecelerationMagnitudeThreshold: 0.1
-  m_TurnRate: 40
-  m_TurnInputThreshold: 0.01
+  m_TurnRate: 50
+  m_TurnInputThreshold: 0.6
   m_InputDirection: {x: 0, y: 0}
   m_TurnInputDirection: {x: 0, y: 0}
   m_InputAxisValue: 0
+  m_MoveAxisValue: {x: 0, y: 0}
 --- !u!114 &3057790021016051254
 MonoBehaviour:
   m_ObjectHideFlags: 0
