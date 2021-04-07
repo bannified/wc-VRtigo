@@ -168,7 +168,7 @@ public class ClassroomManager : MonoBehaviour
             StartLessonStep(m_ClassroomLessonData.LessonSteps[m_CurrentDialogueIndex]);
         }
 
-        if (m_CurrentDialogueIndex == m_ClassroomLessonData.LessonSteps.Count)
+        if (m_CurrentDialogueIndex == m_ClassroomLessonData.LessonSteps.Count - 1)
         {
             OnLessonEnd?.Invoke(m_ClassroomLessonData);
         }
