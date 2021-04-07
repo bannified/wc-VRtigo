@@ -55,6 +55,11 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        m_BackgroundMusics = new List<SoundData>();
+    }
+
     public static void InitAudioSourceOn(SoundData s, GameObject parent)
     {
         s.m_Source = parent.AddComponent<AudioSource>();
@@ -80,21 +85,23 @@ public class AudioManager : MonoBehaviour
     public void PlayBackgroundMusics(List<SoundData> bgmSounds)
     {
         // Currently there is a background music playing
-        if (m_BackgroundMusics != null && m_BackgroundMusics.Count > 1)
+        if (m_BackgroundMusics.Count > 1)
         {
             // Fade out the existing BGM
             foreach (SoundData bgmSound in m_BackgroundMusics)
                 FadeOutAndDestroy(bgmSound);
         }
 
-        m_BackgroundMusics = bgmSounds;
+        m_BackgroundMusics.Clear();
 
         // No new background music
         if (bgmSounds == null || bgmSounds.Count < 1)
             return;
 
+        m_BackgroundMusics.AddRange(bgmSounds);
+
         // Play the new background music
-        foreach (SoundData bgmSound in bgmSounds)
+        foreach (SoundData bgmSound in m_BackgroundMusics)
             Play(bgmSound);
     }
 
