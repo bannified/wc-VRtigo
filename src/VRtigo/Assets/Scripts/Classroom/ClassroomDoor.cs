@@ -101,7 +101,6 @@ public class ClassroomDoor : MonoBehaviour
             {
                 m_DoorOpenSound.m_Source.Play();
 
-                AudioManager.Instance.PlayBackgroundMusics(Level_MainMenu.Instance.m_MainMenuBGMs);
                 PlayOpenDoorAnim();
             }
         }
@@ -129,7 +128,6 @@ public class ClassroomDoor : MonoBehaviour
     IEnumerator OpenDoorAnim(float deltaRot)
     {
         // Delay to wait for sound effect start
-        // TODO: Find better door opening SFX or cut the current one
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine("RotateDoor", deltaRot);
     }

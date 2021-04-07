@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Name: ProjectorStatic
   m_Clip: {fileID: 8300000, guid: 508e6d4dee5c6f14a8f8fe0d9ed40b3f, type: 3}
-  volume: 0.099
+  volume: 0.1
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0

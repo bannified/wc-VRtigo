@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRT_Constants.MainMenuConstants;
 
 public class ClassroomContinueButton : MonoBehaviour, IActivatable
 {
@@ -37,16 +38,23 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     private bool m_isButtonPressed = false;
     private bool m_isEnabled = true;
 
-
     void Start()
     {
         AudioManager.InitAudioSourceOn(m_ButtonSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_ProjectorSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_ProjectorWhirSound, this.gameObject);
 
-        // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
-        // is invoked before ClassroomContinueButton exist
-        m_ProjectorWhirSound.m_Source.Play();
+        bool shouldSpawnInClassroom = false;
+        PersistenceManager.Instance.TryGetBool(MainMenuConstants.SPAWN_IN_CLASSROOM_BOOL, ref shouldSpawnInClassroom);
+
+        if (shouldSpawnInClassroom)
+        {
+            // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
+            // is invoked before ClassroomContinueButton exist
+            m_ProjectorWhirSound.m_Source.Play();
+
+            AudioManager.Instance.PlayBackgroundMusics(Level_MainMenu.Instance.m_MainMenuBGMs);
+        }
     }
 
     private void OnEnable()
@@ -88,7 +96,7 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     public void Activate()
     {
-        if (!m_isButtonPressed)
+        if (!m_isButtonPressed && !m_IsOnCooldown)
         {
             StartCoroutine(CooldownCoroutine());
             StartCoroutine(ContinueLesson());

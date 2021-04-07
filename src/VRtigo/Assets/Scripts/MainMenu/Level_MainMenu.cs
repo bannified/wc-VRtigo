@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRT_Constants.MainMenuConstants;
 
 public class Level_MainMenu : MonoBehaviour
 {
@@ -53,6 +54,10 @@ public class Level_MainMenu : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.PlayBackgroundMusics(Instance.m_MainMenuBGMs);
+        bool shouldSpawnInClassroom = false;
+        PersistenceManager.Instance.TryGetBool(MainMenuConstants.SPAWN_IN_CLASSROOM_BOOL, ref shouldSpawnInClassroom);
+
+        if (!shouldSpawnInClassroom)
+            AudioManager.Instance.PlayBackgroundMusics(Instance.m_MainMenuBGMs);
     }
 }

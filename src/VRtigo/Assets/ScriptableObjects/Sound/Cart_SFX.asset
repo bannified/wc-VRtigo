@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058040d6f85447e42aa78f4246d5eb76, type: 3}
-  m_Name: WalkPointActive
+  m_Name: Cart_SFX
   m_EditorClassIdentifier: 
-  m_Name: WalkPointActive
-  m_Clip: {fileID: 8300000, guid: 4d5596d6481bef0409fcd83ef29093cc, type: 3}
-  volume: 0.9
-  volumeVariance: 0.1
+  m_Name: 
+  m_Clip: {fileID: 8300000, guid: 4891584852909d145b74a7996e51d8fa, type: 3}
+  volume: 1
+  volumeVariance: 0.206
   pitch: 1
   pitchVariance: 0
-  spatialBlend: 0.82
-  loop: 0
+  spatialBlend: 0.7
+  loop: 1
   m_Source: {fileID: 0}
