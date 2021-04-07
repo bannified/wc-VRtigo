@@ -101,7 +101,6 @@ public class ClassroomDoor : MonoBehaviour
             {
                 m_DoorOpenSound.m_Source.Play();
 
-                AudioManager.Instance.PlayBackgroundMusics(Level_MainMenu.Instance.m_MainMenuBGMs);
                 PlayOpenDoorAnim();
             }
         }
