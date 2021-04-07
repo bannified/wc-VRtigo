@@ -129,7 +129,6 @@ public class ClassroomDoor : MonoBehaviour
     IEnumerator OpenDoorAnim(float deltaRot)
     {
         // Delay to wait for sound effect start
-        // TODO: Find better door opening SFX or cut the current one
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine("RotateDoor", deltaRot);
     }
