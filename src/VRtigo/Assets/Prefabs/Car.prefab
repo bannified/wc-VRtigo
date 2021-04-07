@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd288ce5e5e4b04ba21304e1d403c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CartDrivingSound: {fileID: 11400000, guid: d9926e8d2ef89a24897cda4093cb26ab, type: 2}
   speed: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!1001 &8417683655736492128
