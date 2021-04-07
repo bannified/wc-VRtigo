@@ -44,11 +44,13 @@ MonoBehaviour:
     - PIM_TurnEnabled
     - PIM_NonLinearMovementEnabled
     - PIM_LateralMovementEnabled
+    - PIM_BASE
     _keys:
     - PIM_TurnEnabled
     - PIM_NonLinearMovementEnabled
     - PIM_LateralMovementEnabled
-    _values: 010000
+    - PIM_BASE
+    _values: 01000000
   PreExperienceIntSettings:
     reorderableList:
       canAdd: 1
