@@ -197,6 +197,10 @@ public class Character_ForcedHeadRotation : Character
     {
         if (other.gameObject.CompareTag("Car"))
         {
+            CarMovement car = other.GetComponent<CarMovement>();
+            if (car != null)
+                car.OnPlayerHit();
+
             StartRespawn();
             return;
         }
