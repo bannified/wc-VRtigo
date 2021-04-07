@@ -26,6 +26,12 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     private float m_DelayFromButtonToProjector = 0.5f;
 
     [SerializeField]
+    private bool m_IsOnCooldown = false;
+
+    [SerializeField]
+    private float m_Cooldown = 1.0f;
+
+    [SerializeField]
     private List<UIComponent> m_ContinueButtonUIs;
 
     private bool m_isButtonPressed = false;
@@ -61,7 +67,7 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (m_isEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
+        if (!m_IsOnCooldown && m_isEnabled && m_TagsThatActivate.Contains(other.gameObject.tag))
         {
             Activate();
         }
@@ -84,8 +90,16 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
     {
         if (!m_isButtonPressed)
         {
+            StartCoroutine(CooldownCoroutine());
             StartCoroutine(ContinueLesson());
         }
+    }
+
+    IEnumerator CooldownCoroutine()
+    {
+        m_IsOnCooldown = true;
+        yield return new WaitForSecondsRealtime(m_Cooldown);
+        m_IsOnCooldown = false;
     }
 
     IEnumerator ContinueLesson()
