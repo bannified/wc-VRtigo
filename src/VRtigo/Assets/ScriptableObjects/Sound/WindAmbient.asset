@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Name: WindAmbient
   m_Clip: {fileID: 8300000, guid: a203f07b4d1fb394b9ab444f5448938e, type: 3}
-  volume: 0.75
+  volume: 0.559
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0
