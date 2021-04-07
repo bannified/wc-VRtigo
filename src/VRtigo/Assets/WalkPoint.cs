@@ -114,6 +114,8 @@ public class WalkPoint : MonoBehaviour
     {
         if (other.gameObject.tag == VRT_Constants.Tags.PLAYER)
         {
+            m_OnTriggerSound.m_Source.Play();
+
             if (m_HasBeenTriggered || !m_IsActive)
             {
                 return;
@@ -139,8 +141,6 @@ public class WalkPoint : MonoBehaviour
             {
                 Debug.Log("Attempt to execute Haptic feedback, but ignored because SteamVR isn't enabled.");
             }
-
-            m_OnTriggerSound.m_Source.Play();
         }
     }
 }
