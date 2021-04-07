@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Name: WalkPointActive
   m_Clip: {fileID: 8300000, guid: 4d5596d6481bef0409fcd83ef29093cc, type: 3}
-  volume: 0.75
+  volume: 0.9
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0
