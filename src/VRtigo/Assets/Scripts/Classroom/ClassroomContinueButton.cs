@@ -88,7 +88,7 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
 
     public void Activate()
     {
-        if (!m_isButtonPressed)
+        if (!m_isButtonPressed && !m_IsOnCooldown)
         {
             StartCoroutine(CooldownCoroutine());
             StartCoroutine(ContinueLesson());
