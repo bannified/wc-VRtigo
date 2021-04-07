@@ -172,7 +172,7 @@ public class ClassroomManager : MonoBehaviour
         // is only one lesson; other scripts may not be initialised yet
         if (m_ClassroomLessonData.LessonSteps.Count <= 1)
         {
-            StartCoroutine(DelayLessonEndTillEndOfFrame());
+            StartCoroutine(DelayLessonEnd());
         }
         else if (m_CurrentDialogueIndex == m_ClassroomLessonData.LessonSteps.Count - 1)
         {
@@ -187,9 +187,14 @@ public class ClassroomManager : MonoBehaviour
         OnLessonStepStart?.Invoke(step);
     }
 
-    IEnumerator DelayLessonEndTillEndOfFrame()
+    IEnumerator DelayLessonEnd()
     {
+        // Wait for all scripts to be initialised
+        yield return null;
+
+        // Wait for all OnLessonStart subscribers calls to finish
         yield return new WaitForEndOfFrame();
+
         OnLessonEnd?.Invoke(m_ClassroomLessonData);
     }
 }

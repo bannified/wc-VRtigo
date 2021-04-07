@@ -48,7 +48,13 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
         PersistenceManager.Instance.TryGetBool(MainMenuConstants.SPAWN_IN_CLASSROOM_BOOL, ref shouldSpawnInClassroom);
 
         if (shouldSpawnInClassroom)
-            StartCoroutine(ClassroomSequence());
+        {
+            // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
+            // is invoked before ClassroomContinueButton exist
+            m_ProjectorWhirSound.m_Source.Play();
+
+            AudioManager.Instance.PlayBackgroundMusics(Level_MainMenu.Instance.m_MainMenuBGMs);
+        }
     }
 
     private void OnEnable()
@@ -95,17 +101,6 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
             StartCoroutine(CooldownCoroutine());
             StartCoroutine(ContinueLesson());
         }
-    }
-
-    IEnumerator ClassroomSequence()
-    {
-        yield return new WaitForEndOfFrame();
-
-        // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
-        // is invoked before ClassroomContinueButton exist
-        m_ProjectorWhirSound.m_Source.Play();
-
-        AudioManager.Instance.PlayBackgroundMusics(Level_MainMenu.Instance.m_MainMenuBGMs);
     }
 
     IEnumerator CooldownCoroutine()
