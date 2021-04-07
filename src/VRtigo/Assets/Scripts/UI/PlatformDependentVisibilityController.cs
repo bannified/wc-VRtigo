@@ -78,19 +78,18 @@ public class PlatformDependentVisibilityController : MonoBehaviour
                 if (device.manufacturer.ToLower() != manufacturerString)
                 {
                     this.gameObject.SetActive(false);
-                    StopCoroutine(m_CheckingCoroutine);
-                    break;
+                    yield break;
                 }
             }
             runningTime += Time.deltaTime;
             yield return null;
         }
 
-        List<InputDevice> inputDevices2 = new List<InputDevice>();
-        UnityEngine.XR.InputDevices.GetDevices(inputDevices2);
-        if (inputDevices2.Count == 0)
-        {
+        List<InputDevice> finalInputDevice = new List<InputDevice>();
+        UnityEngine.XR.InputDevices.GetDevices(finalInputDevice);
+
+        if (finalInputDevice.Count == 0)
             this.gameObject.SetActive(false);
-        }
+
     }
 }
