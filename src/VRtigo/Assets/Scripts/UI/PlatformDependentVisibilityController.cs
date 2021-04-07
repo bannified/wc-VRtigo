@@ -85,5 +85,12 @@ public class PlatformDependentVisibilityController : MonoBehaviour
             runningTime += Time.deltaTime;
             yield return null;
         }
+
+        List<InputDevice> inputDevices2 = new List<InputDevice>();
+        UnityEngine.XR.InputDevices.GetDevices(inputDevices2);
+        if (inputDevices2.Count == 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }
