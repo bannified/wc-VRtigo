@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRT_Constants.MainMenuConstants;
 
 public class ClassroomContinueButton : MonoBehaviour, IActivatable
 {
@@ -44,9 +45,15 @@ public class ClassroomContinueButton : MonoBehaviour, IActivatable
         AudioManager.InitAudioSourceOn(m_ProjectorSound, this.gameObject);
         AudioManager.InitAudioSourceOn(m_ProjectorWhirSound, this.gameObject);
 
-        // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
-        // is invoked before ClassroomContinueButton exist
-        m_ProjectorWhirSound.m_Source.Play();
+        bool shouldSpawnInClassroom = false;
+        PersistenceManager.Instance.TryGetBool(MainMenuConstants.SPAWN_IN_CLASSROOM_BOOL, ref shouldSpawnInClassroom);
+
+        if (shouldSpawnInClassroom)
+        {
+            // NOTE: Unable to do this via ClassroomManager.OnLessonStart, as OnLessonStart
+            // is invoked before ClassroomContinueButton exist
+            m_ProjectorWhirSound.m_Source.Play();
+        }
     }
 
     private void OnEnable()
