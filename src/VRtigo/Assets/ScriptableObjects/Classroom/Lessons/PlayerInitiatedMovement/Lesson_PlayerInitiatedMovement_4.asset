@@ -17,7 +17,7 @@ MonoBehaviour:
   - m_DialogueString: "Welcome back to the classroom. You have just experienced the
       fourth and last design implementation for Player Initiated Movement. \r"
     m_ClearPreviousImage: 1
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
     m_VoiceoverClip: {fileID: 0}
   - m_DialogueString: "Take a moment and think about how this experience differs
       with your previous experiences you have had. \r\n\r\n"

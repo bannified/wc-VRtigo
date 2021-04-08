@@ -17,7 +17,7 @@ MonoBehaviour:
   - m_DialogueString: "Welcome to the Classroom. \r\nYou have just experienced the
       first variant of Player Initiated Movement. \r"
     m_ClearPreviousImage: 1
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
     m_VoiceoverClip: {fileID: 0}
   - m_DialogueString: Player Initiated Movement refers to the controls a user has
       to initiate movement in an application. This is highly important in Virtual
@@ -35,8 +35,8 @@ MonoBehaviour:
     m_MainImage: {fileID: 21300000, guid: f7ede7d64932faa4fa8688a47e3c2711, type: 3}
     m_VoiceoverClip: {fileID: 0}
   - m_DialogueString: "3 of these 6 degrees of freedom are rotational movement, as
-      shown on the head. The remaining 3 are translation movement, as shown on the
-      body\r."
+      shown on the head. The remaining 3 are translational movement, as shown on
+      the body\r."
     m_ClearPreviousImage: 1
     m_MainImage: {fileID: 21300000, guid: f7ede7d64932faa4fa8688a47e3c2711, type: 3}
     m_VoiceoverClip: {fileID: 0}
