@@ -14,12 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: 
   LessonSteps:
-  - m_DialogueString: Hello, you have just completed the second Forced Player Movement
-      experience.
+  - m_DialogueString: Welcome back to the classroom. You have just experienced the
+      second variant of Forced Movement.
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
     m_VoiceoverClip: {fileID: 0}
-  - m_DialogueString: You were sat in a car driving a course with sharp turns.
+  - m_DialogueString: How would you describe the experience you just had? Compare
+      it with the first experience. What difference have you noticed or felt?
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: In this set up, the frame of reference remains the same. However,
+      the turns in the maps are sharper, causing a higher level of vection.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: f2951fe0fbd72614190ed69e7efeb1bc, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: As mentioned before, sharper turns result in our surrounding
+      moving at a higher speed.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: f2951fe0fbd72614190ed69e7efeb1bc, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Hence, our visual stimulus tells our brain that we are moving
+      much faster compared to the information relayed from our vestibular system,
+      indicating that we are almost stationary. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: f2951fe0fbd72614190ed69e7efeb1bc, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Hence, this significant mismatch throws us off balance, making
+      us feel nauseous. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: f92cba5a1bfd64e4083c020467919e66, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'In the next experience, you will ride through the same map,
+      but with a different setting implemented. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Whenever you are ready, proceed to the door on your left. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
     m_VoiceoverClip: {fileID: 0}

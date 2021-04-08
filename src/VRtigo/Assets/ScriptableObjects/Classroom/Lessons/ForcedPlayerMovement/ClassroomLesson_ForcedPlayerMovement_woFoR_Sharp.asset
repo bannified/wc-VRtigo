@@ -14,12 +14,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: 
   LessonSteps:
-  - m_DialogueString: Hello, you have just completed the second Forced Player Movement
-      experience.
+  - m_DialogueString: 'Welcome back to the classroom. You have just experienced the
+      third and last variant of Forced Movement. '
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
     m_VoiceoverClip: {fileID: 0}
-  - m_DialogueString: You floating around a course with sharp turns.
+  - m_DialogueString: 'Take a moment and think about how this experience compares
+      to the previous one. Which felt more comfortable for you? '
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: In this set up, the frame of reference was removed and the
+      map had many sharp corners.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 34ed6ec620bc0dd4192b28a21c959565, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This meant that it was easier for users to be overwhelmed
+      by the rapid changes in our surroundings. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 34ed6ec620bc0dd4192b28a21c959565, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Hence, a high volume of information from our eyes are sent
+      to our brains, signalling that we are moving very quickly, as we experience
+      in Virtual Reality. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 34ed6ec620bc0dd4192b28a21c959565, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'However, in reality, our proprioception and vestibular system
+      tells us otherwise. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 34ed6ec620bc0dd4192b28a21c959565, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Turning not only causes visual-proprioception mismatch, but
+      also causes a visual-vestibular mismatch. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6c471d85ee948f14ab12bc098a28b091, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Vestibular sense is often referred to as a sense of balance,
+      that is detected by a set of structures in your inner ear which is actually
+      known as the vestibular organ. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6c471d85ee948f14ab12bc098a28b091, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Our proprioception detects minimal change in physical movements
+      and our vestibular system detects minimal head rotation and motion. Thus, our
+      senses are disoriented, causing users to feel motion sickness. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "After experiencing all 3 design implementations for the Forced
+      Movement, I hope you have a better understanding of the discomfort they bring
+      about. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: This concludes the end of the Forced Head Rotation experience,
+      you may now return to the Study Room for the next experience.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
     m_VoiceoverClip: {fileID: 0}

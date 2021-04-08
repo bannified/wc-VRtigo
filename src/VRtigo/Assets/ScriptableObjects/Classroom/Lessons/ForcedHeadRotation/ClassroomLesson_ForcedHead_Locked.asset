@@ -14,9 +14,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: 
   LessonSteps:
-  - m_DialogueString: Hello, you have just completed the second Forced Head Rotation
-      experience, where you were not allowed to rotate your head freely, and had
-      to use triggers on the controllers to rotate your head.
+  - m_DialogueString: 'Welcome back to the Classroom. You have just experienced the
+      second variant of Forced Head Movement. '
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Take a moment and think about how this experience compares
+      to your previous experience. Did you notice any difference? '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "In this second level, in order to check for traffic, you had
+      to press a button to rotate your view at a fixed angle of rotation.\r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: a844e86ddb5aa784f91b8845fa687345, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This design implementation results in greater discomfort when
+      navigating through the level, as there is an increase in the level of vection.
+      \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: a844e86ddb5aa784f91b8845fa687345, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This turning causes a visual-vestibular mismatch. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: a844e86ddb5aa784f91b8845fa687345, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Our vestibular sense is often referred to as a sense of balance,
+      that is detected by a set of structures in your inner ear which is actually
+      known as the vestibular organ. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6c471d85ee948f14ab12bc098a28b091, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This sensory system specifically responds to any change in
+      the head\u2019s motion vector, both rotational or translational. "
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6c471d85ee948f14ab12bc098a28b091, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Our proprioception detects minimal change in physical movements
+      and our vestibular system detects minimal head rotation and motion. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Thus, our senses are disoriented, causing users to feel motion
+      sickness. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "After experiencing the 2 variants of the Forced Head Rotation,
+      I hope you now have a better understanding of the discomfort they can bring
+      about. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 892da3007c5bf2944a79c8dfb423d2da, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: This concludes the end of the Forced Head Rotation experience,
+      you may now return to the Study Room for the next experience.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
     m_VoiceoverClip: {fileID: 0}

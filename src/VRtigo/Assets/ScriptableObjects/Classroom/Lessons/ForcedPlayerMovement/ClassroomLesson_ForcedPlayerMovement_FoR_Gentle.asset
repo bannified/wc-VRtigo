@@ -14,12 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: 
   LessonSteps:
-  - m_DialogueString: Hello, you have just completed the first Forced Player Movement
-      experience.
+  - m_DialogueString: "Welcome to the Classroom. \rYou have just experienced the
+      first variant of Player Initiated Movement. \r"
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
     m_VoiceoverClip: {fileID: 0}
-  - m_DialogueString: You were sat in a car driving a gentle course.
+  - m_DialogueString: Forced Movement refers to the movement controls which users
+      cannot initiate on their own.
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: 4bc0e11d3c7b93e419edc08f628c2a69, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "This ensures that the player moves in a certain way and allow
+      them to undergo a specific experience. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 4bc0e11d3c7b93e419edc08f628c2a69, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'In this set up, it is designed for you to experience being
+      moved around with a frame of reference where the map only has gentle corners. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 77043d57dfb7014449c5d05467cca466, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: The frame of the windshield of the car acts as a frame of reference,
+      thus you are able to focus on it, instead of the surroundings that are moving
+      past.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 77043d57dfb7014449c5d05467cca466, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: With gentle corners, vection is reduced as your virtual environment
+      moves less drastically compared to reality. This alleviates the effect of vection,
+      reducing motion sickness.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 77043d57dfb7014449c5d05467cca466, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: Next, you will ride through a slightly different map.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'Whenever you are ready, head to the door on your left. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
     m_VoiceoverClip: {fileID: 0}

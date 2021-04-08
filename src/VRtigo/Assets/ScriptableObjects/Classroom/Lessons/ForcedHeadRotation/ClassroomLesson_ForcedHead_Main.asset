@@ -14,8 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: 
   LessonSteps:
-  - m_DialogueString: Hello, you have just completed the first Forced Head Rotation
-      experience, where you were allowed to rotate your head and look around freely.
+  - m_DialogueString: "Welcome to the Classroom. \rYou have just experienced the
+      first variant of Forced Head Rotation. \r"
     m_ClearPreviousImage: 0
-    m_MainImage: {fileID: 0}
+    m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: Forced Head Rotation refers to the controls a user has to rotate
+      their head in an application. This is highly important in Virtual Reality applications
+      due to its immersive nature.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 4bc0e11d3c7b93e419edc08f628c2a69, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: "Hence, it is vital we understand the different variants of
+      designing head rotation controls and their effects on users. \r"
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 4bc0e11d3c7b93e419edc08f628c2a69, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: In this first level, in order to successfully cross to the
+      end, you had to stop and check for ongoing traffic by physically turning your
+      head left and right.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 003e519a394232f49aa6ab51cc878dfe, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: 'It is designed for you to experience rotating your view according
+      to your head. '
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 003e519a394232f49aa6ab51cc878dfe, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: Since your virtual environment aligns with reality, there is
+      minimal visual-vestibular mismatch, thus reducing vection and motion sickness.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 003e519a394232f49aa6ab51cc878dfe, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: Next, you will be tasked to navigate through the same level,
+      but with different settings implemented.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
+    m_VoiceoverClip: {fileID: 0}
+  - m_DialogueString: Whenever you are ready, proceed to the door on your left.
+    m_ClearPreviousImage: 0
+    m_MainImage: {fileID: 21300000, guid: 6f13ccda2f65ea04c9ea4559772ef214, type: 3}
     m_VoiceoverClip: {fileID: 0}
