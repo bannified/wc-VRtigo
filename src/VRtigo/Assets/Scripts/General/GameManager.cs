@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         StartExperience(m_CurrentExperience.NextExperienceData);
     }
 
-    public void StartExperience()
+    public void StartExperience(bool playMusic = true)
     {
         if (m_CurrentExperience == null)
         {
@@ -80,16 +80,21 @@ public class GameManager : MonoBehaviour
 
         if (m_CurrentExperience.ExperienceScene != null)
         {
+            if (playMusic && m_CurrentExperience.BGMTracks != null)
+            {
+                AudioManager.Instance.PlayBackgroundMusics(m_CurrentExperience.BGMTracks);
+            }
+
             m_CurrentExperience.UpdateSettings(PersistenceManager.Instance);
 
             SceneTransistor.Instance.FadeViaBridge(m_CurrentExperience.ExperienceScene);
         }
     }
 
-    public void StartExperience(ExperienceData experienceData)
+    public void StartExperience(ExperienceData experienceData, bool playMusic = true)
     {
         SetCurrentExperience(experienceData);
-        StartExperience();
+        StartExperience(playMusic);
     }
 
     public void SetCurrentExperience(ExperienceData experienceData)

@@ -23,6 +23,11 @@ public class ExperienceData : ScriptableObject
     [SerializeField]
     public StringToStringDictionary PreExperienceStringSettings;
 
+    [Header("Music")]
+    [SerializeField]
+    public List<SoundData> BGMTracks;
+
+
     public void UpdateSettings(PersistenceManager persistenceManager)
     {
         foreach (var kv in PreExperienceBoolSettings)
