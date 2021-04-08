@@ -40,6 +40,8 @@ public class ClassroomDoor : MonoBehaviour
     private bool hasLessonEnd = false;
     private bool isDoorClosed = true;
 
+    private bool hasNextExperienceStarted = false;
+
     void Start()
     {
         AudioManager.InitAudioSourceOn(m_DoorLockSound, this.gameObject);
@@ -119,6 +121,12 @@ public class ClassroomDoor : MonoBehaviour
             }
             else
             {
+                if (hasNextExperienceStarted)
+                {
+                    return;
+                }
+
+                hasNextExperienceStarted = true;
                 // Lesson finished, go to the alternative experience
                 GameManager.Instance.StartExperience(m_ExpData);
             }
