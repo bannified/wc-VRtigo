@@ -103,3 +103,7 @@ MonoBehaviour:
     _values:
     - Forced Head Rotation
     - Controller-based rotation
+  BGMTracks:
+  - {fileID: 11400000, guid: 6393fd15cf0eae44da0cf0b5a711b306, type: 2}
+  - {fileID: 11400000, guid: 2f80d4b9fe7fd6742bc74c4477a900ab, type: 2}
+  - {fileID: 11400000, guid: 2b6b28daa94b8bc4ca2a22e60883fb64, type: 2}

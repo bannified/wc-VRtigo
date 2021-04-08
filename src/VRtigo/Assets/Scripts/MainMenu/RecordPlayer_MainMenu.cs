@@ -75,7 +75,7 @@ public class RecordPlayer_MainMenu : MonoBehaviour
         yield return new WaitForSeconds(m_MusicDurBeforeFade);
 
         // Transition
-        GameManager.Instance.StartExperience(m_CurrDisc.GetExperience());
+        GameManager.Instance.StartExperience(m_CurrDisc.GetExperience(), false);
         m_Transitioning = false;
     }
 

@@ -109,3 +109,6 @@ MonoBehaviour:
     _values:
     - Player Initiated Movement
     - 
+  BGMTracks:
+  - {fileID: 11400000, guid: 70432ae9848af0f40bc9f55ed4e514cc, type: 2}
+  - {fileID: 11400000, guid: e3227900b90d7ef47810478bd4ce9875, type: 2}

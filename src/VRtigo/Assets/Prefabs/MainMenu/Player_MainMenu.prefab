@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Colliders: []
   m_GrabRadius: 0.3
   m_MaxAngularVelocity: 10
-  m_GrabbingSpeed: 250
+  m_GrabbingSpeed: 1500
   m_IsGrabbing: 0
   m_GrabbedObject: {fileID: 0}
   m_GrabbedObjectGrabbable: {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Colliders: []
   m_GrabRadius: 0.3
   m_MaxAngularVelocity: 10
-  m_GrabbingSpeed: 250
+  m_GrabbingSpeed: 1500
   m_IsGrabbing: 0
   m_GrabbedObject: {fileID: 0}
   m_GrabbedObjectGrabbable: {fileID: 0}
