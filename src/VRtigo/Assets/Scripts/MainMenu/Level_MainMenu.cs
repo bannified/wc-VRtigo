@@ -30,7 +30,6 @@ public class Level_MainMenu : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
