@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
     public void PlayBackgroundMusics(List<SoundData> bgmSounds)
     {
         // Currently there is a background music playing
-        if (m_BackgroundMusics.Count > 1)
+        if (m_BackgroundMusics.Count > 0)
         {
             // Fade out the existing BGM
             foreach (SoundData bgmSound in m_BackgroundMusics)
