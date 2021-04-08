@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClassroomTitle: 
   LessonSteps:
-  - m_DialogueString: "Welcome to the Classroom. \rYou have just experienced the
+  - m_DialogueString: "Welcome to the Classroom. \nYou have just experienced the
       first variant of Forced Head Rotation. \r"
     m_ClearPreviousImage: 0
     m_MainImage: {fileID: 21300000, guid: bfd070a869b6c3b4cbdd73c3d6de06ca, type: 3}
