@@ -247,7 +247,7 @@ public class Character_PlayerInitiatedMovement : Character
 
     bool HasFlagsEnabled(PlayerInitiatedMovementBitmask mask)
     {
-        return (mask & m_MovementMask) > 0;
+        return (mask & m_MovementMask) == mask;
     }
 
     protected override void OnPossessedBy(PlayerController playerController)
